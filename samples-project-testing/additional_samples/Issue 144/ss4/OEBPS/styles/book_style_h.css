@@ -1,0 +1,29 @@
+@charset "UTF-8"; 
+
+body.body_text {
+  -epub-writing-mode:horizontal-tb;
+  -webkit-writing-mode:horizontal-tb;
+  font-family: "Hiragino Mincho ProN","ヒラギノ明朝 Pro W3","IPAexMincho","IPAex明朝","MS Mincho","ＭＳ 明朝",serif;
+}
+
+h1.title {
+ font-family:"HiraKakuProN-W3","ヒラギノ角ゴ Pro W3","MS Gothic","ＭＳ ゴシック",sans-serif;
+}
+
+h2.chapter {
+ font-family:"HiraKakuProN-W3","ヒラギノ角ゴ Pro W3","MS Gothic","ＭＳ ゴシック",sans-serif;
+  margin-top:1em;
+  margin-bottom:1em;
+}
+
+.indent_m1em {
+  padding-left:1em;
+  text-indent:-1em;
+}
+
+.underline {
+  text-decoration:underline; 
+}
+.gothic {
+  font-family:"HiraKakuProN-W3","ヒラギノ角ゴ Pro W3","MS Gothic","ＭＳ ゴシック",sans-serif;
+}

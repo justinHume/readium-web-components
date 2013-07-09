@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="pub-id" version="3.0" xml:lang="ja" >
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:title>日本語書籍の諸問題 modified 2012-06-29</dc:title>
+        <dc:creator id="creator">小池利明</dc:creator>
+        <meta refines="#creator" property="role" scheme="marc:relators" id="role">aut</meta>
+        <dc:publisher>株式会社ボイジャー</dc:publisher>
+        <dc:language>ja</dc:language>
+        <dc:identifier id="pub-id">urn:uuid:CFE7BAE1-C4B4-452E-8745-7E3E82ADFE27</dc:identifier>
+        <meta property="dcterms:modified">2012-06-29T08:30:00Z</meta>
+    </metadata>
+    <manifest>
+        <item id="TOC" href="toc.xhtml" properties="nav" media-type="application/xhtml+xml" />
+        <item id="XHTML001" href="text/book_0001.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML002" href="text/book_0002.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML003" href="text/book_0003.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML004" href="text/book_0004.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML005" href="text/book_0005.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML006" href="text/book_0006.xhtml" media-type="application/xhtml+xml" />
+        <item id="cov" href="images/cover.jpg" media-type="image/jpeg" properties="cover-image" />
+        <item id="fig1317_01" href="images/fig1317_01.png" media-type="image/png" />
+        <item id="fig1317_02" href="images/fig1317_02.png" media-type="image/png" />
+        <item id="fig1317_05" href="images/fig1317_05.png" media-type="image/png" />
+        <item id="fig45340_01" href="images/fig45340_01.png" media-type="image/png" />
+        <item id="floatimg" href="images/floatimage.jpg" media-type="image/jpeg" />
+        <item id="blockimg" href="images/blockimage.jpg" media-type="image/jpeg" />
+        <item id="ebook_common" href="styles/ebook_common.css" media-type="text/css" />
+        <item id="mymedia_style_h" href="styles/ebook_style_h.css" media-type="text/css" />
+        <item id="mymedia_style_v" href="styles/ebook_style_v.css" media-type="text/css" />
+        <item id="mymedia_style" href="styles/ebook_style.css" media-type="text/css" />
+    </manifest>
+    <spine page-progression-direction="rtl">
+        <itemref idref="XHTML001" />
+        <itemref idref="XHTML002" />
+        <itemref idref="XHTML003" />
+        <itemref idref="XHTML004" />
+        <itemref idref="XHTML005" />
+        <itemref idref="XHTML006" />
+    </spine>
+</package>

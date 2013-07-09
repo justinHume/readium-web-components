@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="pub-id" version="3.0" xml:lang="ja" prefix="rendition: http://www.idpf.org/vocab/rendition/#" >
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:title>Page Spread</dc:title>
+        <dc:creator id="creator">Voyager</dc:creator>
+        <meta refines="#creator" property="role" scheme="marc:relators" id="role">aut</meta>
+        <dc:publisher>Voyager</dc:publisher>
+        <dc:language>ja</dc:language>
+        <dc:identifier id="pub-id">urn:uuid:2AECEC7E-BC0B-11E1-813A-331DA3487A2A</dc:identifier>
+        <meta property="dcterms:modified">2012-06-22T00:00:00Z</meta>
+        <meta property="rendition:layout">pre-paginated</meta>
+        <meta property="rendition:orientation">portrait</meta>
+        <meta property="rendition:spread">landscape</meta>
+    </metadata>
+    <manifest>
+        <item id="comic_style" href="styles/comic.css" media-type="text/css" />
+        <item id="TOC" href="toc.xhtml" properties="nav" media-type="application/xhtml+xml" />
+        <item id="XHMTL0001" href="text/pagespread0001.xhtml" media-type="application/xhtml+xml" />
+        <item id="page001" href="images/page001.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0002" href="text/pagespread0002.xhtml" media-type="application/xhtml+xml" />
+        <item id="page002" href="images/page002.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0003" href="text/pagespread0003.xhtml" media-type="application/xhtml+xml" />
+        <item id="page003" href="images/page003.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0004" href="text/pagespread0004.xhtml" media-type="application/xhtml+xml" />
+        <item id="page004" href="images/page004.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0005" href="text/pagespread0005.xhtml" media-type="application/xhtml+xml" />
+        <item id="page005" href="images/page005.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0006" href="text/pagespread0006.xhtml" media-type="application/xhtml+xml" />
+        <item id="page006" href="images/page006.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0007" href="text/pagespread0007.xhtml" media-type="application/xhtml+xml" />
+        <item id="page007" href="images/page007.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0008" href="text/pagespread0008.xhtml" media-type="application/xhtml+xml" />
+        <item id="page008" href="images/page008.jpg" media-type="image/jpeg" />
+    </manifest>
+    <spine page-progression-direction="rtl">
+        <itemref idref="XHMTL0001" properties="page-spread-right" />
+        <itemref idref="XHMTL0002" properties="page-spread-left" />
+        <itemref idref="XHMTL0003" properties="page-spread-right" />
+        <itemref idref="XHMTL0004" properties="page-spread-right" />
+        <itemref idref="XHMTL0005" properties="page-spread-right" />
+        <itemref idref="XHMTL0006" properties="page-spread-right" />
+        <itemref idref="XHMTL0007" properties="page-spread-right" />
+        <itemref idref="XHMTL0008" properties="page-spread-left" />
+    </spine>
+</package>

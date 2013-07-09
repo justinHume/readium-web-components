@@ -1,0 +1,18 @@
+@charset "UTF-8";
+img.fit {
+  display:block;
+  margin: auto;
+  height: auto;
+  width: auto;
+  max-width:100%;
+  max-height:100%;
+}
+
+body {
+   text-align:center;
+   background-color: #eeeeee;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   margin-left: 0px;
+   margin-right: 0px;
+}

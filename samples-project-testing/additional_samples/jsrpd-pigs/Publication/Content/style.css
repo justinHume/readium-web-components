@@ -1,0 +1,45 @@
+h1.title	{
+	text-align:center;
+}
+
+a	{
+	text-decoration: none;
+}
+
+h2	{
+	display:none;
+}
+
+.center	{
+	text-align:center;
+}
+
+.img_center	{
+	text-align:center;
+}
+
+.img_left	{
+	float:left;
+	margin:1em;
+}
+
+.indent_top	{
+	text-indent:1em;
+	margin-top:2em;
+}
+
+.indent	{
+	text-indent:1em;
+}
+
+.top_indent_top{
+	margin-top:2em;
+}
+
+.narrator	{
+	text-align:right;
+}
+
+.page-normal{
+	display:none;
+}

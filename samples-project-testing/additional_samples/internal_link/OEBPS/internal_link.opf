@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="pub-id" version="3.0" xml:lang="en" >
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:title>Internal Link</dc:title>
+        <dc:creator id="creator">Toshiaki Koike</dc:creator>
+        <meta refines="#creator" property="role" scheme="marc:relators" id="role">aut</meta>
+        <dc:publisher>Voyager Japan</dc:publisher>
+        <dc:language>en</dc:language>
+        <dc:identifier id="pub-id">urn:uuid:178507CB-AEE0-4427-BFD8-023A7495B404</dc:identifier>
+        <dc:date>2012-09-20T02:20:00Z</dc:date>
+        <meta property="dcterms:modified">2012-09-20T02:20:00Z</meta>
+    </metadata>
+    <manifest>
+        <item id="TOC" href="toc.xhtml" properties="nav" media-type="application/xhtml+xml" />
+        <item id="XHTML001" href="text/book_0001.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML002" href="text/book_0002.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML003" href="text/book_0003.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML004" href="text/book_0004.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML005" href="text/book_0005.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML006" href="text/book_0006.xhtml" media-type="application/xhtml+xml" />
+        <item id="cov" href="images/cover.jpg" media-type="image/jpeg" properties="cover-image" />
+    </manifest>
+    <spine page-progression-direction="ltr">
+        <itemref idref="XHTML001" />
+        <itemref idref="XHTML002" />
+        <itemref idref="XHTML003" />
+        <itemref idref="XHTML004" />
+        <itemref idref="XHTML005" />
+        <itemref idref="XHTML006" />
+    </spine>
+</package>

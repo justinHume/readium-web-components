@@ -1,0 +1,132 @@
+<smil xmlns="http://www.w3.org/ns/SMIL" version="3.0">
+   <body id="mo1">
+      <par id="mo1_par1">
+         <text src="pigs03.xhtml#mrii_0008" id="mo1_par1_text"/>
+         <audio clipBegin="0s"
+                clipEnd="0.3s"
+                id="mo1_par1_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par2">
+         <text src="pigs03.xhtml#xmri_0020" id="mo1_par2_text"/>
+         <audio clipBegin="0.3s"
+                clipEnd="5.57s"
+                id="mo1_par2_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par3">
+         <text src="pigs03.xhtml#xmri_0021" id="mo1_par3_text"/>
+         <audio clipBegin="5.57s"
+                clipEnd="7.9s"
+                id="mo1_par3_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par4">
+         <text src="pigs03.xhtml#xmri_0022" id="mo1_par4_text"/>
+         <audio clipBegin="7.9s"
+                clipEnd="12.031s"
+                id="mo1_par4_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par5">
+         <text src="pigs03.xhtml#xmri_0023" id="mo1_par5_text"/>
+         <audio clipBegin="12.031s"
+                clipEnd="14.737s"
+                id="mo1_par5_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par6">
+         <text src="pigs03.xhtml#xmri_0024" id="mo1_par6_text"/>
+         <audio clipBegin="14.737s"
+                clipEnd="19.771s"
+                id="mo1_par6_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par7">
+         <text src="pigs03.xhtml#xmri_0025" id="mo1_par7_text"/>
+         <audio clipBegin="19.771s"
+                clipEnd="24.36s"
+                id="mo1_par7_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par8">
+         <text src="pigs03.xhtml#xmri_0026" id="mo1_par8_text"/>
+         <audio clipBegin="24.36s"
+                clipEnd="29.033s"
+                id="mo1_par8_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par9">
+         <text src="pigs03.xhtml#xmri_0027" id="mo1_par9_text"/>
+         <audio clipBegin="29.033s"
+                clipEnd="32.832s"
+                id="mo1_par9_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par10">
+         <text src="pigs03.xhtml#xmri_0028" id="mo1_par10_text"/>
+         <audio clipBegin="32.832s"
+                clipEnd="36.951s"
+                id="mo1_par10_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par11">
+         <text src="pigs03.xhtml#xmri_0029" id="mo1_par11_text"/>
+         <audio clipBegin="36.951s"
+                clipEnd="42.502s"
+                id="mo1_par11_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par12">
+         <text src="pigs03.xhtml#xmri_002a" id="mo1_par12_text"/>
+         <audio clipBegin="42.502s"
+                clipEnd="46.985s"
+                id="mo1_par12_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par13">
+         <text src="pigs03.xhtml#xmri_002b" id="mo1_par13_text"/>
+         <audio clipBegin="46.985s"
+                clipEnd="49.885s"
+                id="mo1_par13_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par14">
+         <text src="pigs03.xhtml#xmri_002c" id="mo1_par14_text"/>
+         <audio clipBegin="49.885s"
+                clipEnd="54.882s"
+                id="mo1_par14_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par15">
+         <text src="pigs03.xhtml#xmri_002d" id="mo1_par15_text"/>
+         <audio clipBegin="54.882s"
+                clipEnd="59.71s"
+                id="mo1_par15_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par16">
+         <text src="pigs03.xhtml#xmri_002e" id="mo1_par16_text"/>
+         <audio clipBegin="59.71s"
+                clipEnd="01:07.823"
+                id="mo1_par16_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par id="mo1_par17">
+         <text src="pigs03.xhtml#xmri_002f" id="mo1_par17_text"/>
+         <audio clipBegin="01:07.823"
+                clipEnd="01:12.928"
+                id="mo1_par17_audio"
+                src="4_03.mp3"/>
+      </par>
+      <par xmlns:epub="http://www.idpf.org/2007/ops"
+           epub:type="pagebreak"
+           id="mo1_par18">
+         <text src="pigs03.xhtml#mrii_0009" id="mo1_par18_text"/>
+         <audio clipBegin="01:12.928"
+                clipEnd="01:13.028"
+                id="mo1_par18_audio"
+                src="4_03.mp3"/>
+      </par>
+   </body>
+</smil>

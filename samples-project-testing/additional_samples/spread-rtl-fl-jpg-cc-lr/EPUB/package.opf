@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uid" prefix="rendition: http://www.idpf.org/vocab/rendition/#">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+<dc:identifier id="uid">spread-rtl-fl-jpg-cc-lr</dc:identifier><dc:title id="title">spread-rtl-fl-jpg-cc-lr</dc:title><dc:language>ja</dc:language>
+<meta property="dcterms:modified">2012-09-23T10:57:51.211000Z</meta>
+<meta property="rendition:layout">pre-paginated</meta>
+</metadata>
+<manifest>
+<item id="EPUB-01-jpg" href="01.jpg" media-type="image/jpeg" properties="cover-image"/>
+<item id="EPUB-02-jpg" href="02.jpg" media-type="image/jpeg"/>
+<item id="EPUB-03-jpg" href="03.jpg" media-type="image/jpeg"/>
+<item id="EPUB-04-jpg" href="04.jpg" media-type="image/jpeg"/>
+<item id="EPUB-05-jpg" href="05.jpg" media-type="image/jpeg"/>
+<item id="EPUB-06-jpg" href="06.jpg" media-type="image/jpeg"/>
+<item id="EPUB-07-jpg" href="07.jpg" media-type="image/jpeg"/>
+<item id="EPUB-08-jpg" href="08.jpg" media-type="image/jpeg"/>
+<item id="EPUB-nav-xhtml" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+</manifest>
+<spine toc="ncx" page-progression-direction="rtl">
+<itemref idref="EPUB-01-jpg" properties="rendition:page-spread-center"/>
+<itemref idref="EPUB-02-jpg" properties="page-spread-left"/>
+<itemref idref="EPUB-03-jpg" properties="page-spread-right"/>
+<itemref idref="EPUB-04-jpg" properties="page-spread-left"/>
+<itemref idref="EPUB-05-jpg" properties="page-spread-left"/>
+<itemref idref="EPUB-06-jpg" properties="page-spread-right"/>
+<itemref idref="EPUB-07-jpg"/>
+<itemref idref="EPUB-08-jpg"/>
+</spine>
+</package>

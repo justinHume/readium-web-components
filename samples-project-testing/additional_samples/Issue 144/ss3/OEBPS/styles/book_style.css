@@ -1,0 +1,54 @@
+@charset "UTF-8"; 
+
+/* element selector */
+body {
+   line-height: 1.75;
+   letter-spacing: 0px;
+   text-align: justify;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-size: 110%;
+   font-weight: bold;
+}
+
+a {
+   text-decoration: none; 
+}
+a:link {
+   color:#00008b;
+}
+a:visited {
+   color:#00008b;
+}
+
+/* class selector */
+body.cover {
+   -epub-writing-mode:horizontal-tb;
+   -webkit-writing-mode:horizontal-tb;
+   margin:0;
+}
+body.body_text {
+  -epub-writing-mode:vertical-rl;
+  -webkit-writing-mode:vertical-rl;
+}
+
+img.pagefit {
+   display:block;
+   margin: auto;
+   width: auto;
+   height: auto;
+   max-width:100%;
+   max-height:100%;
+}
+img.gaiji {
+   width: 1em;
+   height: 1em;
+   display:inline;
+}
+.desc {
+    color:#008000;
+}
+.small {
+  font-size:90%;
+}

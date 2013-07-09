@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.idpf.org/2007/opf" prefix="rendition: http://www.idpf.org/vocab/rendition/#" version="3.0" unique-identifier="bookid">
+  <metadata>
+    <dc:title>ePUB 3 Fixed Layout Test</dc:title>
+    <dc:creator>MagicEPUB.com</dc:creator>
+    <dc:identifier id="bookid">9ab12543-60e2-4d5e-bc6d-0b36eb3d7822</dc:identifier>
+    <dc:language>en</dc:language>
+    <meta name="cover" content="cover.jpg"/>
+    <meta name="mec-revision" content="38a6ad70ce2f537f10674142cd4170901948367e"/>
+    <meta name="mec-sourceid" content="12ff74a10d98fde5a1f52d9834c1b1be"/>
+    <meta property="dcterms:modified">2012-06-21T19:30:27Z</meta>
+    <meta property="rendition:layout">pre-paginated</meta>
+    <meta property="rendition:orientation">auto</meta>
+    <meta property="rendition:spread">both</meta>
+  </metadata>
+  <manifest>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+    <item href="nav.xhtml" properties="nav" id="toc" media-type="application/xhtml+xml"/>
+    <item href="cover.jpg" id="cover.jpg" media-type="image/jpeg"/>
+    <item href="fonts.css" id="fonts.css" media-type="text/css"/>
+    <item href="page_000001.jpg" id="page_000001.jpg" media-type="image/jpeg"/>
+    <item href="page_000001.xhtml" id="page_000001.xhtml" media-type="application/xhtml+xml"/>
+    <item href="page_000002.jpg" id="page_000002.jpg" media-type="image/jpeg"/>
+    <item href="page_000002.xhtml" id="page_000002.xhtml" media-type="application/xhtml+xml"/>
+    <item href="styles.css" id="styles.css" media-type="text/css"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="page_000001.xhtml"/>
+    <itemref idref="page_000002.xhtml"/>
+  </spine>
+  <guide>
+    <reference type="text" title="Text" href="page_000001.xhtml"/>
+  </guide>
+</package>

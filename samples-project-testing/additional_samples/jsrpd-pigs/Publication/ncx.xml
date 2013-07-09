@@ -1,0 +1,109 @@
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+   <head>
+      <meta name="dtb:uid" content=""/>
+      <meta name="dtb:depth" content="2"/>
+      <meta name="dtb:generator" content="Pipeline 2"/>
+      <meta name="dtb:totalPageCount" content="7"/>
+      <meta name="dtb:maxPageNumber" content="7"/>
+   </head>
+   <docTitle>
+      <text>三匹の子ぶた</text>
+   </docTitle>
+                            <docAuthor>
+                                <text>ジョウジフ・ジェーコブス</text>
+                            </docAuthor>
+                        <navMap>
+      <navPoint id="navPoint-1" playOrder="1">
+         <navLabel>
+            <text>三匹の子ぶた</text>
+         </navLabel>
+         <content src="Content/pigs00.xhtml#mrii_0001"/>
+         <navPoint id="navPoint-2" playOrder="2">
+            <navLabel>
+               <text>01</text>
+            </navLabel>
+            <content src="Content/pigs01.xhtml#mrii_0004"/>
+         </navPoint>
+         <navPoint id="navPoint-3" playOrder="3">
+            <navLabel>
+               <text>02</text>
+            </navLabel>
+            <content src="Content/pigs02.xhtml#mrii_0006"/>
+         </navPoint>
+         <navPoint id="navPoint-4" playOrder="4">
+            <navLabel>
+               <text>03</text>
+            </navLabel>
+            <content src="Content/pigs03.xhtml#mrii_0008"/>
+         </navPoint>
+         <navPoint id="navPoint-5" playOrder="5">
+            <navLabel>
+               <text>04</text>
+            </navLabel>
+            <content src="Content/pigs04.xhtml#mrii_000a"/>
+         </navPoint>
+         <navPoint id="navPoint-6" playOrder="6">
+            <navLabel>
+               <text>05</text>
+            </navLabel>
+            <content src="Content/pigs05.xhtml#mrii_000c"/>
+         </navPoint>
+         <navPoint id="navPoint-7" playOrder="7">
+            <navLabel>
+               <text>06</text>
+            </navLabel>
+            <content src="Content/pigs06.xhtml#mrii_000e"/>
+         </navPoint>
+         <navPoint id="navPoint-8" playOrder="8">
+            <navLabel>
+               <text>07</text>
+            </navLabel>
+            <content src="Content/pigs07.xhtml#mrii_0010"/>
+         </navPoint>
+      </navPoint>
+   </navMap>
+   <pageList>
+      <pageTarget id="pageTarget-9" playOrder="9" type="normal">
+         <navLabel>
+            <text>1</text>
+         </navLabel>
+         <content src="Content/pigs00.xhtml#mrii_0003"/>
+      </pageTarget>
+      <pageTarget id="pageTarget-10" playOrder="10" type="normal">
+         <navLabel>
+            <text>2</text>
+         </navLabel>
+         <content src="Content/pigs01.xhtml#mrii_0005"/>
+      </pageTarget>
+      <pageTarget id="pageTarget-11" playOrder="11" type="normal">
+         <navLabel>
+            <text>3</text>
+         </navLabel>
+         <content src="Content/pigs02.xhtml#mrii_0007"/>
+      </pageTarget>
+      <pageTarget id="pageTarget-12" playOrder="12" type="normal">
+         <navLabel>
+            <text>4</text>
+         </navLabel>
+         <content src="Content/pigs03.xhtml#mrii_0009"/>
+      </pageTarget>
+      <pageTarget id="pageTarget-13" playOrder="13" type="normal">
+         <navLabel>
+            <text>5</text>
+         </navLabel>
+         <content src="Content/pigs04.xhtml#mrii_000b"/>
+      </pageTarget>
+      <pageTarget id="pageTarget-14" playOrder="14" type="normal">
+         <navLabel>
+            <text>6</text>
+         </navLabel>
+         <content src="Content/pigs05.xhtml#mrii_000d"/>
+      </pageTarget>
+      <pageTarget id="pageTarget-15" playOrder="15" type="normal">
+         <navLabel>
+            <text>7</text>
+         </navLabel>
+         <content src="Content/pigs06.xhtml#mrii_000f"/>
+      </pageTarget>
+   </pageList>
+</ncx>

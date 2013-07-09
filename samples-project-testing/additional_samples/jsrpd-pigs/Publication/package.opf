@@ -1,0 +1,118 @@
+<package xmlns="http://www.idpf.org/2007/opf"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         unique-identifier="pub-id"
+         version="3.0">
+   <opf:metadata xmlns:opf="http://www.idpf.org/2007/opf">
+      <dc:identifier id="pub-id">jsrpd-pigs-j</dc:identifier>
+      <dc:title id="title">三匹の子ぶた</dc:title>
+      <dc:language>ja</dc:language>
+      <dc:date id="date">2005-04-07</dc:date>
+      <dc:format>EPUB3</dc:format>
+      <dc:creator>ジョウジフ・ジェーコブス</dc:creator>
+      <dc:publisher>（財）日本障害者リハビリテーション協会</dc:publisher>
+      <dc:contributor id="d181e51">森口瑤子</dc:contributor>
+      <meta property="dcterms:modified">2012-06-22T17:26:23Z</meta>
+      <opf:meta name="dcterms:modified" content="2012-06-22T17:26:23Z"/>
+      <opf:meta refines="#d181e51" property="role" scheme="marc:relators">nrt</opf:meta>
+      <opf:meta property="media:duration" refines="#item_10">16.815s</opf:meta>
+      <opf:meta property="media:duration" refines="#item_11">01:07.947</opf:meta>
+      <opf:meta property="media:duration" refines="#item_12">51.981s</opf:meta>
+      <opf:meta property="media:duration" refines="#item_13">01:13.028</opf:meta>
+      <opf:meta property="media:duration" refines="#item_14">59.513s</opf:meta>
+      <opf:meta property="media:duration" refines="#item_15">01:17.764</opf:meta>
+      <opf:meta property="media:duration" refines="#item_16">01:22.464</opf:meta>
+      <opf:meta property="media:duration" refines="#item_17">49.092s</opf:meta>
+      <opf:meta property="media:duration">07:58.604</opf:meta>
+      <opf:meta name="media:duration" content="07:58.604"/>
+   </opf:metadata>
+   <manifest>
+      <item media-type="application/xhtml+xml"
+            id="item_1"
+            href="navigation.xhtml"
+            properties="nav"/>
+      <item media-type="application/xhtml+xml"
+            id="item_2"
+            href="Content/pigs00.xhtml"
+            media-overlay="item_10"/>
+      <item media-type="application/xhtml+xml"
+            id="item_3"
+            href="Content/pigs01.xhtml"
+            media-overlay="item_11"/>
+      <item media-type="application/xhtml+xml"
+            id="item_4"
+            href="Content/pigs02.xhtml"
+            media-overlay="item_12"/>
+      <item media-type="application/xhtml+xml"
+            id="item_5"
+            href="Content/pigs03.xhtml"
+            media-overlay="item_13"/>
+      <item media-type="application/xhtml+xml"
+            id="item_6"
+            href="Content/pigs04.xhtml"
+            media-overlay="item_14"/>
+      <item media-type="application/xhtml+xml"
+            id="item_7"
+            href="Content/pigs05.xhtml"
+            media-overlay="item_15"/>
+      <item media-type="application/xhtml+xml"
+            id="item_8"
+            href="Content/pigs06.xhtml"
+            media-overlay="item_16"/>
+      <item media-type="application/xhtml+xml"
+            id="item_9"
+            href="Content/pigs07.xhtml"
+            media-overlay="item_17"/>
+      <item media-type="application/smil+xml"
+            id="item_10"
+            href="Content/pigs00.smil"/>
+      <item media-type="application/smil+xml"
+            id="item_11"
+            href="Content/pigs01.smil"/>
+      <item media-type="application/smil+xml"
+            id="item_12"
+            href="Content/pigs02.smil"/>
+      <item media-type="application/smil+xml"
+            id="item_13"
+            href="Content/pigs03.smil"/>
+      <item media-type="application/smil+xml"
+            id="item_14"
+            href="Content/pigs04.smil"/>
+      <item media-type="application/smil+xml"
+            id="item_15"
+            href="Content/pigs05.smil"/>
+      <item media-type="application/smil+xml"
+            id="item_16"
+            href="Content/pigs06.smil"/>
+      <item media-type="application/smil+xml"
+            id="item_17"
+            href="Content/pigs07.smil"/>
+      <item media-type="text/css" id="item_18" href="Content/style.css"/>
+      <item media-type="image/jpeg" id="item_19" href="Content/image/00.jpg"/>
+      <item media-type="image/jpeg" id="item_20" href="Content/image/01.jpg"/>
+      <item media-type="image/jpeg" id="item_21" href="Content/image/02.jpg"/>
+      <item media-type="image/jpeg" id="item_22" href="Content/image/03.jpg"/>
+      <item media-type="image/jpeg" id="item_23" href="Content/image/04.jpg"/>
+      <item media-type="image/jpeg" id="item_24" href="Content/image/05.jpg"/>
+      <item media-type="image/jpeg" id="item_25" href="Content/image/06.jpg"/>
+      <item media-type="image/jpeg" id="item_26" href="Content/image/07.jpg"/>
+      <item media-type="audio/mpeg" id="item_27" href="Content/1.mp3"/>
+      <item media-type="audio/mpeg" id="item_28" href="Content/2_01.mp3"/>
+      <item media-type="audio/mpeg" id="item_29" href="Content/3_02.mp3"/>
+      <item media-type="audio/mpeg" id="item_30" href="Content/4_03.mp3"/>
+      <item media-type="audio/mpeg" id="item_31" href="Content/5_04.mp3"/>
+      <item media-type="audio/mpeg" id="item_32" href="Content/6_05.mp3"/>
+      <item media-type="audio/mpeg" id="item_33" href="Content/7_06.mp3"/>
+      <item media-type="audio/mpeg" id="item_34" href="Content/8_07.mp3"/>
+      <item media-type="application/x-dtbncx+xml" id="item_35" href="ncx.xml"/>
+   </manifest>
+   <spine toc="item_35">
+      <itemref idref="item_2" id="itemref_1"/>
+      <itemref idref="item_3" id="itemref_2"/>
+      <itemref idref="item_4" id="itemref_3"/>
+      <itemref idref="item_5" id="itemref_4"/>
+      <itemref idref="item_6" id="itemref_5"/>
+      <itemref idref="item_7" id="itemref_6"/>
+      <itemref idref="item_8" id="itemref_7"/>
+      <itemref idref="item_9" id="itemref_8"/>
+   </spine>
+</package>

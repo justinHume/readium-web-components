@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="pub-id" version="3.0" xml:lang="ja" >
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:title>Style Sheet Test : 3 style sheet</dc:title>
+        <dc:creator id="creator">小池利明</dc:creator>
+        <meta refines="#creator" property="role" scheme="marc:relators" id="role">aut</meta>
+        <dc:publisher>株式会社ボイジャー</dc:publisher>
+        <dc:language>ja</dc:language>
+        <dc:identifier id="pub-id">urn:uuid:489E3B58-3F36-418A-9F51-EF3AB90272C4</dc:identifier>
+        <meta property="dcterms:modified">2012-06-29T08:30:00Z</meta>
+    </metadata>
+    <manifest>
+        <item id="TOC" href="toc.xhtml" properties="nav" media-type="application/xhtml+xml" />
+        <item id="XHTML000" href="text/book_0000.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML001" href="text/book_0001.xhtml" media-type="application/xhtml+xml" />
+        <item id="XHTML002" href="text/book_0002.xhtml" media-type="application/xhtml+xml" />
+        <item id="cov" href="images/cover3.jpg" properties="cover-image" media-type="image/jpeg" />
+        <item id="author" href="images/floatimage.jpg" media-type="image/jpeg" />
+        <item id="CSS1" href="styles/common.css" media-type="text/css" />
+        <item id="CSS2" href="styles/book_style.css" media-type="text/css" />
+        <item id="CSS3" href="styles/book_style_v.css" media-type="text/css" />
+    </manifest>
+    <spine page-progression-direction="rtl">
+        <itemref idref="XHTML000" />
+        <itemref idref="XHTML001" />
+        <itemref idref="XHTML002" />
+    </spine>
+</package>

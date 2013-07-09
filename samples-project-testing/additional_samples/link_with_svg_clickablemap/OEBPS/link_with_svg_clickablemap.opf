@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="pub-id" version="3.0" xml:lang="ja" prefix="rendition: http://www.idpf.org/vocab/rendition/#" >
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:title>link with svg clickable map</dc:title>
+        <dc:creator id="creator">Voyager</dc:creator>
+        <meta refines="#creator" property="role" scheme="marc:relators" id="role">aut</meta>
+        <dc:publisher>Voyager</dc:publisher>
+        <dc:language>ja</dc:language>
+        <dc:identifier id="pub-id">urn:uuid:C5A906C1-748D-42F1-AFE7-BB3641F7303E</dc:identifier>
+        <meta property="dcterms:modified">2012-09-11T00:00:00Z</meta>
+        <meta property="rendition:layout">pre-paginated</meta>
+        <meta property="rendition:spread">landscape</meta>
+    </metadata>
+    <manifest>
+        <item id="comic_style" href="styles/comic.css" media-type="text/css" />
+        <item id="TOC" href="toc.xhtml" properties="nav" media-type="application/xhtml+xml" />
+        <item id="XHMTL0001" href="text/page001.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page001" href="images/cover.jpg" properties="cover-image" media-type="image/jpeg" />
+        <item id="XHMTL0002" href="text/page002.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page002" href="images/map.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0003" href="text/page003.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page003" href="images/p003.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0004" href="text/page004.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page004" href="images/p004.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0005" href="text/page005.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page005" href="images/p005.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0006" href="text/page006.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page006" href="images/p006.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0007" href="text/page007.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page007" href="images/p007.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0008" href="text/page008.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page008" href="images/p008.jpg" media-type="image/jpeg" />
+        <item id="XHMTL0009" href="text/page009.xhtml" properties="svg" media-type="application/xhtml+xml" />
+        <item id="page009" href="images/p009.jpg" media-type="image/jpeg" />
+    </manifest>
+    <spine page-progression-direction="rtl">
+        <itemref idref="XHMTL0001" properties="rendition:page-spread-center" />
+        <itemref idref="XHMTL0002" properties="page-spread-right" />
+        <itemref idref="XHMTL0003" properties="page-spread-left" />
+        <itemref idref="XHMTL0004" properties="page-spread-right" />
+        <itemref idref="XHMTL0005" properties="page-spread-left" />
+        <itemref idref="XHMTL0006" properties="page-spread-right" />
+        <itemref idref="XHMTL0007" properties="page-spread-left" />
+        <itemref idref="XHMTL0008" properties="page-spread-right" />
+        <itemref idref="XHMTL0009" properties="page-spread-left" />
+    </spine>
+</package>

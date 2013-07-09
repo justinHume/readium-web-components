@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+  body.vert {
+    -webkit-writing-mode:vertical-rl;
+    -epub-writing-mode:vertical-rl;
+    font-family:"@Hiragino Mincho ProN","@ヒラギノ明朝 Pro W3","@IPAexMincho","@IPAex明朝","@MS Mincho","@ＭＳ 明朝","ヒラギノ明朝 Pro W3","Hiragino Mincho ProN","IPAexMincho","IPAex明朝",serif;
+    text-align:justify;
+  }
+  body.hori {
+    -webkit-writing-mode:horizontal-tb;
+    -epub-writing-mode:horizontal-tb;
+    font-family:font-family: "Hiragino Mincho ProN","ヒラギノ明朝 Pro W3","IPAexMincho","IPAex明朝","MS Mincho","ＭＳ 明朝",serif;
+    text-align:justify;
+  }
+  body.cover {
+    -webkit-writing-mode:horizontal-tb;
+    -epub-writing-mode:horizontal-tb;
+    text-align:center;
+  }
+  h2 { color:#00ff00; }
+  h3 { color:#0000ff; }
+

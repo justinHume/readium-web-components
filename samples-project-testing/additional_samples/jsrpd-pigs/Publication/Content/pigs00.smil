@@ -1,0 +1,54 @@
+<smil xmlns="http://www.w3.org/ns/SMIL" version="3.0">
+   <body id="mo1">
+      <par xmlns:epub="http://www.idpf.org/2007/ops"
+           epub:type="title"
+           id="mo1_par1">
+         <text src="pigs00.xhtml#mrii_0001" id="mo1_par1_text"/>
+         <audio clipBegin="0s" clipEnd="2.713s" id="mo1_par1_audio" src="1.mp3"/>
+      </par>
+      <par id="mo1_par2">
+         <text src="pigs00.xhtml#xmri_0001" id="mo1_par2_text"/>
+         <audio clipBegin="2.713s"
+                clipEnd="5.311s"
+                id="mo1_par2_audio"
+                src="1.mp3"/>
+      </par>
+      <par id="mo1_par3">
+         <text src="pigs00.xhtml#xmri_0002" id="mo1_par3_text"/>
+         <audio clipBegin="5.311s"
+                clipEnd="8.004s"
+                id="mo1_par3_audio"
+                src="1.mp3"/>
+      </par>
+      <par id="mo1_par4">
+         <text src="pigs00.xhtml#xmri_0003" id="mo1_par4_text"/>
+         <audio clipBegin="8.004s"
+                clipEnd="10.524s"
+                id="mo1_par4_audio"
+                src="1.mp3"/>
+      </par>
+      <par id="mo1_par5">
+         <text src="pigs00.xhtml#xmri_0004" id="mo1_par5_text"/>
+         <audio clipBegin="10.524s"
+                clipEnd="13.605s"
+                id="mo1_par5_audio"
+                src="1.mp3"/>
+      </par>
+      <par id="mo1_par6">
+         <text src="pigs00.xhtml#xmri_0005" id="mo1_par6_text"/>
+         <audio clipBegin="13.605s"
+                clipEnd="16.715s"
+                id="mo1_par6_audio"
+                src="1.mp3"/>
+      </par>
+      <par xmlns:epub="http://www.idpf.org/2007/ops"
+           epub:type="pagebreak"
+           id="mo1_par7">
+         <text src="pigs00.xhtml#mrii_0003" id="mo1_par7_text"/>
+         <audio clipBegin="16.715s"
+                clipEnd="16.815s"
+                id="mo1_par7_audio"
+                src="1.mp3"/>
+      </par>
+   </body>
+</smil>
