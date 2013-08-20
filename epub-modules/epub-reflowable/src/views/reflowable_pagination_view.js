@@ -32,22 +32,9 @@ EpubReflowable.ReflowablePaginationView = Backbone.View.extend({
 
 		this.annotations;
         this.cfi = new EpubCFIModule();
-
-        // this.mediaOverlayController = this.model.get("media_overlay_controller");
-        // this.mediaOverlayController.setPages(this.pages);
-        // this.mediaOverlayController.setView(this);
-
-        // Initialize handlers
-		// this.mediaOverlayController.on("change:mo_text_id", this.highlightText, this);
-        // this.mediaOverlayController.on("change:active_mo", this.indicateMoIsPlaying, this);
 	},
 	
-	destruct : function() {
-	
-		// Remove all handlers so they don't hang around in memory	
-		// this.mediaOverlayController.off("change:mo_text_id", this.highlightText, this);
-  		// this.mediaOverlayController.off("change:active_mo", this.indicateMoIsPlaying, this);
-	},
+	destruct : function() {},
 
 	// ------------------------------------------------------------------------------------ //
 	//  "PUBLIC" METHODS (THE API)                                                          //
@@ -115,8 +102,6 @@ EpubReflowable.ReflowablePaginationView = Backbone.View.extend({
             }
 
             that.annotations = new EpubReflowable.ReflowableAnnotations({
-                saveCallback : undefined,
-                callbackContext : undefined,
                 contentDocumentDOM : that.getEpubContentDocument().parentNode
             });
 
@@ -132,24 +117,6 @@ EpubReflowable.ReflowablePaginationView = Backbone.View.extend({
         
 		return this.el;
 	},
-    
-	// indicateMoIsPlaying: function () {
-	// 	var moHelper = new EpubReflowable.MediaOverlayViewHelper({epubController : this.model});
-	// 	moHelper.renderReflowableMoPlaying(
-	// 		this.model.get("current_theme"),
-	// 		this.mediaOverlayController.get("active_mo"),
-	// 		this
-	// 	);
-	// },
-
-	// highlightText: function () {
-	// 	var moHelper = new EpubReflowable.MediaOverlayViewHelper({epubController : this.model});
-	// 	moHelper.renderReflowableMoFragHighlight(
-	// 		this.model.get("current_theme"),
-	// 		this,
-	// 		this.mediaOverlayController.get("mo_text_id")
-	// 	);
-	// },
 
     showPageByNumber : function (pageNumber) {
 
@@ -442,12 +409,6 @@ EpubReflowable.ReflowablePaginationView = Backbone.View.extend({
 
         var offset = this.calcPageOffset(pageNumber).toString() + "px";
         $(this.getEpubContentDocument()).css(this.offsetDirection(), "-" + offset);
-        
-        // if (this.viewerModel.get("twoUp") == false || 
-        //     (this.viewerModel.get("twoUp") && page % 2 === 1)) {
-        //         // when we change the page, we have to tell MO to update its position
-        //         // this.mediaOverlayController.reflowPageChanged();
-        // }
     },
 
 	hideContent : function () {

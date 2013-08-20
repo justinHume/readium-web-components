@@ -247,32 +247,6 @@ EpubReader.EpubReader = Backbone.Model.extend({
         });
     },
 
-    // REFACTORING CANDIDATE: The each method is causing numPages and currentPage to be hoisted into the global
-    //   namespace, I believe. Bad bad. Check this.
-    calculatePageNumberInfo : function () {
-
-        var that = this;
-        var numPages = 0;
-        var currentPage;
-        _.each(this.get("loadedPagesViews"), function (pagesViewInfo) {
-
-            // Calculate current page number
-            if (that.getCurrentPagesView() === pagesViewInfo.pagesView) {
-                currentPage = numPages + pagesViewInfo.pagesView.currentPage()[0];
-            }
-
-            // Sum up number of pages
-            if (pagesViewInfo.isRendered) {
-                numPages += pagesViewInfo.pagesView.numberOfPages();
-            }
-        });
-
-        return { 
-            numPages : numPages,
-            currentPage : currentPage
-        };
-    },
-
     // REFACTORING CANDIDATE: This method should be replaced when the epub reader api is changed to have an 
     //   instantiated epub module passed to it. 
     findSpineIndex : function (contentDocumentHref) {

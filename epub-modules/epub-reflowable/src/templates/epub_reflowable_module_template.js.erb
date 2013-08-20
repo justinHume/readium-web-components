@@ -57,12 +57,6 @@ var EpubReflowableModule = function(spineObject, viewerSettingsObject, CFIAnnota
         hidePagesView : function () {
             return reflowableView.hideView();
         },
-        numberOfPages : function () {
-            return reflowableView.pages.get("numberOfPages");
-        },
-        currentPage : function () {
-            return reflowableView.pages.get("currentPages");
-        },
         setSyntheticLayout : function (isSynthetic) {
             return reflowableView.setSyntheticLayout(isSynthetic);
         },
@@ -78,6 +72,18 @@ var EpubReflowableModule = function(spineObject, viewerSettingsObject, CFIAnnota
         customize : function (customElement, styleNameOrCSSObject) {
             reflowableView.customizeStyles(customElement, styleNameOrCSSObject);
             return this;
+        },
+        addSelectionHighlight : function (id) { 
+            return reflowableView.annotations.addSelectionHighlight(id); 
+        },
+        addSelectionBookmark : function (id) { 
+            return reflowableView.annotations.addSelectionBookmark(id); 
+        },
+        addHighlight : function (CFI, id) { 
+            return reflowableView.annotations.addHighlight(CFI, id); 
+        },
+        addBookmark : function (CFI, id) { 
+            return reflowableView.annotations.addBookmark(CFI, id); 
         }
     };
 };

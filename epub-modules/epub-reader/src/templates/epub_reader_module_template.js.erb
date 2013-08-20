@@ -39,23 +39,8 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         previousPage : function (callback, callbackContext) {
             return epubReaderView.previousPage(callback, callbackContext);
         },
-        setFontSize : function (fontSize) {
-            return epubReaderView.setFontSize(fontSize);
-        },
-        setMargin : function (margin) {
-            return epubReaderView.setMargin(margin);
-        },
-        setTheme : function (theme) {
-            return epubReaderView.setTheme(theme);
-        },
         setSyntheticLayout : function (isSynthetic) {
             return epubReaderView.setSyntheticLayout(isSynthetic);
-        },
-        getNumberOfPages : function () {
-            return epubReaderView.getNumberOfPages();
-        },
-        getCurrentPage : function () {
-            return epubReaderView.getCurrentPage();
         },
         on : function (eventName, callback, callbackContext) {
             return epubReaderView.attachEventHandler(eventName, callback, callbackContext);
@@ -72,6 +57,18 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         customize : function (customProperty, styleNameOrCSS) {
             epubReaderView.customize(customProperty, styleNameOrCSS);
             return this;
+        },
+        addSelectionHighlight : function (id) { 
+            return epubReaderView.addSelectionHighlight(id); 
+        },
+        addSelectionBookmark : function (id) { 
+            return epubReaderView.addSelectionBookmark(id); 
+        },
+        addHighlight : function (CFI, id, callback, callbackContext) { 
+            return epubReaderView.addHighlight(CFI, id, callback, callbackContext); 
+        },
+        addBookmark : function (CFI, id, callback, callbackContext) { 
+            return epubReaderView.addBookmark(CFI, id, callback, callbackContext); 
         }
     };
 };

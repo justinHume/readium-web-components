@@ -196,29 +196,11 @@ EpubReader.EpubReaderView = Backbone.View.extend({
         }
     },
 
-    setFontSize : function (fontSize) {
-		this.customize("fontSize", fontSize);
-    },
-
-    setMargin : function (margin) {
-		this.customize("margin", margin);
-    },
-
     setSyntheticLayout : function (isSynthetic) {
 
         var currentView = this.reader.getCurrentPagesView();
         currentView.setSyntheticLayout(isSynthetic);
         this.reader.get("viewerSettings").syntheticLayout = isSynthetic;
-    },
-
-    getNumberOfPages : function () {
-
-        return this.reader.calculatePageNumberInfo().numPages;
-    },
-
-    getCurrentPage : function () {
-
-        return this.reader.calculatePageNumberInfo().currentPage;
     },
 
     getViewerSettings : function () {
@@ -307,5 +289,75 @@ EpubReader.EpubReaderView = Backbone.View.extend({
         this.reader.attachEventHandler("displayedContentChanged", function () {
             this.trigger("displayedContentChanged");
         }, this);        
+    },
+
+    addSelectionHighlight : function (id) {
+
+        var contentDocCFIComponent;
+        var packageDocCFIComponent;
+        var completeCFI;
+        var spineIndex;
+        var currentViewInfo = this.reader.getCurrentPagesViewInfo();
+        spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
+        annotationInfo = currentViewInfo.pagesView.addSelectionHighlight(id);
+
+        // Generate a package document cfi component and construct the whole cfi, append
+        contentDocCFIComponent = annotationInfo.CFI;
+        packageDocCFIComponent = this.cfi.generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, this.packageDocumentDOM);
+        completeCFI = this.cfi.generateCompleteCFI(packageDocCFIComponent, contentDocCFIComponent);
+        annotationInfo.CFI = completeCFI;
+
+        return annotationInfo;
+    },
+
+    addSelectionBookmark : function (id) {
+
+        var contentDocCFIComponent;
+        var packageDocCFIComponent;
+        var completeCFI;
+        var spineIndex;
+        var currentViewInfo = this.reader.getCurrentPagesViewInfo();
+        spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
+        annotationInfo = currentViewInfo.pagesView.addSelectionBookmark(id);
+
+        // Generate a package document cfi component and construct the whole cfi, append
+        contentDocCFIComponent = annotationInfo.CFI;
+        packageDocCFIComponent = this.cfi.generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, this.packageDocumentDOM);
+        completeCFI = this.cfi.generateCompleteCFI(packageDocCFIComponent, contentDocCFIComponent);
+        annotationInfo.CFI = completeCFI;
+
+        return annotationInfo;
+    },
+
+    addHighlight : function (CFI, id, callback, callbackContext) {
+
+        var annotationInfo;
+        var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
+        this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
+
+            try {
+                annotationInfo = pagesView.addHighlight(CFI, id);
+                callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
+            }
+            catch (error) {
+                callback.call(callbackContext, error, undefined, undefined);
+            }
+        });
+    },
+
+    addBookmark : function (CFI, id, callback, callbackContext) {
+
+        var annotationInfo;
+        var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
+        this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
+
+            try {
+                annotationInfo = pagesView.addBookmark(CFI, id);
+                callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
+            }
+            catch (error) {
+                callback.call(callbackContext, error, undefined, undefined);
+            }
+        });
     }
 });

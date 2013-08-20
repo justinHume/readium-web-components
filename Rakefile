@@ -76,6 +76,7 @@ task :gen_all_modules do
     puts `rake -f epub-modules/epub-parser/Rakefile gen_module`
     puts `rake -f epub-modules/epub-reader/Rakefile gen_module`
     puts `rake -f epub-modules/epub-reflowable/Rakefile gen_module`
+    puts `rake -f epub-modules/annotations/Rakefile gen_module`
 end
 
 task :copy_all_dependencies do 
@@ -88,6 +89,7 @@ task :copy_all_dependencies do
     puts `rake -f epub-modules/epub-reader/Rakefile copy_dependencies`
     puts `rake -f epub-modules/epub-reflowable/Rakefile copy_dependencies`
     puts `rake -f samples-project-testing/Rakefile copy_dependencies`
+    puts `rake -f epub-modules/annotations/Rakefile copy_dependencies`
 end
 
 desc "top-level task (runs all module subtasks)"

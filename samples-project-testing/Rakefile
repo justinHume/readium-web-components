@@ -39,6 +39,7 @@ task :copy_dependencies do
     "epub_fixed_module.js",
     "epub_parser_module.js",
     "epub_reading_system.js",
+    "annotations_module.js",
     "SimpleReadium.js",
     "SimpleReadium_Dev.js"
   ]
