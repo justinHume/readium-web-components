@@ -1,103 +1,87 @@
-RJSDemoApp.applyToolbarHandlers = function () {
+// RJSDemoApp.applyToolbarHandlers = function () {
 
-    // Library panel
-    $("#toc-btn").off("click");
-    $("#library-btn").on("click", function () {
-        RJSDemoApp.toggleLibraryPanel();
-    });
+// 	// Decrease font size
+// 	(function() {
+// 		var $decreaseFont = $("#decrease-font-btn");
 
-    // TOC
-    $("#toc-btn").off("click");
-    $("#toc-btn").on("click", function () {
-        RJSDemoApp.toggleTOCPanel();
-    });
+// 		$decreaseFont.off("click");
+// 		$decreaseFont.on("click", function() {
+// 			var settings = RJSDemoApp.epubViewer.getViewerSettings()
+// 			RJSDemoApp.epubViewer.setFontSize(settings.fontSize - 2);
+// 		});
+// 	})();
 
-	// Decrease font size
-	(function() {
-		var $decreaseFont = $("#decrease-font-btn");
+// 	// Increase font size
+// 	(function() {
+// 		var $increaseFont = $("#increase-font-btn");
 
-		$decreaseFont.off("click");
-		$decreaseFont.on("click", function() {
-			var settings = RJSDemoApp.epubViewer.getViewerSettings()
-			RJSDemoApp.epubViewer.setFontSize(settings.fontSize - 2);
-		});
-	})();
+// 		$increaseFont.off("click");
+// 		$increaseFont.on("click", function() {
+// 			var settings = RJSDemoApp.epubViewer.getViewerSettings()
+// 			RJSDemoApp.epubViewer.setFontSize(settings.fontSize + 2);
+// 		});
+// 	})();
 
-	// Increase font size
-	(function() {
-		var $increaseFont = $("#increase-font-btn");
+//     // Prev
+//     // Remove any existing click handlers
+//     $("#previous-page-btn").off("click");
+//     $("#previous-page-btn").on("click", function () {
 
-		$increaseFont.off("click");
-		$increaseFont.on("click", function() {
-			var settings = RJSDemoApp.epubViewer.getViewerSettings()
-			RJSDemoApp.epubViewer.setFontSize(settings.fontSize + 2);
-		});
-	})();
+//         if (RJSDemoApp.epub.pageProgressionDirection() === "rtl") {
+//             RJSDemoApp.epubViewer.nextPage(function () {
+//                 console.log("the page turned");
+//             });
+//         }
+//         else {
+//             RJSDemoApp.epubViewer.previousPage(function () {
+//                 console.log("the page turned");
+//             });
+//         }
+//     });
 
-    // Prev
-    // Remove any existing click handlers
-    $("#previous-page-btn").off("click");
-    $("#previous-page-btn").on("click", function () {
+//     // Next
+//     // Remove any existing click handlers
+//     $("#next-page-btn").off("click");
+//     $("#next-page-btn").on("click", function () {
 
-        if (RJSDemoApp.epub.pageProgressionDirection() === "rtl") {
-            RJSDemoApp.epubViewer.nextPage(function () {
-                console.log("the page turned");
-            });
-        }
-        else {
-            RJSDemoApp.epubViewer.previousPage(function () {
-                console.log("the page turned");
-            });
-        }
-    });
+//         if (RJSDemoApp.epub.pageProgressionDirection() === "rtl") {
+//             RJSDemoApp.epubViewer.previousPage(function () {
+//                 console.log("the page turned");
+//             });
+//         }
+//         else {
+//             RJSDemoApp.epubViewer.nextPage(function () {
+//                 console.log("the page turned");
+//             });
+//         }
+//     });
 
-    // Next
-    // Remove any existing click handlers
-    $("#next-page-btn").off("click");
-    $("#next-page-btn").on("click", function () {
+//     // Layout
+//     $("#toggle-synthetic-btn").off("click");
+//     $("#toggle-synthetic-btn").on("click", function () {
+//         RJSDemoApp.toggleLayout();
+//     });
 
-        if (RJSDemoApp.epub.pageProgressionDirection() === "rtl") {
-            RJSDemoApp.epubViewer.previousPage(function () {
-                console.log("the page turned");
-            });
-        }
-        else {
-            RJSDemoApp.epubViewer.nextPage(function () {
-                console.log("the page turned");
-            });
-        }
-    });
+//     // Layout
+//     $("#toggle-ast-btn").off("click");
+//     $("#toggle-ast-btn").on("click", function () {
+//         RJSDemoApp.toggleAST();
+//     });
+// };
 
-    // Layout
-    $("#toggle-synthetic-btn").off("click");
-    $("#toggle-synthetic-btn").on("click", function () {
-        RJSDemoApp.toggleLayout();
-    });
+// RJSDemoApp.applyViewerHandlers = function (epubViewer, tocDocument) {
 
-    // Layout
-    $("#toggle-ast-btn").off("click");
-    $("#toggle-ast-btn").on("click", function () {
-        RJSDemoApp.toggleAST();
-    });
-};
+//     epubViewer.off("epubLinkClicked");
+//     epubViewer.on("epubLinkClicked", function (e) {
+//         RJSDemoApp.epubLinkClicked(e);
+//     });
 
-RJSDemoApp.applyViewerHandlers = function (epubViewer, tocDocument) {
-
-    epubViewer.off("epubLinkClicked");
-    epubViewer.on("epubLinkClicked", function (e) {
-        RJSDemoApp.epubLinkClicked(e);
-    });
-
-    $(tocDocument).find("a").on("click", function (e) {
-        RJSDemoApp.tocLinkClicked(e);
-    });
-
-    $(window).off("resize");
-    $(window).on("resize", function () {
-        RJSDemoApp.setModuleContainerHeight();
-        RJSDemoApp.resizeContent();
-    });
-};
+//     $(window).off("resize");
+//     $(window).on("resize", function () {
+//         RJSDemoApp.setModuleContainerHeight();
+//         RJSDemoApp.resizeContent();
+//     });
+// };
 
 RJSDemoApp.epubLinkClicked = function (e) {
 
@@ -145,56 +129,10 @@ RJSDemoApp.epubLinkClicked = function (e) {
     }
 };
 
-RJSDemoApp.tocLinkClicked = function (e) {
-
-    RJSDemoApp.epubLinkClicked(e);
-};
-
 RJSDemoApp.resizeContent = function () {
-
-    var libraryIsVisible = RJSDemoApp.viewerPreferences.libraryIsVisible;
-    var tocIsVisible = RJSDemoApp.viewerPreferences.tocIsVisible;
-
-    if (!libraryIsVisible && !tocIsVisible) {
-        $("#reader-panel").removeClass("span8");
-        $("#reader-panel").addClass("span12");
-    }
-    else {
-        $("#reader-panel").removeClass("span12");
-        $("#reader-panel").addClass("span8");
-    }
     RJSDemoApp.epubViewer.resizeContent();
 };
 
-RJSDemoApp.toggleLibraryPanel = function () {
-
-    if (RJSDemoApp.viewerPreferences.libraryIsVisible) {
-        $("#library-panel").hide();
-        RJSDemoApp.viewerPreferences.libraryIsVisible = false;
-    }
-    else {
-        $("#toc-panel").hide();
-        $("#library-panel").show();
-        RJSDemoApp.viewerPreferences.tocIsVisible = false;
-        RJSDemoApp.viewerPreferences.libraryIsVisible = true;
-    }
-    RJSDemoApp.resizeContent();
-};
-
-RJSDemoApp.toggleTOCPanel = function () {
-
-    if (RJSDemoApp.viewerPreferences.tocIsVisible) {
-        $("#toc-panel").hide();
-        RJSDemoApp.viewerPreferences.tocIsVisible = false;
-    }
-    else {
-        $("#library-panel").hide();
-        $("#toc-panel").show();
-        RJSDemoApp.viewerPreferences.tocIsVisible = true;
-        RJSDemoApp.viewerPreferences.libraryIsVisible = false;
-    }
-    RJSDemoApp.resizeContent();
-},
 
 RJSDemoApp.toggleLayout = function () {
 
@@ -205,18 +143,6 @@ RJSDemoApp.toggleLayout = function () {
     else {
         RJSDemoApp.epubViewer.setSyntheticLayout(true);
         RJSDemoApp.viewerPreferences.syntheticLayout = true;
-    }
-};
-
-RJSDemoApp.toggleAST = function () {
-
-    if (RJSDemoApp.viewerPreferences.day) {
-        RJSDemoApp.epubViewer.customize("alt-style-tag", "night");
-        RJSDemoApp.viewerPreferences.day = false;
-    }
-    else {
-        RJSDemoApp.epubViewer.customize("alt-style-tag", "day");
-        RJSDemoApp.viewerPreferences.day = true;
     }
 };
 
