@@ -1,0 +1,30 @@
+var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, readerBoundElement) {
+    
+    var EpubAnnotations = {};
+
+    // Rationale: The order of these matters
+    <%= highlight %>
+    <%= highlighter %> 
+    <%= bookmark %>
+    <%= annotations %>
+    <%= bookmark_view %>
+    <%= highlight_view %>
+
+    var annotations = new EpubAnnotations.Annotations({
+        offsetTopAddition : offsetTopAddition, 
+        offsetLeftAddition : offsetLeftAddition, 
+        readerBoundElement : readerBoundElement
+    });
+
+    // Description: The public interface
+    return {
+
+        addBookmark : function (CFI, targetElement, id, offsetTop, offsetLeft) { return annotations.addBookmark.call(annotations, CFI, targetElement, id, offsetTop, offsetLeft); },
+        getBookmark : function (id) { return annotations.getBookmark.call(annotations, id); },
+        getBookmarks : function () { return annotations.getBookmarks.call(annotations); }, 
+        addHighlight : function (CFI, highlightedTextNodes, id, offsetTop, offsetLeft) { return annotations.addHighlight.call(annotations, CFI, highlightedTextNodes, id, offsetTop, offsetLeft); },
+        getHighlight : function (id) { return annotations.getHighlight.call(annotations, id); },
+        getHighlights : function () { return annotations.getHighlights.call(annotations); },
+        redrawAnnotations : function (offsetTop, offsetLeft) { return annotations.redrawAnnotations.call(annotations, offsetTop, offsetLeft); }
+    };
+};
