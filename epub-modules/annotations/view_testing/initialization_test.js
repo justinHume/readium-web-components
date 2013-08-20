@@ -156,6 +156,7 @@ var initializationTest = function () {
         $("#reader"),
         epubSpineInfo,
         viewerSettings,
-        packDocDOM
+        packDocDOM,
+        "lazy"
     );
 };

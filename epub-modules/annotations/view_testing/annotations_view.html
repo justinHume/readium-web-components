@@ -5,14 +5,14 @@
         <script src="../lib/jquery-1.9.1.js" type="text/javascript"></script>
         <script src="../lib/modernizr-2.5.3.min.js" type="text/javascript"></script>
         <script src="../lib/json2.js" type="text/javascript"></script>
-        <script src="../lib/underscore.js" type="text/javascript"></script>
-        <script src="../lib/backbone.js" type="text/javascript"></script>
-        <script src="../lib/URI.js" type="text/javascript"></script>
-        <script src="../epub_reflowable_module.js" type="text/javascript"></script>
-        <script src="../epub_reader_module.js" type="text/javascript"></script>
+        <script src="../lib/underscore-1.4.4.js" type="text/javascript"></script>
+        <script src="../lib/backbone-0.9.10.js" type="text/javascript"></script>
+        <script src="../lib/URI-1.10.0.js" type="text/javascript"></script>
+        <script src="../lib/epub_reflowable_module.js" type="text/javascript"></script>
+        <script src="../lib/epub_reader_module.js" type="text/javascript"></script>
         <script src="initialization_test.js" type="text/javascript"></script>
-        <script src="../epub_cfi.js" type="text/javascript"></script>
-        <script src="../epub_annotations_module.js" type="text/javascript"></script>
+        <script src="../lib/epub_cfi.js" type="text/javascript"></script>
+        <script src="../lib/annotations_module.js" type="text/javascript"></script>
 
         <script type="text/javascript">
 
@@ -23,7 +23,7 @@
 
                 this.view.on("epubLoaded", function () { 
 
-                    this.view.showSpineItem(2);
+                    this.view.showSpineItem(2, function () { console.log("showed first page"); } );
 
                     // Show annotations
                     var visibleIframe = $($(".flowing-wrapper")[2]).children()[0];
