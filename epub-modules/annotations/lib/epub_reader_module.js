@@ -215,6 +215,33 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         }
     },
 
+    getRenderedPagesView : function (spineIndex, callback, callbackContext) {
+
+        // Get pages view info
+        var that = this;
+        var viewElement;
+        var pagesViewInfo = this.getPagesViewInfo(spineIndex);
+
+        // Check if it is rendered
+        if (!pagesViewInfo.isRendered) {
+
+            // invoke callback when the content document loads
+            pagesViewInfo.pagesView.on("contentDocumentLoaded", function (pagesView) {
+                that.applyPreferences(pagesViewInfo.pagesView);
+                callback.call(callbackContext, pagesViewInfo.pagesView);
+            });
+
+            // Note This logic is duplicated and should be abstracted
+            viewElement = pagesViewInfo.pagesView.render(false, undefined);
+            $(this.get("parentElement")).append(viewElement);
+            that.setLastRenderSize(pagesViewInfo, $(that.get("parentElement")).height(), $(that.get("parentElement")).width());
+            pagesViewInfo.isRendered = true;
+        }
+        else {
+            callback.call(callbackContext, pagesViewInfo.pagesView);
+        }
+    },
+
     renderNextPagesView : function (callback, callbackContext) {
 
         var nextPagesViewIndex = this.get("currentPagesViewIndex") + 1;
@@ -359,32 +386,6 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
                 pagesViewInfo.pagesView.hidePagesView();
             }
         });
-    },
-
-    // REFACTORING CANDIDATE: The each method is causing numPages and currentPage to be hoisted into the global
-    //   namespace, I believe. Bad bad. Check this.
-    calculatePageNumberInfo : function () {
-
-        var that = this;
-        var numPages = 0;
-        var currentPage;
-        _.each(this.get("loadedPagesViews"), function (pagesViewInfo) {
-
-            // Calculate current page number
-            if (that.getCurrentPagesView() === pagesViewInfo.pagesView) {
-                currentPage = numPages + pagesViewInfo.pagesView.currentPage()[0];
-            }
-
-            // Sum up number of pages
-            if (pagesViewInfo.isRendered) {
-                numPages += pagesViewInfo.pagesView.numberOfPages();
-            }
-        });
-
-        return { 
-            numPages : numPages,
-            currentPage : currentPage
-        };
     },
 
     // REFACTORING CANDIDATE: This method should be replaced when the epub reader api is changed to have an 
@@ -663,29 +664,11 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         }
     },
 
-    setFontSize : function (fontSize) {
-		this.customize("fontSize", fontSize);
-    },
-
-    setMargin : function (margin) {
-		this.customize("margin", margin);
-    },
-
     setSyntheticLayout : function (isSynthetic) {
 
         var currentView = this.reader.getCurrentPagesView();
         currentView.setSyntheticLayout(isSynthetic);
         this.reader.get("viewerSettings").syntheticLayout = isSynthetic;
-    },
-
-    getNumberOfPages : function () {
-
-        return this.reader.calculatePageNumberInfo().numPages;
-    },
-
-    getCurrentPage : function () {
-
-        return this.reader.calculatePageNumberInfo().currentPage;
     },
 
     getViewerSettings : function () {
@@ -774,6 +757,76 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         this.reader.attachEventHandler("displayedContentChanged", function () {
             this.trigger("displayedContentChanged");
         }, this);        
+    },
+
+    addSelectionHighlight : function (id) {
+
+        var contentDocCFIComponent;
+        var packageDocCFIComponent;
+        var completeCFI;
+        var spineIndex;
+        var currentViewInfo = this.reader.getCurrentPagesViewInfo();
+        spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
+        annotationInfo = currentViewInfo.pagesView.addSelectionHighlight(id);
+
+        // Generate a package document cfi component and construct the whole cfi, append
+        contentDocCFIComponent = annotationInfo.CFI;
+        packageDocCFIComponent = this.cfi.generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, this.packageDocumentDOM);
+        completeCFI = this.cfi.generateCompleteCFI(packageDocCFIComponent, contentDocCFIComponent);
+        annotationInfo.CFI = completeCFI;
+
+        return annotationInfo;
+    },
+
+    addSelectionBookmark : function (id) {
+
+        var contentDocCFIComponent;
+        var packageDocCFIComponent;
+        var completeCFI;
+        var spineIndex;
+        var currentViewInfo = this.reader.getCurrentPagesViewInfo();
+        spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
+        annotationInfo = currentViewInfo.pagesView.addSelectionBookmark(id);
+
+        // Generate a package document cfi component and construct the whole cfi, append
+        contentDocCFIComponent = annotationInfo.CFI;
+        packageDocCFIComponent = this.cfi.generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, this.packageDocumentDOM);
+        completeCFI = this.cfi.generateCompleteCFI(packageDocCFIComponent, contentDocCFIComponent);
+        annotationInfo.CFI = completeCFI;
+
+        return annotationInfo;
+    },
+
+    addHighlight : function (CFI, id, callback, callbackContext) {
+
+        var annotationInfo;
+        var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
+        this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
+
+            try {
+                annotationInfo = pagesView.addHighlight(CFI, id);
+                callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
+            }
+            catch (error) {
+                callback.call(callbackContext, error, undefined, undefined);
+            }
+        });
+    },
+
+    addBookmark : function (CFI, id, callback, callbackContext) {
+
+        var annotationInfo;
+        var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
+        this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
+
+            try {
+                annotationInfo = pagesView.addBookmark(CFI, id);
+                callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
+            }
+            catch (error) {
+                callback.call(callbackContext, error, undefined, undefined);
+            }
+        });
     }
 });
 
@@ -810,23 +863,8 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         previousPage : function (callback, callbackContext) {
             return epubReaderView.previousPage(callback, callbackContext);
         },
-        setFontSize : function (fontSize) {
-            return epubReaderView.setFontSize(fontSize);
-        },
-        setMargin : function (margin) {
-            return epubReaderView.setMargin(margin);
-        },
-        setTheme : function (theme) {
-            return epubReaderView.setTheme(theme);
-        },
         setSyntheticLayout : function (isSynthetic) {
             return epubReaderView.setSyntheticLayout(isSynthetic);
-        },
-        getNumberOfPages : function () {
-            return epubReaderView.getNumberOfPages();
-        },
-        getCurrentPage : function () {
-            return epubReaderView.getCurrentPage();
         },
         on : function (eventName, callback, callbackContext) {
             return epubReaderView.attachEventHandler(eventName, callback, callbackContext);
@@ -843,6 +881,18 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         customize : function (customProperty, styleNameOrCSS) {
             epubReaderView.customize(customProperty, styleNameOrCSS);
             return this;
+        },
+        addSelectionHighlight : function (id) { 
+            return epubReaderView.addSelectionHighlight(id); 
+        },
+        addSelectionBookmark : function (id) { 
+            return epubReaderView.addSelectionBookmark(id); 
+        },
+        addHighlight : function (CFI, id, callback, callbackContext) { 
+            return epubReaderView.addHighlight(CFI, id, callback, callbackContext); 
+        },
+        addBookmark : function (CFI, id, callback, callbackContext) { 
+            return epubReaderView.addBookmark(CFI, id, callback, callbackContext); 
         }
     };
 };

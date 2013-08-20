@@ -41,6 +41,12 @@ var EpubFixedModule = function (spineObjects, viewerSettingsObject) {
         showPageByCFI : function (CFI) {
             return;
         },
+        numberOfPages : function () {
+            return fixedView.fixedPageViews.get("fixedPages").length;
+        },
+        currentPage : function () {
+            return fixedView.fixedPageViews.get("currentPages");
+        },
         onFirstPage : function () {
             return fixedView.fixedPageViews.onFirstPage();
         },

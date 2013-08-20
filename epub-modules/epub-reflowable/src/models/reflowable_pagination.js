@@ -104,6 +104,7 @@ EpubReflowable.ReflowablePagination = Backbone.Model.extend({
     // ------------------------------------------------------------------------------------ //  
     //  "PRIVATE" HELPERS                                                                   //
     // ------------------------------------------------------------------------------------ //
+    
     adjustForMaxPageNumber : function (newPageNumbers) {
 
         var currentPages = this.get("currentPages");

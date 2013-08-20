@@ -1,3 +1,6 @@
+// REFACTORING CANDIDATE: Change the implementation of the Annotations Module to use relative positioning, rather than absolute. That
+//   will allow all the offsets to be removed.
+
 EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
 
     initialize : function (attributes, options) {
@@ -29,7 +32,9 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
                 this.get("contentDocumentDOM"),
                 startMarkerHtml,
                 endMarkerHtml,
-                ["cfi-marker"]
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
                 );
 
             // Get start and end marker for the id, using injected into elements
@@ -67,7 +72,9 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
                 CFI,
                 this.get("contentDocumentDOM"),
                 bookmarkMarkerHtml,
-                ["cfi-marker"]
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
                 );
 
             // Add bookmark annotation here
@@ -166,7 +173,15 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
             startOffset = selectedRange.startOffset;
             endOffset = selectedRange.endOffset;
 
-            rangeCFIComponent = this.epubCFI.generateCharOffsetRangeComponent(startNode, startOffset, endNode, endOffset);
+            rangeCFIComponent = this.epubCFI.generateCharOffsetRangeComponent(
+                startNode, 
+                startOffset, 
+                endNode, 
+                endOffset,
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
+                );
             return rangeCFIComponent;
         }
         else {
@@ -185,7 +200,9 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
             charOffsetCFI = this.epubCFI.generateCharacterOffsetCFIComponent(
                 startNode,
                 startOffset,
-                ["cfi-marker"]
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
                 );
         }
         return charOffsetCFI;

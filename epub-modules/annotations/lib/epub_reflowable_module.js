@@ -310,207 +310,210 @@ EpubReflowable.AlternateStyleTagSelector = Backbone.Model.extend({
 });
     EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
 
-    defaults : {
-        "saveCallback" : undefined,
-        "callbackContext" : undefined
-    },
-
     initialize : function (attributes, options) {
+        
         this.epubCFI = new EpubCFIModule();
-        // this.annotations = new EpubAnnotationsModule(0, 0, $("html", this.get("contentDocumentDOM"))[0]);
-    },
-
-    // Not sure about this, might remove it. The callbacks are unnecessary
-    saveAnnotation : function (CFI, spinePosition) {
-
-        var saveAnnotation = this.get("saveCallback");
-        saveAnnotation.call(this.get("callbackContext"), CFI, spinePosition);
+        this.annotations = new EpubAnnotationsModule(0, 0, $("html", this.get("contentDocumentDOM"))[0]);
     },
 
     redraw : function () {
 
-        // var leftAddition = -this.getPaginationLeftOffset();
-        // this.annotations.redrawAnnotations(0, leftAddition);
+        var leftAddition = -this.getPaginationLeftOffset();
+        this.annotations.redrawAnnotations(0, leftAddition);
     },
 
-    // addHighlight : function (CFI, id) {
+    addHighlight : function (CFI, id) {
 
-    //     var CFIRangeInfo;
-    //     var range;
-    //     var rangeStartNode;
-    //     var rangeEndNode;
-    //     var selectedElements;
-    //     var leftAddition;
-    //     var startMarkerHtml = this.getRangeStartMarker(CFI, id);
-    //     var endMarkerHtml = this.getRangeEndMarker(CFI, id);
+        var CFIRangeInfo;
+        var range;
+        var rangeStartNode;
+        var rangeEndNode;
+        var selectedElements;
+        var leftAddition;
+        var startMarkerHtml = this.getRangeStartMarker(CFI, id);
+        var endMarkerHtml = this.getRangeEndMarker(CFI, id);
 
-    //     try {
-    //         CFIRangeInfo = this.epubCFI.injectRangeElements(
-    //             CFI,
-    //             this.get("contentDocumentDOM"),
-    //             startMarkerHtml,
-    //             endMarkerHtml,
-    //             ["cfi-marker"]
-    //             );
+        try {
+            CFIRangeInfo = this.epubCFI.injectRangeElements(
+                CFI,
+                this.get("contentDocumentDOM"),
+                startMarkerHtml,
+                endMarkerHtml,
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
+                );
 
-    //         // Get start and end marker for the id, using injected into elements
-    //         // REFACTORING CANDIDATE: Abstract range creation to account for no previous/next sibling, for different types of
-    //         //   sibiling, etc. 
-    //         rangeStartNode = CFIRangeInfo.startElement.nextSibling ? CFIRangeInfo.startElement.nextSibling : CFIRangeInfo.startElement;
-    //         rangeEndNode = CFIRangeInfo.endElement.previousSibling ? CFIRangeInfo.endElement.previousSibling : CFIRangeInfo.endElement;
-    //         range = document.createRange();
-    //         range.setStart(rangeStartNode, 0);
-    //         range.setEnd(rangeEndNode, rangeEndNode.length);
+            // Get start and end marker for the id, using injected into elements
+            // REFACTORING CANDIDATE: Abstract range creation to account for no previous/next sibling, for different types of
+            //   sibiling, etc. 
+            rangeStartNode = CFIRangeInfo.startElement.nextSibling ? CFIRangeInfo.startElement.nextSibling : CFIRangeInfo.startElement;
+            rangeEndNode = CFIRangeInfo.endElement.previousSibling ? CFIRangeInfo.endElement.previousSibling : CFIRangeInfo.endElement;
+            range = document.createRange();
+            range.setStart(rangeStartNode, 0);
+            range.setEnd(rangeEndNode, rangeEndNode.length);
 
-    //         selectionInfo = this.getSelectionInfo(range);
-    //         leftAddition = -this.getPaginationLeftOffset();
-    //         this.annotations.addHighlight(CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+            selectionInfo = this.getSelectionInfo(range);
+            leftAddition = -this.getPaginationLeftOffset();
+            this.annotations.addHighlight(CFI, selectionInfo.selectedElements, id, 0, leftAddition);
 
-    //         return {
-    //             CFI : CFI, 
-    //             selectedElements : selectionInfo.selectedElements
-    //         };
+            return {
+                CFI : CFI, 
+                selectedElements : selectionInfo.selectedElements
+            };
 
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // },
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
 
-    // addBookmark : function (CFI, id) {
+    addBookmark : function (CFI, id) {
 
-    //     var selectedElements;
-    //     var bookmarkMarkerHtml = this.getBookmarkMarker(CFI, id);
-    //     var $injectedElement;
-    //     var leftAddition;
+        var selectedElements;
+        var bookmarkMarkerHtml = this.getBookmarkMarker(CFI, id);
+        var $injectedElement;
+        var leftAddition;
 
-    //     try {
-    //         $injectedElement = this.epubCFI.injectElement(
-    //             CFI,
-    //             this.get("contentDocumentDOM"),
-    //             bookmarkMarkerHtml,
-    //             ["cfi-marker"]
-    //             );
+        try {
+            $injectedElement = this.epubCFI.injectElement(
+                CFI,
+                this.get("contentDocumentDOM"),
+                bookmarkMarkerHtml,
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
+                );
 
-    //         // Add bookmark annotation here
-    //         leftAddition = -this.getPaginationLeftOffset();
-    //         this.annotations.addBookmark(CFI, $injectedElement[0], id, 0, leftAddition);
+            // Add bookmark annotation here
+            leftAddition = -this.getPaginationLeftOffset();
+            this.annotations.addBookmark(CFI, $injectedElement[0], id, 0, leftAddition);
 
-    //         return {
+            return {
 
-    //             CFI : CFI, 
-    //             selectedElements : $injectedElement[0]
-    //         };
+                CFI : CFI, 
+                selectedElements : $injectedElement[0]
+            };
 
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // },
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
 
-    // addSelectionHighlight : function (id) {
+    addSelectionHighlight : function (id) {
 
-    //     var highlightRange;
-    //     var selectionInfo;
-    //     var leftAddition;
-    //     var currentSelection = this.getCurrentSelectionRange();
-    //     if (currentSelection) {
+        var highlightRange;
+        var selectionInfo;
+        var leftAddition;
+        var currentSelection = this.getCurrentSelectionRange();
+        if (currentSelection) {
 
-    //         highlightRange = this.injectHighlightMarkers(currentSelection);
-    //         selectionInfo = this.getSelectionInfo(highlightRange);
-    //         leftAddition = -this.getPaginationLeftOffset();
-    //         this.annotations.addHighlight(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
-    //         return selectionInfo;
-    //     }
-    //     else {
-    //         throw new Error("Nothing selected");
-    //     }
-    // },
+            highlightRange = this.injectHighlightMarkers(currentSelection);
+            selectionInfo = this.getSelectionInfo(highlightRange);
+            leftAddition = -this.getPaginationLeftOffset();
+            this.annotations.addHighlight(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+            return selectionInfo;
+        }
+        else {
+            throw new Error("Nothing selected");
+        }
+    },
 
-    // addSelectionBookmark : function (id) {
+    addSelectionBookmark : function (id) {
 
-    //     var marker;
-    //     var partialCFI;
-    //     var leftAddition;
-    //     var currentSelection = this.getCurrentSelectionRange();
-    //     if (currentSelection) {
+        var marker;
+        var partialCFI;
+        var leftAddition;
+        var currentSelection = this.getCurrentSelectionRange();
+        if (currentSelection) {
 
-    //         partialCFI = this.generateCharOffsetCFI(currentSelection);
-    //         marker = this.injectBookmarkMarker(currentSelection);
-    //         leftAddition = -this.getPaginationLeftOffset();
-    //         this.annotations.addBookmark("", marker, id, 0, leftAddition);
+            partialCFI = this.generateCharOffsetCFI(currentSelection);
+            marker = this.injectBookmarkMarker(currentSelection);
+            leftAddition = -this.getPaginationLeftOffset();
+            this.annotations.addBookmark("", marker, id, 0, leftAddition);
 
-    //         return {
-    //             CFI : partialCFI,
-    //             selectedElements : marker
-    //         };
-    //     }
-    //     else {
-    //         throw new Error("Nothing selected");
-    //     }
-    // },
+            return {
+                CFI : partialCFI,
+                selectedElements : marker
+            };
+        }
+        else {
+            throw new Error("Nothing selected");
+        }
+    },
 
-    // getSelectionInfo : function (selectedRange) {
+    getSelectionInfo : function (selectedRange) {
 
-    //     // Generate CFI for selected text
-    //     var CFI = this.generateRangeCFI(selectedRange);
-    //     var intervalState = {
-    //         startElementFound : false,
-    //         endElementFound : false
-    //     };
-    //     var selectedElements = [];
+        // Generate CFI for selected text
+        var CFI = this.generateRangeCFI(selectedRange);
+        var intervalState = {
+            startElementFound : false,
+            endElementFound : false
+        };
+        var selectedElements = [];
 
-    //     this.findSelectedElements(
-    //         selectedRange.commonAncestorContainer, 
-    //         selectedRange.startContainer, 
-    //         selectedRange.endContainer,
-    //         intervalState,
-    //         selectedElements, 
-    //         "p"
-    //         );
+        this.findSelectedElements(
+            selectedRange.commonAncestorContainer, 
+            selectedRange.startContainer, 
+            selectedRange.endContainer,
+            intervalState,
+            selectedElements, 
+            "p"
+            );
 
-    //     // Return a list of selected text nodes and the CFI
-    //     return {
-    //         CFI : CFI,
-    //         selectedElements : selectedElements
-    //     };
-    // },
+        // Return a list of selected text nodes and the CFI
+        return {
+            CFI : CFI,
+            selectedElements : selectedElements
+        };
+    },
 
-    // generateRangeCFI : function (selectedRange) {
+    generateRangeCFI : function (selectedRange) {
 
-    //     var startNode = selectedRange.startContainer;
-    //     var endNode = selectedRange.endContainer;
-    //     var startOffset;
-    //     var endOffset;
-    //     var rangeCFIComponent;
+        var startNode = selectedRange.startContainer;
+        var endNode = selectedRange.endContainer;
+        var startOffset;
+        var endOffset;
+        var rangeCFIComponent;
 
-    //     if (startNode.nodeType === Node.TEXT_NODE && endNode.nodeType === Node.TEXT_NODE) {
+        if (startNode.nodeType === Node.TEXT_NODE && endNode.nodeType === Node.TEXT_NODE) {
 
-    //         startOffset = selectedRange.startOffset;
-    //         endOffset = selectedRange.endOffset;
+            startOffset = selectedRange.startOffset;
+            endOffset = selectedRange.endOffset;
 
-    //         rangeCFIComponent = this.epubCFI.generateCharOffsetRangeComponent(startNode, startOffset, endNode, endOffset);
-    //         return rangeCFIComponent;
-    //     }
-    //     else {
-    //         throw new Error("Selection start and end must be text nodes");
-    //     }
-    // },
+            rangeCFIComponent = this.epubCFI.generateCharOffsetRangeComponent(
+                startNode, 
+                startOffset, 
+                endNode, 
+                endOffset,
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
+                );
+            return rangeCFIComponent;
+        }
+        else {
+            throw new Error("Selection start and end must be text nodes");
+        }
+    },
 
-    // generateCharOffsetCFI : function (selectedRange) {
+    generateCharOffsetCFI : function (selectedRange) {
 
-    //     // Character offset
-    //     var startNode = selectedRange.startContainer;
-    //     var startOffset = selectedRange.startOffset;
-    //     var charOffsetCFI;
+        // Character offset
+        var startNode = selectedRange.startContainer;
+        var startOffset = selectedRange.startOffset;
+        var charOffsetCFI;
 
-    //     if (startNode.nodeType === Node.TEXT_NODE) {
-    //         charOffsetCFI = this.epubCFI.generateCharacterOffsetCFIComponent(
-    //             startNode,
-    //             startOffset,
-    //             ["cfi-marker"]
-    //             );
-    //     }
-    //     return charOffsetCFI;
-    // },
+        if (startNode.nodeType === Node.TEXT_NODE) {
+            charOffsetCFI = this.epubCFI.generateCharacterOffsetCFIComponent(
+                startNode,
+                startOffset,
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
+                );
+        }
+        return charOffsetCFI;
+    },
 
     findExistingLastPageMarker : function ($visibleTextNode) {
 
@@ -585,103 +588,103 @@ EpubReflowable.AlternateStyleTagSelector = Backbone.Model.extend({
     //   is not ideal, and adds redundant, complex, code to the annotations delegate. A better method here would be to generate
     //   selection info, get the generated range CFI, and use that to inject markers. The only reason this wasn't done is 
     //   because the CFI library did not support CFI range generation or injection when selection and highlighting was done.
-    // injectBookmarkMarker : function (selectionRange, id) {
+    injectBookmarkMarker : function (selectionRange, id) {
 
-    //     var startNode = selectionRange.startContainer;
-    //     var startOffset = selectionRange.startOffset;
-    //     var $bookmarkMarker = $(this.getBookmarkMarker("", id));
-    //     var highlightRange;
+        var startNode = selectionRange.startContainer;
+        var startOffset = selectionRange.startOffset;
+        var $bookmarkMarker = $(this.getBookmarkMarker("", id));
+        var highlightRange;
 
-    //     this.epubCFI.injectElementAtOffset(
-    //         $(startNode), 
-    //         startOffset,
-    //         $bookmarkMarker
-    //     );
+        this.epubCFI.injectElementAtOffset(
+            $(startNode), 
+            startOffset,
+            $bookmarkMarker
+        );
 
-    //     return $bookmarkMarker[0];        
-    // },
+        return $bookmarkMarker[0];        
+    },
  
-    // injectHighlightMarkers : function (selectionRange, id) {
+    injectHighlightMarkers : function (selectionRange, id) {
 
-    //     var highlightRange;
-    //     if (selectionRange.startContainer === selectionRange.endContainer) {
-    //         highlightRange = this.injectHighlightInSameNode(selectionRange, id);
-    //     } else {
-    //         highlightRange = this.injectHighlightsInDifferentNodes(selectionRange, id);
-    //     }
+        var highlightRange;
+        if (selectionRange.startContainer === selectionRange.endContainer) {
+            highlightRange = this.injectHighlightInSameNode(selectionRange, id);
+        } else {
+            highlightRange = this.injectHighlightsInDifferentNodes(selectionRange, id);
+        }
 
-    //     return highlightRange;
-    // },
+        return highlightRange;
+    },
 
-    // injectHighlightInSameNode : function (selectionRange, id) {
+    injectHighlightInSameNode : function (selectionRange, id) {
 
-    //     var startNode;
-    //     var startOffset = selectionRange.startOffset;
-    //     var endNode = selectionRange.endContainer;
-    //     var endOffset = selectionRange.endOffset;
-    //     var $startMarker = $(this.getRangeStartMarker("", id));
-    //     var $endMarker = $(this.getRangeEndMarker("", id));
-    //     var highlightRange;
+        var startNode;
+        var startOffset = selectionRange.startOffset;
+        var endNode = selectionRange.endContainer;
+        var endOffset = selectionRange.endOffset;
+        var $startMarker = $(this.getRangeStartMarker("", id));
+        var $endMarker = $(this.getRangeEndMarker("", id));
+        var highlightRange;
 
-    //     // Rationale: The end marker is injected before the start marker because when the text node is split by the 
-    //     //   end marker first, the offset for the start marker will still be the same and we do not need to recalculate 
-    //     //   the offset for the newly created end node.
+        // Rationale: The end marker is injected before the start marker because when the text node is split by the 
+        //   end marker first, the offset for the start marker will still be the same and we do not need to recalculate 
+        //   the offset for the newly created end node.
 
-    //     // inject end marker
-    //     this.epubCFI.injectElementAtOffset(
-    //         $(endNode), 
-    //         endOffset,
-    //         $endMarker
-    //     );
+        // inject end marker
+        this.epubCFI.injectElementAtOffset(
+            $(endNode), 
+            endOffset,
+            $endMarker
+        );
 
-    //     startNode = $endMarker[0].previousSibling;
+        startNode = $endMarker[0].previousSibling;
 
-    //     // inject start marker
-    //     this.epubCFI.injectElementAtOffset(
-    //         $(startNode), 
-    //         startOffset,
-    //         $startMarker
-    //     );
+        // inject start marker
+        this.epubCFI.injectElementAtOffset(
+            $(startNode), 
+            startOffset,
+            $startMarker
+        );
 
-    //     // reconstruct range
-    //     highlightRange = document.createRange();
-    //     highlightRange.setStart($startMarker[0].nextSibling, 0);
-    //     highlightRange.setEnd($endMarker[0].previousSibling, $endMarker[0].previousSibling.length - 1);
+        // reconstruct range
+        highlightRange = document.createRange();
+        highlightRange.setStart($startMarker[0].nextSibling, 0);
+        highlightRange.setEnd($endMarker[0].previousSibling, $endMarker[0].previousSibling.length - 1);
 
-    //     return highlightRange;
-    // },
+        return highlightRange;
+    },
 
-    // injectHighlightsInDifferentNodes : function (selectionRange, id) {
+    injectHighlightsInDifferentNodes : function (selectionRange, id) {
 
-    //     var startNode = selectionRange.startContainer;
-    //     var startOffset = selectionRange.startOffset;
-    //     var endNode = selectionRange.endContainer;
-    //     var endOffset = selectionRange.endOffset;
-    //     var $startMarker = $(this.getRangeStartMarker("", id));
-    //     var $endMarker = $(this.getRangeEndMarker("", id));
-    //     var highlightRange;
+        var startNode = selectionRange.startContainer;
+        var startOffset = selectionRange.startOffset;
+        var endNode = selectionRange.endContainer;
+        var endOffset = selectionRange.endOffset;
+        var $startMarker = $(this.getRangeStartMarker("", id));
+        var $endMarker = $(this.getRangeEndMarker("", id));
+        var highlightRange;
 
-    //     // inject start
-    //     this.epubCFI.injectElementAtOffset(
-    //         $(startNode), 
-    //         startOffset,
-    //         $startMarker
-    //     );
+        // inject start
+        this.epubCFI.injectElementAtOffset(
+            $(startNode), 
+            startOffset,
+            $startMarker
+        );
 
-    //     // inject end
-    //     this.epubCFI.injectElementAtOffset(
-    //         $(endNode), 
-    //         endOffset,
-    //         $endMarker
-    //     );
+        // inject end
+        this.epubCFI.injectElementAtOffset(
+            $(endNode), 
+            endOffset,
+            $endMarker
+        );
 
-    //     // reconstruct range
-    //     highlightRange = document.createRange();
-    //     highlightRange.setStart($startMarker[0].nextSibling, 0);
-    //     highlightRange.setEnd($endMarker[0].previousSibling, $endMarker[0].previousSibling.length - 1);
+        // reconstruct range
+        highlightRange = document.createRange();
+        highlightRange.setStart($startMarker[0].nextSibling, 0);
+        highlightRange.setEnd($endMarker[0].previousSibling, $endMarker[0].previousSibling.length - 1);
 
-    //     return highlightRange;
-    // },
+        return highlightRange;
+    },
 
     // Rationale: This is a cross-browser method to get the currently selected text
     getCurrentSelectionRange : function () {
@@ -997,7 +1000,6 @@ EpubReflowable.ReflowableElementInfo = Backbone.Model.extend({
 
         var triggers;
 
-        // this.applyBindings( readiumFlowingContent, epubContentDocument );
         this.applySwitches(epubContentDocument); 
         this.injectMathJax(epubContentDocument);
         this.injectLinkHandler(epubContentDocument, linkClickHandler, handlerContext);
@@ -1015,53 +1017,6 @@ EpubReflowable.ReflowableElementInfo = Backbone.Model.extend({
     // ------------------------------------------------------------------------------------ //
     //  PRIVATE HELPERS                                                                     //
     // ------------------------------------------------------------------------------------ //
-
-    // // REFACTORING CANDIDATE: It looks like this could go on the package document itself
-    // getBindings: function (packageDocument) {
-    //     var packDoc = packageDocument;
-    //     var bindings = packDoc.get('bindings');
-    //     return bindings.map(function(binding) {
-    //         binding.selector = 'object[type="' + binding.media_type + '"]';
-    //         binding.url = packDoc.getManifestItemById(binding.handler).get('href');
-    //         binding.url = packDoc.resolveUri(binding.url);
-    //         return binding;
-    //     })
-    // },
-
-    // Binding expected by this:
-    //   binding.selector
-    //   binding.url
-    //   binding.media_type
-    // applyBindings: function (readiumFlowingContent, epubContentDocument, bindings) {
-
-    //     var bindingHtml = "<iframe scrolling='no' \
-    //                             frameborder='0' \
-    //                             marginwidth='0' \
-    //                             marginheight='0' \
-    //                             width='100%' \
-    //                             height='100%' \
-    //                             class='binding-sandbox'> \
-    //                        </iframe>";
-
-    //     // var bindings = this.getBindings(packageDocument);
-    //     var i = 0;
-    //     for(var i = 0; i < bindings.length; i++) {
-    //         $(bindings[i].selector, epubContentDocument.parentNode).each(function() {
-    //             var params = [];
-    //             var $el = $(readiumFlowingContent);
-    //             var data = $el.attr('data');
-    //             var url;
-    //             // params.push("src=" + packageDocument.resolveUri(data)); // Not sure what this is doing
-    //             params.push('type=' + bindings[i].media_type);
-    //             url = bindings[i].url + "?" + params.join('&');
-    //             // var content = $(bindingTemplate({}));
-    //             var content = $(bindingHtml);
-    //             // must set src attr separately
-    //             content.attr('src', url);
-    //             $el.html(content);
-    //         });
-    //     }
-    // },
 
     applyTriggers: function (epubContentDocument, triggers) {
 
@@ -1403,6 +1358,7 @@ EpubReflowable.ReflowablePageNumberLogic = Backbone.Model.extend({
     // ------------------------------------------------------------------------------------ //  
     //  "PRIVATE" HELPERS                                                                   //
     // ------------------------------------------------------------------------------------ //
+    
     adjustForMaxPageNumber : function (newPageNumbers) {
 
         var currentPages = this.get("currentPages");
@@ -1742,22 +1698,9 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 
 		this.annotations;
         this.cfi = new EpubCFIModule();
-
-        // this.mediaOverlayController = this.model.get("media_overlay_controller");
-        // this.mediaOverlayController.setPages(this.pages);
-        // this.mediaOverlayController.setView(this);
-
-        // Initialize handlers
-		// this.mediaOverlayController.on("change:mo_text_id", this.highlightText, this);
-        // this.mediaOverlayController.on("change:active_mo", this.indicateMoIsPlaying, this);
 	},
 	
-	destruct : function() {
-	
-		// Remove all handlers so they don't hang around in memory	
-		// this.mediaOverlayController.off("change:mo_text_id", this.highlightText, this);
-  		// this.mediaOverlayController.off("change:active_mo", this.indicateMoIsPlaying, this);
-	},
+	destruct : function() {},
 
 	// ------------------------------------------------------------------------------------ //
 	//  "PUBLIC" METHODS (THE API)                                                          //
@@ -1825,8 +1768,6 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
             }
 
             that.annotations = new EpubReflowable.ReflowableAnnotations({
-                saveCallback : undefined,
-                callbackContext : undefined,
                 contentDocumentDOM : that.getEpubContentDocument().parentNode
             });
 
@@ -1842,24 +1783,6 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
         
 		return this.el;
 	},
-    
-	// indicateMoIsPlaying: function () {
-	// 	var moHelper = new EpubReflowable.MediaOverlayViewHelper({epubController : this.model});
-	// 	moHelper.renderReflowableMoPlaying(
-	// 		this.model.get("current_theme"),
-	// 		this.mediaOverlayController.get("active_mo"),
-	// 		this
-	// 	);
-	// },
-
-	// highlightText: function () {
-	// 	var moHelper = new EpubReflowable.MediaOverlayViewHelper({epubController : this.model});
-	// 	moHelper.renderReflowableMoFragHighlight(
-	// 		this.model.get("current_theme"),
-	// 		this,
-	// 		this.mediaOverlayController.get("mo_text_id")
-	// 	);
-	// },
 
     showPageByNumber : function (pageNumber) {
 
@@ -2152,12 +2075,6 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 
         var offset = this.calcPageOffset(pageNumber).toString() + "px";
         $(this.getEpubContentDocument()).css(this.offsetDirection(), "-" + offset);
-        
-        // if (this.viewerModel.get("twoUp") == false || 
-        //     (this.viewerModel.get("twoUp") && page % 2 === 1)) {
-        //         // when we change the page, we have to tell MO to update its position
-        //         // this.mediaOverlayController.reflowPageChanged();
-        // }
     },
 
 	hideContent : function () {
@@ -2528,6 +2445,12 @@ EpubReflowable.ReflowableCustomTheme = Backbone.Model.extend({
         showPageByCFI : function (CFI) {
             return reflowableView.showPageByCFI(CFI);
         },
+        numberOfPages : function () {
+            return reflowableView.pages.get("numberOfPages");
+        },
+        currentPage : function () {
+            return reflowableView.pages.get("currentPages");
+        },
         onFirstPage : function () {
             return reflowableView.pages.onFirstPage();
         },
@@ -2539,12 +2462,6 @@ EpubReflowable.ReflowableCustomTheme = Backbone.Model.extend({
         },
         hidePagesView : function () {
             return reflowableView.hideView();
-        },
-        numberOfPages : function () {
-            return reflowableView.pages.get("numberOfPages");
-        },
-        currentPage : function () {
-            return reflowableView.pages.get("currentPages");
         },
         setSyntheticLayout : function (isSynthetic) {
             return reflowableView.setSyntheticLayout(isSynthetic);
@@ -2561,6 +2478,18 @@ EpubReflowable.ReflowableCustomTheme = Backbone.Model.extend({
         customize : function (customElement, styleNameOrCSSObject) {
             reflowableView.customizeStyles(customElement, styleNameOrCSSObject);
             return this;
+        },
+        addSelectionHighlight : function (id) { 
+            return reflowableView.annotations.addSelectionHighlight(id); 
+        },
+        addSelectionBookmark : function (id) { 
+            return reflowableView.annotations.addSelectionBookmark(id); 
+        },
+        addHighlight : function (CFI, id) { 
+            return reflowableView.annotations.addHighlight(CFI, id); 
+        },
+        addBookmark : function (CFI, id) { 
+            return reflowableView.annotations.addBookmark(CFI, id); 
         }
     };
 };
