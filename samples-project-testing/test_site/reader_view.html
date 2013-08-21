@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../css/more_styles.css">
         <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/atb-epub-client.css">
+        <link rel="stylesheet" type="text/css" href="../css/smoothness/jquery-ui-1.10.3.custom.css">
 
         <script src="../lib/jquery-1.9.1.js" type="text/javascript"></script>
+        <script src="../lib/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
         <script src="../lib/modernizr-2.5.3.min.js" type="text/javascript"></script>
         <script src="../lib/json2.js" type="text/javascript"></script>
         <script src="../lib/underscore-1.4.4.js" type="text/javascript"></script>
@@ -19,9 +21,6 @@
         <script src="../lib/epub_module.js" type="text/javascript"></script>
         <script src="../lib/epub_cfi.js" type="text/javascript"></script>
         <script src="../lib/epub_reading_system.js" type="text/javascript"></script>
-        
-		<script src="../lib/SimpleReadium_Dev.js" type="text/javascript"></script>
-		
         <script src="initialize_rjs_reader.js" type="text/javascript"></script>
         <script src="event_handling.js" type="text/javascript"></script>
         
@@ -34,24 +33,12 @@
                     fontSize : 12,
                     syntheticLayout : false,
                     currentMargin : 0,
-                    tocVisible : false,
                     currentTheme : "default",
-                    libraryIsVisible : true,
-                    tocIsVisible : false,
                     day : true
                 };
 
                 // Load Moby Dick by default
                 RJSDemoApp.loadAndRenderEpub("../epub_samples_project/moby-dick-20120118/OPS/package.opf", RJSDemoApp.viewerPreferences);
-
-                // Generate the library
-                $.getJSON('../available_epubs/epub_library_info.json', function (data) {
-
-                    // Generate the library list in a drop-down
-                    RJSDemoApp.addLibraryList($("#library-list"), data);
-                }).fail(function (result) {
-                    console.log("The library could not be loaded");
-                });
             });
 			
             // Note: the epubReadingSystem object may not be ready when directly using the
@@ -69,95 +56,84 @@
             // // With the modern document "DOMContentLoaded" event:
             document.addEventListener("DOMContentLoaded", function(e) { setTimeout(doSomething, 200); }, false);
             // -----
+
+            //for the (fake) page slider
+            $(function() {
+                $( "#pageSlider" ).slider({
+                  value:0,
+                  min: 0,
+                  max: 500,
+                  step: 35,
+                  slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.value );
+                  }
+                });
+                $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+            });
+
         </script>
+
     </head>
     <body>
-        <!-- The navbar -->
-        <div class="navbar navbar-fixed-top" id="toolbar-el">
-            <div class="navbar-inner" id="top-bar" style="">
-                <div class="container" style="width:100%">
+        <div id="reader" style="height:700px"></div>
+        
+        <div class="pageControlBtn" id="prevPageBtn"></div>
+        <div class="pageControlBtn" id="nextPageBtn"></div>
 
-                    <!-- library-specific contents -->
-                    <ul class="nav">
-                    
-                        <!-- Library -->
-                        <li class="navbar-el pull-left">
-                            <a accesskey="t" href="#" id="library-btn" role="button" title="TOC">
-                                Library
-                            </a>
-                        </li>
-                    </ul>
+        <div id="sideBar">
+            <div class="tool" id="selectionTool"></div>
+            <div class="tool" id="panningTool"></div>
+            <div class="tool" id="penTool"></div>
+            <div class="tool" id="eraserTool"></div>
+            <div class="tool" id="bookmarkTool"></div>
 
-                    <!-- epub-specific navbar contents -->
-                    <ul class="nav pull-right">
+            <div class="sideBarDivider"></div>
 
-                        <!-- Table of contents -->
-                        <li class="navbar-el">
-                            <a accesskey="t" href="#" id="toc-btn" role="button" title="TOC">
-                                TOC
-                            </a>
-                        </li>
+            <div class="tool" id="commentTool"></div>
+            <div class="tool" id="hotspotTool"></div>
+            <div class="tool" id="quizTool"></div>
+            <div class="tool" id="tocToggle"></div>
+            <div class="tool" id="searchToggle"></div>
 
-						<li class="divider-vertical"></li>
+            <div class="sideBarDivider"></div>
+            
+            <div class="tool" id="undoButton"></div>
+            <div class="tool" id="redoButton"></div>
 
-						<!-- Decrease Font Size -->
-						<li class="navbar-el">
-							<a accesskey="-" href="#" id="decrease-font-btn" role="button" title="Decrease Font Size">-</a>
-						</li>
+            <div class="sideBarDivider"></div>
+            
+            <div class="tool" id="exitToggle"></div>
 
-						<!-- Increase Font Size -->
-						<li class="navbar-el">
-							<a accesskey="+" href="#" id="increase-font-btn" role="button" title="Increase Font Size">+</a>
-						</li>
-
-						<li class="divider-vertical"></li>
-
-                        <!-- Previous page -->
-                        <li class="navbar-el">
-                            <a accesskey="p" href="#" id="previous-page-btn" role="button" title="Previous Page">
-                                &lt;--
-                            </a>
-                        </li>
-                        <!-- Next page -->
-                        <li class="navbar-el">
-                            <a accesskey="n" href="#" id="next-page-btn" role="button" title="Next Page">
-                                --&gt;
-                            </a>
-                        </li>
-                        
-                        <li class="divider-vertical"></li>
-                        
-                        <!-- Toggle single or two pages -->
-                        <li class="navbar-el">
-                            <a accesskey="n" href="#" id="toggle-synthetic-btn" role="button" title="Toggle page layout">
-                                Toggle layout
-                            </a>
-                        </li>
-
-                        <!-- Toggle alternate styles -->
-                        <li class="navbar-el">
-                            <a accesskey="n" href="#" id="toggle-ast-btn" role="button" title="Toggle AST">
-                                Toggle AST
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
 
-        <div class="container-fluid" style="margin-top:45px">
-            <div class="row-fluid">
-                <div id="library-panel" class="span4 sidebar">
-                    <ul id="library-list" role="menu" aria-labelledby="dlabel" style="height:700px">
-                    </ul>
-                </div>
-                <div id="toc-panel" class="span4 sidebar" style="display:none;height:700px;margin:0px">
-                    <iframe id="toc-iframe" src="" style="height:100%;width:100%;border-style:none"></iframe>
-                </div>
-                <div id="reader-panel" class="span8">
-                    <div id="reader" style="height:700px">
-                    </div>
-                </div>
+        <div id="bottomBar">
+            <div id="bottomLeftDiv">
+                <div class="tool bottomTool" id="fitToWidth"></div>
+                <div class="tool bottomTool" id="fitToHeight"></div>
+
+                <div class="bottomDivider"></div>
+
+                <div class="tool bottomTool" id="helpButton"></div>
+
+                <div class="bottomDivider"></div>
+            </div>
+            <div id="bottomRightDiv">
+                <div class="bottomDivider"></div>
+
+                <div class="tool bottomTool" id="pageUndoButton"></div>
+                <div id="slider_pageinfo_div">1 of 1</div>
+                <div class="tool bottomTool" id="pageRedoButton"></div>
+
+                <div class="bottomDivider"></div>
+
+                <div class="tool bottomTool" id="settingsButton"></div>
+
+                <div class="bottomDivider"></div>
+
+                <div class="tool bottomTool" id="readingModeDiv"></div>
+            </div>
+            <div id="bottomMiddleDiv">
+                <div id="pageSlider"></div>
             </div>
         </div>
     </body>
