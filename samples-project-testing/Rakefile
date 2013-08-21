@@ -29,7 +29,7 @@ task :copy_dependencies do
       "URI-1.10.0.js",
       "modernizr-2.5.3.min.js",
       "bootstrap.min.js",
-      # jquery-ui-1.10.3.custom.js
+      "jquery-ui-1.10.3.custom.js"
   ]
 
   module_dependency_filenames = [
