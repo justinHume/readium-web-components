@@ -1,4 +1,4 @@
-var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, readerBoundElement) {
+var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, readerBoundElement, bbPageSetView) {
     
     var EpubAnnotations = {};
 
@@ -17,7 +17,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
     var annotations = new EpubAnnotations.Annotations({
         offsetTopAddition : offsetTopAddition, 
         offsetLeftAddition : offsetLeftAddition, 
-        readerBoundElement : readerBoundElement
+        readerBoundElement : readerBoundElement,
+        bbPageSetView : bbPageSetView
     });
 
     // Description: The public interface

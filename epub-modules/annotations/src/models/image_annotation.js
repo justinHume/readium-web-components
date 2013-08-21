@@ -18,6 +18,9 @@ EpubAnnotations.ImageAnnotation = Backbone.Model.extend({
         $imageElement.on("mouseleave", function () {
             that.setMouseleaveBorder();
         });
+        $imageElement.on("click", function () {
+            that.get("bbPageSetView").trigger("annotationClicked", "image", that.get("CFI"), that.get("id"));
+        });
     },
 
     render : function () {

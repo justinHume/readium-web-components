@@ -124,7 +124,8 @@ EpubAnnotations.Annotations = Backbone.Model.extend({
             targetElement : targetElement, 
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
-            id : annotationId.toString()
+            id : annotationId.toString(),
+            bbPageSetView : this.get("bbPageSetView")
         });
         this.get("annotationHash")[annotationId] = bookmarkView;
         this.get("bookmarkViews").push(bookmarkView);
@@ -148,7 +149,8 @@ EpubAnnotations.Annotations = Backbone.Model.extend({
             selectedNodes : highlightedTextNodes,
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
-            id : annotationId
+            id : annotationId,
+            bbPageSetView : this.get("bbPageSetView")
         });
         this.get("annotationHash")[annotationId] = highlightGroup;
         this.get("highlights").push(highlightGroup);
@@ -172,7 +174,8 @@ EpubAnnotations.Annotations = Backbone.Model.extend({
             selectedNodes : underlinedTextNodes,
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
-            id : annotationId
+            id : annotationId,
+            bbPageSetView : this.get("bbPageSetView")
         });
         this.get("annotationHash")[annotationId] = underlineGroup;
         this.get("underlines").push(underlineGroup);
@@ -187,7 +190,8 @@ EpubAnnotations.Annotations = Backbone.Model.extend({
         var imageAnnotation = new EpubAnnotations.ImageAnnotation({
             CFI : CFI,
             imageNode : imageNode,
-            id : annotationId
+            id : annotationId,
+            bbPageSetView : this.get("bbPageSetView")
         });
         this.get("annotationHash")[annotationId] = imageAnnotation;
         this.get("imageAnnotations").push(imageAnnotation);

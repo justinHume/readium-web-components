@@ -7,7 +7,8 @@ EpubAnnotations.UnderlineView = Backbone.View.extend({
 
     events : {
         "mouseenter" : "underlineEvent",
-        "mouseleave" : "underlineEvent"
+        "mouseleave" : "underlineEvent",
+        "click" : "underlineEvent"
     },
 
     initialize : function (options) {

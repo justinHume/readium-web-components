@@ -6,7 +6,12 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
     initialize : function (attributes, options) {
         
         this.epubCFI = new EpubCFIModule();
-        this.annotations = new EpubAnnotationsModule(0, 0, $("html", this.get("contentDocumentDOM"))[0]);
+        this.annotations = new EpubAnnotationsModule(
+            0, 
+            0, 
+            $("html", this.get("contentDocumentDOM"))[0],
+            this.get("reflowableView")
+        );
     },
 
     redraw : function () {

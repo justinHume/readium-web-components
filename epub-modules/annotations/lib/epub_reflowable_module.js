@@ -316,7 +316,12 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
     initialize : function (attributes, options) {
         
         this.epubCFI = new EpubCFIModule();
-        this.annotations = new EpubAnnotationsModule(0, 0, $("html", this.get("contentDocumentDOM"))[0]);
+        this.annotations = new EpubAnnotationsModule(
+            0, 
+            0, 
+            $("html", this.get("contentDocumentDOM"))[0],
+            this.get("reflowableView")
+        );
     },
 
     redraw : function () {
@@ -1853,7 +1858,8 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
             }
 
             that.annotations = new EpubReflowable.ReflowableAnnotations({
-                contentDocumentDOM : that.getEpubContentDocument().parentNode
+                contentDocumentDOM : that.getEpubContentDocument().parentNode,
+                reflowableView : that
             });
 
             that.customizer = new EpubReflowable.ReflowableCustomizer({

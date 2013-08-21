@@ -4,7 +4,8 @@ EpubAnnotations.HighlightView = Backbone.View.extend({
 
     events : {
         "mouseenter" : "highlightEvent",
-        "mouseleave" : "highlightEvent"
+        "mouseleave" : "highlightEvent",
+        "click" : "highlightEvent"
     },
 
     initialize : function (options) {

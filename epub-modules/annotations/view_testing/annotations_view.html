@@ -30,6 +30,11 @@
                         epubViewer.addSelectionHighlight("1", "highlight");
                     });
 
+                    $("#underline").on("click", function () {
+
+                        epubViewer.addSelectionHighlight("000912", "underline");
+                    });
+
                     $("#bookmark").on("click", function () {
 
                         epubViewer.addSelectionBookmark("10");
@@ -70,6 +75,11 @@
                             console.log("underline 12 added");
                         }, this);
                     });
+
+                    epubViewer.on("annotationClicked", function (type, CFI, id) {
+                        console.log("Annotation clicked; type: " + type + " CFI: " + CFI + " Id: " + id);
+                    });
+
                 }, this);
 
                 epubViewer.render();
@@ -79,6 +89,7 @@
     </head>
     <body>
         <button id="highlight">highlight</button>
+        <button id="underline">underline</button>
         <button id="bookmark">bookmark</button>
         <button id="annotate-image">image hotspot</button>
         <button id="add-bookmark">add bookmark</button>

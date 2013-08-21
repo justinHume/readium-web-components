@@ -102,7 +102,8 @@ EpubReflowable.ReflowablePaginationView = Backbone.View.extend({
             }
 
             that.annotations = new EpubReflowable.ReflowableAnnotations({
-                contentDocumentDOM : that.getEpubContentDocument().parentNode
+                contentDocumentDOM : that.getEpubContentDocument().parentNode,
+                reflowableView : that
             });
 
             that.customizer = new EpubReflowable.ReflowableCustomizer({

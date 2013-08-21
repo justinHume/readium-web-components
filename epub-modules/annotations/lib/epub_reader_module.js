@@ -476,7 +476,8 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         "atFirstPage" : false,
         "atLastPage" : false,
         "layoutChanged" : false,
-        "displayedContentChanged" : false
+        "displayedContentChanged" : false,
+        "annotationClicked" : true
     },
 
     initialize : function (options) {
@@ -740,6 +741,7 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         }
     },
 
+    // Rationale: The reader is responsible for propagating these events in certain cases
     startPropogatingEvents : function () {
 
         this.reader.attachEventHandler("atNextPage", function () {

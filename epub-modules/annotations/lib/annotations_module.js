@@ -1,4 +1,4 @@
-var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, readerBoundElement) {
+var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, readerBoundElement, bbPageSetView) {
     
     var EpubAnnotations = {};
 
@@ -29,7 +29,15 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
 
     highlightGroupCallback : function (event) {
 
+        var that = this;
+        
         // Trigger this event on each of the highlight views (except triggering event)
+        if (event.type === "click") {
+            that.get("bbPageSetView").trigger("annotationClicked", "highlight", that.get("CFI"), that.get("id"));
+            return;
+        }
+
+        // Events that are called on each member of the group
         _.each(this.get("highlightViews"), function (highlightView) {
 
             if (event.type === "mouseenter") {
@@ -141,7 +149,15 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
 
     underlineGroupCallback : function (event) {
 
+        var that = this;
+
         // Trigger this event on each of the underline views (except triggering event)
+        if (event.type === "click") {
+            that.get("bbPageSetView").trigger("annotationClicked", "underline", that.get("CFI"), that.get("id"));
+            return;
+        }
+
+        // Events that are called on each member of the group
         _.each(this.get("underlineViews"), function (underlineView) {
 
             if (event.type === "mouseenter") {
@@ -391,7 +407,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
             targetElement : targetElement, 
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
-            id : annotationId.toString()
+            id : annotationId.toString(),
+            bbPageSetView : this.get("bbPageSetView")
         });
         this.get("annotationHash")[annotationId] = bookmarkView;
         this.get("bookmarkViews").push(bookmarkView);
@@ -415,7 +432,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
             selectedNodes : highlightedTextNodes,
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
-            id : annotationId
+            id : annotationId,
+            bbPageSetView : this.get("bbPageSetView")
         });
         this.get("annotationHash")[annotationId] = highlightGroup;
         this.get("highlights").push(highlightGroup);
@@ -439,7 +457,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
             selectedNodes : underlinedTextNodes,
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
-            id : annotationId
+            id : annotationId,
+            bbPageSetView : this.get("bbPageSetView")
         });
         this.get("annotationHash")[annotationId] = underlineGroup;
         this.get("underlines").push(underlineGroup);
@@ -454,7 +473,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
         var imageAnnotation = new EpubAnnotations.ImageAnnotation({
             CFI : CFI,
             imageNode : imageNode,
-            id : annotationId
+            id : annotationId,
+            bbPageSetView : this.get("bbPageSetView")
         });
         this.get("annotationHash")[annotationId] = imageAnnotation;
         this.get("imageAnnotations").push(imageAnnotation);
@@ -525,7 +545,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
 
     events : {
         "mouseenter" : "highlightEvent",
-        "mouseleave" : "highlightEvent"
+        "mouseleave" : "highlightEvent",
+        "click" : "highlightEvent"
     },
 
     initialize : function (options) {
@@ -608,7 +629,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
 
     events : {
         "mouseenter" : "underlineEvent",
-        "mouseleave" : "underlineEvent"
+        "mouseleave" : "underlineEvent",
+        "click" : "underlineEvent"
     },
 
     initialize : function (options) {
@@ -712,6 +734,9 @@ EpubAnnotations.ImageAnnotation = Backbone.Model.extend({
         $imageElement.on("mouseleave", function () {
             that.setMouseleaveBorder();
         });
+        $imageElement.on("click", function () {
+            that.get("bbPageSetView").trigger("annotationClicked", "image", that.get("CFI"), that.get("id"));
+        });
     },
 
     render : function () {
@@ -747,7 +772,8 @@ EpubAnnotations.ImageAnnotation = Backbone.Model.extend({
     var annotations = new EpubAnnotations.Annotations({
         offsetTopAddition : offsetTopAddition, 
         offsetLeftAddition : offsetLeftAddition, 
-        readerBoundElement : readerBoundElement
+        readerBoundElement : readerBoundElement,
+        bbPageSetView : bbPageSetView
     });
 
     // Description: The public interface
