@@ -11,7 +11,7 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
 
     initialize : function (attributes, options) {}
 });
-    EpubAnnotations.Highlighter = Backbone.Model.extend({
+    EpubAnnotations.HighlightGroup = Backbone.Model.extend({
 
     defaults : function () {
         return {
@@ -26,6 +26,20 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
     },
 
     // --------------- PRIVATE HELPERS ---------------------------------------
+
+    highlightGroupCallback : function (event) {
+
+        // Trigger this event on each of the highlight views (except triggering event)
+        _.each(this.get("highlightViews"), function (highlightView) {
+
+            if (event.type === "mouseenter") {
+                highlightView.setMouseenterColor();    
+            }
+            else if (event.type === "mouseleave") {
+                highlightView.setMouseleaveColor();
+            }
+        });
+    },
 
     constructHighlightViews : function () {
 
@@ -48,7 +62,9 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
                     top : highlightTop + that.get("offsetTopAddition"),
                     left : highlightLeft + that.get("offsetLeftAddition"),
                     height : highlightHeight,
-                    width : highlightWidth
+                    width : highlightWidth,
+                    highlightGroupCallback : that.highlightGroupCallback,
+                    callbackContext : that
                 });
 
                 that.get("highlightViews").push(highlightView);
@@ -78,6 +94,7 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
             highlightView.off();
         });
 
+        // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
         this.set({ "highlightViews" : [] });
     },
 
@@ -94,6 +111,118 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
 
             id : this.get("id"),
             type : "highlight",
+            CFI : this.get("CFI")
+        };
+    }
+}); 
+    EpubAnnotations.Underline = Backbone.Model.extend({
+
+    defaults : {
+        "isVisible" : false
+    },
+
+    initialize : function (attributes, options) {}
+});
+    EpubAnnotations.UnderlineGroup = Backbone.Model.extend({
+
+    defaults : function () {
+        return {
+            "selectedNodes" : [],
+            "underlineViews" : []
+        };
+    },
+
+    initialize : function (attributes, options) {
+
+        this.constructUnderlineViews();
+    },
+
+    // --------------- PRIVATE HELPERS ---------------------------------------
+
+    underlineGroupCallback : function (event) {
+
+        // Trigger this event on each of the underline views (except triggering event)
+        _.each(this.get("underlineViews"), function (underlineView) {
+
+            if (event.type === "mouseenter") {
+                underlineView.setMouseenterColor();
+            }
+            else if (event.type === "mouseleave") {
+                underlineView.setMouseleaveColor();
+            }
+        });
+    },
+
+    constructUnderlineViews : function () {
+
+        var that = this;
+        _.each(this.get("selectedNodes"), function (node, index) {
+
+            var range = document.createRange();
+            range.selectNodeContents(node);
+            var rects = range.getClientRects();
+
+            _.each(rects, function (rect, index) {
+
+                var underlineTop = rect.top;
+                var underlineLeft = rect.left;
+                var underlineHeight = rect.height;
+                var underlineWidth = rect.width;
+
+                var underlineView = new EpubAnnotations.UnderlineView({
+                    CFI : that.get("CFI"),
+                    top : underlineTop + that.get("offsetTopAddition"),
+                    left : underlineLeft + that.get("offsetLeftAddition"),
+                    height : underlineHeight,
+                    width : underlineWidth,
+                    underlineGroupCallback : that.underlineGroupCallback,
+                    callbackContext : that
+                });
+
+                that.get("underlineViews").push(underlineView);
+            });
+        });
+    },
+
+    resetUnderlines : function (viewportElement, offsetTop, offsetLeft) {
+
+        if (offsetTop) {
+            this.set({ offsetTopAddition : offsetTop });
+        }
+        if (offsetLeft) {
+            this.set({ offsetLeftAddition : offsetLeft });
+        }
+
+        this.destroyCurrentUnderlines();
+        this.constructUnderlineViews();
+        this.renderUnderlines(viewportElement);
+    },
+
+    // REFACTORING CANDIDATE: Ensure that event listeners are being properly cleaned up. 
+    destroyCurrentUnderlines : function () { 
+
+        _.each(this.get("underlineViews"), function (underlineView) {
+            underlineView.remove();
+            underlineView.off();
+        });
+
+        // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
+        this.set({ "underlineViews" : [] });
+    },
+
+    renderUnderlines : function (viewportElement) {
+
+        _.each(this.get("underlineViews"), function (view, index) {
+            $(viewportElement).append(view.render());
+        });
+    },
+
+    toInfo : function () {
+
+        return {
+
+            id : this.get("id"),
+            type : "underline",
             CFI : this.get("CFI")
         };
     }
@@ -142,6 +271,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
         return {
             "bookmarkViews" : [],
             "highlights" : [],
+            "underlines" : [],
+            "imageAnnotations" : [],
             "annotationHash" : {},
             "offsetTopAddition" : 0,
             "offsetLeftAddition" : 0,
@@ -154,12 +285,19 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
     redrawAnnotations : function (offsetTop, offsetLeft) {
 
         var that = this;
-        _.each(this.get("highlights"), function (highlighter) {
-            highlighter.resetHighlights(that.get("readerBoundElement"), offsetTop, offsetLeft);
+        // Highlights
+        _.each(this.get("highlights"), function (highlightGroup) {
+            highlightGroup.resetHighlights(that.get("readerBoundElement"), offsetTop, offsetLeft);
         });  
 
+        // Bookmarks
         _.each(this.get("bookmarkViews"), function (bookmarkView) {
             bookmarkView.resetBookmark(offsetTop, offsetLeft);
+        });
+
+        // Underlines
+        _.each(this.get("underlines"), function (underlineGroup) {
+            underlineGroup.resetUnderlines(that.get("readerBoundElement"), offsetTop, offsetLeft);
         });
     },
 
@@ -185,6 +323,17 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
         }
     },
 
+    getUnderline : function (id) {
+
+        var underline = this.get("annotationHash")[id];
+        if (underline) {
+            return underline.toInfo();
+        }
+        else {
+            return undefined;
+        }
+    },
+
     getBookmarks : function () {
 
         var bookmarks = [];
@@ -203,6 +352,26 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
             highlights.push(highlight.toInfo());
         });
         return highlights;
+    },
+
+    getUnderlines : function () {
+
+        var underlines = [];
+        _.each(this.get("underlines"), function (underline) {
+
+            underlines.push(underline.toInfo());
+        });
+        return underlines;
+    },
+
+    getImageAnnotations : function () {
+
+        var imageAnnotations = [];
+        _.each(this.get("imageAnnotations"), function (imageAnnotation) {
+
+            imageAnnotations.push(imageAnnotation.toInfo());
+        });
+        return imageAnnotations;
     },
 
     addBookmark : function (CFI, targetElement, annotationId, offsetTop, offsetLeft) {
@@ -241,16 +410,55 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
         annotationId = annotationId.toString();
         this.validateAnnotationId(annotationId);
 
-        var highlighter = new EpubAnnotations.Highlighter({
+        var highlightGroup = new EpubAnnotations.HighlightGroup({
             CFI : CFI,
             selectedNodes : highlightedTextNodes,
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
             id : annotationId
         });
-        this.get("annotationHash")[annotationId] = highlighter;
-        this.get("highlights").push(highlighter);
-        highlighter.renderHighlights(this.get("readerBoundElement"));
+        this.get("annotationHash")[annotationId] = highlightGroup;
+        this.get("highlights").push(highlightGroup);
+        highlightGroup.renderHighlights(this.get("readerBoundElement"));
+    },
+
+    addUnderline : function (CFI, underlinedTextNodes, annotationId, offsetTop, offsetLeft) {
+
+        if (!offsetTop) {
+            offsetTop = this.get("offsetTopAddition");
+        }
+        if (!offsetLeft) {
+            offsetLeft = this.get("offsetLeftAddition");
+        }
+
+        annotationId = annotationId.toString();
+        this.validateAnnotationId(annotationId);
+
+        var underlineGroup = new EpubAnnotations.UnderlineGroup({
+            CFI : CFI,
+            selectedNodes : underlinedTextNodes,
+            offsetTopAddition : offsetTop,
+            offsetLeftAddition : offsetLeft,
+            id : annotationId
+        });
+        this.get("annotationHash")[annotationId] = underlineGroup;
+        this.get("underlines").push(underlineGroup);
+        underlineGroup.renderUnderlines(this.get("readerBoundElement"));
+    },
+
+    addImageAnnotation : function (CFI, imageNode, annotationId) {
+
+        annotationId = annotationId.toString();
+        this.validateAnnotationId(annotationId);
+
+        var imageAnnotation = new EpubAnnotations.ImageAnnotation({
+            CFI : CFI,
+            imageNode : imageNode,
+            id : annotationId
+        });
+        this.get("annotationHash")[annotationId] = imageAnnotation;
+        this.get("imageAnnotations").push(imageAnnotation);
+        imageAnnotation.render();
     },
 
     // REFACTORING CANDIDATE: Some kind of hash lookup would be more efficient here, might want to 
@@ -316,7 +524,8 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
     el : "<div class='highlight'></div>",
 
     events : {
-        "hover .highlight" : "setHoverOpacity"
+        "mouseenter" : "highlightEvent",
+        "mouseleave" : "highlightEvent"
     },
 
     initialize : function (options) {
@@ -326,7 +535,9 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
             top : options.top,
             left : options.left,
             height : options.height,
-            width : options.width
+            width : options.width,
+            highlightGroupCallback : options.highlightGroupCallback,
+            callbackContext : options.callbackContext
         });
     },
 
@@ -366,13 +577,172 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
         this.$el.toggleClass("liftedHighlight");
     },
 
-    setHoverOpacity : function () {
+    highlightEvent : function (event) {
+
+        event.stopPropagation();
+        var highlightGroupCallback = this.highlight.get("highlightGroupCallback");
+        var highlightGroupContext = this.highlight.get("callbackContext");
+        highlightGroupContext.highlightGroupCallback(event);
+    },
+
+    setMouseenterColor : function () {
 
         this.$el.css({
-            "opacity" : "0.1"
+            "opacity" : "0.4"
+        });
+    },
+
+    setMouseleaveColor : function () {
+
+        this.$el.css({
+            "opacity" : "0.2"
         });
     }
 });
+    EpubAnnotations.UnderlineView = Backbone.View.extend({
+
+    el : "<div class='underline'> \
+             <div class='transparent-part'></div> \
+             <div class='underline-part'></div> \
+          </div>",
+
+    events : {
+        "mouseenter" : "underlineEvent",
+        "mouseleave" : "underlineEvent"
+    },
+
+    initialize : function (options) {
+
+        this.underline = new EpubAnnotations.Underline({
+            CFI : options.CFI,
+            top : options.top,
+            left : options.left,
+            height : options.height,
+            width : options.width,
+            underlineGroupCallback : options.underlineGroupCallback,
+            callbackContext : options.callbackContext
+        });
+
+        this.$transparentElement = $(".transparent-part", this.$el);
+        this.$underlineElement = $(".underline-part", this.$el);
+    },
+
+    render : function () {
+
+        this.setCSS();
+        return this.el;
+    },
+
+    resetPosition : function (top, left, height, width) {
+
+        this.underline.set({
+            top : top,
+            left : left,
+            height : height,
+            width : width
+        });
+        this.setCSS();
+    },
+
+    setCSS : function () {
+
+        this.$el.css({ 
+            "top" : this.underline.get("top") + "px",
+            "left" : this.underline.get("left") + "px",
+            "height" : this.underline.get("height") + "px",
+            "width" : this.underline.get("width") + "px",
+            "position" : "absolute",
+        });
+
+        // Transparent part
+        this.$transparentElement.css({
+            "position" : "relative",
+            "background-color" : "transparent",
+            "height" : "85%"
+        });
+
+        // Underline part
+        this.$underlineElement.css({
+            "position" : "relative",
+            "height" : "15%",
+            "background-color" : "red",
+            "opacity" : "0.2"
+        });
+    },
+
+    underlineEvent : function (event) {
+
+        event.stopPropagation();
+        var underlineGroupCallback = this.underline.get("underlineGroupCallback");
+        var underlineGroupContext = this.underline.get("callbackContext");
+        underlineGroupContext.underlineGroupCallback(event);
+    },
+
+    setMouseenterColor : function () {
+
+        this.$underlineElement.css({
+            "opacity" : "0.4"
+        });
+    },
+
+    setMouseleaveColor : function () {
+
+        this.$underlineElement.css({
+            "opacity" : "0.2"
+        });
+    }
+}); 
+    // Rationale: An image annotation does NOT have a view, as we don't know the state of an image element within an EPUB; it's entirely
+//   possible that an EPUB image element could have a backbone view associated with it already, which would cause problems if we 
+//   tried to associate another backbone view. As such, this model modifies CSS properties for an annotated image element.
+//   
+//   An image annotation view that manages an absolutely position element (similar to bookmarks, underlines and highlights) can be
+//   added if more functionality is required. 
+
+EpubAnnotations.ImageAnnotation = Backbone.Model.extend({
+
+    initialize : function (attributes, options) {
+
+        // Set handlers here. Can use jquery handlers
+        var that = this;
+        var $imageElement = $(this.get("imageNode"));
+        $imageElement.on("mouseenter", function () {
+            that.setMouseenterBorder();
+        });
+        $imageElement.on("mouseleave", function () {
+            that.setMouseleaveBorder();
+        });
+    },
+
+    render : function () {
+
+        this.setCSS();
+    },
+
+    setCSS : function () {
+        
+        $(this.get("imageNode")).css({
+            "border" : "5px solid rgb(255, 0, 0)",
+            "border" : "5px solid rgba(255, 0, 0, 0.2)",
+            "-webkit-background-clip" : "padding-box",
+            "background-clip" : "padding-box"
+        });
+    },
+
+    setMouseenterBorder : function () {
+
+        $(this.get("imageNode")).css({
+            "border" : "5px solid rgba(255, 0, 0, 0.4)"
+        });
+    },
+
+    setMouseleaveBorder : function () {
+
+        $(this.get("imageNode")).css({
+            "border" : "5px solid rgba(255, 0, 0, 0.2)"
+        });
+    }
+}); 
 
     var annotations = new EpubAnnotations.Annotations({
         offsetTopAddition : offsetTopAddition, 
@@ -383,12 +753,44 @@ var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, read
     // Description: The public interface
     return {
 
-        addBookmark : function (CFI, targetElement, id, offsetTop, offsetLeft) { return annotations.addBookmark.call(annotations, CFI, targetElement, id, offsetTop, offsetLeft); },
-        getBookmark : function (id) { return annotations.getBookmark.call(annotations, id); },
-        getBookmarks : function () { return annotations.getBookmarks.call(annotations); }, 
-        addHighlight : function (CFI, highlightedTextNodes, id, offsetTop, offsetLeft) { return annotations.addHighlight.call(annotations, CFI, highlightedTextNodes, id, offsetTop, offsetLeft); },
-        getHighlight : function (id) { return annotations.getHighlight.call(annotations, id); },
-        getHighlights : function () { return annotations.getHighlights.call(annotations); },
-        redrawAnnotations : function (offsetTop, offsetLeft) { return annotations.redrawAnnotations.call(annotations, offsetTop, offsetLeft); }
+        addBookmark : function (CFI, targetElement, id, offsetTop, offsetLeft) { 
+            return annotations.addBookmark(CFI, targetElement, id, offsetTop, offsetLeft); 
+        },
+        getBookmark : function (id) { 
+            return annotations.getBookmark(id); 
+        },
+        getBookmarks : function () { 
+            return annotations.getBookmarks(); 
+        }, 
+        addHighlight : function (CFI, highlightedTextNodes, id, offsetTop, offsetLeft) { 
+            return annotations.addHighlight(CFI, highlightedTextNodes, id, offsetTop, offsetLeft); 
+        },
+        getHighlight : function (id) { 
+            return annotations.getHighlight(id); 
+        },
+        getHighlights : function () { 
+            return annotations.getHighlights(); 
+        },
+        addUnderline : function (CFI, underlinedTextNodes, id, offsetTop, offsetLeft) { 
+            return annotations.addUnderline(CFI, underlinedTextNodes, id, offsetTop, offsetLeft); 
+        },
+        getUnderline : function (id) { 
+            return annotations.getUnderline(id); 
+        },
+        getUnderlines : function () { 
+            return annotations.getUnderlines();
+        },
+        getImageAnnotation : function () {
+
+        },
+        getImageAnnotations : function () {
+
+        },
+        addImageAnnotation : function (CFI, imageNode, id) {
+            return annotations.addImageAnnotation(CFI, imageNode, id);
+        },
+        redrawAnnotations : function (offsetTop, offsetLeft) { 
+            return annotations.redrawAnnotations(offsetTop, offsetLeft); 
+        }
     };
 };

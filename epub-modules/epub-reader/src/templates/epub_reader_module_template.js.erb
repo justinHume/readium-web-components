@@ -58,17 +58,23 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
             epubReaderView.customize(customProperty, styleNameOrCSS);
             return this;
         },
-        addSelectionHighlight : function (id) { 
-            return epubReaderView.addSelectionHighlight(id); 
+        addSelectionHighlight : function (id, type) { 
+            return epubReaderView.addSelectionHighlight(id, type); 
         },
         addSelectionBookmark : function (id) { 
             return epubReaderView.addSelectionBookmark(id); 
         },
-        addHighlight : function (CFI, id, callback, callbackContext) { 
-            return epubReaderView.addHighlight(CFI, id, callback, callbackContext); 
+        addSelectionImageAnnotation : function (id) {
+            return epubReaderView.addSelectionImageAnnotation(id);
+        },
+        addHighlight : function (CFI, id, type, callback, callbackContext) { 
+            return epubReaderView.addHighlight(CFI, id, type, callback, callbackContext); 
         },
         addBookmark : function (CFI, id, callback, callbackContext) { 
             return epubReaderView.addBookmark(CFI, id, callback, callbackContext); 
+        },
+        addImageAnnotation : function (CFI, id, callback, callbackContext) { 
+            return epubReaderView.addImageAnnotation(CFI, id, callback, callbackContext); 
         }
     };
 };

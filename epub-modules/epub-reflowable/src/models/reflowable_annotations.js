@@ -15,7 +15,7 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
         this.annotations.redrawAnnotations(0, leftAddition);
     },
 
-    addHighlight : function (CFI, id) {
+    addHighlight : function (CFI, id, type) {
 
         var CFIRangeInfo;
         var range;
@@ -48,7 +48,13 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
 
             selectionInfo = this.getSelectionInfo(range);
             leftAddition = -this.getPaginationLeftOffset();
-            this.annotations.addHighlight(CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+
+            if (type === "highlight") {
+                this.annotations.addHighlight(CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+            }
+            else if (type === "underline") {
+                this.annotations.addUnderline(CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+            }
 
             return {
                 CFI : CFI, 
@@ -92,7 +98,34 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
         }
     },
 
-    addSelectionHighlight : function (id) {
+    addImageAnnotation : function (CFI, id) {
+
+        var selectedElements;
+        var bookmarkMarkerHtml = this.getBookmarkMarker(CFI, id);
+        var $targetImage;
+
+        try {
+            $targetImage = this.epubCFI.getTargetElement(
+                CFI,
+                this.get("contentDocumentDOM"),
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
+            );
+            this.annotations.addImageAnnotation(CFI, $targetImage[0], id);
+
+            return {
+
+                CFI : CFI, 
+                selectedElements : $targetImage[0]
+            };
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
+
+    addSelectionHighlight : function (id, type) {
 
         var highlightRange;
         var selectionInfo;
@@ -103,7 +136,14 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
             highlightRange = this.injectHighlightMarkers(currentSelection);
             selectionInfo = this.getSelectionInfo(highlightRange);
             leftAddition = -this.getPaginationLeftOffset();
-            this.annotations.addHighlight(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+
+            if (type === "highlight") {
+                this.annotations.addHighlight(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+            }
+            else if (type === "underline") {
+                this.annotations.addUnderline(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+            }
+            
             return selectionInfo;
         }
         else {
@@ -134,7 +174,35 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
         }
     },
 
-    getSelectionInfo : function (selectedRange) {
+    addSelectionImageAnnotation : function (id) {
+
+        var partialCFI;
+        var currentSelection = this.getCurrentSelectionRange();
+        var selectedImages;
+        var firstSelectedImage;
+        if (currentSelection) {
+
+            selectedImages = this.getSelectionInfo(currentSelection, ["img"]).selectedElements;
+            firstSelectedImage = selectedImages[0];
+            partialCFI = this.epubCFI.generateElementCFIComponent(
+                firstSelectedImage,
+                ["cfi-marker"],
+                [],
+                ["MathJax_Message"]
+            );
+            this.annotations.addImageAnnotation("", firstSelectedImage, id);
+
+            return {
+                CFI : partialCFI,
+                selectedElements : firstSelectedImage
+            };
+        }
+        else {
+            throw new Error("Nothing selected");
+        }
+    },
+
+    getSelectionInfo : function (selectedRange, elementType) {
 
         // Generate CFI for selected text
         var CFI = this.generateRangeCFI(selectedRange);
@@ -144,14 +212,18 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
         };
         var selectedElements = [];
 
+        if (!elementType) {
+            var elementType = ["text"];
+        }
+
         this.findSelectedElements(
             selectedRange.commonAncestorContainer, 
             selectedRange.startContainer, 
             selectedRange.endContainer,
             intervalState,
             selectedElements, 
-            "p"
-            );
+            elementType
+        );
 
         // Return a list of selected text nodes and the CFI
         return {
@@ -270,9 +342,19 @@ EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
     addElement : function (currElement, selectedElements, elementTypes) {
 
         // Check if the node is one of the types
-        if (currElement.nodeType === Node.TEXT_NODE) {
-            selectedElements.push(currElement);
-        }
+        _.each(elementTypes, function (elementType) {
+
+            if (elementType === "text") {
+                if (currElement.nodeType === Node.TEXT_NODE) {
+                    selectedElements.push(currElement);
+                }
+            }
+            else {
+                if ($(currElement).is(elementType)) {
+                    selectedElements.push(currElement);    
+                }
+            }
+        });
     },
 
     // REFACTORING CANDIDATE: The methods here inject bookmark/highlight markers for the current selection, after

@@ -22,11 +22,15 @@ def render_annotations_module_template(template_file_path, output_file_path, pat
 
     # Read each of the library components
     highlight = File.read(path_from_executing_dir + '/src/models/highlight.js')
+    underline = File.read(path_from_executing_dir + '/src/models/underline.js')
     bookmark = File.read(path_from_executing_dir + '/src/models/bookmark.js')
     bookmark_view = File.read(path_from_executing_dir + '/src/views/bookmark_view.js')
     highlight_view = File.read(path_from_executing_dir + '/src/views/highlight_view.js')
-    highlighter = File.read(path_from_executing_dir + '/src/models/highlighter.js')
+    highlight_group = File.read(path_from_executing_dir + '/src/models/highlight_group.js')
+    underline_view = File.read(path_from_executing_dir + '/src/views/underline_view.js')
+    underline_group = File.read(path_from_executing_dir + '/src/models/underline_group.js')
     annotations = File.read(path_from_executing_dir + '/src/models/annotations.js')
+    image_annotation = File.read(path_from_executing_dir + '/src/models/image_annotation.js')
 
     template = File.read(template_file_path)
     erb = ERB.new(template)
@@ -90,7 +94,8 @@ task :copy_dependencies do
         "epub_cfi.js",
         "epub_reflowable_module.js",
         "epub_reader_module.js",
-        "epub_reading_system.js"
+        "epub_reading_system.js",
+        "annotations_module.js"
     ]
 
     # Get all the lib dependencies

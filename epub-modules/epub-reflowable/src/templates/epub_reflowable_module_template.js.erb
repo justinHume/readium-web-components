@@ -79,17 +79,23 @@ var EpubReflowableModule = function(spineObject, viewerSettingsObject, CFIAnnota
             reflowableView.customizeStyles(customElement, styleNameOrCSSObject);
             return this;
         },
-        addSelectionHighlight : function (id) { 
-            return reflowableView.annotations.addSelectionHighlight(id); 
+        addSelectionHighlight : function (id, type) { 
+            return reflowableView.annotations.addSelectionHighlight(id, type); 
         },
         addSelectionBookmark : function (id) { 
             return reflowableView.annotations.addSelectionBookmark(id); 
         },
-        addHighlight : function (CFI, id) { 
-            return reflowableView.annotations.addHighlight(CFI, id); 
+        addSelectionImageAnnotation : function (id) {
+            return reflowableView.annotations.addSelectionImageAnnotation(id);
+        },
+        addHighlight : function (CFI, id, type) { 
+            return reflowableView.annotations.addHighlight(CFI, id, type); 
         },
         addBookmark : function (CFI, id) { 
             return reflowableView.annotations.addBookmark(CFI, id); 
+        },
+        addImageAnnotation : function (CFI, id) { 
+            return reflowableView.annotations.addImageAnnotation(CFI, id); 
         }
     };
 };

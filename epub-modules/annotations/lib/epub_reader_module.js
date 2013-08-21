@@ -759,7 +759,7 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         }, this);        
     },
 
-    addSelectionHighlight : function (id) {
+    addSelectionHighlight : function (id, type) {
 
         var contentDocCFIComponent;
         var packageDocCFIComponent;
@@ -767,7 +767,7 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         var spineIndex;
         var currentViewInfo = this.reader.getCurrentPagesViewInfo();
         spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
-        annotationInfo = currentViewInfo.pagesView.addSelectionHighlight(id);
+        annotationInfo = currentViewInfo.pagesView.addSelectionHighlight(id, type);
 
         // Generate a package document cfi component and construct the whole cfi, append
         contentDocCFIComponent = annotationInfo.CFI;
@@ -797,14 +797,33 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         return annotationInfo;
     },
 
-    addHighlight : function (CFI, id, callback, callbackContext) {
+    addSelectionImageAnnotation : function (id) {
+
+        var contentDocCFIComponent;
+        var packageDocCFIComponent;
+        var completeCFI;
+        var spineIndex;
+        var currentViewInfo = this.reader.getCurrentPagesViewInfo();
+        spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
+        annotationInfo = currentViewInfo.pagesView.addSelectionImageAnnotation(id);
+
+        // Generate a package document cfi component and construct the whole cfi, append
+        contentDocCFIComponent = annotationInfo.CFI;
+        packageDocCFIComponent = this.cfi.generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, this.packageDocumentDOM);
+        completeCFI = this.cfi.generateCompleteCFI(packageDocCFIComponent, contentDocCFIComponent);
+        annotationInfo.CFI = completeCFI;
+
+        return annotationInfo;
+    },
+
+    addHighlight : function (CFI, id, type, callback, callbackContext) {
 
         var annotationInfo;
         var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
         this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
 
             try {
-                annotationInfo = pagesView.addHighlight(CFI, id);
+                annotationInfo = pagesView.addHighlight(CFI, id, type);
                 callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
             }
             catch (error) {
@@ -827,7 +846,23 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
                 callback.call(callbackContext, error, undefined, undefined);
             }
         });
-    }
+    },
+
+    addImageAnnotation : function (CFI, id, callback, callbackContext) {
+
+        var annotationInfo;
+        var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
+        this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
+
+            try {
+                annotationInfo = pagesView.addImageAnnotation(CFI, id);
+                callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
+            }
+            catch (error) {
+                callback.call(callbackContext, error, undefined, undefined);
+            }
+        });
+    },    
 });
 
 
@@ -882,17 +917,23 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
             epubReaderView.customize(customProperty, styleNameOrCSS);
             return this;
         },
-        addSelectionHighlight : function (id) { 
-            return epubReaderView.addSelectionHighlight(id); 
+        addSelectionHighlight : function (id, type) { 
+            return epubReaderView.addSelectionHighlight(id, type); 
         },
         addSelectionBookmark : function (id) { 
             return epubReaderView.addSelectionBookmark(id); 
         },
-        addHighlight : function (CFI, id, callback, callbackContext) { 
-            return epubReaderView.addHighlight(CFI, id, callback, callbackContext); 
+        addSelectionImageAnnotation : function (id) {
+            return epubReaderView.addSelectionImageAnnotation(id);
+        },
+        addHighlight : function (CFI, id, type, callback, callbackContext) { 
+            return epubReaderView.addHighlight(CFI, id, type, callback, callbackContext); 
         },
         addBookmark : function (CFI, id, callback, callbackContext) { 
             return epubReaderView.addBookmark(CFI, id, callback, callbackContext); 
+        },
+        addImageAnnotation : function (CFI, id, callback, callbackContext) { 
+            return epubReaderView.addImageAnnotation(CFI, id, callback, callbackContext); 
         }
     };
 };

@@ -19,45 +19,31 @@
             $(document).ready(function () {
 
                 var that = this;
-                this.view = initializationTest();
+                epubViewer = initializationTest();
 
-                this.view.on("epubLoaded", function () { 
+                epubViewer.on("epubLoaded", function () { 
 
-                    this.view.showSpineItem(2, function () { console.log("showed first page"); } );
-
-                    // Show annotations
-                    var visibleIframe = $($(".flowing-wrapper")[2]).children()[0];
-                    var iframeOffsetTop = $(visibleIframe).offset().top;
-                    var iframeOffsetLeft = $(visibleIframe).offset().left;
-                    this.annotations = new EpubAnnotationsModule(
-                        iframeOffsetTop, 
-                        iframeOffsetLeft,
-                        $("#reader")[0]
-                    );
-
-                    // Get target element
-                    var epubContentDocument = visibleIframe.contentDocument;
-                    var $targetElement = $($("#building_a_better_epub", epubContentDocument).children()[2]);
+                    epubViewer.showSpineItem(2, function () { console.log("showed first page"); } );
 
                     $("#highlight").on("click", function () {
 
-                        var highlightChildren = $("#building_a_better_epub").children();
-                        var selectedElements = []; 
-                        $.each(highlightChildren, function (child) {
-                            selectedElements.push(child[0]);
-                        });
-                        that.annotations.addHighlight("epubcfi(/2/2/2)", selectedElements, "10");
+                        epubViewer.addSelectionHighlight("1", "highlight");
                     });
 
                     $("#bookmark").on("click", function () {
 
-                        that.view.addSelectionBookmark("10");
+                        epubViewer.addSelectionBookmark("10");
+                    });
+
+                    $("#annotate-image").on("click", function () {
+
+                        epubViewer.addSelectionImageAnnotation("15");
                     });
 
                     $("#add-bookmark").on("click", function () {
 
                         var cfi = "epubcfi(/6/24!/4/2/4/1:10)";
-                        var annotationInfo = that.view.addBookmark(cfi, "10", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
+                        var annotationInfo = epubViewer.addBookmark(cfi, "10", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
                             console.log("highlight 11 added");
                         }, this);
                     });
@@ -65,14 +51,28 @@
                     $("#add-highlight").on("click", function () {
 
                         var cfi = "epubcfi(/6/24!/4/2,/4/1:10,/6/1:20)";
-                        var annotationInfo = that.view.addHighlight(cfi, "11", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
+                        var annotationInfo = epubViewer.addHighlight(cfi, "11", "highlight", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
                             console.log("highlight 11 added");
                         }, this);
                     });
 
+                    $("#add-underline").on("click", function () {
+
+                        var cfi = "epubcfi(/6/24!/4/2,/4/1:10,/4/1:20)";
+                        var annotationInfo = epubViewer.addHighlight(cfi, "12", "underline", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
+                            console.log("underline 12 added");
+                        }, this);
+                    });
+                    $("#add-image-annotation").on("click", function () {
+
+                        var cfi = "epubcfi(/6/24!/4/2[building_a_better_epub]/6)";
+                        var annotationInfo = epubViewer.addImageAnnotation(cfi, "118", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
+                            console.log("underline 12 added");
+                        }, this);
+                    });
                 }, this);
 
-                this.view.render();
+                epubViewer.render();
             });
 
         </script>
@@ -80,8 +80,11 @@
     <body>
         <button id="highlight">highlight</button>
         <button id="bookmark">bookmark</button>
+        <button id="annotate-image">image hotspot</button>
         <button id="add-bookmark">add bookmark</button>
         <button id="add-highlight">add highlight</button>
+        <button id="add-underline">add underline</button>
+        <button id="add-image-annotation">add img annotation</button>
         <div id="reader" style="height:600px; width:100%">
         </div>
     </body>

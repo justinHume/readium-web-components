@@ -291,7 +291,7 @@ EpubReader.EpubReaderView = Backbone.View.extend({
         }, this);        
     },
 
-    addSelectionHighlight : function (id) {
+    addSelectionHighlight : function (id, type) {
 
         var contentDocCFIComponent;
         var packageDocCFIComponent;
@@ -299,7 +299,7 @@ EpubReader.EpubReaderView = Backbone.View.extend({
         var spineIndex;
         var currentViewInfo = this.reader.getCurrentPagesViewInfo();
         spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
-        annotationInfo = currentViewInfo.pagesView.addSelectionHighlight(id);
+        annotationInfo = currentViewInfo.pagesView.addSelectionHighlight(id, type);
 
         // Generate a package document cfi component and construct the whole cfi, append
         contentDocCFIComponent = annotationInfo.CFI;
@@ -329,14 +329,33 @@ EpubReader.EpubReaderView = Backbone.View.extend({
         return annotationInfo;
     },
 
-    addHighlight : function (CFI, id, callback, callbackContext) {
+    addSelectionImageAnnotation : function (id) {
+
+        var contentDocCFIComponent;
+        var packageDocCFIComponent;
+        var completeCFI;
+        var spineIndex;
+        var currentViewInfo = this.reader.getCurrentPagesViewInfo();
+        spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
+        annotationInfo = currentViewInfo.pagesView.addSelectionImageAnnotation(id);
+
+        // Generate a package document cfi component and construct the whole cfi, append
+        contentDocCFIComponent = annotationInfo.CFI;
+        packageDocCFIComponent = this.cfi.generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, this.packageDocumentDOM);
+        completeCFI = this.cfi.generateCompleteCFI(packageDocCFIComponent, contentDocCFIComponent);
+        annotationInfo.CFI = completeCFI;
+
+        return annotationInfo;
+    },
+
+    addHighlight : function (CFI, id, type, callback, callbackContext) {
 
         var annotationInfo;
         var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
         this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
 
             try {
-                annotationInfo = pagesView.addHighlight(CFI, id);
+                annotationInfo = pagesView.addHighlight(CFI, id, type);
                 callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
             }
             catch (error) {
@@ -359,5 +378,21 @@ EpubReader.EpubReaderView = Backbone.View.extend({
                 callback.call(callbackContext, error, undefined, undefined);
             }
         });
-    }
+    },
+
+    addImageAnnotation : function (CFI, id, callback, callbackContext) {
+
+        var annotationInfo;
+        var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
+        this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
+
+            try {
+                annotationInfo = pagesView.addImageAnnotation(CFI, id);
+                callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
+            }
+            catch (error) {
+                callback.call(callbackContext, error, undefined, undefined);
+            }
+        });
+    },    
 });

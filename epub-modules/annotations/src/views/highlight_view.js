@@ -3,7 +3,8 @@ EpubAnnotations.HighlightView = Backbone.View.extend({
     el : "<div class='highlight'></div>",
 
     events : {
-        "hover .highlight" : "setHoverOpacity"
+        "mouseenter" : "highlightEvent",
+        "mouseleave" : "highlightEvent"
     },
 
     initialize : function (options) {
@@ -13,7 +14,9 @@ EpubAnnotations.HighlightView = Backbone.View.extend({
             top : options.top,
             left : options.left,
             height : options.height,
-            width : options.width
+            width : options.width,
+            highlightGroupCallback : options.highlightGroupCallback,
+            callbackContext : options.callbackContext
         });
     },
 
@@ -53,10 +56,25 @@ EpubAnnotations.HighlightView = Backbone.View.extend({
         this.$el.toggleClass("liftedHighlight");
     },
 
-    setHoverOpacity : function () {
+    highlightEvent : function (event) {
+
+        event.stopPropagation();
+        var highlightGroupCallback = this.highlight.get("highlightGroupCallback");
+        var highlightGroupContext = this.highlight.get("callbackContext");
+        highlightGroupContext.highlightGroupCallback(event);
+    },
+
+    setMouseenterColor : function () {
 
         this.$el.css({
-            "opacity" : "0.1"
+            "opacity" : "0.4"
+        });
+    },
+
+    setMouseleaveColor : function () {
+
+        this.$el.css({
+            "opacity" : "0.2"
         });
     }
 });

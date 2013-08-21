@@ -1,4 +1,4 @@
-describe("EpubAnnotations.Highlighter", function () {
+describe("EpubAnnotations.HighlightGroup", function () {
 
     beforeEach(function () {
 
@@ -25,7 +25,7 @@ describe("EpubAnnotations.Highlighter", function () {
             });
         });
 
-        this.highlighter = new EpubAnnotations.Highlighter({
+        this.highlightGroup = new EpubAnnotations.HighlightGroup({
             CFI : CFI,
             selectedNodes : selectedNodes,
             offsetTopAddition : $("body").offset().top,
@@ -37,12 +37,12 @@ describe("EpubAnnotations.Highlighter", function () {
 
         it("can be initalized", function () {
 
-            expect(this.highlighter).toBeDefined();
+            expect(this.highlightGroup).toBeDefined();
         });
 
         it("sets a reference to selected nodes", function () {
 
-            expect(this.highlighter.get("selectedNodes").length).toBe(3);
+            expect(this.highlightGroup.get("selectedNodes").length).toBe(3);
         });
     });
 
@@ -50,13 +50,13 @@ describe("EpubAnnotations.Highlighter", function () {
 
         it("adds a highlight for every rect", function () {
 
-            this.highlighter.constructHighlightViews();
+            this.highlightGroup.constructHighlightViews();
         });
 
         it("can render highlights", function () {
 
-            this.highlighter.constructHighlightViews();
-            this.highlighter.renderHighlights($("body"));
+            this.highlightGroup.constructHighlightViews();
+            this.highlightGroup.renderHighlights($("body"));
         });
     });
 });

@@ -1,4 +1,4 @@
-EpubAnnotations.Highlighter = Backbone.Model.extend({
+EpubAnnotations.HighlightGroup = Backbone.Model.extend({
 
     defaults : function () {
         return {
@@ -13,6 +13,20 @@ EpubAnnotations.Highlighter = Backbone.Model.extend({
     },
 
     // --------------- PRIVATE HELPERS ---------------------------------------
+
+    highlightGroupCallback : function (event) {
+
+        // Trigger this event on each of the highlight views (except triggering event)
+        _.each(this.get("highlightViews"), function (highlightView) {
+
+            if (event.type === "mouseenter") {
+                highlightView.setMouseenterColor();    
+            }
+            else if (event.type === "mouseleave") {
+                highlightView.setMouseleaveColor();
+            }
+        });
+    },
 
     constructHighlightViews : function () {
 
@@ -35,7 +49,9 @@ EpubAnnotations.Highlighter = Backbone.Model.extend({
                     top : highlightTop + that.get("offsetTopAddition"),
                     left : highlightLeft + that.get("offsetLeftAddition"),
                     height : highlightHeight,
-                    width : highlightWidth
+                    width : highlightWidth,
+                    highlightGroupCallback : that.highlightGroupCallback,
+                    callbackContext : that
                 });
 
                 that.get("highlightViews").push(highlightView);
@@ -65,6 +81,7 @@ EpubAnnotations.Highlighter = Backbone.Model.extend({
             highlightView.off();
         });
 
+        // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
         this.set({ "highlightViews" : [] });
     },
 
