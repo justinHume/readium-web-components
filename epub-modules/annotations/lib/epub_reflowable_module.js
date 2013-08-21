@@ -308,7 +308,10 @@ EpubReflowable.AlternateStyleTagSelector = Backbone.Model.extend({
 		return styleSet;
 	}
 });
-    EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
+    // REFACTORING CANDIDATE: Change the implementation of the Annotations Module to use relative positioning, rather than absolute. That
+//   will allow all the offsets to be removed.
+
+EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
 
     initialize : function (attributes, options) {
         

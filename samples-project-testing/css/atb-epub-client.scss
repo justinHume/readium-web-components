@@ -1,0 +1,283 @@
+@import "bourbon/_bourbon.scss";
+
+@mixin set-tool-bg-positions($xpos) {
+
+    background-size: 2400px 163px;
+    background-image: url('../images/all_icons.png');
+    background-repeat: no-repeat;
+
+    $ypos_normal: 7px;
+    $ypos_hover: -50px;
+    $ypos_selected: -114px;
+
+    //normal state
+    background-position: $xpos $ypos_normal;
+    
+    //hover state
+    &:hover {
+        cursor:pointer;
+        background-position: $xpos $ypos_hover;
+    }
+
+    //selected state
+    &.active {
+        cursor:pointer;
+        background-position: $xpos $ypos_selected !important;
+    }
+}
+
+body {
+	background-color: #333;
+}
+
+.pageControlBtn {
+	position: absolute;
+	height: 116px;
+	width: 58px;
+	z-index: 2;
+	padding: 0px;
+	top: 50%;
+	padding-top: 13px;
+	margin-top: -64.5px;
+	border: 0px;
+	opacity: .3;
+	background: rgba(0, 0, 0, 0);
+	background-repeat: no-repeat;
+
+	&:hover {
+		cursor: pointer;
+		opacity: 0.75;
+	}
+}
+
+#prevPageBtn {
+    background-image: url('../images/page-previous-button.png');
+    left: 71px;
+}
+
+#nextPageBtn {
+	background-image: url('../images/page-next-button.png');
+    right: 0px;
+}
+
+.tool {
+	/*background-color: white;*/
+	width: 50px;
+	height: 50px;
+	margin: 1px 0;
+}
+
+#sideBar {
+	width: 50px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	padding: 0 10px;
+	background-color: #585B56;
+	border-right: 1px solid #363636;
+
+	.sideBarDivider {
+		width: 50px;
+		height: 1px;
+		background-color: #888;
+		border-top: 1px solid #363636;
+		margin: 5px 0px;
+		padding: 0px;
+	}
+
+	/* --- SIDE BAR TOOLS --- */
+	#selectionTool {
+		@include set-tool-bg-positions(-42px);
+	}
+
+	#panningTool {
+		@include set-tool-bg-positions(-1583px);
+	}
+
+	#penTool {
+		@include set-tool-bg-positions(-416px);
+	}
+
+	#eraserTool {
+		@include set-tool-bg-positions(-599px);
+	}
+
+	#bookmarkTool {
+		@include set-tool-bg-positions(-138px);
+	}
+
+	#commentTool {
+		@include set-tool-bg-positions(-1222px);
+	}
+
+	#hotspotTool {
+		@include set-tool-bg-positions(-1136px);
+	}
+
+	#hotspotToolAuthoring {
+		@include set-tool-bg-positions(-1320px);
+	}
+
+	#quizTool {
+		@include set-tool-bg-positions(-1053px);
+	}
+
+	#quizToolAuthoring {
+		@include set-tool-bg-positions(-1493px);
+	}
+
+	#tocToggle {
+		@include set-tool-bg-positions(-321px);
+	}
+
+	#searchToggle {
+		@include set-tool-bg-positions(-966px);
+	}	
+
+	#undoButton{
+		@include set-tool-bg-positions(-2280px)
+	}
+
+	#redoButton {
+		@include set-tool-bg-positions(-2194px)
+	}
+
+	#exitToggle {
+		@include set-tool-bg-positions(-503px);
+
+		position:absolute;
+		bottom: 0px;
+	}
+}
+
+/* --- BOTTOM BAR --- */
+
+#bottomBar {
+	bottom: 0px;
+	position: absolute;
+	z-index: 2;
+	left: 70px;
+	right: 0px;
+	height: 45px;
+	line-height: 18px;
+	background-color: #4B4B4B;
+	@include linear-gradient(bottom, #333 30%, #4B4A4A 70%, #4B4A4A 50%);
+
+	.bottomTool {
+		float: left;
+		width: 42px;
+		height: 40px;
+		margin-top: -1px; // because sprite sheet needs improvement...
+	}
+
+	.bottomDivider {
+		width: 1px;
+		height: 33px;
+		float: left;
+		margin: 7px 10px 0 0;
+		background-color: #666;
+		border-left: 2px solid #2E2E2E;
+	}
+
+	#bottomLeftDiv {
+		width: 155px;
+		height: 100%;
+		float: left;
+		padding: 0 0 0 10px;
+
+       	#fitToWidth {
+  			@include set-tool-bg-positions(-787px);
+		}
+
+		#fitToHeight {
+			@include set-tool-bg-positions(-880px);
+		}
+
+		#helpButton {
+			@include set-tool-bg-positions(-1675px);
+		}
+	}
+
+	#bottomRightDiv {
+		width: 295px;
+		height: 100%;
+		float: right;
+
+		#pageUndoButton {
+			@include set-tool-bg-positions(-2113px);
+		}
+
+		#slider_pageinfo_div {
+			width: 80px;
+			height: 30px;
+			float: left;
+			margin: 7px 5px 0px 0px;
+
+			text-align: center;
+			line-height: 30px;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 10pt;
+
+			border: 1px solid #A3A0A0;
+			color: #ECECEC;
+			background-color: #414141;
+		}
+
+		#pageRedoButton {
+			@include set-tool-bg-positions(-2020px);
+		}
+
+		#settingsButton {
+			@include set-tool-bg-positions(-1765px);
+		}
+
+		#settingsButton {
+			@include set-tool-bg-positions(-1765px);
+		}
+
+		#readingModeDiv {
+			@include set-tool-bg-positions(-1852px);
+		}
+	}
+
+	#bottomMiddleDiv {
+		margin: 0 295px 0 155px;
+		padding: 13px 15px 0 15px;
+
+		#pageSlider {
+
+			border-radius: 1em /*{global-radii-buttons}*/;
+
+			background-clip: padding-box;
+
+			border: 2px solid #C0C0C0 /*{a-bdown-border}*/;
+			background: #CECECE /*{a-bdown-background-color}*/;
+			font-weight: bold;
+			color: #2F3E46 /*{a-bdown-color}*/;
+			text-shadow: 0 /*{a-bdown-shadow-x}*/ 1px /*{a-bdown-shadow-y}*/ 0 /*{a-bdown-shadow-radius}*/ #FFF /*{a-bdown-shadow-color}*/;
+		
+			@include linear-gradient( #AFADAD /*{a-bdown-background-start}*/, #F3F2F2 /*{a-bdown-background-end}*/);
+			height: 18px;
+
+			.ui-slider-handle {
+				background: url("../images/round_slider.png");
+				border-style: none;
+				background-size: 30px;
+				background-repeat: no-repeat;
+				background-position: 0px 2px;
+				width: 30px;
+				height: 25px;
+				cursor: pointer;
+				cursor: -webkit-grab;
+				cursor: -moz-grab;
+			}
+
+			.ui-state-active {
+				cursor: -webkit-grabbing;
+				cursor: -webkit-grabbing;
+			}
+		}
+	}
+}
