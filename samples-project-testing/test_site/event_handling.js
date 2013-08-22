@@ -1,73 +1,39 @@
-// RJSDemoApp.applyToolbarHandlers = function () {
+RJSDemoApp.applyToolbarHandlers = function () {
 
-// 	// Decrease font size
-// 	(function() {
-// 		var $decreaseFont = $("#decrease-font-btn");
+    // Prev
+    // Remove any existing click handlers
+    $("#prevPageBtn").off("click");
+    $("#prevPageBtn").on("click", function () {
 
-// 		$decreaseFont.off("click");
-// 		$decreaseFont.on("click", function() {
-// 			var settings = RJSDemoApp.epubViewer.getViewerSettings()
-// 			RJSDemoApp.epubViewer.setFontSize(settings.fontSize - 2);
-// 		});
-// 	})();
+        if (RJSDemoApp.epub.pageProgressionDirection() === "rtl") {
+            RJSDemoApp.epubViewer.nextPage(function () {
+                console.log("the page turned");
+            });
+        }
+        else {
+            RJSDemoApp.epubViewer.previousPage(function () {
+                console.log("the page turned");
+            });
+        }
+    });
 
-// 	// Increase font size
-// 	(function() {
-// 		var $increaseFont = $("#increase-font-btn");
+    // Next
+    // Remove any existing click handlers
+    $("#nextPageBtn").off("click");
+    $("#nextPageBtn").on("click", function () {
 
-// 		$increaseFont.off("click");
-// 		$increaseFont.on("click", function() {
-// 			var settings = RJSDemoApp.epubViewer.getViewerSettings()
-// 			RJSDemoApp.epubViewer.setFontSize(settings.fontSize + 2);
-// 		});
-// 	})();
-
-//     // Prev
-//     // Remove any existing click handlers
-//     $("#previous-page-btn").off("click");
-//     $("#previous-page-btn").on("click", function () {
-
-//         if (RJSDemoApp.epub.pageProgressionDirection() === "rtl") {
-//             RJSDemoApp.epubViewer.nextPage(function () {
-//                 console.log("the page turned");
-//             });
-//         }
-//         else {
-//             RJSDemoApp.epubViewer.previousPage(function () {
-//                 console.log("the page turned");
-//             });
-//         }
-//     });
-
-//     // Next
-//     // Remove any existing click handlers
-//     $("#next-page-btn").off("click");
-//     $("#next-page-btn").on("click", function () {
-
-//         if (RJSDemoApp.epub.pageProgressionDirection() === "rtl") {
-//             RJSDemoApp.epubViewer.previousPage(function () {
-//                 console.log("the page turned");
-//             });
-//         }
-//         else {
-//             RJSDemoApp.epubViewer.nextPage(function () {
-//                 console.log("the page turned");
-//             });
-//         }
-//     });
-
-//     // Layout
-//     $("#toggle-synthetic-btn").off("click");
-//     $("#toggle-synthetic-btn").on("click", function () {
-//         RJSDemoApp.toggleLayout();
-//     });
-
-//     // Layout
-//     $("#toggle-ast-btn").off("click");
-//     $("#toggle-ast-btn").on("click", function () {
-//         RJSDemoApp.toggleAST();
-//     });
-// };
+        if (RJSDemoApp.epub.pageProgressionDirection() === "rtl") {
+            RJSDemoApp.epubViewer.previousPage(function () {
+                console.log("the page turned");
+            });
+        }
+        else {
+            RJSDemoApp.epubViewer.nextPage(function () {
+                console.log("the page turned");
+            });
+        }
+    });
+};
 
 // RJSDemoApp.applyViewerHandlers = function (epubViewer, tocDocument) {
 

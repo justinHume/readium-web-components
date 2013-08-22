@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" xml:lang="en" unique-identifier="pub-id" prefix="rendition: http://www.idpf.org/vocab/rendition/#">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:title id="title">Unit 1. Operations on Numbers.</dc:title>
+    <dc:creator id="creator">Infogrid Pacific</dc:creator>
+    <dc:language>en</dc:language>
+    <dc:identifier id="pub-id">igp-year5-school-maths</dc:identifier>
+    <dc:source>igp-year5-school-maths</dc:source>
+    <meta property="dcterms:modified">2013-08-20T08:06:05Z</meta>
+    <dc:date>2013</dc:date>
+    <dc:publisher>Infogrid Pacific Pte. Ltd.</dc:publisher>
+    <dc:contributor id="contrib1">Creative Commons, Attribution-No Derivative Works 3.0 License</dc:contributor>
+    <dc:rights>2013 Infogrid Pacific Pte. Ltd. All rights reserved.</dc:rights>
+    <dc:description>Interactive Arithmetic demostration Book. 
+* Whole Number Addition
+* Whole Number Subtraction
+* Whole Number Multiplication
+* Whole Number Division 
+* Interactive and printable exercises
+* Interactive Practice Section
+* Interactive Test Section</dc:description>
+    <dc:subject>Maths, Arithmetic</dc:subject>
+    <dc:type>Concept Year 5 Maths</dc:type>
+	<meta property="rendition:layout">reflowable</meta>
+	<meta property="rendition:orientation">auto</meta>
+	<meta property="rendition:spread">auto</meta>
+</metadata>
+<manifest>
+    <item id="toc" properties="nav" href="TOC.xhtml" media-type="application/xhtml+xml" />
+    <item id="cover" properties="scripted" href="cover.xhtml" media-type="application/xhtml+xml" />
+    <item id="cover-image" properties="cover-image" href="images/igp-year5-school-maths_cover_epub.jpg" media-type="image/jpeg" />
+    <item id="s001" properties="scripted" href="s001-BookTitlePage-01.xhtml" media-type="application/xhtml+xml" />
+    <item id="s002" properties="scripted" href="s002-Copyright-01.xhtml" media-type="application/xhtml+xml" />
+    <item id="s003" properties="scripted" href="s003-Other-01.xhtml" media-type="application/xhtml+xml" />
+    <item id="s004" properties="scripted" href="s004-Introduction-01.xhtml" media-type="application/xhtml+xml" />
+    <item id="s005" properties="scripted" href="s005-Unit-001.xhtml" media-type="application/xhtml+xml" />
+    <item id="s006" properties="scripted" href="s006-Lesson-001.xhtml" media-type="application/xhtml+xml" />
+    <item id="s007" properties="scripted" href="s007-Section-001.xhtml" media-type="application/xhtml+xml" />
+    <item id="s008" properties="scripted" href="s008-Section-002.xhtml" media-type="application/xhtml+xml" />
+    <item id="s009" properties="scripted" href="s009-Exercise-001.xhtml" media-type="application/xhtml+xml" />
+    <item id="s010" properties="scripted" href="s010-Exercise-002.xhtml" media-type="application/xhtml+xml" />
+    <item id="s011" properties="scripted" href="s011-Exercise-003.xhtml" media-type="application/xhtml+xml" />
+    <item id="s012" properties="scripted" href="s012-Lesson-002.xhtml" media-type="application/xhtml+xml" />
+    <item id="s013" properties="scripted" href="s013-Section-003.xhtml" media-type="application/xhtml+xml" />
+    <item id="s014" properties="scripted" href="s014-Section-004.xhtml" media-type="application/xhtml+xml" />
+    <item id="s015" properties="scripted" href="s015-Exercise-004.xhtml" media-type="application/xhtml+xml" />
+    <item id="s016" properties="scripted" href="s016-Exercise-005.xhtml" media-type="application/xhtml+xml" />
+    <item id="s017" properties="scripted" href="s017-Lesson-003.xhtml" media-type="application/xhtml+xml" />
+    <item id="s018" properties="scripted" href="s018-Section-005.xhtml" media-type="application/xhtml+xml" />
+    <item id="s019" properties="scripted" href="s019-Section-006.xhtml" media-type="application/xhtml+xml" />
+    <item id="s020" properties="scripted" href="s020-Exercise-006.xhtml" media-type="application/xhtml+xml" />
+    <item id="s021" properties="scripted" href="s021-Exercise-007.xhtml" media-type="application/xhtml+xml" />
+    <item id="s022" properties="scripted" href="s022-Lesson-004.xhtml" media-type="application/xhtml+xml" />
+    <item id="s023" properties="scripted" href="s023-Section-007.xhtml" media-type="application/xhtml+xml" />
+    <item id="s024" properties="scripted" href="s024-Section-008.xhtml" media-type="application/xhtml+xml" />
+    <item id="s025" properties="scripted" href="s025-Exercise-008.xhtml" media-type="application/xhtml+xml" />
+    <item id="s026" properties="scripted" href="s026-Exercise-009.xhtml" media-type="application/xhtml+xml" />
+    <item id="images-001"  href="images/borderline.svg" media-type="image/svg+xml" />
+    <item id="images-002"  href="images/division-sign-long-2.svg" media-type="image/svg+xml" />
+    <item id="images-003"  href="images/division-sign.svg" media-type="image/svg+xml" />
+    <item id="images-004"  href="images/icon-idea-c.png" media-type="image/png" />
+    <item id="images-005"  href="images/icon-intractive-tutorials-c.png" media-type="image/png" />
+    <item id="images-006"  href="images/icon-note-c.png" media-type="image/png" />
+    <item id="images-007"  href="images/igp_logo_600_online.png" media-type="image/png" />
+    <item id="js-001"  href="js/LAB.min.js" media-type="text/javascript" />
+    <item id="js-002"  href="js/LongArithmetic.min.js" media-type="text/javascript" />
+    <item id="js-003"  href="js/SimpleArithmetic.min.js" media-type="text/javascript" />
+    <item id="js-004"  href="js/aie_core.js" media-type="text/javascript" />
+    <item id="js-005"  href="js/aie_events.js" media-type="text/javascript" />
+    <item id="js-006"  href="js/aie_explore.js" media-type="text/javascript" />
+    <item id="js-007"  href="js/aie_gameutils.js" media-type="text/javascript" />
+    <item id="js-008"  href="js/aie_qaa.js" media-type="text/javascript" />
+    <item id="js-009"  href="js/aie_storyline.js" media-type="text/javascript" />
+    <item id="js-010"  href="js/aie_textsound.js" media-type="text/javascript" />
+    <item id="js-011"  href="js/igp_audio.js" media-type="text/javascript" />
+    <item id="js-012"  href="js/iscroll.js" media-type="text/javascript" />
+    <item id="js-013"  href="js/jquery-1.9.1.min.js" media-type="text/javascript" />
+    <item id="js-014"  href="js/jquery-migrate-1.2.1.min.js" media-type="text/javascript" />
+    <item id="js-015"  href="js/jquery-ui.min.js" media-type="text/javascript" />
+    <item id="js-016"  href="js/jquery.slides.min.js" media-type="text/javascript" />
+    <item id="js-017"  href="js/panelnav.js" media-type="text/javascript" />
+    <item id="js-018"  href="js/popup.js" media-type="text/javascript" />
+    <item id="js-019"  href="js/pubsub.js" media-type="text/javascript" />
+    <item id="css-001"  href="css/igp-year5-school-maths.css" media-type="text/css" />
+    <item id="fonts-001"  href="fonts/URWClassico-Bol.woff" media-type="application/font-woff" />
+    <item id="fonts-002"  href="fonts/URWClassico-BolIta.woff" media-type="application/font-woff" />
+    <item id="fonts-003"  href="fonts/URWClassico-Ita.woff" media-type="application/font-woff" />
+    <item id="fonts-004"  href="fonts/URWClassico-Reg.woff" media-type="application/font-woff" />
+    <item id="fonts-005"  href="fonts/URWGothicL-Book.woff" media-type="application/font-woff" />
+    <item id="fonts-006"  href="fonts/URWGothicL-BookObli.woff" media-type="application/font-woff" />
+    <item id="fonts-007"  href="fonts/URWGothicL-Demi.woff" media-type="application/font-woff" />
+</manifest>
+<spine page-progression-direction="ltr">
+    <itemref idref="s001" linear="yes" />
+    <itemref idref="s002" linear="yes" />
+    <itemref idref="s003" linear="yes" properties="rendition:layout-scrolling"/>
+    <itemref idref="s004" linear="yes" />
+    <itemref idref="s005" linear="yes" />
+    <itemref idref="s006" linear="yes" />
+    <itemref idref="s007" linear="yes" properties="rendition:layout-pre-paginated rendition:orientation-landscape rendition:spread-none"/>
+    <itemref idref="s008" linear="yes" properties="rendition:layout-pre-paginated rendition:orientation-landscape rendition:spread-none"/>
+    <itemref idref="s009" linear="no" properties="rendition:layout-scrolling"/>
+    <itemref idref="s010" linear="no" properties="rendition:layout-scrolling"/>
+    <itemref idref="s011" linear="no" properties="rendition:layout-scrolling"/>
+    <itemref idref="s012" linear="yes" />
+    <itemref idref="s013" linear="yes" properties="rendition:layout-pre-paginated rendition:orientation-landscape rendition:spread-none"/>
+    <itemref idref="s014" linear="yes" properties="rendition:layout-pre-paginated rendition:orientation-landscape rendition:spread-none"/>
+    <itemref idref="s015" linear="no" properties="rendition:layout-scrolling"/>
+    <itemref idref="s016" linear="no" properties="rendition:layout-scrolling"/>
+    <itemref idref="s017" linear="yes" />
+    <itemref idref="s018" linear="yes" properties="rendition:layout-pre-paginated rendition:orientation-landscape rendition:spread-none"/>
+    <itemref idref="s019" linear="yes" properties="rendition:layout-pre-paginated rendition:orientation-landscape rendition:spread-none"/>
+    <itemref idref="s020" linear="no" properties="rendition:layout-scrolling"/>
+    <itemref idref="s021" linear="no" properties="rendition:layout-scrolling"/>
+    <itemref idref="s022" linear="yes" />
+    <itemref idref="s023" linear="yes" properties="rendition:layout-pre-paginated rendition:orientation-landscape rendition:spread-none"/>
+    <itemref idref="s024" linear="yes" properties="rendition:layout-pre-paginated rendition:orientation-landscape rendition:spread-none"/>
+    <itemref idref="s025" linear="no" properties="rendition:layout-scrolling"/>
+    <itemref idref="s026" linear="no" properties="rendition:layout-scrolling"/>
+</spine>
+</package>

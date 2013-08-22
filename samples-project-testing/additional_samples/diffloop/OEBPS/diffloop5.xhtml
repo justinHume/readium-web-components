@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8"?> <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" ><head>
+
+<title>The Differential Topology of Loop Spaces </title>
+
+<meta name="Author" content="Andrew Stacey"/><link href="diffloop.css" media="all" rel="stylesheet" type="text/css"/><script src="diffloop.js" type="text/javascript"/></head><body><p><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline' class='dummy'><mi></mi></math></p><h2 id="section.4">4 Looping Bundles</h2>
+<p>
+
+</p>
+
+<p>In this section we consider the general construction of looping a bundle. That is, given a bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>:</mo><mi>E</mi><mo>&#x02192;</mo><mi>M</mi></math> we consider the resulting triple <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C0;</mi> <mi>L</mi></msup><mo>:</mo><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math>. Our central theme is vector bundles, but we take in principal bundles, gauge bundles, and connections on the way. We start by considering the tangent space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>, showing that it is diffeomorphic to the loop of the tangent space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. We conclude by commenting that this does not hold for the cotangent bundle.
+
+</p>
+
+
+<h2 id="subsection.4.1">4.1 The Tangent Space</h2>
+<p>
+
+</p>
+
+<p>Tangent spaces in infinite dimensions can be problematic: there is the <em>kinematic</em> tangent space consisting of the derivatives of short curves and the <em>operational</em> tangent space consisting of derivations of functions. In finite dimensions these are the same, but that need not hold in infinite dimensions. The kinematic always satisfies <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>E</mi><mo>&#x02245;</mo><mi>E</mi><mo>&#x000D7;</mo><mi>E</mi></math> for a convenient vector space <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math>, but the operational tangent space may be much larger - it at least contains the bidual ([<a href="diffloop8.xhtml#cite.akpm">KM97</a>, 28.3]). We shall not go into a detailed discussion here since for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>, [<a href="diffloop8.xhtml#cite.akpm">KM97</a>, Theorem 28.7] implies that the two notions coincide. For more on the types of tangent vector see [<a href="diffloop8.xhtml#cite.akpm">KM97</a>, &#xa7;28].
+
+</p>
+
+<p>We start with a straightforward result on the structure of the tangent bundle.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.1"><span class="title"><span class="name">Proposition</span> <span class="number">4.1</span></span>
+
+<p>The tangent bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi></math>, has the structure of a bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>We have local charts <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mo>&#x02245;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> and so locally <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mo>&#x02245;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x000D7;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. Thus we can attempt to transfer the natural <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> to the tangent spaces of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>. Lemma&#x000A0;<a href="diffloop4.xhtml#theorem.3.9">3.9</a> shows that we can do this as from it we deduce that the derivatives of the transition functions are <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>Our main theorem is the following characterisation of the tangent space.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.2"><span class="title"><span class="name">Theorem</span> <span class="number">4.2</span></span>
+
+<p> There is a natural diffeomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> covering the identity on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>. </p>
+
+</div>
+<p>
+
+</p>
+
+<p>The idea is that a small perturbation of a loop involves a small perturbation of each of its points and so we have a loop of small perturbations of points.
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>The evaluation map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> differentiates to a smooth map: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>T</mi><mi>M</mi></math>. We compose this with the the zero section <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x02192;</mo><mi>T</mi><msup><mi>S</mi> <mn>1</mn></msup></math> to get a smooth map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>T</mi><mi>M</mi></math>. This is the adjoint of a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> which is thereby shown to be smooth. As the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>T</mi><mi>M</mi></math> projects down to the evaluation map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math>, the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> projects down to the identity on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>.
+
+</p>
+
+<p>In the case of Euclidean space, we have a natural identifications of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x000D7;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> and of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x000D7;</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. It is simple to show that under these identifications, the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>T</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> described above becomes <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B1;</mi><mo>,</mo><mi>&#x003B2;</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>. The adjoint of this is the canonical isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x000D7;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>L</mi><mo stretchy="false">(</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x000D7;</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math>, which is a diffeomorphism. Hence the result is true for Euclidean space.
+
+</p>
+
+<p>For the more general case we consider the local situation. We choose a chart at a loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math>. Using a trivialisation of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi></math> we extend the chart map to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003A8;</mi> <mi>&#x003B1;</mi></msub><mo>:</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><msub><mi>U</mi> <mi>&#x003B1;</mi></msub></math>. This trivialisation also extends Diagram&#x000A0;<a href="diffloop4.xhtml#equation.3.1">3.1</a> of the proof of Theorem&#x000A0;<a href="diffloop4.xhtml#theorem.3.28">3.28</a> in the obvious way. Hence the evaluation map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mo>&#x02192;</mo><mi>M</mi></math> factors as: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mover><mo>&#x02192;</mo><mrow><mn>1</mn><mo>&#x000D7;</mo><msubsup><mi>&#x003A8;</mi> <mi>&#x003B1;</mi> <mrow><mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo><mn>1</mn></mrow></msubsup></mrow></mover><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>T</mi><mi>M</mi><mover><mo>&#x02192;</mo><mi>&#x003B7;</mi></mover><mi>M</mi><mo>,</mo></math>
+</div>
+
+
+
+<p> We differentiate this and evaluate on the zero section to get: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mo>&#x02192;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><msup><mi>T</mi> <mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mi>M</mi><mover><mo>&#x02192;</mo><mrow><mi>d</mi><mi>&#x003B7;</mi></mrow></mover><mi>T</mi><mi>M</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> We now 'de-adjointise' this. As the second map is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>, the image of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo stretchy="false">(</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math> which we identify in the usual way with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>T</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. Thus we get: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>T</mi><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mo>&#x02192;</mo><mi>T</mi><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>L</mi><mi>T</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>L</mi><msup><mi>T</mi> <mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>T</mi><mi>M</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> From Proposition&#x000A0;<a href="diffloop4.xhtml#theorem.3.20">3.20</a>, the induced map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>T</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> is a chart map, hence a diffeomorphism onto its image. The first map is the derivative of a chart map for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>, hence is a diffeomorphism. We have already shown that the second map is a diffeomorphism.
+
+</p>
+
+<p>Thus the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> is a local diffeomorphism where by "local" we mean in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>. As both are spaces over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> and the map is of spaces over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> we therefore have a diffeomorphism. </p>
+</div></div>
+
+<p>
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.3"><span class="title"><span class="name">Corollary</span> <span class="number">4.3</span></span>
+
+<p> There is a canonical identification as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>M</mi></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>As the isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> covers the identity on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>, the tangent space at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math> identifies with the set of loops in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math> which project down to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi></math>. As we have already seen, this is naturally <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo></math>.
+
+</p>
+
+<p>For the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module structure, we observe that a trivialisation of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi></math> identifies <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>M</mi></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mn>0</mn></msub><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. The identification between these is the canonical identification of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mn>0</mn></msub><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> which is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>This needs a word of explanation. The chart map at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003A8;</mi> <mi>&#x003B1;</mi></msub><mo>:</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mi>U</mi> <mi>&#x003B1;</mi></msub></math> identifies the tangent space at a point of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>U</mi> <mi>&#x003B1;</mi></msub></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo></math> and so in particular we have an identification of the tangent space at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo></math>. The problem with this is that it may depend on the local addition <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B7;</mi></math> used to define the chart map. Moreover, we have also relaxed the definition of a local addition so that the vector bundle did not need to be <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math>, though <em>a fortiori</em> it has to lie in the same isomorphism class. In this case, the chart map identifies the tangent space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo stretchy="false">)</mo></math> which, although isomorphic to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo></math> does not seem to be canonically so.
+
+</p>
+
+<p>The solution is that differentiating the diffeomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mi>&#x003B7;</mi><mo stretchy="false">)</mo><mo>:</mo><mi>E</mi><mo>&#x02192;</mo><mi>V</mi></math> defines an isomorphism of bundles <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C0;</mi> <mo>*</mo></msup><mi>E</mi><mo>&#x02245;</mo><mi>ker</mi><mi>d</mi><mi>&#x003C0;</mi><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mi>&#x003B7;</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup><mi>T</mi><mi>M</mi></math>, where the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math> is the second factor in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mo stretchy="false">(</mo><mi>M</mi><mo>&#x000D7;</mo><mi>M</mi><mo stretchy="false">)</mo></math>. Over the zero section of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> we thus get an isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><mo>&#x02192;</mo><mi>T</mi><mi>M</mi></math> defined canonically from the local addition. The isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo></math> uses this isomorphism of bundles. One caveat of this is that if it so happens that our local addition was defined on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math> then the canonical identification of the above corollary may not be the simple identification coming from the chart map.
+
+</p>
+
+<p>Now that we have this identification of the tangent bundle, we can extend Proposition&#x000A0;<a href="diffloop4.xhtml#theorem.3.27">3.27</a>.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.4"><span class="title"><span class="name">Proposition</span> <span class="number">4.4</span></span>
+
+<p> Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>M</mi><mo>&#x02192;</mo><mi>N</mi></math> be a smooth map between finite dimensional smooth manifolds. Under the identifications <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>N</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>N</mi></math> we have: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><mo stretchy="false">(</mo><msup><mi>f</mi> <mi>L</mi></msup><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>d</mi><mi>f</mi><msup><mo stretchy="false">)</mo> <mi>L</mi></msup></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>This is a local result so it is sufficient to work in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>, where it is obvious. </p>
+
+</div></div>
+
+<p>
+</p>
+
+
+<h2 id="subsection.4.2">4.2 Vector Bundles</h2>
+<p>
+
+</p>
+
+<p>We start by considering various loop spaces associated to a vector bundle. We shall formulate our results for a general finite dimensional vector bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BE;</mi><mo>&#x02254;</mo><mi>E</mi><mover><mo>&#x02192;</mo><mrow><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub></mrow></mover><mi>M</mi></math>. To avoid dealing with the twisted situation, we assume that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> is orientable.
+
+</p>
+
+<p>The fibrewise vector space structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> can be thought of as consisting of two maps: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi><mo>&#x000D7;</mo><mi>E</mi><mo>&#x02192;</mo><mi>E</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>E</mi></math>, satisfying certain relations. As before, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></math> is an embedded submanifold of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><mo>&#x000D7;</mo><mi>E</mi></math> and so a map into <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></math> is smooth if and only if the composition with the two projections to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> are smooth.
+
+</p>
+
+<p>We can loop both of these maps and get: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi><mo>&#x000D7;</mo><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>E</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo stretchy="false">(</mo><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>L</mi><mi>E</mi></math>. These satisfy similar relations to the ones satisfied by the maps on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math>. To identify <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo stretchy="false">(</mo><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo stretchy="false">)</mo></math>, from the remark above this consists of pairs of loops in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> which, time-by-time, project down to the same point on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. That is: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>L</mi><mo stretchy="false">(</mo><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">{</mo><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo>,</mo><mi>&#x003B2;</mi><mo stretchy="false">)</mo><mo>&#x02208;</mo><mi>L</mi><mi>E</mi><mo>&#x000D7;</mo><mi>L</mi><mi>E</mi><mo>:</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mtext> for all </mtext><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo stretchy="false">}</mo><mo>.</mo></math>
+</div>
+
+
+
+<p> Now <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi></math> if and only if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msubsup><mi>&#x003C0;</mi> <mi>&#x003BE;</mi> <mi>L</mi></msubsup><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>=</mo><msubsup><mi>&#x003C0;</mi> <mi>&#x003BE;</mi> <mi>L</mi></msubsup><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo stretchy="false">)</mo></math>. Thus <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo stretchy="false">(</mo><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo stretchy="false">)</mo><mo>=</mo><mi>L</mi><mi>E</mi><msub><mo>&#x000D7;</mo> <mrow><mi>L</mi><mi>M</mi></mrow></msub><mi>L</mi><mi>E</mi></math>.
+
+</p>
+
+<p>Hence we have a structure on the fibres of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C0;</mi> <mrow><mi>L</mi><mi>&#x003BE;</mi></mrow></msub><mo>&#x02254;</mo><msubsup><mi>&#x003C0;</mi> <mi>&#x003BE;</mi> <mi>L</mi></msubsup><mo>:</mo><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> similar to that on the fibres of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo>:</mo><mi>E</mi><mo>&#x02192;</mo><mi>M</mi></math>. That is, the fibres of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> naturally have the structure of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules. Note that this implies that they are vector spaces as there is an inclusion <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>L</mi><mi>&#x0211D;</mi></math>. What we wish to show is that this structure is locally trivial and thus defines an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module bundle over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>.
+
+</p>
+
+<p>We start by noting that, as for the case <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><mo>=</mo><mi>T</mi><mi>M</mi></math>, the fibre of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> above a loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math> can be naturally considered to be <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo stretchy="false">)</mo></math>. Moreover, the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module structure defined above on the fibres of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> is the natural <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo stretchy="false">)</mo></math>. Thus once we have established that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> is a locally trivial bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>, the isomorphism of Theorem&#x000A0;<a href="diffloop5.xhtml#theorem.4.2">4.2</a> will be of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>R</mi></math>-module bundles.
+
+</p>
+
+<p>The mainstay of the analysis of the loop space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> in terms of that of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> is that we do not need to use a local addition on the whole of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> to define the charts for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>. All we need is the local addition on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> together with a connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math>.
+
+</p>
+
+<p>The bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi></math> can be realised by the <em>Whitney sum</em>. This identifies the total space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi></math> with the pull-back of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><mo>&#x000D7;</mo><mi>E</mi><mo>&#x02192;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>M</mi></math> by the diagonal map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi><mo>&#x02192;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>M</mi></math>. Thus the total space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi></math> is: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02254;</mo><mo stretchy="false">{</mo><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>&#x02208;</mo><mi>T</mi><mi>M</mi><mo>&#x000D7;</mo><mi>E</mi><mo>:</mo><mi>&#x003C0;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo><mo>.</mo></math>
+</div>
+
+
+
+<p> The obvious projection maps <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></math> to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math> and to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> fit together to give a commuting diagram: </p>
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable rowspacing="0.5ex"><mtr><mtd><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></mtd> <mtd><mo>&#x02192;</mo></mtd> <mtd><mi>E</mi></mtd></mtr> <mtr><mtd><mo stretchy="false">&#x02193;</mo></mtd> <mtd></mtd> <mtd><mstyle scriptlevel="1"><mpadded width="0" lspace="-100%width"><mrow></mrow></mpadded><mo stretchy="false">&#x02193;</mo><mstyle scriptlevel="1"><mpadded width="0"><mrow><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub></mrow></mpadded></mstyle></mstyle></mtd></mtr> <mtr><mtd><mi>T</mi><mi>M</mi></mtd> <mtd><mover><mo>&#x02192;</mo><mi>&#x003C0;</mi></mover></mtd> <mtd><mi>M</mi><mpadded width="0"><mo>.</mo></mpadded></mtd></mtr></mtable></mrow></math>
+</div>
+
+
+
+<p> Thus we can think of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></math> as the total space of any of: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi><mo>&#x02192;</mo><mi>M</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C0;</mi> <mo>*</mo></msup><mi>E</mi><mo>&#x02192;</mo><mi>T</mi><mi>M</mi></math>, or <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msubsup><mi>&#x003C0;</mi> <mi>&#x003BE;</mi> <mo>*</mo></msubsup><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>E</mi></math>.
+
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B7;</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> be a local addition on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>V</mi><mo>&#x02286;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>M</mi></math> the corresponding open neighbourhood of the diagonal. For <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi><mo>&#x02208;</mo><mi>T</mi><mi>M</mi></math>, define <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>P</mi> <mi>u</mi></msub><mo>:</mo><msub><mi>E</mi> <mrow><mi>&#x003C0;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></msub><mo>&#x02192;</mo><msub><mi>E</mi> <mrow><mi>&#x003B7;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></msub></math> to be the operation of parallel transport along the path <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02192;</mo><mi>&#x003B7;</mi><mo stretchy="false">(</mo><mi>t</mi><mi>u</mi><mo stretchy="false">)</mo></math> (recall that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B7;</mi><mo stretchy="false">(</mo><mn>0</mn><mi>u</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C0;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></math>). Using this, we define a variant of local addition. Define <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BC;</mi><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>E</mi></math> by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BC;</mi><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>P</mi> <mi>u</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></math>. Note that this is well-defined since <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C0;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></math> so <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi><mo>&#x02208;</mo><msub><mi>E</mi> <mrow><mi>&#x003C0;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></msub></math>. Observe that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mi>&#x003BC;</mi><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B7;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></math> so we have a commutative diagram: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable rowspacing="0.5ex"><mtr><mtd><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></mtd> <mtd><mover><mo>&#x02192;</mo><mi>&#x003BC;</mi></mover></mtd> <mtd><mi>E</mi></mtd></mtr> <mtr><mtd><mo stretchy="false">&#x02193;</mo></mtd> <mtd></mtd> <mtd><mstyle scriptlevel="1"><mpadded width="0" lspace="-100%width"><mrow></mrow></mpadded><mo stretchy="false">&#x02193;</mo><mstyle scriptlevel="1"><mpadded width="0"><mrow><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub></mrow></mpadded></mstyle></mstyle></mtd></mtr> <mtr><mtd><mi>T</mi><mi>M</mi></mtd> <mtd><mover><mo>&#x02192;</mo><mi>&#x003B7;</mi></mover></mtd> <mtd><mi>M</mi><mpadded width="0"><mo>.</mo></mpadded></mtd></mtr></mtable></mrow></math>
+</div>
+
+
+
+<p>
+
+</p>
+
+<p>Consider the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mi>&#x003BC;</mi><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>E</mi></math> where, by abuse of notation, the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>M</mi></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>&#x003C0;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>E</mi> <mi>V</mi></msub><mo>&#x02254;</mo><mo stretchy="false">{</mo><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>&#x02208;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>E</mi><mo>:</mo><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>&#x02208;</mo><mi>V</mi><mo stretchy="false">}</mo></math>.
+
+</p>
+
+<p>We claim that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mi>&#x003BC;</mi><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><msub><mi>E</mi> <mi>V</mi></msub></math> is a diffeomorphism. The most geometric way to see this is to observe that there is another space hidden in the background, namely: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>&#x003B7;</mi></msub><mi>E</mi><mo>&#x02254;</mo><mo stretchy="false">{</mo><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>&#x02208;</mo><mi>T</mi><mi>M</mi><mo>&#x000D7;</mo><mi>E</mi><mo>:</mo><mi>&#x003B7;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo><mo>.</mo></math>
+</div>
+
+
+
+<p> This is the pull-back of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math> via <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B7;</mi></math>, so the following diagram commutes: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable rowspacing="0.5ex"><mtr><mtd><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>&#x003B7;</mi></msub><mi>E</mi></mtd> <mtd><mover><mo>&#x02192;</mo><mover><mi>&#x003BC;</mi><mo stretchy="false">&#x002DC;</mo></mover></mover></mtd> <mtd><mi>E</mi></mtd></mtr> <mtr><mtd><mo stretchy="false">&#x02193;</mo></mtd> <mtd></mtd> <mtd><mstyle scriptlevel="1"><mpadded width="0" lspace="-100%width"><mrow></mrow></mpadded><mo stretchy="false">&#x02193;</mo><mstyle scriptlevel="1"><mpadded width="0"><mrow><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub></mrow></mpadded></mstyle></mstyle></mtd></mtr> <mtr><mtd><mi>T</mi><mi>M</mi></mtd> <mtd><mover><mo>&#x02192;</mo><mi>&#x003B7;</mi></mover></mtd> <mtd><mi>M</mi></mtd></mtr></mtable></mrow></math>
+</div>
+
+
+
+<p> The map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mi>&#x003B7;</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>V</mi><mo>&#x02286;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>M</mi></math> is a diffeomorphism, so <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mover><mi>&#x003BC;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>&#x003B7;</mi></msub><mi>E</mi><mo>&#x02192;</mo><msub><mi>E</mi> <mi>V</mi></msub><mo>&#x02286;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>E</mi></math> is also a diffeomorphism.
+
+</p>
+<p>Now <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>&#x003B7;</mi></msub><mi>E</mi></math> is isomorphic to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></math> as bundles over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math> since <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B7;</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> are homotopic maps. An explicit homotopy is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>h</mi><mo stretchy="false">(</mo><mi>v</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B7;</mi><mo stretchy="false">(</mo><mi>t</mi><mi>v</mi><mo stretchy="false">)</mo></math>. This defines an explicit isomorphism between the bundles by parallel transporting the bundle along the fibres of the homotopy, i.e.&#x000A0;along the paths <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02192;</mo><mi>&#x003B7;</mi><mo stretchy="false">(</mo><mi>t</mi><mi>v</mi><mo stretchy="false">)</mo></math>. This isomorphism is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><msub><mi>P</mi> <mi>u</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>. Hence the composition of this with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mover><mi>&#x003BC;</mi><mo stretchy="false">&#x002DC;</mo></mover></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BC;</mi></math>. Thus <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mi>&#x003BC;</mi><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><msub><mi>E</mi> <mi>V</mi></msub></math> is a diffeomorphism.
+
+</p>
+
+<p>We wish to play the same game for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BC;</mi><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>E</mi></math> that we had for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B7;</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math>. That is, we wish to construct maps that have the effect of sending a section <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> of something to the loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02192;</mo><mi>&#x003BC;</mi><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math> in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math>. Clearly, we must be able to think of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> as a loop in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></math>, just as in the case of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> we thought of a section of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi></math> as a loop in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math>. We have three candidates for what the section is of since <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></math> has the structure of a vector bundle over each of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math>, and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. To determine the correct one, we recall from the story for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> that the two components of the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mi>&#x003B7;</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>V</mi><mo>&#x02286;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>M</mi></math> were used as follows: the second defined the chart map, the first told us which chart we were in.
+
+</p>
+
+<p>Therefore, as we have <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>&#x000D7;</mo><mi>&#x003BC;</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><msub><mi>E</mi> <mi>V</mi></msub><mo>&#x02286;</mo><mi>M</mi><mo>&#x000D7;</mo><mi>E</mi></math>, we should try to index the charts by loops in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>, <em>not</em> by loops in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math>. Thus the domain of the chart map will be sections of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mo stretchy="false">(</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo stretchy="false">)</mo></math> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math>. We can write this as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mo stretchy="false">(</mo><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi><mo stretchy="false">)</mo></math> to indicate this without constantly needing to remind ourselves that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi></math> is a loop in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>.
+
+</p>
+
+<p>The codomain of the chart map is the set of loops in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> with the property that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>&#x02208;</mo><msub><mi>E</mi> <mi>V</mi></msub></math>, for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>. Now <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> satisfies this condition if and only if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>&#x02208;</mo><mi>V</mi></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>. Thus the codomain is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><mi>&#x003B2;</mi><mo>&#x02208;</mo><mi>L</mi><mi>E</mi><mo>:</mo><msubsup><mi>&#x003C0;</mi> <mi>&#x003BE;</mi> <mi>L</mi></msubsup><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo stretchy="false">)</mo><mo>&#x02208;</mo><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mo stretchy="false">}</mo></math>. Write this as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msub><mi>E</mi> <mrow><msub><mi>U</mi> <mi>&#x003B1;</mi></msub></mrow></msub></math>. Note that this is the pull-back of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> under the inclusion <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math>. These cover <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> because the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>U</mi> <mi>&#x003B1;</mi></msub></math> cover <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>.
+
+</p>
+
+<p>One can alter <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BC;</mi><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>E</mi></math> to a full local addition on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> by taking the pull-back of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi><mo>&#x02192;</mo><mi>M</mi></math> via <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo>:</mo><mi>E</mi><mo>&#x02192;</mo><mi>M</mi></math>. The resulting bundle is isomorphic to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>E</mi></math> and the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BC;</mi><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><msub><mo></mo><mo>*</mo></msub><mo>:</mo><msubsup><mi>&#x003C0;</mi> <mi>&#x003BE;</mi> <mo>*</mo></msubsup><mo stretchy="false">(</mo><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>E</mi></math> is a local addition. This can then be used to show that the smooth structure coming from the charts constructed above is the same as the natural smooth structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>.
+
+</p>
+
+<p>We return to the charts defined by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BC;</mi><mo>:</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>E</mi></math>. The domain of a chart is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mo stretchy="false">(</mo><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>. The total space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mo stretchy="false">(</mo><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi><mo stretchy="false">)</mo></math> is the subset of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mo stretchy="false">(</mo><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo stretchy="false">)</mo></math> such that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C0;</mi><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo></math>. From the definition of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi></math> we can see that this is the subset of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>M</mi><mo>&#x000D7;</mo><mi>E</mi></math> such that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C0;</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003C0;</mi> <mi>&#x003BE;</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></math>. Therefore a section of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mo stretchy="false">(</mo><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi><mo stretchy="false">)</mo></math> can be written in the form <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math> where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x02192;</mo><mi>T</mi><mi>M</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x02192;</mo><mi>E</mi></math> are such that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>=</mo><msup><mi>&#x003C0;</mi> <mi>L</mi></msup><mi>&#x003B2;</mi><mo>=</mo><msubsup><mi>&#x003C0;</mi> <mi>&#x003BE;</mi> <mi>L</mi></msubsup><mi>&#x003B3;</mi></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>. Thus the map: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mo maxsize="1.2em" minsize="1.2em">(</mo><mi>t</mi><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo maxsize="1.2em" minsize="1.2em">)</mo><mo>&#x02192;</mo><mo maxsize="1.8em" minsize="1.8em">(</mo><mo maxsize="1.2em" minsize="1.2em">(</mo><mi>t</mi><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo maxsize="1.2em" minsize="1.2em">)</mo><mo>,</mo><mo maxsize="1.2em" minsize="1.2em">(</mo><mi>t</mi><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo maxsize="1.2em" minsize="1.2em">)</mo><mo maxsize="1.8em" minsize="1.8em">)</mo></math>
+</div>
+
+
+
+<p> identifies <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mo stretchy="false">(</mo><mi>T</mi><mi>M</mi><mo>&#x02295;</mo><mi>E</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mo>&#x000D7;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo stretchy="false">)</mo></math>. (It is simple to show that the identification <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mrow><mi>n</mi><mo>+</mo><mi>m</mi></mrow></msup><mo>&#x02245;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x000D7;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>m</mi></msup></math> preserves all the structure including the smooth structure, so the identification of the spaces of sections given above also preserves the smooth structure.)
+
+</p>
+
+<p>We have: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mi>&#x00398;</mi> <mi>&#x003B1;</mi></msub><mo>:</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mo>&#x000D7;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>L</mi><msub><mi>E</mi> <mrow><msub><mi>U</mi> <mi>&#x003B1;</mi></msub></mrow></msub></math>
+</div>
+
+
+
+<p> satisfying: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mi>&#x00398;</mi> <mi>&#x003B1;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003BC;</mi><mo stretchy="false">(</mo><mover><mi>&#x003B2;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><msub><mi>P</mi> <mrow><mover><mi>&#x003B2;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>,</mo></math>
+</div>
+<p> where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mover><mi>&#x003B2;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>.
+
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mn>1</mn></msub><mo>,</mo><msub><mi>&#x003B3;</mi> <mn>2</mn></msub><mo>&#x02208;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo stretchy="false">)</mo></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover> <mn>1</mn></msub><mo>,</mo><msub><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover> <mn>2</mn></msub><mo>&#x02208;</mo><mi>L</mi><mi>E</mi></math> be the corresponding loops. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BD;</mi><mo>&#x02208;</mo><mi>L</mi><mi>&#x0211D;</mi></math>. The loop in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> corresponding to the section <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mn>1</mn></msub><mo>+</mo><mi>&#x003BD;</mi><msub><mi>&#x003B3;</mi> <mn>2</mn></msub></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover> <mn>1</mn></msub><mo>+</mo><mi>&#x003BD;</mi><msub><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover> <mn>2</mn></msub></math>. Therefore, since <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi><mo>&#x02192;</mo><msub><mi>P</mi> <mi>u</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></math> is linear: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable columnalign="right left right left right left right left right left" columnspacing="0em"><mtr><mtd><msub><mi>&#x00398;</mi> <mi>&#x003B1;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>,</mo><msub><mi>&#x003B3;</mi> <mn>1</mn></msub><mo>+</mo><mi>&#x003BD;</mi><msub><mi>&#x003B3;</mi> <mn>2</mn></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mtd> <mtd><mo>=</mo><msub><mi>P</mi> <mrow><mover><mi>&#x003B2;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><msub><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover> <mn>1</mn></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>+</mo><mi>&#x003BD;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><msub><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover> <mn>2</mn></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mtd></mtr> <mtr><mtd></mtd> <mtd><mo>=</mo><msub><mi>P</mi> <mrow><mover><mi>&#x003B2;</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><msub><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover> <mn>1</mn></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>+</mo><mi>&#x003BD;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><msub><mi>P</mi> <mover><mi>&#x003B2;</mi><mo stretchy="false">&#x002DC;</mo></mover></msub><mo stretchy="false">(</mo><msub><mover><mi>&#x003B3;</mi><mo stretchy="false">&#x002DC;</mo></mover> <mn>2</mn></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mtd></mtr> <mtr><mtd></mtd> <mtd><mo>=</mo><mo maxsize="1.2em" minsize="1.2em">(</mo><msub><mi>&#x00398;</mi> <mi>&#x003B1;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>,</mo><msub><mi>&#x003B3;</mi> <mn>1</mn></msub><mo stretchy="false">)</mo><mo>+</mo><mi>&#x003BD;</mi><msub><mi>&#x00398;</mi> <mi>&#x003B1;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>,</mo><msub><mi>&#x003B3;</mi> <mn>2</mn></msub><mo stretchy="false">)</mo><mo maxsize="1.2em" minsize="1.2em">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>.</mo></mtd></mtr></mtable></mrow></math>
+</div>
+
+
+
+<p> Hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00398;</mi> <mi>&#x003B1;</mi></msub></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear in its second argument.
+
+</p>
+
+<p>Thus <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> is a locally trivial <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module bundle. The fibres are modelled on the spaces <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo stretchy="false">)</mo></math>. Since we assumed that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> is orientable, these are all isomorphic to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> (as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules) via a smooth trivialisation of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo>&#x02192;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>.
+
+</p>
+
+
+<h2 id="subsection.4.3">4.3 Principal and Gauge Bundles</h2>
+<p>
+
+</p>
+
+<p>The key in the analysis of the vector bundle was the existence of the parallel transport operator and the fact that it is linear. There are other bundles with such operators, the most common being principal bundles.
+
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> be a finite dimensional Lie group, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>Q</mi><mo>&#x02192;</mo><mi>M</mi></math> a principal <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-bundle. As always, we shall assume that it is <em>orientable</em> in that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>Q</mi><mo>&#x02192;</mo><msup><mi>S</mi> <mn>1</mn></msup></math> admits a section for any loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x02192;</mo><mi>M</mi></math>. Now <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>Q</mi></math> inherits an action of the loop group <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo>&#x022C5;</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>&#x022C5;</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></math>. The space of sections of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>Q</mi></math> also has such an action. A trivialisation, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>Q</mi><mo>&#x02245;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>G</mi></math>, identifies <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>Q</mi><mo stretchy="false">)</mo></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> and this is an isomorphism of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math>-spaces.
+
+</p>
+
+<p>A connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>Q</mi></math> defines a parallel transport operator along any path and this preserves the fibrewise <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-action. Therefore the same analysis as for the case of the vector bundle leads to maps: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mi>&#x00398;</mi> <mi>&#x003B1;</mi></msub><mo>:</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mo>&#x000D7;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>Q</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>L</mi><msub><mi>Q</mi> <mrow><msub><mi>U</mi> <mi>&#x003B1;</mi></msub></mrow></msub></math>
+</div>
+
+
+
+<p> which are <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math>-equivariant. This shows that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>Q</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> is a locally trivial principal <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math>-bundle.
+
+</p>
+
+<p>Suppose that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>S</mi></math> is a (finite dimensional) smooth manifold with a <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-action. We can form the locally trivial bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>R</mi><mo>&#x02254;</mo><mi>Q</mi><msub><mo>&#x000D7;</mo> <mi>G</mi></msub><mi>S</mi><mo>&#x02192;</mo><mi>M</mi></math>. It is clear that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>R</mi></math> can be described as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>Q</mi><msub><mo>&#x000D7;</mo> <mrow><mi>L</mi><mi>G</mi></mrow></msub><mi>L</mi><mi>S</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> and that this is a locally trivial bundle modelled on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>S</mi></math>. Structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>S</mi></math> that is preserved by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> defines structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>R</mi></math> so since <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> preserves the "looped structure" on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>S</mi></math>, there is a corresponding structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>R</mi></math>. We have already seen this in the vector bundle situation in that the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>-module (i.e.&#x000A0;vector space) structure of the fibres of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> looped to give an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module structure on the fibres of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>.
+
+</p>
+<p>Another important situation where this arises is when <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> acts on itself via the adjoint action. This defines the <em>gauge group</em> corresponding to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>Q</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>Q</mi> <mtext>ad</mtext></msup><mo>&#x02254;</mo><mi>Q</mi><msub><mo>&#x000D7;</mo> <mtext>ad</mtext></msub><mi>G</mi></math> which is a bundle of groups over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> modelled on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>. The corresponding loop space, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>Q</mi> <mtext>ad</mtext></msup></math>, is a bundle of groups over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> modelled on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math>. We have the identity <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo stretchy="false">(</mo><msup><mi>Q</mi> <mtext>ad</mtext></msup><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>L</mi><mi>Q</mi><msup><mo stretchy="false">)</mo> <mtext>ad</mtext></msup><mo>&#x02254;</mo><mi>L</mi><mi>Q</mi><msub><mo>&#x000D7;</mo> <mtext>ad</mtext></msub><mi>L</mi><mi>G</mi></math>.
+
+</p>
+
+<p>Returning to the vector bundle case, if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><mo>=</mo><mi>Q</mi><msub><mo>&#x000D7;</mo> <mi>G</mi></msub><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>=</mo><mi>L</mi><mi>Q</mi><msub><mo>&#x000D7;</mo> <mrow><mi>L</mi><mi>G</mi></mrow></msub><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>, as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules. Now as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>Q</mi></math> is the frame bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math>, it would be nice to be able to say that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>Q</mi></math> is the frame bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>. This is not true as a statement about vector bundles, since <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo lspace="0em" rspace="thinmathspace">Gl</mo><mo stretchy="false">(</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo><mo>&#x02260;</mo><mi>L</mi><mo lspace="0em" rspace="thinmathspace">Gl</mo><mo stretchy="false">(</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math>, but is true as a statement about <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules as a consequence of:
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.5"><span class="title"><span class="name">Proposition</span> <span class="number">4.5</span></span>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>:</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> be an isomorphism of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules. Then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>&#x02208;</mo><mi>L</mi><mo lspace="0em" rspace="thinmathspace">Gl</mo><mo stretchy="false">(</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>For a ring <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>R</mi></math>, module <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>, and subset <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>S</mi><mo>&#x02286;</mo><mi>M</mi></math>, let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">&#x027E8;</mo><mi>S</mi><msub><mo stretchy="false">&#x027E9;</mo> <mi>R</mi></msub></math> denote the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>R</mi></math>-linear span of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>S</mi></math> in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. We add the subscript <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>R</mi></math> to the usual notation as we will have a space being a module over two different rings.
+
+</p>
+
+<p>It is mildly obvious that the space <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> is a free <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module of rank <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>n</mi></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0212C;</mi></math> be an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>n</mi></math>-element generating set (basis).
+
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>. The evaluation map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo>:</mo><mi>L</mi><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>&#x0211D;</mi></math> is a ring map and so converts any <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>-module (i.e.&#x000A0;vector space) into an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module. The corresponding evaluation map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo>:</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> is then a map of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules. Then: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>=</mo><msub><mi>e</mi> <mi>t</mi></msub><mo stretchy="false">(</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">&#x027E8;</mo><msub><mi>e</mi> <mi>t</mi></msub><mo stretchy="false">(</mo><mi>&#x0212C;</mi><mo stretchy="false">)</mo><msub><mo stretchy="false">&#x027E9;</mo> <mrow><mi>L</mi><mi>&#x0211D;</mi></mrow></msub><mo>=</mo><mo stretchy="false">&#x027E8;</mo><msub><mi>e</mi> <mi>t</mi></msub><mo stretchy="false">(</mo><mi>&#x0212C;</mi><mo stretchy="false">)</mo><msub><mo stretchy="false">&#x027E9;</mo> <mi>&#x0211D;</mi></msub><mo>.</mo></math>
+</div>
+
+
+
+<p> The first equality is because <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo>:</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> is surjective and the last because the action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> factors through <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>. As <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo stretchy="false">(</mo><mi>&#x0212C;</mi><mo stretchy="false">)</mo></math> is an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>n</mi></math>-element set, it is therefore a basis for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>.
+
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>:</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> be an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-isomorphism. For <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>j</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>&#x02026;</mi><mo>,</mo><mi>n</mi></math> let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B1;</mi> <mi>j</mi></msub><mo>&#x02208;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> be the constant loop at the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>j</mi></math>th element of the standard basis of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. Define a loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> in the space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>n</mi><mo>&#x000D7;</mo><mi>n</mi></math> matrices, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>M</mi> <mi>n</mi></msub><mo stretchy="false">(</mo><mi>&#x0211D;</mi><mo stretchy="false">)</mo></math>, by arranging the loops <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><msub><mi>&#x003B1;</mi> <mi>j</mi></msub></math> in columns: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mo maxsize="1.2em" minsize="1.2em">(</mo><mo stretchy="false">(</mo><mi>g</mi><msub><mi>&#x003B1;</mi> <mn>1</mn></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x02026;</mi><mo>,</mo><mo stretchy="false">(</mo><mi>g</mi><msub><mi>&#x003B1;</mi> <mi>n</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo maxsize="1.2em" minsize="1.2em">)</mo><mo>.</mo></math>
+</div>
+
+
+
+<p>
+
+</p>
+<p>Now <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><msub><mi>&#x003B1;</mi> <mn>1</mn></msub><mo>,</mo><mi>&#x02026;</mi><mo>,</mo><msub><mi>&#x003B1;</mi> <mi>n</mi></msub><mo stretchy="false">}</mo></math> is a generating set for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> as an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module. As <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi></math> is an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-isomorphism, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><mi>g</mi><msub><mi>&#x003B1;</mi> <mn>1</mn></msub><mo>,</mo><mi>&#x02026;</mi><mo>,</mo><mi>g</mi><msub><mi>&#x003B1;</mi> <mi>n</mi></msub><mo stretchy="false">}</mo></math> is also a generating set for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. Therefore at each <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><mo stretchy="false">(</mo><mi>g</mi><msub><mi>&#x003B1;</mi> <mn>1</mn></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x02026;</mi><mo>,</mo><mo stretchy="false">(</mo><mi>g</mi><msub><mi>&#x003B1;</mi> <mi>n</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo></math> is a basis for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. Hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> takes values in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo lspace="0em" rspace="thinmathspace">Gl</mo><mo stretchy="false">(</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math>.
+
+</p>
+
+<p>Now the action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo lspace="0em" rspace="thinmathspace">Gl</mo><mo stretchy="false">(</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear as it is the loop of the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>-linear action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo lspace="0em" rspace="thinmathspace">Gl</mo><mo stretchy="false">(</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. As <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B1;</mi> <mi>j</mi></msub></math> is the constant loop at the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>j</mi></math>th standard basis element, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><msub><mi>&#x003B1;</mi> <mi>j</mi></msub></math> selects the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>j</mi></math>th column of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math>, which is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><msub><mi>&#x003B1;</mi> <mi>j</mi></msub></math>. Hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> are both <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>-linear maps which agree on a generating set, thus are the same map. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>The proof of this result shows that the correct interpretation of an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-frame of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> at a loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math> is a smooth choice of frame of each <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>E</mi> <mrow><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub></math>. Thus an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-frame of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> is a trivialisation of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi></math>. To get back the isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><msub><mi>L</mi> <mi>&#x003B1;</mi></msub><mi>E</mi></math>, we use the trivialisation to identify <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo stretchy="false">)</mo></math> which is naturally identified with the fibre <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mi>&#x003B1;</mi></msub><mi>E</mi></math>.
+
+</p>
+
+
+<h2 id="subsection.4.4">4.4 Connections</h2>
+<p>
+
+</p>
+
+<p>In this section we consider connections on vector bundles. As with the vector bundles themselves, we are interested in structure on the loop space that arises from structure on the original space. Our main theorem in this section is:
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.6"><span class="title"><span class="name">Theorem</span> <span class="number">4.6</span></span>
+
+<p> A principal connection in finite dimensions loops to a principal connection on the loop space. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<p>There are several ways of thinking of connections in finite dimensions and these carry over to infinite dimensions. The general theory is contained in [<a href="diffloop8.xhtml#cite.akpm">KM97</a>, &#xa7;37] of which we recall the basics here.
+
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> be a Lie group, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>:</mo><mi>P</mi><mo>&#x02192;</mo><mi>M</mi></math> a principal <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-bundle. We are considering both the finite and infinite dimensional cases here. The two main ways that we think of a connection are: </p>
+
+<ol> <li id="Item.62">
+
+<p>A projection <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A6;</mi><mo>:</mo><mi>T</mi><mi>P</mi><mo>&#x02192;</mo><mi>V</mi><mi>P</mi></math>, where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>V</mi><mi>P</mi><mo>=</mo><mi>ker</mi><mi>d</mi><mi>&#x003C0;</mi></math> is the vertical tangent bundle, which is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-equivariant for the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> action on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>P</mi></math>. That is, for each <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>&#x02208;</mo><mi>G</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>u</mi><mo>&#x02208;</mo><mi>P</mi></math> the following diagram commutes: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable rowspacing="0.5ex"><mtr><mtd><msub><mi>T</mi> <mi>u</mi></msub><mi>P</mi></mtd> <mtd><mover><mo>&#x02192;</mo><mrow><mi>d</mi><msup><mi>r</mi> <mi>g</mi></msup></mrow></mover></mtd> <mtd><msub><mi>T</mi> <mrow><mi>u</mi><mi>g</mi></mrow></msub><mi>P</mi></mtd></mtr> <mtr><mtd><mstyle scriptlevel="1"><mpadded width="0" lspace="-100%width"><mi>&#x003A6;</mi></mpadded><mo stretchy="false">&#x02193;</mo><mstyle scriptlevel="1"><mpadded width="0"><mrow></mrow></mpadded></mstyle></mstyle></mtd> <mtd></mtd> <mtd><mstyle scriptlevel="1"><mpadded width="0" lspace="-100%width"><mi>&#x003A6;</mi></mpadded><mo stretchy="false">&#x02193;</mo><mstyle scriptlevel="1"><mpadded width="0"><mrow></mrow></mpadded></mstyle></mstyle></mtd></mtr> <mtr><mtd><msub><mi>V</mi> <mi>u</mi></msub><mi>P</mi></mtd> <mtd><mover><mo>&#x02192;</mo><mrow><mi>d</mi><msup><mi>r</mi> <mi>g</mi></msup></mrow></mover></mtd> <mtd><msub><mi>V</mi> <mrow><mi>u</mi><mi>g</mi></mrow></msub><mi>P</mi><mpadded width="0"><mo>,</mo></mpadded></mtd></mtr></mtable></mrow></math>
+</div>
+
+
+
+<p> where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>r</mi> <mi>g</mi></msup><mo>:</mo><mi>P</mi><mo>&#x02192;</mo><mi>P</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>r</mi> <mi>g</mi></msup><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo><mo>=</mo><mi>u</mi><mi>g</mi></math>, is the action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>&#x02208;</mo><mi>G</mi></math>.
+
+</p>
+</li><li id="Item.63">
+
+<p>The connection one-form <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C9;</mi><mo>:</mo><mi>T</mi><mi>P</mi><mo>&#x02192;</mo><mi>&#x1D524;</mi></math>, the Lie algebra of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>, satisfying: </p>
+
+<ol> <li id="Item.64">
+
+<p><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>w</mi><mo stretchy="false">(</mo><msub><mi>&#x003B6;</mi> <mi>X</mi></msub><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>X</mi></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi><mo>&#x02208;</mo><mi>&#x1D524;</mi></math>, where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B6;</mi> <mi>X</mi></msub><mo>&#x02208;</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>P</mi><mo stretchy="false">)</mo></math> is the vector field defined by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B6;</mi> <mi>X</mi></msub><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo><mo>&#x02254;</mo><mi>d</mi><msub><mi>r</mi> <mrow><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>e</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>X</mi><mo stretchy="false">)</mo></math> (note that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><msub><mi>r</mi> <mrow><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>e</mi><mo stretchy="false">)</mo></mrow></msub></math> is a linear map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>u</mi></msub><mi>P</mi><mo>&#x000D7;</mo><msub><mi>T</mi> <mi>e</mi></msub><mi>G</mi><mo>&#x02192;</mo><msub><mi>T</mi> <mi>u</mi></msub><mi>P</mi></math>);
+
+</p>
+
+</li><li id="Item.65">
+
+<p><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>w</mi></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-equivariant: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mo stretchy="false">(</mo><msup><mi>r</mi> <mi>g</mi></msup><msup><mo stretchy="false">)</mo> <mo>*</mo></msup><mi>&#x003C9;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mo lspace="0em" rspace="thinmathspace">Ad</mo> <mrow><msup><mi>g</mi> <mrow><mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo><mn>1</mn></mrow></msup></mrow></msub><mi>&#x003C9;</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>&#x02208;</mo><mi>G</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi><mo>&#x02208;</mo><msub><mi>T</mi> <mi>u</mi></msub><mi>P</mi></math>. </p>
+
+</li></ol>
+
+<p> </p>
+
+</li></ol>
+
+<p> The equivalence is given by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A6;</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003B6;</mi> <mrow><mi>&#x003C9;</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></math> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi><mo>&#x02208;</mo><msub><mi>T</mi> <mi>u</mi></msub><mi>P</mi></math>.
+
+</p>
+
+<p>We can loop both maps to get <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003A6;</mi> <mi>L</mi></msup><mo>:</mo><mi>L</mi><mi>T</mi><mi>P</mi><mo>&#x02192;</mo><mi>L</mi><mi>V</mi><mi>P</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C9;</mi> <mi>L</mi></msup><mo>:</mo><mi>L</mi><mi>T</mi><mi>P</mi><mo>&#x02192;</mo><mi>L</mi><mi>&#x1D524;</mi></math>. Using Theorem&#x000A0;<a href="diffloop5.xhtml#theorem.4.2">4.2</a> we can identify <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>T</mi><mi>P</mi></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>P</mi></math> in both cases. To proceed further, we need some technical results:
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.7"><span class="title"><span class="name">Lemma</span> <span class="number">4.7</span></span>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> be a finite dimensional Lie group, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>:</mo><mi>P</mi><mo>&#x02192;</mo><mi>M</mi></math> a principal <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-bundle over a finite dimensional manifold. Then: </p>
+
+<ol> <li id="Item.66">
+
+<p>The Lie algebra of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> is canonically isomorphic to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x1D524;</mi></math>. Although we shall not need it here, it seems an appropriate place to mention that the exponential map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x1D524;</mi><mo>&#x02192;</mo><mi>L</mi><mi>G</mi></math> is the loop of the exponential map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x1D524;</mi><mo>&#x02192;</mo><mi>G</mi></math>.
+
+</p>
+
+</li><li id="Item.67">
+
+<p>Under the isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>P</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>P</mi></math>, the vertical tangent bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>V</mi><mi>L</mi><mi>P</mi></math> is mapped to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>V</mi><mi>P</mi></math>.
+
+</p>
+
+</li><li id="Item.68">
+
+<p>Under the isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>P</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>P</mi></math>, the vector field mapping <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B6;</mi><mo>:</mo><mi>L</mi><mi>&#x1D524;</mi><mo>&#x02192;</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>L</mi><mi>P</mi><mo stretchy="false">)</mo></math> is the loop of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B6;</mi><mo>:</mo><mi>&#x1D524;</mi><mo>&#x02192;</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>P</mi><mo stretchy="false">)</mo></math> followed by the canonical inclusion <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>P</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mi>&#x00393;</mi> <mrow><mi>L</mi><mi>P</mi></mrow></msub><mo stretchy="false">(</mo><mi>L</mi><mi>T</mi><mi>P</mi><mo stretchy="false">)</mo><mo>&#x02245;</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>L</mi><mi>P</mi><mo stretchy="false">)</mo></math> which is given by: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C7;</mi> <mi>&#x003B1;</mi></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C7;</mi><mo stretchy="false">(</mo><mi>t</mi><msub><mo stretchy="false">)</mo> <mrow><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo>.</mo></math>
+
+</p>
+
+</li><li id="Item.69">
+
+<p>The adjoint action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x1D524;</mi></math> is the loop of the adjoint action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x1D524;</mi></math>.
+
+</p>
+
+</li></ol>
+
+<p> </p>
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p></p>
+
+<ol> <li id="Item.70">
+
+<p>The Lie algebra of any Lie group is the (kinematic) tangent space at the identity. Since the identity of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> is the constant loop at the identity, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>e</mi></math>, of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>, the Lie algebra of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> is, by Corollary&#x000A0;<a href="diffloop5.xhtml#theorem.4.3">4.3</a>, naturally identified with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msubsup><mi>&#x003B3;</mi> <mi>e</mi> <mo>*</mo></msubsup><mi>T</mi><mi>G</mi><mo stretchy="false">)</mo></math>. As <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mi>e</mi></msub></math> is constant at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>e</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msubsup><mi>&#x003B3;</mi> <mi>e</mi> <mo>*</mo></msubsup><mi>T</mi><mi>G</mi><mo>=</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><msub><mi>T</mi> <mi>e</mi></msub><mi>G</mi></math> and so <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mrow><msub><mi>&#x003B3;</mi> <mi>e</mi></msub></mrow></msub><mi>L</mi><mi>G</mi></math> is naturally identified with loops in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>e</mi></msub><mi>G</mi></math>, i.e.&#x000A0;with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x1D524;</mi></math>.
+
+</p>
+
+<p>The statement about the exponential maps follows because the evaluation maps, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo>:</mo><mi>L</mi><mi>G</mi><mo>&#x02192;</mo><mi>G</mi></math>, are group homomorphisms. The induced Lie algebra map is also the evaluation map, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo>:</mo><mi>L</mi><mi>&#x1D524;</mi><mo>&#x02192;</mo><mi>&#x1D524;</mi></math>. Thus for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>&#x02208;</mo><mi>&#x0211D;</mi></math>, and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C7;</mi><mo>&#x02208;</mo><mi>L</mi><mi>&#x1D524;</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>exp</mi><mo stretchy="false">(</mo><mi>s</mi><mi>&#x003C7;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>exp</mi><mo stretchy="false">(</mo><mi>s</mi><mi>&#x003C7;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>.
+
+</p>
+
+</li><li id="Item.71">
+
+<p>We need to identify <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>ker</mi><mi>d</mi><mo stretchy="false">(</mo><msup><mi>&#x003C0;</mi> <mi>L</mi></msup><mo stretchy="false">)</mo><mo>:</mo><mi>T</mi><mi>L</mi><mi>P</mi><mo>&#x02192;</mo><mi>T</mi><mi>L</mi><mi>M</mi></math> under the equivalence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>P</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>P</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math>. From Proposition&#x000A0;<a href="diffloop5.xhtml#theorem.4.4">4.4</a>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><mo stretchy="false">(</mo><msup><mi>&#x003C0;</mi> <mi>L</mi></msup><mo stretchy="false">)</mo></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>d</mi><mi>&#x003C0;</mi><msup><mo stretchy="false">)</mo> <mi>L</mi></msup></math>. Thus <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>d</mi><mi>&#x003C0;</mi><msup><mo stretchy="false">)</mo> <mi>L</mi></msup><mi>&#x003B2;</mi><mo>=</mo><mn>0</mn></math> if and only if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><mi>&#x003C0;</mi><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi></math> and so <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>ker</mi><mo stretchy="false">(</mo><mi>d</mi><mi>&#x003C0;</mi><msup><mo stretchy="false">)</mo> <mi>L</mi></msup><mo>&#x02286;</mo><mi>L</mi><mi>T</mi><mi>P</mi></math> is the loop of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>ker</mi><mi>d</mi><mi>&#x003C0;</mi><mo>&#x02286;</mo><mi>T</mi><mi>P</mi></math>, i.e.&#x000A0;<math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>V</mi><mi>L</mi><mi>P</mi></math> corresponds to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>V</mi><mi>P</mi></math>.
+
+</p>
+
+</li><li id="Item.72">
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C7;</mi><mo>&#x02208;</mo><mi>L</mi><mi>&#x1D524;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>P</mi></math>. By definition: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mi>&#x003B6;</mi> <mi>&#x003C7;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>=</mo><mi>d</mi><msub><mi>r</mi> <mrow><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo>,</mo><msub><mi>&#x003B3;</mi> <mi>e</mi></msub><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>&#x003C7;</mi><mo stretchy="false">)</mo><mo>:</mo><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>P</mi><mo>&#x000D7;</mo><msub><mi>T</mi> <mrow><msub><mi>&#x003B3;</mi> <mi>e</mi></msub></mrow></msub><mi>L</mi><mi>G</mi><mo>&#x02192;</mo><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>P</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> As the action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>P</mi></math> is the loop of the action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>P</mi></math>, the various isomorphisms mean that: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><msub><mi>r</mi> <mrow><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo>,</mo><msub><mi>&#x003B3;</mi> <mi>e</mi></msub><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>&#x003C7;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>d</mi><msub><mi>r</mi> <mrow><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>e</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>&#x003C7;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>. Hence: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mi>&#x003B6;</mi> <mi>&#x003C7;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003B6;</mi> <mrow><mi>&#x003C7;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>
+</div>
+
+
+
+<p> as required.
+
+</p>
+
+</li><li id="Item.73">
+
+<p>The adjoint action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x1D524;</mi></math> is the derivative of the conjugation action at the identity. The conjugation action is the loop of the conjugation action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x1D524;</mi></math>. Hence its derivative is the loop of the derivative. </p>
+</li></ol>
+
+<p> </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>We can now prove Theorem&#x000A0;<a href="diffloop5.xhtml#theorem.4.6">4.6</a>.
+
+</p>
+
+<div class="proof" ><span class="title">Proof of Theorem&#x000A0;<a href="diffloop5.xhtml#theorem.4.6">4.6</a></span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p> Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> be a finite dimensional Lie group and let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>P</mi><mo>&#x02192;</mo><mi>M</mi></math> be a principal <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-bundle over a finite dimensional manifold. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A6;</mi><mo>:</mo><mi>T</mi><mi>P</mi><mo>&#x02192;</mo><mi>V</mi><mi>P</mi></math> be a principal connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>P</mi></math>. Using the equivalences <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>P</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>P</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>V</mi><mi>L</mi><mi>P</mi><mo>&#x02245;</mo><mi>L</mi><mi>V</mi><mi>P</mi></math>, we loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A6;</mi></math> to a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003A6;</mi> <mi>L</mi></msup><mo>:</mo><mi>T</mi><mi>L</mi><mi>P</mi><mo>&#x02192;</mo><mi>V</mi><mi>L</mi><mi>P</mi></math> which we claim is a principal connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>P</mi></math>. It is certainly a fibre projection as at a loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>P</mi></math> it is the projection <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>P</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>V</mi><mi>P</mi><mo stretchy="false">)</mo></math>. It is also <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math>-equivariant as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A6;</mi><mo>:</mo><mi>T</mi><mi>P</mi><mo>&#x02192;</mo><mi>V</mi><mi>P</mi></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math>-equivariant and the action is defined pointwise.
+
+</p>
+
+<p>For the other view of a connection, let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C9;</mi><mo>:</mo><mi>T</mi><mi>P</mi><mo>&#x02192;</mo><mi>&#x1D524;</mi></math> be the connection form associated to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A6;</mi></math>. Looping this, using the equivalences, yields <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C9;</mi> <mi>L</mi></msup><mo>:</mo><mi>T</mi><mi>L</mi><mi>P</mi><mo>&#x02192;</mo><mi>L</mi><mi>&#x1D524;</mi></math>. For <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C7;</mi><mo>&#x02208;</mo><mi>L</mi><mi>&#x1D524;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>P</mi></math> we have, for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>&#x003C9;</mi> <mi>L</mi></msup><mo stretchy="false">(</mo><msub><mi>&#x003B6;</mi> <mi>&#x003C7;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C9;</mi><mo stretchy="false">(</mo><msub><mi>&#x003B6;</mi> <mi>&#x003C7;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C9;</mi><mo stretchy="false">(</mo><msub><mi>&#x003B6;</mi> <mrow><mi>&#x003C7;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C7;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></math>
+</div>
+
+
+
+<p> and hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C9;</mi> <mi>L</mi></msup><mo stretchy="false">(</mo><msub><mi>&#x003B6;</mi> <mi>&#x003C7;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C7;</mi></math>. Secondly, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C9;</mi> <mi>L</mi></msup></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>G</mi></math>-equivariant as all the actions are loops of the actions on the original spaces.
+
+</p>
+
+<p>Finally, the equation <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A6;</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003B6;</mi> <mrow><mi>&#x003C9;</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></math> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi><mo>&#x02208;</mo><msub><mi>T</mi> <mi>u</mi></msub><mi>P</mi></math> shows that for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C7;</mi><mo>&#x02208;</mo><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>P</mi></math>: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>&#x003A6;</mi><mo stretchy="false">(</mo><mi>&#x003C7;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003A6;</mi><mo stretchy="false">(</mo><mi>&#x003C7;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003B6;</mi> <mrow><mi>&#x003C9;</mi><mo stretchy="false">(</mo><mi>&#x003C7;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math>
+</div>
+
+
+
+<p> and hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003A6;</mi> <mi>L</mi></msup><mo stretchy="false">(</mo><mi>&#x003C7;</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003B6;</mi> <mrow><msup><mi>&#x003C9;</mi> <mi>L</mi></msup><mo stretchy="false">(</mo><mi>&#x003C7;</mi><mo stretchy="false">)</mo></mrow></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo></math>. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>Associated to a connection is a parallel transport operation that lifts curves in the base to curves in the fibre such that the derivative is horizontal (i.e.&#x000A0;in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>ker</mi><mi>&#x003A6;</mi></math>). The parallel transport operations on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> and on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> are related as follows:
+
+</p>
+<div class="gentheorem thm" id="theorem.4.8"><span class="title"><span class="name">Proposition</span> <span class="number">4.8</span></span>
+
+<p> The parallel transport operator exists in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>P</mi></math> and corresponds to the parallel transport operator in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>P</mi></math> under the evaluation maps, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo>:</mo><mi>L</mi><mi>P</mi><mo>&#x02192;</mo><mi>P</mi></math>. That is, if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover><mo>:</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>L</mi><mi>P</mi></math> is a horizontal lift of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>c</mi><mo>:</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover><mo>:</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>P</mi></math> is a horizontal lift of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mi>c</mi><mo>:</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>M</mi></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>As a loop is completely determined by the values it takes, this characterisation completely specifies the parallel transport operator in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>P</mi></math>. As parallel transports are unique providing they exist, [<a href="diffloop8.xhtml#cite.akpm">KM97</a>, 37.6], we just need to show that this characterisation <em>defines</em> the parallel transport.
+
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>c</mi><mo>:</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> be a curve and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi><mo>&#x02208;</mo><mi>L</mi><mi>P</mi></math> a lift of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>c</mi><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></math>. For <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math> let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>c</mi> <mi>t</mi></msub><mo>&#x02254;</mo><msub><mi>e</mi> <mi>t</mi></msub><mi>c</mi><mo>:</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>M</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>v</mi> <mi>t</mi></msub><mo>&#x02254;</mo><msub><mi>e</mi> <mi>t</mi></msub><mi>v</mi><mo>&#x02208;</mo><mi>P</mi></math>, so that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>v</mi> <mi>t</mi></msub></math> is a lift of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>c</mi> <mi>t</mi></msub><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover> <mi>t</mi></msub><mo>:</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>P</mi></math> be the parallel transport of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>v</mi> <mi>t</mi></msub></math> along <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>c</mi> <mi>t</mi></msub></math>. We therefore have a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>P</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>s</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover> <mi>t</mi></msub><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover><mo>:</mo><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>L</mi><mi>P</mi></math> be the adjoint of this.
+
+</p>
+
+<p>As parallel transport in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>P</mi></math> is smooth in all initial conditions, the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>s</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover> <mi>t</mi></msub><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></math> is smooth. Hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover></math> is smooth. Clearly, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C0;</mi> <mi>L</mi></msup><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover><mo>=</mo><mi>c</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mi>v</mi></math>. Finally, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><msup><mi>&#x003A6;</mi> <mi>L</mi></msup><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover><mo>&#x02032;</mo><mo>=</mo><mi>&#x003A6;</mi><msub><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover> <mi>t</mi></msub><mo>&#x02032;</mo><mo>=</mo><mn>0</mn></math> so <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003A6;</mi> <mi>L</mi></msup><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover><mo>&#x02032;</mo><mo>=</mo><mn>0</mn></math> and hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mover><mi>c</mi><mo stretchy="false">&#x002DC;</mo></mover></math> is horizontal. Thus it is the parallel transport of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi></math> along <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>c</mi></math>. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>Given an action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> on a (finite dimensional) manifold <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>S</mi></math> we get an associated fibre bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>R</mi><mo>&#x02254;</mo><mi>P</mi><msub><mo>&#x000D7;</mo> <mi>G</mi></msub><mi>S</mi><mo>&#x02192;</mo><mi>M</mi></math>. The connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>P</mi></math> induces a connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>R</mi></math>. Similarly, the connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>P</mi></math> induces a connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>R</mi></math>. That these correspond is straightforward to deduce.
+
+</p>
+
+<p>In particular, for a representation of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>G</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><mo>&#x02254;</mo><mi>P</mi><msub><mo>&#x000D7;</mo> <mi>G</mi></msub><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> we get linear connections on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>. From these we construct covariant differentiation operators. We start with the canonical isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mtext>vl</mtext> <mi>E</mi></msub><mo>:</mo><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>V</mi><mi>E</mi></math>, where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mtext>vl</mtext> <mi>E</mi></msub><mo stretchy="false">(</mo><msub><mi>u</mi> <mi>x</mi></msub><mo>,</mo><msub><mi>v</mi> <mi>x</mi></msub><mo stretchy="false">)</mo></math> is represented by the short curve <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>&#x02192;</mo><msub><mi>u</mi> <mi>x</mi></msub><mo>+</mo><mi>s</mi><msub><mi>v</mi> <mi>x</mi></msub></math>. Using this, we define the <em>connector</em> <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>K</mi> <mi>E</mi></msub></math> of the connection <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003A6;</mi> <mi>E</mi></msub></math> by: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mi>K</mi> <mi>E</mi></msub><mo>&#x02254;</mo><msub><mtext>pr</mtext> <mn>2</mn></msub><mo>&#x02218;</mo><mo stretchy="false">(</mo><msub><mtext>vl</mtext> <mi>E</mi></msub><msup><mo stretchy="false">)</mo> <mrow><mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo><mn>1</mn></mrow></msup><mo>&#x02218;</mo><msub><mi>&#x003A6;</mi> <mi>E</mi></msub><mo>:</mo><mi>T</mi><mi>E</mi><mo>&#x02192;</mo><mi>V</mi><mi>E</mi><mo>&#x02192;</mo><mi>E</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>E</mi><mo>&#x02192;</mo><mi>E</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> The covariant derivative on vector bundles is defined, following [<a href="diffloop8.xhtml#cite.akpm">KM97</a>, 37.28], as follows: for any manifold <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>N</mi></math>, smooth mapping <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>:</mo><mi>N</mi><mo>&#x02192;</mo><mi>E</mi></math>, and (kinematic) vector field <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi><mo>&#x02208;</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></math> we define the <em>covariant derivative</em> of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi></math> along <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi></math> by: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msubsup><mo>&#x02207;</mo> <mi>X</mi> <mi>E</mi></msubsup><mi>s</mi><mo>&#x02254;</mo><msub><mi>K</mi> <mi>E</mi></msub><mo>&#x02218;</mo><mi>d</mi><mi>s</mi><mo>&#x02218;</mo><mi>X</mi><mo>:</mo><mi>N</mi><mo>&#x02192;</mo><mi>T</mi><mi>N</mi><mo>&#x02192;</mo><mi>T</mi><mi>E</mi><mo>&#x02192;</mo><mi>E</mi><mo>.</mo></math>
+</div>
+
+
+
+<p>
+
+</p>
+<p>If <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi></math> is a lift of some fixed map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>N</mi><mo>&#x02192;</mo><mi>M</mi></math> then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msubsup><mo>&#x02207;</mo> <mi>X</mi> <mi>E</mi></msubsup><mi>s</mi></math> is also a lift of the same map and so we get an induced operation on sections of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mo>*</mo></msup><mi>E</mi></math>. In particular, taking <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> to be the identity we get the usual operator: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mo>&#x02207;</mo> <mi>E</mi></msup><mo>:</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo><mo>&#x000D7;</mo><msub><mi>&#x00393;</mi> <mi>M</mi></msub><mo stretchy="false">(</mo><mi>E</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mi>&#x00393;</mi> <mi>M</mi></msub><mo stretchy="false">(</mo><mi>E</mi><mo stretchy="false">)</mo><mo>.</mo></math>
+</div>
+
+
+
+<p> The reason for taking the more general approach is that it is the better setting for expressing the relationship between <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mo>&#x02207;</mo> <mi>E</mi></msup></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mo>&#x02207;</mo> <mrow><mi>L</mi><mi>E</mi></mrow></msup></math>, which is defined analogously, because by Theorem&#x000A0;<a href="diffloop4.xhtml#theorem.3.28">3.28</a> there is an equivalence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>C</mi> <mn>&#x0221E;</mn></msup><mo stretchy="false">(</mo><mi>N</mi><mo>,</mo><mi>L</mi><mi>E</mi><mo stretchy="false">)</mo><mo>&#x02245;</mo><msup><mi>C</mi> <mn>&#x0221E;</mn></msup><mo stretchy="false">(</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>N</mi><mo>,</mo><mi>E</mi><mo stretchy="false">)</mo></math>. Therefore given a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>:</mo><mi>N</mi><mo>&#x02192;</mo><mi>L</mi><mi>E</mi></math> we take its adjoint to get a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>s</mi> <mo>&#x02228;</mo></msup><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>N</mi><mo>&#x02192;</mo><mi>E</mi></math>. A vector field <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>N</mi></math> defines one on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>N</mi></math> in the obvious way which we also denote by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi></math>.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.9"><span class="title"><span class="name">Theorem</span> <span class="number">4.9</span></span>
+
+<p> <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mstyle displaystyle="true"><mo maxsize="1.2em" minsize="1.2em">(</mo><msubsup><mo>&#x02207;</mo> <mi>X</mi> <mrow><mi>L</mi><mi>E</mi></mrow></msubsup><mi>s</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo>=</mo><msubsup><mo>&#x02207;</mo> <mi>X</mi> <mi>E</mi></msubsup><mo stretchy="false">(</mo><msup><mi>s</mi> <mo>&#x02228;</mo></msup><mo stretchy="false">)</mo></mstyle></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>It is obvious that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>K</mi> <mrow><mi>L</mi><mi>E</mi></mrow></msub></math> is the loop of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>K</mi> <mi>E</mi></msub></math> since each map in the definition of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>K</mi> <mrow><mi>L</mi><mi>E</mi></mrow></msub></math> is the loop of the corresponding map in the definition of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>K</mi> <mi>E</mi></msub></math>. It is straightforward to show that the identification <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>&#x02192;</mo><msup><mi>f</mi> <mo>&#x02228;</mo></msup></math> of Theorem&#x000A0;<a href="diffloop4.xhtml#theorem.3.28">3.28</a> together with the identification of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi></math> with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>T</mi><mi>M</mi></math> means that: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mo stretchy="false">(</mo><mi>d</mi><mi>f</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo>=</mo><mi>d</mi><mo stretchy="false">(</mo><msup><mi>f</mi> <mo>&#x02228;</mo></msup><mo stretchy="false">)</mo><mo>&#x02218;</mo><mo stretchy="false">(</mo><mi>&#x003B6;</mi><mo>&#x000D7;</mo><mn>1</mn><mo stretchy="false">)</mo><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>N</mi><mo>&#x02192;</mo><mi>T</mi><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>N</mi><mo>&#x02192;</mo><mi>T</mi><mi>M</mi><mo>,</mo></math>
+</div>
+
+
+
+<p> where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B6;</mi><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x02192;</mo><mi>T</mi><msup><mi>S</mi> <mn>1</mn></msup></math> is the zero section. Now the vector field on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>N</mi></math> corresponding to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi></math> can be thought of as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>&#x003B6;</mi><mo>&#x000D7;</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><mi>X</mi><mo stretchy="false">)</mo></math>. Thus <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msubsup><mo>&#x02207;</mo> <mi>X</mi> <mi>E</mi></msubsup><mo stretchy="false">(</mo><msup><mi>s</mi> <mo>&#x02228;</mo></msup><mo stretchy="false">)</mo></math> is: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>N</mi><mover><mo>&#x02192;</mo><mrow><mn>1</mn><mo>&#x000D7;</mo><mi>X</mi></mrow></mover><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>N</mi><mover><mo>&#x02192;</mo><mrow><mi>&#x003B6;</mi><mo>&#x000D7;</mo><mn>1</mn></mrow></mover><mi>T</mi><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>N</mi><mover><mo>&#x02192;</mo><mrow><mi>d</mi><mo stretchy="false">(</mo><msup><mi>s</mi> <mo>&#x02228;</mo></msup><mo stretchy="false">)</mo></mrow></mover><mi>T</mi><mi>E</mi><mover><mo>&#x02192;</mo><mrow><msub><mi>K</mi> <mi>E</mi></msub></mrow></mover><mi>E</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> the central two terms contract to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>d</mi><mi>s</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup></math> so we have: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>N</mi><mover><mo>&#x02192;</mo><mrow><mn>1</mn><mo>&#x000D7;</mo><mi>X</mi></mrow></mover><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>N</mi><mover><mo>&#x02192;</mo><mrow><mo stretchy="false">(</mo><mi>d</mi><mi>s</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup></mrow></mover><mi>T</mi><mi>E</mi><mover><mo>&#x02192;</mo><mrow><msub><mi>K</mi> <mi>E</mi></msub></mrow></mover><mi>E</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> This is the adjoint of: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>N</mi><mover><mo>&#x02192;</mo><mi>X</mi></mover><mi>T</mi><mi>N</mi><mover><mo>&#x02192;</mo><mrow><mi>d</mi><mi>s</mi></mrow></mover><mi>L</mi><mi>T</mi><mi>E</mi><mover><mo>&#x02192;</mo><mrow><msub><mi>K</mi> <mi>E</mi></msub></mrow></mover><mi>L</mi><mi>E</mi><mo>,</mo></math>
+</div>
+
+
+
+<p> which is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msubsup><mo>&#x02207;</mo> <mi>X</mi> <mrow><mi>L</mi><mi>E</mi></mrow></msubsup><mi>s</mi></math> as required. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>In particular, the covariant differential operator: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mo>&#x02207;</mo> <mrow><mi>L</mi><mi>E</mi></mrow></msup><mo>:</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>L</mi><mi>M</mi><mo stretchy="false">)</mo><mo>&#x000D7;</mo><msub><mi>&#x00393;</mi> <mrow><mi>L</mi><mi>M</mi></mrow></msub><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mi>&#x00393;</mi> <mrow><mi>L</mi><mi>M</mi></mrow></msub><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><mo stretchy="false">)</mo></math>
+</div>
+
+
+
+<p> is adjoint to the covariant differential operator on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>e</mi> <mo>*</mo></msup><mi>E</mi><mo>&#x02192;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>M</mi></math> where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>e</mi><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> is the evaluation map.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.10"><span class="title"><span class="name">Lemma</span> <span class="number">4.10</span></span>
+
+<p>Fix <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>N</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> and consider only those maps that are lifts of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi></math>. For such sections, the connection <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mo>&#x02207;</mo> <mrow><mi>L</mi><mi>E</mi></mrow></msup></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>We need to restrict our attention to lifts of a fixed map in order to have an addition on the maps <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>:</mo><mi>N</mi><mo>&#x02192;</mo><mi>L</mi><mi>E</mi></math> since we need to know that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>s</mi> <mn>1</mn></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>s</mi> <mn>2</mn></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></math> end up in the same fibre of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math>.
+
+</p>
+
+<p>Standard properties of connections imply <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>-linearity so all that we need to prove is the correct behaviour under multiplication by an element of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>. This follows from the pleasant properties of the differential of a map under the adjoint mapping. Namely, that for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>:</mo><mi>N</mi><mo>&#x02192;</mo><mi>L</mi><mi>E</mi></math> with adjoint <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>s</mi> <mo>&#x02228;</mo></msup><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>N</mi><mo>&#x02192;</mo><mi>E</mi></math>, the adjoint of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><mi>s</mi></math> is the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>N</mi></math>-directional derivative of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>s</mi> <mo>&#x02228;</mo></msup></math>. That is, </p>
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mo stretchy="false">(</mo><mi>d</mi><mi>s</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo>=</mo><mi>d</mi><mo stretchy="false">(</mo><msup><mi>s</mi> <mo>&#x02228;</mo></msup><mo stretchy="false">)</mo><mo>&#x02218;</mo><mo stretchy="false">(</mo><mi>&#x003B6;</mi><mo>&#x000D7;</mo><mn>1</mn><mo stretchy="false">)</mo><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>N</mi><mo>&#x02192;</mo><mi>T</mi><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>T</mi><mi>N</mi><mo>&#x02192;</mo><mi>T</mi><mi>E</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> Now for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>&#x02208;</mo><mi>L</mi><mi>&#x0211D;</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mi>s</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup></math> is the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><msup><mi>s</mi> <mo>&#x02228;</mo></msup><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo></math>. When taking the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>N</mi></math>-directional derivative, only the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>s</mi> <mo>&#x02228;</mo></msup></math>-factor contributes and we find that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mi>s</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo>=</mo><mi>&#x003B2;</mi><mi>d</mi><msup><mi>s</mi> <mo>&#x02228;</mo></msup></math>. Hence, undoing the adjoints, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mi>s</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B2;</mi><mi>d</mi><mi>s</mi></math>.
+
+</p>
+
+<p>Since <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>K</mi> <mrow><mi>L</mi><mi>E</mi></mrow></msub></math> is the loop of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>K</mi> <mi>E</mi></msub></math>, it is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear and hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>K</mi> <mrow><mi>L</mi><mi>E</mi></mrow></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mi>d</mi><mi>s</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B2;</mi><msub><mi>K</mi> <mrow><mi>L</mi><mi>E</mi></mrow></msub><mi>d</mi><mi>s</mi></math>. Thus <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msubsup><mo>&#x02207;</mo> <mi>X</mi> <mrow><mi>L</mi><mi>E</mi></mrow></msubsup><mi>s</mi></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi></math>. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>Even when <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>N</mi></math> is a loop space, such as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> itself, the connection will not be <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear in the other variable. This is because for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>&#x02208;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>&#x02208;</mo><mi>L</mi><mi>&#x0211D;</mi></math>, the vectors <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mi>&#x003B3;</mi></math> represent completely different directions. It is tempting to view <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mi>&#x003B3;</mi></math> as an elaborate stretch of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> but really they are unrelated vectors.
+
+</p>
+
+<p>A connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math> loops to one on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>T</mi><mi>M</mi></math>, whence to one on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi></math>. Thus we can consider its torsion: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>&#x003C4;</mi><mo stretchy="false">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false">)</mo><mo>&#x02254;</mo><msub><mo>&#x02207;</mo> <mi>X</mi></msub><mi>Y</mi><mo>&#x02212;</mo><msub><mo>&#x02207;</mo> <mi>Y</mi></msub><mi>X</mi><mo>&#x02212;</mo><mo stretchy="false">[</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="false">]</mo><mo>.</mo></math>
+</div>
+
+
+
+<p> As in finite dimensions this is a tensor and so is given by a fibrewise bilinear, skew-symmetric map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x000D7;</mo><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>T</mi><mi>L</mi><mi>M</mi></math>.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.11"><span class="title"><span class="name">Proposition</span> <span class="number">4.11</span></span>
+
+<p>The torsion on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> is the loop of the torsion on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>We start with a couple of facts about <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>: </p>
+
+<ol> <li id="Item.74">
+
+<p>Any loop in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> is the sum of two never-zero loops.
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x02192;</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>. As <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math> is compact the image of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> is bounded and so there is some non-zero <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi><mo>&#x02208;</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> such that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>&#x02260;</mo><mi>v</mi></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi></math>. Thus <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>&#x02212;</mo><msub><mi>&#x003B3;</mi> <mi>v</mi></msub></math> is never zero, where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mi>v</mi></msub></math> is the constant loop at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi></math>. Hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> is the sum <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>&#x02212;</mo><msub><mi>&#x003B3;</mi> <mi>v</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>&#x003B3;</mi> <mi>v</mi></msub></math> of two never-zero loops.
+
+</p>
+
+</li><li id="Item.75">
+
+<p>If <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>n</mi><mo>&#x02265;</mo><mn>2</mn></math>, given a pair of never-zero loops <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B4;</mi></math>, there are never-zero loops <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B2;</mi> <mn>1</mn></msub></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B2;</mi> <mn>2</mn></msub></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B4;</mi> <mn>1</mn></msub></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B4;</mi> <mn>2</mn></msub></math> such that: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>=</mo><msub><mi>&#x003B2;</mi> <mn>1</mn></msub><mo>+</mo><msub><mi>&#x003B2;</mi> <mn>2</mn></msub></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B4;</mi><mo>=</mo><msub><mi>&#x003B4;</mi> <mn>1</mn></msub><mo>+</mo><msub><mi>&#x003B4;</mi> <mn>2</mn></msub></math> and, for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi></math> and for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>i</mi><mo>,</mo><mi>j</mi><mo>&#x02208;</mo><mo stretchy="false">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false">}</mo></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><msub><mi>&#x003B2;</mi> <mi>i</mi></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><msub><mi>&#x003B4;</mi> <mi>j</mi></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo></math> is a linearly independent set.
+
+</p>
+
+<p>If <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>n</mi><mo>&#x02265;</mo><mn>3</mn></math> this is simple: choose a never-zero loop <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> such that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></math> is not in the linear span of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x003B4;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B2;</mi> <mn>1</mn></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>+</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B2;</mi> <mn>2</mn></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>&#x02212;</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B4;</mi> <mn>1</mn></msub><mo>=</mo><msub><mi>&#x003B4;</mi> <mn>2</mn></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>&#x003B4;</mi></math>. Then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B2;</mi> <mi>i</mi></msub></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B4;</mi> <mi>i</mi></msub></math> satisfy the required properties.
+
+</p>
+
+<p>If <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>n</mi><mo>=</mo><mn>2</mn></math> this is slightly more complicated. The idea relies on the fact that if the images of two loops lie on the same side of a line through the origin then at no time can they be colinear. Thus we arrange matters so that the four loops lie in the four quadrants with the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B2;</mi> <mi>i</mi></msub></math> in opposite quadrants (hence also the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B4;</mi> <mi>i</mi></msub></math> in opposite quadrants). Then each pair <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><msub><mi>&#x003B2;</mi> <mi>i</mi></msub><mo>,</mo><msub><mi>&#x003B4;</mi> <mi>j</mi></msub><mo stretchy="false">}</mo></math> lie on the same side of one of the axes and so can never be colinear. Specifically, let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>R</mi><mo>&gt;</mo><mn>0</mn></math> be such that the images of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B4;</mi></math> lie within the open square with vertices at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mo>&#x000B1;</mo><mi>R</mi><mo>,</mo><mo>&#x000B1;</mo><mi>R</mi><mo stretchy="false">)</mo></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mn>1</mn></msub></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mn>2</mn></msub></math> be constant loops at two adjacent vertices of this square. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B2;</mi> <mn>1</mn></msub><mo>=</mo><mi>&#x003B2;</mi><mo>&#x02212;</mo><msub><mi>&#x003B3;</mi> <mn>1</mn></msub></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B2;</mi> <mn>2</mn></msub><mo>=</mo><msub><mi>&#x003B3;</mi> <mn>1</mn></msub></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B4;</mi> <mn>1</mn></msub><mo>=</mo><mi>&#x003B4;</mi><mo>&#x02212;</mo><msub><mi>&#x003B3;</mi> <mn>2</mn></msub></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B4;</mi> <mn>2</mn></msub><mo>=</mo><msub><mi>&#x003B3;</mi> <mn>2</mn></msub></math>. Then these satisfy the requirements.
+
+</p>
+
+</li><li id="Item.76">
+
+<p>Hence if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C1;</mi> <mi>i</mi></msub><mo>:</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x000D7;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn></math>, are bilinear and such that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C1;</mi> <mn>1</mn></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>&#x003C1;</mi> <mn>2</mn></msub><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo></math> whenever <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi></math> are never-zero and never-colinear then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003C1;</mi> <mn>1</mn></msub><mo>=</mo><msub><mi>&#x003C1;</mi> <mn>2</mn></msub></math>. </p>
+
+</li></ol>
+
+<p>
+
+</p>
+
+<p>These extend to sections of an orientable vector bundle over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math> via a trivialisation since the concepts of "never-zero" and "never-colinear" are preserved under bundle maps. Hence they transfer to the fibres of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math>. Note that we really need orientable here rather than it being a convenient simplification as there are no never-zero sections of the M&#x000F6;bius line.
+
+</p>
+
+<p>The other information that we need to know about is how the covariant derivative on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> - on any vector bundle - transforms under maps of the source. As in finite dimensions, the covariant derivative of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>:</mo><mi>N</mi><mo>&#x02192;</mo><mi>L</mi><mi>E</mi></math> along <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi><mo>&#x02208;</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></math> at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>x</mi><mo>&#x02208;</mo><mi>N</mi></math> depends on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi></math> only up to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></math>. That is, the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mo>&#x02207;</mo> <mrow><mi>X</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></msub><mo>:</mo><msup><mi>C</mi> <mn>&#x0221E;</mn></msup><mo stretchy="false">(</mo><mi>N</mi><mo>,</mo><mi>L</mi><mi>E</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>L</mi><mi>E</mi></math> makes sense and satisfies: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable columnalign="right left right left right left right left right left" columnspacing="0em"><mtr><mtd><mi>&#x003C0;</mi><mo stretchy="false">(</mo><msub><mo>&#x02207;</mo> <mrow><mi>X</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></msub><mi>s</mi><mo stretchy="false">)</mo></mtd> <mtd><mo>=</mo><mi>s</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>,</mo></mtd></mtr> <mtr><mtd><mo stretchy="false">(</mo><msub><mo>&#x02207;</mo> <mi>X</mi></msub><mi>s</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mtd> <mtd><mo>=</mo><msub><mo>&#x02207;</mo> <mrow><mi>X</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></msub><mi>s</mi><mo>.</mo></mtd></mtr></mtable></mrow></math>
+</div>
+
+
+
+<p> Also given a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>:</mo><mi>Q</mi><mo>&#x02192;</mo><mi>N</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>Y</mi> <mi>y</mi></msub><mo>&#x02208;</mo><msub><mi>T</mi> <mi>y</mi></msub><mi>Q</mi></math> we have: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mo>&#x02207;</mo> <mrow><mi>d</mi><mi>g</mi><msub><mi>Y</mi> <mi>y</mi></msub></mrow></msub><mi>s</mi><mo>=</mo><msub><mo>&#x02207;</mo> <mrow><msub><mi>Y</mi> <mi>y</mi></msub></mrow></msub><mo stretchy="false">(</mo><mi>s</mi><mo>&#x02218;</mo><mi>g</mi><mo stretchy="false">)</mo><mo>.</mo></math>
+</div>
+<p> Moreover, if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>Y</mi><mo>&#x02208;</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>Q</mi><mo stretchy="false">)</mo></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi><mo>&#x02208;</mo><mi>&#x1D51B;</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></math> are <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi></math>-related in that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><mi>g</mi><mo stretchy="false">(</mo><mi>Y</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>X</mi><mo stretchy="false">(</mo><mi>g</mi><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>y</mi><mo>&#x02208;</mo><mi>Q</mi></math> then: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mo>&#x02207;</mo> <mi>Y</mi></msub><mo stretchy="false">(</mo><mi>s</mi><mo>&#x02218;</mo><mi>g</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><msub><mo>&#x02207;</mo> <mi>X</mi></msub><mi>s</mi><mo stretchy="false">)</mo><mo>&#x02218;</mo><mi>g</mi><mo>.</mo></math>
+</div>
+
+
+
+<p>
+
+</p>
+
+<p>We now turn to the covariant derivative on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi></math>.
+
+</p>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math> and let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi><mo>&#x02208;</mo><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>M</mi></math> be never-zero and never-colinear. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math> and put <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>x</mi><mo>&#x02254;</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>&#x02208;</mo><mi>M</mi></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B7;</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> be a local addition on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. It is straightforward to show that the restriction of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B7;</mi></math> to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi></math> is a diffeomorphism onto an open neighbourhood of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>x</mi></math> of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. Write this as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B7;</mi> <mi>x</mi></msub><mo>:</mo><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi><mo>&#x02192;</mo><msub><mi>V</mi> <mi>x</mi></msub></math>.
+
+</p>
+
+<p>As <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi></math> is orientable, we can choose a trivialisation <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo>&#x02245;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi></math>. From our assumptions on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> we can arrange matters so that under the induced isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mo>&#x02245;</mo><mi>L</mi><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi></math>, they are taken to constant loops. Define <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C8;</mi><mo>:</mo><mi>V</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> as: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>V</mi><mover><mo>&#x02192;</mo><mrow><msubsup><mi>&#x003B7;</mi> <mi>x</mi> <mrow><mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo><mn>1</mn></mrow></msubsup></mrow></mover><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi><mo>&#x02286;</mo><mi>L</mi><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi><mo>&#x02245;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mover><mo>&#x02192;</mo><mrow><msub><mi>&#x003A8;</mi> <mi>&#x003B1;</mi></msub></mrow></mover><msub><mi>U</mi> <mi>&#x003B1;</mi></msub><mo>&#x02286;</mo><mi>L</mi><mi>M</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> Here, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi><mo>&#x02286;</mo><mi>L</mi><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi></math> is identified with the subspace of constant loops.
+
+</p>
+
+<p>To determine the image of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>x</mi></math>, we see that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msubsup><mi>&#x003B7;</mi> <mi>x</mi> <mrow><mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo><mn>1</mn></mrow></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn><mo>&#x02208;</mo><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi></math> which gets mapped to the zero loop and hence to the zero section, which is then mapped to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi></math>. Hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C8;</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B1;</mi></math>.
+
+</p>
+
+<p>Apart from the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi></math>, all the maps are diffeomorphisms. Thus to identify the image of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><msub><mi>&#x003C8;</mi> <mi>x</mi></msub></math> it is sufficient to identify the image of the derivative of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi></math> at the origin. As this map is linear, its derivative is itself and so we get the constant loops. Thus, by construction, the image of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>d</mi><msub><mi>&#x003C8;</mi> <mi>x</mi></msub></math> contains <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>u</mi><mo>,</mo><mi>v</mi><mo>&#x02208;</mo><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi></math> be their respective pre-images.
+
+</p>
+
+<p>Using the charts <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B7;</mi> <mi>x</mi></msub><mo>:</mo><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi><mo>&#x02192;</mo><mi>V</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003A8;</mi> <mi>&#x003B1;</mi></msub><mo>:</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mi>U</mi> <mi>&#x003B1;</mi></msub></math> we can choose vector fields <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>X</mi> <mi>&#x003B2;</mi></msub></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>X</mi> <mi>&#x003B3;</mi></msub></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> extending <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>Y</mi> <mi>u</mi></msub></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>Y</mi> <mi>v</mi></msub></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> extending <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>u</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi></math> that are <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C8;</mi></math>-related and such that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">[</mo><msub><mi>X</mi> <mi>&#x003B2;</mi></msub><mo>,</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo stretchy="false">]</mo><mo>=</mo><mn>0</mn></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">[</mo><msub><mi>Y</mi> <mi>u</mi></msub><mo>,</mo><msub><mi>Y</mi> <mi>v</mi></msub><mo stretchy="false">]</mo><mo>=</mo><mn>0</mn></math>. Thus, writing <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mo>&#x02207;</mo> <mi>L</mi></msup></math> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mo>&#x02207;</mo> <mrow><mi>T</mi><mi>L</mi><mi>M</mi></mrow></msup></math>: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable columnalign="right left right left right left right left right left" columnspacing="0em"><mtr><mtd><mi>&#x003C4;</mi><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo></mtd> <mtd><mo>=</mo><mo stretchy="false">(</mo><msubsup><mo>&#x02207;</mo> <mrow><msub><mi>X</mi> <mi>&#x003B2;</mi></msub></mrow> <mi>L</mi></msubsup><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>&#x02212;</mo><mo stretchy="false">(</mo><msubsup><mo>&#x02207;</mo> <mrow><msub><mi>X</mi> <mi>&#x003B3;</mi></msub></mrow> <mi>L</mi></msubsup><msub><mi>X</mi> <mi>&#x003B2;</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo></mtd></mtr> <mtr><mtd></mtd> <mtd><mo>=</mo><mo stretchy="false">(</mo><msubsup><mo>&#x02207;</mo> <mrow><msub><mi>X</mi> <mi>&#x003B2;</mi></msub></mrow> <mi>L</mi></msubsup><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>&#x003C8;</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>&#x02212;</mo><mo stretchy="false">(</mo><msubsup><mo>&#x02207;</mo> <mrow><msub><mi>X</mi> <mi>&#x003B3;</mi></msub></mrow> <mi>L</mi></msubsup><msub><mi>X</mi> <mi>&#x003B2;</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>&#x003C8;</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mtd></mtr> <mtr><mtd></mtd> <mtd><mo>=</mo><mo maxsize="1.2em" minsize="1.2em">(</mo><msubsup><mo>&#x02207;</mo> <mrow><msub><mi>Y</mi> <mi>u</mi></msub></mrow> <mi>L</mi></msubsup><mo stretchy="false">(</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><mo stretchy="false">)</mo><mo maxsize="1.2em" minsize="1.2em">)</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>&#x02212;</mo><mo maxsize="1.2em" minsize="1.2em">(</mo><msubsup><mo>&#x02207;</mo> <mrow><msub><mi>Y</mi> <mi>v</mi></msub></mrow> <mi>L</mi></msubsup><mo stretchy="false">(</mo><msub><mi>X</mi> <mi>&#x003B2;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><mo stretchy="false">)</mo><mo maxsize="1.2em" minsize="1.2em">)</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>.</mo></mtd></mtr></mtable></mrow></math>
+</div>
+<p>
+
+</p>
+
+<p>As <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C4;</mi></math> is a map into <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>M</mi><mo>&#x02286;</mo><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math>, we can take its adjoint, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003C4;</mi> <mo>&#x02228;</mo></msup></math>. Taking adjoints on the right, we use Theorem&#x000A0;<a href="diffloop5.xhtml#theorem.4.9">4.9</a> to simplify as follows: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mo maxsize="1.2em" minsize="1.2em">(</mo><msubsup><mo>&#x02207;</mo> <mrow><msub><mi>Y</mi> <mi>u</mi></msub></mrow> <mi>L</mi></msubsup><mo stretchy="false">(</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><mo stretchy="false">)</mo><msup><mo maxsize="1.2em" minsize="1.2em">)</mo> <mo>&#x02228;</mo></msup><mo>=</mo><msub><mo>&#x02207;</mo> <mrow><msub><mi>Y</mi> <mi>u</mi></msub></mrow></msub><mo stretchy="false">(</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo>.</mo></math>
+</div>
+
+
+
+<p> Now <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><mo>:</mo><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>T</mi><mi>L</mi><mi>M</mi></math> adjoints to: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>M</mi><mover><mo>&#x02192;</mo><mrow><mn>1</mn><mo>&#x000D7;</mo><mi>&#x003C8;</mi></mrow></mover><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>M</mi><mover><mo>&#x02192;</mo><mrow><mn>1</mn><mo>&#x000D7;</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub></mrow></mover><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>T</mi><mi>M</mi><mover><mo>&#x02192;</mo><mi>e</mi></mover><mi>T</mi><mi>M</mi><mo>.</mo></math>
+</div>
+
+
+
+<p> Hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>e</mi><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>v</mi></math>. Thus we can consider <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup></math> as a vector field on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>M</mi></math> extending <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi></math> at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo></math>. We extend the covariant derivative to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>M</mi></math> using the product of the connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> with the standard connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math>. As the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math>-part is torsion free, the torsion of this extension is the torsion of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. Thus: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mo>&#x02207;</mo> <mi>u</mi></msub><mo stretchy="false">(</mo><msub><mi>X</mi> <mi>&#x003B3;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo>&#x02212;</mo><msub><mo>&#x02207;</mo> <mi>v</mi></msub><mo stretchy="false">(</mo><msub><mi>X</mi> <mi>&#x003B2;</mi></msub><mo>&#x02218;</mo><mi>&#x003C8;</mi><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo>=</mo><mi>&#x003C4;</mi><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>.</mo></math>
+</div>
+
+
+
+<p> Hence <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C4;</mi><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003C4;</mi><mo stretchy="false">(</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math> and thus the torsion of the looped connection is the loop of the torsion of the original connection. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<div class="gentheorem thm" id="theorem.4.12"><span class="title"><span class="name">Corollary</span> <span class="number">4.12</span></span>
+
+<p> A torsion-free connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> loops to a torsion-free connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+<h2 id="subsection.4.5">4.5 The Enemy of my Enemy is not my Friend</h2>
+<p>
+
+</p>
+
+<p>Section&#x000A0;<a href="diffloop5.xhtml#subsection.4.2">4.2</a> showed that the loop space of a vector bundle has a pleasant <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module structure. We extend this further by observing that: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mi>hom</mi> <mrow><mi>L</mi><mi>&#x0211D;</mi></mrow></msub><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><mo>,</mo><mi>L</mi><mi>&#x0211D;</mi><mo stretchy="false">)</mo><mo>=</mo><mi>L</mi><msub><mi>hom</mi> <mi>&#x0211D;</mi></msub><mo stretchy="false">(</mo><mi>E</mi><mo>,</mo><mi>&#x0211D;</mi><mo stretchy="false">)</mo><mo>,</mo></math>
+</div>
+
+
+
+<p> and more generally: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable columnalign="right left right left right left right left right left" columnspacing="0em"><mtr><mtd><msub><mi>hom</mi> <mrow><mi>L</mi><mi>&#x0211D;</mi></mrow></msub><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><mo>,</mo><mi>L</mi><mi>F</mi><mo stretchy="false">)</mo></mtd> <mtd><mo>=</mo><mi>L</mi><msub><mi>hom</mi> <mi>&#x0211D;</mi></msub><mo stretchy="false">(</mo><mi>E</mi><mo>,</mo><mi>F</mi><mo stretchy="false">)</mo><mo>,</mo></mtd></mtr> <mtr><mtd><msub><mo lspace="0em" rspace="thinmathspace">Iso</mo> <mrow><mi>L</mi><mi>&#x0211D;</mi></mrow></msub><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><mo>,</mo><mi>L</mi><mi>F</mi><mo stretchy="false">)</mo></mtd> <mtd><mo>=</mo><mi>L</mi><msub><mo lspace="0em" rspace="thinmathspace">Iso</mo> <mi>&#x0211D;</mi></msub><mo stretchy="false">(</mo><mi>E</mi><mo>,</mo><mi>F</mi><mo stretchy="false">)</mo><mo>.</mo></mtd></mtr></mtable></mrow></math>
+</div>
+
+
+
+<p> This last is a generalisation of the fact that if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>Q</mi></math> is the frame bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>Q</mi></math> is the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-frame bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>.
+
+</p>
+
+<p>However, when viewing <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> as a mere vector bundle this pleasant functorality is not preserved. The most distressing case of this is that the cotangent bundle of the loop space is not the loop space of the cotangent bundle. The simple explanation for this is that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo stretchy="false">(</mo><msup><mi>E</mi> <mo>*</mo></msup><mo stretchy="false">)</mo></math> is modelled on the space <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>, as is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>, but <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup></math> is modelled on its dual which is the space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>-valued distributions on the circle.
+
+</p>
+
+<p>Thus although <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>=</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> it is not true that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>T</mi> <mo>*</mo></msup><mi>L</mi><mi>M</mi><mo>=</mo><mi>L</mi><msup><mi>T</mi> <mo>*</mo></msup><mi>M</mi></math>. This rules out any possibility of an isomorphism between the tangent and cotangent bundles, either via an inner product or via a symplectic structure. One can (easily) define <em>weak</em> such structures where the induced map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><msup><mi>T</mi> <mo>*</mo></msup><mi>L</mi><mi>M</mi></math> is injective but it can never be an isomorphism.
+
+</p>
+
+<p>A choice of linear map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>L</mi><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>&#x0211D;</mi></math> defines a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo stretchy="false">(</mo><msup><mi>E</mi> <mo>*</mo></msup><mo stretchy="false">)</mo><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup></math> via: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>L</mi><mo stretchy="false">(</mo><msup><mi>E</mi> <mo>*</mo></msup><mo stretchy="false">)</mo><mo>=</mo><msub><mi>hom</mi> <mrow><mi>L</mi><mi>&#x0211D;</mi></mrow></msub><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><mo>,</mo><mi>L</mi><mi>&#x0211D;</mi><mo stretchy="false">)</mo><mo>&#x02286;</mo><msub><mi>hom</mi> <mi>&#x0211D;</mi></msub><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><mo>,</mo><mi>L</mi><mi>&#x0211D;</mi><mo stretchy="false">)</mo><mover><mo>&#x02192;</mo><mi>f</mi></mover><msub><mi>hom</mi> <mi>&#x0211D;</mi></msub><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><mo>,</mo><mi>&#x0211D;</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup><mo>.</mo></math>
+</div>
+
+
+
+<p> The most usual choice is the map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02192;</mo><msub><mo>&#x0222B;</mo> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mi>&#x003B1;</mi></math>. This has various properties that bode well for further construction, not least being its equivariance under the natural action of the circle. With this choice, the induced map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo stretchy="false">(</mo><msup><mi>E</mi> <mo>*</mo></msup><mo stretchy="false">)</mo><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup></math> is injective. Using this, any isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><mo>&#x02192;</mo><msup><mi>E</mi> <mo>*</mo></msup></math> loops to give an injection <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup></math>, but never an isomorphism.
+
+</p>
+<p>Thus over a loop space we have a schizophrenia as to whether bundles should be vector spaces or <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules. On the one hand, most of the constructions that one wishes to generalise from finite dimensional topology definitely use vector spaces and cannot be modified to use <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules - for the simple reason that the differential of an arbitrary function <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>&#x0211D;</mi></math> is an <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>-linear map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>&#x0211D;</mi></math> and not <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear. On the other hand, the theory of bundles as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-modules is very nice. In addition to the properties outlined above there is also the fact that one never wants to consider <em>any old</em> vector bundle with infinite dimensional fibres as the corresponding full general linear group is usually either not a Lie group or is contractible, neither of which is much help. Therefore we usually work with a subgroup, such as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mo lspace="0em" rspace="thinmathspace">Gl</mo><mo stretchy="false">(</mo><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo stretchy="false">)</mo></math>, which is a Lie group, does have some interesting topology, and coincidentally
+preserves the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-module structure.
+
+</p>
+
+
+</body></html>

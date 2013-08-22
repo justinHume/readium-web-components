@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?> <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" ><head>
+
+<title>The Differential Topology of Loop Spaces </title>
+
+<meta name="Author" content="Andrew Stacey"/><link href="diffloop.css" media="all" rel="stylesheet" type="text/css"/><script src="diffloop.js" type="text/javascript"/></head><body><p><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline' class='dummy'><mi></mi></math></p><h2 id="section.2">2 Loopy Notation</h2>
+<p>
+
+</p>
+
+<p>We first establish a little notation and some basic results for maps between loop spaces that have nothing to do with calculus. For a (finite dimensional smooth) manifold <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>, we denote <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>C</mi> <mn>&#x0221E;</mn></msup><mo stretchy="false">(</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>,</mo><mi>M</mi><mo stretchy="false">)</mo></math> by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>. If <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> is a space over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math>, so that we have a smooth map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi><mo>:</mo><mi>M</mi><mo>&#x02192;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>, we denote the subspace of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> consisting of sections of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C0;</mi></math> by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo></math>.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.2.1"><span class="title"><span class="name">Definition</span> <span class="number">2.1</span></span>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>M</mi><mo>&#x02192;</mo><mi>N</mi></math> be a smooth map between manifolds. Define <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup><mo>:</mo><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>N</mi></math> by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo>&#x02218;</mo><mi>&#x003B1;</mi></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<p>If <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> is a space over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup></math> restricts to a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>L</mi><mi>N</mi></math>. If, in addition, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>N</mi></math> is also a space over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi></math> is a map of spaces over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math> then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup></math> restricts to a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></math>. We shall use the notation <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup></math> for all three of these maps. Our convention will be that, unless otherwise stated, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup></math> refers to the most restrictive function that is applicable.
+
+</p>
+
+<p>The most obvious type of space over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup></math> is the product: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>M</mi></math>. In this case, the projection <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>p</mi><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> defines a bijection <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>p</mi> <mi>L</mi></msup><mo>:</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>M</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math>.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.2.2"><span class="title"><span class="name">Definition</span> <span class="number">2.2</span></span>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>X</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> be a map from a set <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi></math> to the loop space of a manifold <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mo>&#x02228;</mo></msup><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>X</mi><mo>&#x02192;</mo><mi>M</mi></math> be the <em>adjoint</em> of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi></math>: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mo>&#x02228;</mo></msup><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="gentheorem thm" id="theorem.2.3"><span class="title"><span class="name">Definition</span> <span class="number">2.3</span></span>
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> be a smooth manifold. Define the <em>evaluation</em> map, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>e</mi><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>e</mi><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></math>. We also write <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo>:</mo><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> for the <em>evaluation at <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi></math></em> map, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mo stretchy="false">(</mo><mi>&#x003B3;</mi><mo stretchy="false">)</mo><mo>=</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="gentheorem thm" id="theorem.2.4"><span class="title"><span class="name">Lemma</span> <span class="number">2.4</span></span>
+
+<p> </p>
+
+<ol> <li id="Item.29">
+<p>The adjoint of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>X</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> is the composition: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>f</mi> <mo>&#x02228;</mo></msup><mo>:</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>X</mi><mover><mo>&#x02192;</mo><mrow><mn>1</mn><mo>&#x000D7;</mo><mi>f</mi></mrow></mover><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>M</mi><mover><mo>&#x02192;</mo><mi>e</mi></mover><mi>M</mi><mo>.</mo></math>
+</div>
+
+
+
+<p>
+
+</p>
+
+</li><li id="Item.30">
+
+<p>The adjoint of the identity on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> is the evaluation map.
+
+</p>
+
+</li><li id="Item.31">
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>M</mi><mo>&#x02192;</mo><mi>N</mi></math> be a smooth map. The adjoint of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup></math> is the map: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><mi>L</mi><mi>M</mi><mover><mo>&#x02192;</mo><mi>e</mi></mover><mi>M</mi><mover><mo>&#x02192;</mo><mi>f</mi></mover><mi>N</mi></math>
+</div>
+
+
+
+<p>
+
+</p>
+
+</li><li id="Item.32">
+
+<p>Looping respects composition (i.e.&#x000A0;is a functor) in that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>f</mi><mo>&#x02218;</mo><mi>g</mi><msup><mo stretchy="false">)</mo> <mi>L</mi></msup><mo>=</mo><msup><mi>f</mi> <mi>L</mi></msup><mo>&#x02218;</mo><msup><mi>g</mi> <mi>L</mi></msup></math>. It also maps products to products in that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">(</mo><mi>f</mi><mo>&#x000D7;</mo><mi>g</mi><msup><mo stretchy="false">)</mo> <mi>L</mi></msup><mo>=</mo><msup><mi>f</mi> <mi>L</mi></msup><mo>&#x000D7;</mo><msup><mi>g</mi> <mi>L</mi></msup></math>.
+
+</p>
+
+</li><li id="Item.33">
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>:</mo><mi>M</mi><mo>&#x02192;</mo><mi>N</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>:</mo><mi>X</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math>, and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>h</mi><mo>:</mo><mi>Y</mi><mo>&#x02192;</mo><mi>X</mi></math> be maps with <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi></math> smooth. The adjoint of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup><mo>&#x02218;</mo><mi>g</mi><mo>&#x02218;</mo><mi>h</mi></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo>&#x02218;</mo><msup><mi>g</mi> <mo>&#x02228;</mo></msup><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><mi>h</mi><mo stretchy="false">)</mo></math>. </p>
+
+</li></ol>
+
+<p> </p>
+
+</div>
+
+<p>
+
+</p>
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p></p>
+
+<ol> <li id="Item.34">
+
+<p>We compute the composition as: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo><mover><mo>&#x02192;</mo><mrow><mn>1</mn><mo>&#x000D7;</mo><mi>f</mi></mrow></mover><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mover><mo>&#x02192;</mo><mi>e</mi></mover><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>f</mi> <mo>&#x02228;</mo></msup><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo><mo>.</mo></math>
+</div>
+
+
+
+<p>
+
+</p>
+
+</li><li id="Item.35">
+
+<p>The follows from the above.
+
+</p>
+
+</li><li id="Item.36">
+
+<p>We have: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mo stretchy="false">(</mo><msup><mi>f</mi> <mi>L</mi></msup><msup><mo stretchy="false">)</mo> <mo>&#x02228;</mo></msup><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>f</mi> <mi>L</mi></msup><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>f</mi><mo>&#x02218;</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo>&#x02218;</mo><mi>e</mi><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>.</mo></math>
+</div>
+
+
+
+<p> Another way of writing this identity is: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>e</mi><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><msup><mi>f</mi> <mi>L</mi></msup><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo>&#x02218;</mo><mi>e</mi></math>.
+
+</p>
+
+</li><li id="Item.37">
+
+<p>This is obvious.
+
+</p>
+
+</li><li id="Item.38">
+
+<p>Using the above, the adjoint of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>f</mi> <mi>L</mi></msup><mo>&#x02218;</mo><mi>g</mi><mo>&#x02218;</mo><mi>h</mi></math> is: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mtable columnalign="right left right left right left right left right left" columnspacing="0em"><mtr><mtd><mi>e</mi><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><mo stretchy="false">(</mo><msup><mi>f</mi> <mi>L</mi></msup><mo>&#x02218;</mo><mi>g</mi><mo>&#x02218;</mo><mi>h</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mtd> <mtd><mo>=</mo><mi>e</mi><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><msup><mi>f</mi> <mi>L</mi></msup><mo stretchy="false">)</mo><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><mi>g</mi><mo stretchy="false">)</mo><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><mi>h</mi><mo stretchy="false">)</mo></mtd></mtr> <mtr><mtd></mtd> <mtd><mo>=</mo><mi>f</mi><mo>&#x02218;</mo><mi>e</mi><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><mi>g</mi><mo stretchy="false">)</mo><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><mi>h</mi><mo stretchy="false">)</mo></mtd></mtr> <mtr><mtd></mtd> <mtd><mo>=</mo><mi>f</mi><mo>&#x02218;</mo><msup><mi>g</mi> <mo>&#x02228;</mo></msup><mo>&#x02218;</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x000D7;</mo><mi>h</mi><mo stretchy="false">)</mo><mo>.</mo></mtd></mtr></mtable></mrow></math>
+</div>
+
+
+
+<p> </p>
+
+</li></ol>
+
+<p> </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+
+</body></html>

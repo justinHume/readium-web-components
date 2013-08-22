@@ -42,13 +42,18 @@ RJSDemoApp.loadAndRenderEpub = function (packageDocumentURL, viewerPreferences) 
                 elementToBindReaderTo, spineInfo, viewerPreferences, RJSDemoApp.epub.getPackageDocumentDOM(), "lazy"
             );
 
-            // RJSDemoApp.applyToolbarHandlers();
+            RJSDemoApp.applyToolbarHandlers();
+            RJSDemoApp.annotations = new RJSDemoApp.staticAnnotations();
 
             // Set a fixed height for the epub viewer container, as a function of the document height
             RJSDemoApp.setModuleContainerHeight();
             RJSDemoApp.epubViewer.on("epubLoaded", function () { 
-                RJSDemoApp.epubViewer.showFirstPage(function () {
-                    console.log("showed first spine item"); 
+
+                RJSDemoApp.epubViewer.showSpineItem(5, function () {
+                    RJSDemoApp.epubViewer
+                        .customize("reflowable-page-theme", "none")
+                        .customize("fontSize", "10");
+                    RJSDemoApp.annotations.addAnnotations();
                 });
             }, that);
 			
@@ -56,3 +61,96 @@ RJSDemoApp.loadAndRenderEpub = function (packageDocumentURL, viewerPreferences) 
         }
     });
 };
+
+RJSDemoApp.staticAnnotations = function () {
+
+    var annotations = {
+
+        "1" : {
+
+            "CFI" : "epubcfi(/6/12!/4/2/2[Lesson1]/4[section-opening1]/8[list-glossary1]/2[p18],/3:0,/3:23)",
+            "type" : "underline",
+            "description" : "An underline referencing a hotspot for whatever this is"
+        },
+
+        "2" : {
+
+            "CFI" : "epubcfi(/6/12!/4/2/2[Lesson1]/4[section-opening1]/8[list-glossary1]/8[p26],/3:0,/3:67)",
+            "type" : "highlight",
+            "description" : "For a carry digit"
+        },
+
+        "3" : {
+
+            "CFI" : "epubcfi(/6/12!/4/2/2[Lesson1]/4[section-opening1]/6[p4]/1:46)",
+            "type" : "bookmark",
+            "description" : "A comment description for what a concept is"
+        },  
+
+        "4" : {
+
+            "CFI" : "epubcfi(/6/12!/4/2/2[Lesson1]/14[linesum4]/2)",
+            "type" : "imageAnnotation",
+            "description" : "The first equation"
+        },
+
+        "5" : {
+
+            "CFI" : "epubcfi(/6/12!/4/2/2[Lesson1]/18[linesum1]/2)",
+            "type" : "imageAnnotation",
+            "description" : "The second equation"
+        },
+
+        "6" : {
+
+            "CFI" : "epubcfi(/6/12!/4/2/2[Lesson1]/10[p5],/1:0,/1:87)",
+            "type" : "underline",
+            "description" : "You have already been using whole numbers for awhile"
+        },
+
+        "7" : {
+
+            "CFI" : "epubcfi(/6/12!/4/2/2[Lesson1]/10[p5]/1:31)",
+            "type" : "bookmark",
+            "description" : "Definition of whole numbers"
+        }
+    };
+
+    return {
+
+        addAnnotations : function () {
+
+            var callback = function () {
+                console.log("added annotation");
+            };
+
+            _.each(annotations, function (annotation, annotationId) {
+
+                if (annotation.type === "highlight") {
+                    RJSDemoApp.epubViewer.addHighlight(annotation.CFI, annotationId, "highlight", callback, this);
+                }
+                else if (annotation.type === "underline") {
+                    RJSDemoApp.epubViewer.addHighlight(annotation.CFI, annotationId, "underline", callback, this);
+                }
+                else if (annotation.type === "bookmark") {
+                    RJSDemoApp.epubViewer.addBookmark(annotation.CFI, annotationId, callback, this);
+                }
+                else if (annotation.type === "imageAnnotation") {
+                    RJSDemoApp.epubViewer.addImageAnnotation(annotation.CFI, annotationId, callback, this);
+                }
+            });
+        },
+        showAnnotation : function (id) {
+
+        },
+        getAnnotations : function () {
+
+        },
+        getAnnotation : function (id) {
+
+        }
+    };
+};
+
+
+

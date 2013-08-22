@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?> <package xmlns="http://www.idpf.org/2007/opf" version="3.0" xml:lang="en" unique-identifier="pub-id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+<dc:title id="title">The Differential Topology of Loop Spaces </dc:title><meta refines="#title" property="title-type">main</meta>
+
+<dc:creator id="creator">Andrew Stacey</dc:creator><meta refines="#creator" property="file-as">Andrew Stacey</meta><meta refines="#creator" property="role" scheme="marc:relators">aut</meta><dc:identifier id="pub-id">urn:uuid:577f82c9-a78c-493d-a162-9086930d4451</dc:identifier><meta refines="#pub-id" property="identifier-type" scheme="xsd:string">15</meta><dc:language>en</dc:language><meta property="dcterms:modified">2013-02-11T13:10:00Z</meta><dc:date>2013-02-11</dc:date></metadata>
+
+<manifest>
+
+<item href="diffloop1.xhtml" properties="mathml scripted" id="page1" media-type="application/xhtml+xml"/>
+
+<item id="toc" properties="nav" href="toc.xhtml" media-type="application/xhtml+xml"/>
+
+<item href="diffloop2.xhtml" properties="mathml scripted" id="page2" media-type="application/xhtml+xml"/>
+
+<item href="diffloop3.xhtml" properties="mathml scripted" id="page3" media-type="application/xhtml+xml"/>
+
+<item href="diffloop4.xhtml" properties="mathml scripted" id="page4" media-type="application/xhtml+xml"/>
+
+<item href="diffloop5.xhtml" properties="mathml scripted" id="page5" media-type="application/xhtml+xml"/>
+
+<item href="diffloop6.xhtml" properties="mathml scripted" id="page6" media-type="application/xhtml+xml"/>
+
+<item href="diffloop7.xhtml" properties="mathml scripted" id="page7" media-type="application/xhtml+xml"/>
+
+<item href="diffloop8.xhtml" properties="mathml scripted" id="page8" media-type="application/xhtml+xml"/>
+
+<item id="css" href="diffloop.css" media-type="text/css"/>
+
+<item id="js" href="diffloop.js" media-type="text/javascript"/></manifest>
+
+<spine><itemref idref="page1"/><itemref idref="page2"/><itemref idref="page3"/><itemref idref="page4"/><itemref idref="page5"/><itemref idref="page6"/><itemref idref="page7"/><itemref idref="page8"/></spine></package>
