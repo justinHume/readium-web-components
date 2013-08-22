@@ -1,7 +1,7 @@
 RJSDemoApp = {};
 
 RJSDemoApp.setModuleContainerHeight = function () {
-    $("#reader").css({ "height" : $(window).height() * 0.85 + "px" });
+    $("#reader").css({ "height" : $(window).height() * 0.98 + "px" });
 };
 
 RJSDemoApp.parseXMLFromDOM = function (data) {
