@@ -1,3 +1,35 @@
+.modal {
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  background-image: url("../images/modal-texture.png");
+  background-color: #FFF;
+  box-shadow: 0px 0px 0px 5px #FFF, 0px 0px 0px 6px #C8C8C8, 0px 6px 20px #000; }
+  .modal .modal-header {
+    text-align: center;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.02); }
+    .modal .modal-header h3 {
+      font-size: 14px; }
+    .modal .modal-header .closeButton {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: 7px;
+      right: 5px;
+      z-index: 1;
+      border: 0;
+      color: #F5F5F5;
+      background-image: url("../images/close-x.png");
+      background-size: 65% 65%;
+      background-position: 5px 5px;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      opacity: 0.5; }
+      .modal .modal-header .closeButton:hover {
+        opacity: 0.75; }
+  .modal .modal-body {
+    padding: 0; }
+
 body {
   background-color: #333; }
 
@@ -31,6 +63,15 @@ body {
   width: 50px;
   height: 50px;
   margin: 1px 0; }
+
+.btn.green_button {
+  background-color: #2aa699;
+  background-image: -webkit-linear-gradient(#2aa699, #1a655d);
+  background-image: linear-gradient(#2aa699, #1a655d);
+  color: #FFF;
+  text-shadow: 0px -1px rgba(0, 0, 0, 0.5);
+  border-color: #1A655D;
+  background-color: #1A655D; }
 
 #sideBar {
   width: 50px;
@@ -218,7 +259,6 @@ body {
       cursor: pointer;
       background-position: -503px -114px !important; }
 
-/* --- BOTTOM BAR --- */
 #bottomBar {
   bottom: 0px;
   position: absolute;
@@ -368,11 +408,12 @@ body {
       background-image: linear-gradient(#afadad, #f3f2f2);
       height: 18px; }
       #bottomBar #bottomMiddleDiv #pageSlider .ui-slider-handle {
-        background: url("../images/round_slider.png");
         border-style: none;
         background-size: 30px;
         background-repeat: no-repeat;
         background-position: 0px 2px;
+        background-color: transparent;
+        background-image: url("../images/round_slider.png");
         width: 30px;
         height: 25px;
         cursor: pointer;
@@ -381,3 +422,45 @@ body {
       #bottomBar #bottomMiddleDiv #pageSlider .ui-state-active {
         cursor: -webkit-grabbing;
         cursor: -webkit-grabbing; }
+
+#commentModal {
+  max-width: 360px; }
+  #commentModal .modal-header {
+    cursor: pointer;
+    cursor: -webkit-grab;
+    cursor: -moz-grab; }
+    #commentModal .modal-header:active {
+      cursor: pointer;
+      cursor: -webkit-grabbing;
+      cursor: -moz-grabbing; }
+  #commentModal .modal-body {
+    font-size: 12px; }
+    #commentModal .modal-body #innerCommentElements {
+      margin: 10px; }
+      #commentModal .modal-body #innerCommentElements .commentNameContainer {
+        font-weight: bold; }
+      #commentModal .modal-body #innerCommentElements .userNameColor {
+        color: #366; }
+      #commentModal .modal-body #innerCommentElements #commentEntries .commentEntry {
+        border-bottom: 1px solid #E2E2E2; }
+        #commentModal .modal-body #innerCommentElements #commentEntries .commentEntry .commentUpdateTime {
+          font-size: 10px; }
+        #commentModal .modal-body #innerCommentElements #commentEntries .commentEntry .editCommentButtons {
+          float: right;
+          margin: -45px 0 0 0; }
+          #commentModal .modal-body #innerCommentElements #commentEntries .commentEntry .editCommentButtons .btn {
+            height: 15px;
+            padding: 2px 5px 7px 5px; }
+      #commentModal .modal-body #innerCommentElements #commentReplyDiv {
+        margin-top: 10px; }
+        #commentModal .modal-body #innerCommentElements #commentReplyDiv #commentReplyTextarea {
+          height: 70px;
+          max-height: 113px;
+          width: 328px;
+          border-radius: 5px;
+          display: block;
+          font-family: Helvetica;
+          margin-top: 5px; }
+        #commentModal .modal-body #innerCommentElements #commentReplyDiv #commentReplyBtn {
+          float: right;
+          margin-bottom: 10px; }
