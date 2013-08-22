@@ -2,8 +2,8 @@ EpubAnnotations.Bookmark = Backbone.Model.extend({
 
     defaults : {
         "isVisible" : false,
-        "bookmarkCenteringAdjustment" : 10,
-        "bookmarkTopAdjustment" : 15
+        "bookmarkCenteringAdjustment" : 15,
+        "bookmarkTopAdjustment" : 45
     },
 
     initialize : function (attributes, options) {
