@@ -1,0 +1,68 @@
+// COMMENT MODAL SPECIAL STYLES //
+#commentModal {
+	max-width: 360px;
+	z-index: 1;
+
+	.modal-header {
+		cursor: pointer;
+		cursor: -webkit-grab;
+		cursor: -moz-grab;
+
+		&:active {
+			cursor: pointer;
+			cursor: -webkit-grabbing;
+			cursor: -moz-grabbing;
+		}
+	}
+
+	.modal-body {
+		font-size: 12px;
+		#innerCommentElements {
+			margin: 10px;
+
+			.commentNameContainer {
+				font-weight:bold;
+			}
+			
+			.userNameColor {
+				color: #366;
+			}
+
+			#commentEntries {
+
+				.commentEntry {
+					border-bottom: 1px solid #E2E2E2;
+
+					
+					.commentUpdateTime {
+						font-size: 10px;
+					}
+
+					.editCommentButtons {
+						float: right;
+						margin: -70px 0 0 0;
+					}
+				}
+			}
+
+			#commentReplyDiv {
+				margin-top: 10px;
+
+				#commentReplyTextarea {
+					height: 70px;
+					max-height: 113px;
+					width: 328px;
+					border-radius: 5px;
+					display: block;
+					font-family: Helvetica;
+					margin-top: 5px;
+				}
+
+				#commentReplyBtn {
+					float: right;
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
