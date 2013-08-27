@@ -86,6 +86,16 @@ body {
 	display:block;
 }
 
+#reader {
+	//center the reader within the sidebars and whatnot
+	position: absolute;
+	bottom: 44px;
+    top: 30px;
+    right: 0;
+    left: 70px;
+    margin: auto;
+}
+
 // SIDE TOOLBAR //
 
 #sideBar {
