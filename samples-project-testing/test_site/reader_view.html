@@ -4,10 +4,14 @@
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../css/atb-epub-client.css">
 <link rel="stylesheet" type="text/css" href="../css/smoothness/jquery-ui-1.10.3.custom.css">
+<link rel="stylesheet" type="text/css" href="../css/jquery.contextMenu.css">
+
 <script src="../lib/jquery-1.9.1.js" type="text/javascript">
     </script>
 <script src="../lib/jquery-ui-1.10.3.custom.js" type="text/javascript">
     </script>
+<script src="../lib/jquery.contextMenu.js" type="text/javascript"></script>
+<script src="../lib/jquery.ui.position.js" type="text/javascript"></script>
 <script src="../lib/modernizr-2.5.3.min.js" type="text/javascript">
     </script>
 <script src="../lib/json2.js" type="text/javascript">
@@ -49,8 +53,8 @@
           currentMargin : 0,
           currentTheme : "default",
           day : true
-        }
-          ;
+        };
+
         // Load Moby Dick by default
         // RJSDemoApp.loadAndRenderEpub("../epub_samples_project/moby-dick-20120118/OPS/package.opf", RJSDemoApp.viewerPreferences);
         RJSDemoApp.loadAndRenderEpub("../additional_samples/igp-year5-school-maths/OPS/package.opf", RJSDemoApp.viewerPreferences);
@@ -66,9 +70,8 @@
               direction: "left" }
                                 , 200);
           }
-        }
-                               )
-          $("#hotspotTool").click(function(){
+        });
+        $("#hotspotTool").click(function(){
             if ($('#commentDrawer').is(':visible')) {
               $("#commentDrawer").hide();
               $("#hotspotDrawer").show();
@@ -79,19 +82,17 @@
                 direction: "left" }
                                   , 200);
             }
-          }
-                                 )
-            $("#drawerHandle").click(function(){
+        });
+        $("#drawerHandle").click(function(){
               // just hide all the drawer stuff
               $("#hotspotDrawer").hide();
               $("#commentDrawer").hide();
               $("#drawer").hide("slide", {
                 direction: "left" }
                                 , 200);
-            }
-                                    );
-      }
-                       );
+          });
+        });
+
       // Note: the epubReadingSystem object may not be ready when directly using the
       // window.onload callback function (from within an (X)HTML5 EPUB3 content document's Javascript code)
       // To address this issue, the recommended code is:
