@@ -1,33 +1,13 @@
 RJSDemoApp = {};
 
 RJSDemoApp.setModuleContainerHeight = function () {
-    $("#reader").css({ "height" : $(window).height() * 0.93 + "px" });
+    $("#reader").css({ "height" : $(window).height() * 0.87 + "px" });
 };
 
 RJSDemoApp.parseXMLFromDOM = function (data) {
     var serializer = new XMLSerializer();
     var packageDocumentXML = serializer.serializeToString(data);
     return packageDocumentXML;
-};
-
-RJSDemoApp.initializeContextMenu = function () {
-
-    $.contextMenu({
-        selector: '#reader',
-        callback: function(key, options) {
-            var m = "clicked: " + key;
-            window.console && console.log(m) || alert(m); 
-        },
-        items: {
-            "edit": {name: "Edit", icon: "edit"},
-            "cut": {name: "Cut", icon: "cut"},
-            "copy": {name: "Copy", icon: "copy"},
-            "paste": {name: "Paste", icon: "paste"},
-            "delete": {name: "Delete", icon: "delete"},
-            "sep1": "---------",
-            "quit": {name: "Quit", icon: "quit"}
-        }
-    });
 };
 
 // This function will retrieve a package document and load an EPUB
