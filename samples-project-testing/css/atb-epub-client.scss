@@ -5,7 +5,7 @@
 // MIXIN TO USE TOOL ICON SPRITESHEET //
 @mixin set-tool-bg-positions($xpos) {
 
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url('../images/all_icons.png');
     background-repeat: no-repeat;
 
@@ -23,7 +23,7 @@
     }
 
     //selected state
-    &.active {
+    &:active {
         cursor:pointer;
         background-position: $xpos $ypos_selected !important;
     }
@@ -225,6 +225,14 @@ body {
 
 		#fitToHeight {
 			@include set-tool-bg-positions(-880px);
+		}
+
+       	#zoomIn {
+  			@include set-tool-bg-positions(-2380px);
+		}
+
+		#zoomOut {
+			@include set-tool-bg-positions(-2469px);
 		}
 
 		#helpButton {

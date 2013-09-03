@@ -146,161 +146,161 @@ body {
     margin: 5px 0px;
     padding: 0px; }
   #sideBar #selectionTool {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -42px 7px; }
     #sideBar #selectionTool:hover {
       cursor: pointer;
       background-position: -42px -50px; }
-    #sideBar #selectionTool.active {
+    #sideBar #selectionTool:active {
       cursor: pointer;
       background-position: -42px -114px !important; }
   #sideBar #panningTool {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -1583px 7px; }
     #sideBar #panningTool:hover {
       cursor: pointer;
       background-position: -1583px -50px; }
-    #sideBar #panningTool.active {
+    #sideBar #panningTool:active {
       cursor: pointer;
       background-position: -1583px -114px !important; }
   #sideBar #penTool {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -416px 7px; }
     #sideBar #penTool:hover {
       cursor: pointer;
       background-position: -416px -50px; }
-    #sideBar #penTool.active {
+    #sideBar #penTool:active {
       cursor: pointer;
       background-position: -416px -114px !important; }
   #sideBar #eraserTool {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -599px 7px; }
     #sideBar #eraserTool:hover {
       cursor: pointer;
       background-position: -599px -50px; }
-    #sideBar #eraserTool.active {
+    #sideBar #eraserTool:active {
       cursor: pointer;
       background-position: -599px -114px !important; }
   #sideBar #bookmarkTool {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -138px 7px; }
     #sideBar #bookmarkTool:hover {
       cursor: pointer;
       background-position: -138px -50px; }
-    #sideBar #bookmarkTool.active {
+    #sideBar #bookmarkTool:active {
       cursor: pointer;
       background-position: -138px -114px !important; }
   #sideBar #commentTool {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -1222px 7px; }
     #sideBar #commentTool:hover {
       cursor: pointer;
       background-position: -1222px -50px; }
-    #sideBar #commentTool.active {
+    #sideBar #commentTool:active {
       cursor: pointer;
       background-position: -1222px -114px !important; }
   #sideBar #hotspotTool {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -1136px 7px; }
     #sideBar #hotspotTool:hover {
       cursor: pointer;
       background-position: -1136px -50px; }
-    #sideBar #hotspotTool.active {
+    #sideBar #hotspotTool:active {
       cursor: pointer;
       background-position: -1136px -114px !important; }
   #sideBar #hotspotToolAuthoring {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -1320px 7px; }
     #sideBar #hotspotToolAuthoring:hover {
       cursor: pointer;
       background-position: -1320px -50px; }
-    #sideBar #hotspotToolAuthoring.active {
+    #sideBar #hotspotToolAuthoring:active {
       cursor: pointer;
       background-position: -1320px -114px !important; }
   #sideBar #quizTool {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -1053px 7px; }
     #sideBar #quizTool:hover {
       cursor: pointer;
       background-position: -1053px -50px; }
-    #sideBar #quizTool.active {
+    #sideBar #quizTool:active {
       cursor: pointer;
       background-position: -1053px -114px !important; }
   #sideBar #quizToolAuthoring {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -1493px 7px; }
     #sideBar #quizToolAuthoring:hover {
       cursor: pointer;
       background-position: -1493px -50px; }
-    #sideBar #quizToolAuthoring.active {
+    #sideBar #quizToolAuthoring:active {
       cursor: pointer;
       background-position: -1493px -114px !important; }
   #sideBar #tocToggle {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -321px 7px; }
     #sideBar #tocToggle:hover {
       cursor: pointer;
       background-position: -321px -50px; }
-    #sideBar #tocToggle.active {
+    #sideBar #tocToggle:active {
       cursor: pointer;
       background-position: -321px -114px !important; }
   #sideBar #searchToggle {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -966px 7px; }
     #sideBar #searchToggle:hover {
       cursor: pointer;
       background-position: -966px -50px; }
-    #sideBar #searchToggle.active {
+    #sideBar #searchToggle:active {
       cursor: pointer;
       background-position: -966px -114px !important; }
   #sideBar #undoButton {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -2280px 7px; }
     #sideBar #undoButton:hover {
       cursor: pointer;
       background-position: -2280px -50px; }
-    #sideBar #undoButton.active {
+    #sideBar #undoButton:active {
       cursor: pointer;
       background-position: -2280px -114px !important; }
   #sideBar #redoButton {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -2194px 7px; }
     #sideBar #redoButton:hover {
       cursor: pointer;
       background-position: -2194px -50px; }
-    #sideBar #redoButton.active {
+    #sideBar #redoButton:active {
       cursor: pointer;
       background-position: -2194px -114px !important; }
   #sideBar #exitToggle {
-    background-size: 2400px 163px;
+    background-size: 2525px 163px;
     background-image: url("../images/all_icons.png");
     background-repeat: no-repeat;
     background-position: -503px 7px;
@@ -309,7 +309,7 @@ body {
     #sideBar #exitToggle:hover {
       cursor: pointer;
       background-position: -503px -50px; }
-    #sideBar #exitToggle.active {
+    #sideBar #exitToggle:active {
       cursor: pointer;
       background-position: -503px -114px !important; }
 
@@ -343,36 +343,58 @@ body {
     float: left;
     padding: 0 0 0 10px; }
     #bottomBar #bottomLeftDiv #fitToWidth {
-      background-size: 2400px 163px;
+      background-size: 2525px 163px;
       background-image: url("../images/all_icons.png");
       background-repeat: no-repeat;
       background-position: -787px 7px; }
       #bottomBar #bottomLeftDiv #fitToWidth:hover {
         cursor: pointer;
         background-position: -787px -50px; }
-      #bottomBar #bottomLeftDiv #fitToWidth.active {
+      #bottomBar #bottomLeftDiv #fitToWidth:active {
         cursor: pointer;
         background-position: -787px -114px !important; }
     #bottomBar #bottomLeftDiv #fitToHeight {
-      background-size: 2400px 163px;
+      background-size: 2525px 163px;
       background-image: url("../images/all_icons.png");
       background-repeat: no-repeat;
       background-position: -880px 7px; }
       #bottomBar #bottomLeftDiv #fitToHeight:hover {
         cursor: pointer;
         background-position: -880px -50px; }
-      #bottomBar #bottomLeftDiv #fitToHeight.active {
+      #bottomBar #bottomLeftDiv #fitToHeight:active {
         cursor: pointer;
         background-position: -880px -114px !important; }
+    #bottomBar #bottomLeftDiv #zoomIn {
+      background-size: 2525px 163px;
+      background-image: url("../images/all_icons.png");
+      background-repeat: no-repeat;
+      background-position: -2380px 7px; }
+      #bottomBar #bottomLeftDiv #zoomIn:hover {
+        cursor: pointer;
+        background-position: -2380px -50px; }
+      #bottomBar #bottomLeftDiv #zoomIn:active {
+        cursor: pointer;
+        background-position: -2380px -114px !important; }
+    #bottomBar #bottomLeftDiv #zoomOut {
+      background-size: 2525px 163px;
+      background-image: url("../images/all_icons.png");
+      background-repeat: no-repeat;
+      background-position: -2469px 7px; }
+      #bottomBar #bottomLeftDiv #zoomOut:hover {
+        cursor: pointer;
+        background-position: -2469px -50px; }
+      #bottomBar #bottomLeftDiv #zoomOut:active {
+        cursor: pointer;
+        background-position: -2469px -114px !important; }
     #bottomBar #bottomLeftDiv #helpButton {
-      background-size: 2400px 163px;
+      background-size: 2525px 163px;
       background-image: url("../images/all_icons.png");
       background-repeat: no-repeat;
       background-position: -1675px 7px; }
       #bottomBar #bottomLeftDiv #helpButton:hover {
         cursor: pointer;
         background-position: -1675px -50px; }
-      #bottomBar #bottomLeftDiv #helpButton.active {
+      #bottomBar #bottomLeftDiv #helpButton:active {
         cursor: pointer;
         background-position: -1675px -114px !important; }
   #bottomBar #bottomRightDiv {
@@ -380,14 +402,14 @@ body {
     height: 100%;
     float: right; }
     #bottomBar #bottomRightDiv #pageUndoButton {
-      background-size: 2400px 163px;
+      background-size: 2525px 163px;
       background-image: url("../images/all_icons.png");
       background-repeat: no-repeat;
       background-position: -2113px 7px; }
       #bottomBar #bottomRightDiv #pageUndoButton:hover {
         cursor: pointer;
         background-position: -2113px -50px; }
-      #bottomBar #bottomRightDiv #pageUndoButton.active {
+      #bottomBar #bottomRightDiv #pageUndoButton:active {
         cursor: pointer;
         background-position: -2113px -114px !important; }
     #bottomBar #bottomRightDiv #slider_pageinfo_div {
@@ -403,47 +425,47 @@ body {
       color: #ECECEC;
       background-color: #414141; }
     #bottomBar #bottomRightDiv #pageRedoButton {
-      background-size: 2400px 163px;
+      background-size: 2525px 163px;
       background-image: url("../images/all_icons.png");
       background-repeat: no-repeat;
       background-position: -2020px 7px; }
       #bottomBar #bottomRightDiv #pageRedoButton:hover {
         cursor: pointer;
         background-position: -2020px -50px; }
-      #bottomBar #bottomRightDiv #pageRedoButton.active {
+      #bottomBar #bottomRightDiv #pageRedoButton:active {
         cursor: pointer;
         background-position: -2020px -114px !important; }
     #bottomBar #bottomRightDiv #settingsButton {
-      background-size: 2400px 163px;
+      background-size: 2525px 163px;
       background-image: url("../images/all_icons.png");
       background-repeat: no-repeat;
       background-position: -1765px 7px; }
       #bottomBar #bottomRightDiv #settingsButton:hover {
         cursor: pointer;
         background-position: -1765px -50px; }
-      #bottomBar #bottomRightDiv #settingsButton.active {
+      #bottomBar #bottomRightDiv #settingsButton:active {
         cursor: pointer;
         background-position: -1765px -114px !important; }
     #bottomBar #bottomRightDiv #settingsButton {
-      background-size: 2400px 163px;
+      background-size: 2525px 163px;
       background-image: url("../images/all_icons.png");
       background-repeat: no-repeat;
       background-position: -1765px 7px; }
       #bottomBar #bottomRightDiv #settingsButton:hover {
         cursor: pointer;
         background-position: -1765px -50px; }
-      #bottomBar #bottomRightDiv #settingsButton.active {
+      #bottomBar #bottomRightDiv #settingsButton:active {
         cursor: pointer;
         background-position: -1765px -114px !important; }
     #bottomBar #bottomRightDiv #readingModeDiv {
-      background-size: 2400px 163px;
+      background-size: 2525px 163px;
       background-image: url("../images/all_icons.png");
       background-repeat: no-repeat;
       background-position: -1852px 7px; }
       #bottomBar #bottomRightDiv #readingModeDiv:hover {
         cursor: pointer;
         background-position: -1852px -50px; }
-      #bottomBar #bottomRightDiv #readingModeDiv.active {
+      #bottomBar #bottomRightDiv #readingModeDiv:active {
         cursor: pointer;
         background-position: -1852px -114px !important; }
   #bottomBar #bottomMiddleDiv {
