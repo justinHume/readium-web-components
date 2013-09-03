@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Readium.js]]></title>
+  <link href="http://justinHume.github.io/readium-web-components/atom.xml" rel="self"/>
+  <link href="http://justinHume.github.io/readium-web-components/"/>
+  <updated>2013-09-03T12:09:18-07:00</updated>
+  <id>http://justinHume.github.io/readium-web-components/</id>
+  <author>
+    <name><![CDATA[Justin Hume]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Readium.js Roadmap]]></title>
+    <link href="http://justinHume.github.io/readium-web-components/blog/2013/06/27/roadmap/"/>
+    <updated>2013-06-27T14:46:00-07:00</updated>
+    <id>http://justinHume.github.io/readium-web-components/blog/2013/06/27/roadmap</id>
+    <content type="html"><![CDATA[<p>Up until now, the priorities for Readium.js development have been 1) software architecture, 2) the structure of the API and 3) establishing a web-presence.</p>
+
+<!--more-->
+
+
+<h4>Architecture</h4>
+
+<p>Establish and test a software architecture that will support continued development, extensibility and, essentially, prevent the codebase from becoming a hot-mess for as long as possible.</p>
+
+<h4>API structure</h4>
+
+<p>Map out and deliver a &#8220;vision&#8221; for the Readium.js API, as soon as possible, so that feedback from potential users and adopters can be incorporated in the early stages of the project. I think getting an API right is hard, feedback is important, and it should be done as early as possible.</p>
+
+<h4>Web presence</h4>
+
+<p>Establishing a web presence by setting up the Readium.js <a href="http://readium.github.io/Readium-Web-Components/">website and blog</a>, <a href="http://readium.github.io/Readium-Web-Components/get-started/api.html">API reference</a>, <a href="https://github.com/readium/Readium-Web-Components#readme">Github documentation</a> and <a href="http://readium.github.io/Readium-Web-Components/get-started/use-it.html">getting started guides</a>.</p>
+
+<h2>Roadmap</h2>
+
+<p>With the <a href="http://readium.github.io/Readium-Web-Components/blog/2013/06/27/changes-to-the-api/">recent additions</a> to Readium.js, a respectable (??) architecture and API structure have been established. While feedback on that (hopefully) rolls in, work will begin in the following areas:</p>
+
+<h2>EPUB 3 spec conformance</h2>
+
+<p>Relative to the original <a href="https://chrome.google.com/webstore/detail/empty-title/fepbnnnkkadjhjahcafoaglimekefifl?hl=en">Readium</a> project, one of the things that fell by the wayside while focusing on the priorities above was full(ish) EPUB 3 conformance, especially for some of the advanced parts of the spec.</p>
+
+<p>Re-integrating much of this conformance is a matter of testing for and fixing bugs that were introduced in the refactor and rewrite. A big push will be made over the next few weeks to bring Readium.js up to the level of EPUB 3 compliance provided by the original Readium project.</p>
+
+<h2>Improving the demo application</h2>
+
+<p>The <a href="http://readium.github.io/readium-viewer-demo1/">application</a> that demonstrates Readium.js is a bit rough, and only demonstrates a subset of the features available in the library. This application will be improved, both in its structure and design.</p>
+
+<p>As always, feel free to email me (justinh@evidentpoint.com) if you have any kind of feedback.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Changes to the Readium.js API]]></title>
+    <link href="http://justinHume.github.io/readium-web-components/blog/2013/06/27/changes-to-the-api/"/>
+    <updated>2013-06-27T14:45:00-07:00</updated>
+    <id>http://justinHume.github.io/readium-web-components/blog/2013/06/27/changes-to-the-api</id>
+    <content type="html"><![CDATA[<p>With some recent additions to Readium.js, the &#8220;structure&#8221; of the API has been framed out. Since the next step in the evolution of the API will be to elicit feedback, I think it&#8217;s a good time to talk about the structure of the Readium.js API, recent changes, and future directions.</p>
+
+<!--more-->
+
+
+<h2>The Readium.js API</h2>
+
+<p>Readium.js enables the embedding of an EPUB content viewer in a variety of different web applications. As you might expect, the surrounding application will need to call methods on the viewer directly, listen for interesting events triggered by changes in the viewer&#8217;s state, and customize visual aspects of the viewer and EPUB content.</p>
+
+<h3>API Structure</h3>
+
+<p>When I talk about the <em>structure</em> of the API, I mean that the API has three major structural components that allow users to:</p>
+
+<ul>
+<li>Listen for events and bind callbacks to them (Event API)</li>
+<li>Customize visual elements (Custom Style API)</li>
+<li>Call methods to interact with the EPUB viewer (Method API)</li>
+</ul>
+
+
+<p>As I&#8217;ll describe shortly, the structure of the API should - and is - designed to evolve as functionality, events, and customizability are added to the Readium.js feature set.</p>
+
+<h2>Recent Changes</h2>
+
+<p>The previous version (0.0.1) of Readium.js implemented the method API, provided two events, and did not implement the Custom Style API. Version 0.0.2 of Readium.js now provides a more complete API structure. There have been major changes to the Event API and the Custom Style API has been added.</p>
+
+<h3>Event API</h3>
+
+<p>Readium.js now provides a set of events that users can bind callbacks to, using the &#8220;on&#8221; method:</p>
+
+<figure class='code'><figcaption><span>Event API </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">readiumJs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;atNextPage&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// Do something when the viewer has rendered the next page </span>
+</span><span class='line'>        <span class="c1">//  in the reading order</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">readiumJs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;atLastPage&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// Do something when the viewer has rendered the last page </span>
+</span><span class='line'>        <span class="c1">//  in the EPUB publication</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check out the <a href="http://readium.github.io/Readium-Web-Components/get-started/api.html">API documentation</a> for the set of events currently provided by different Readium.js modules.</p>
+
+<p>My expectation is that as Readium.js evolves, more and more events can and will be provided. For example:</p>
+
+<ul>
+<li>Events that are triggered before and after Readium.js fetches EPUB content from the web</li>
+<li>Events for style changes etc.</li>
+<li>Events for specific content being displayed (images etc.)</li>
+<li>Many more..</li>
+</ul>
+
+
+<p>Feedback on the types of events you&#8217;d like to see is encouraged (justinh@evidentpoint.com).</p>
+
+<h3>Custom Style API</h3>
+
+<p>Readium.js now provides a method to set the visual characteristics of the EPUB viewer and content. This part of the API also provides a set of defaults that can be used out of the box. The &#8220;customize&#8221; method provides the mechanism for setting styles:</p>
+
+<figure class='code'><figcaption><span>Custom Style API </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Set a custom style with a default</span>
+</span><span class='line'>    <span class="nx">readiumJs</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;page-border&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Set a custom style with your own CSS</span>
+</span><span class='line'>    <span class="nx">readiumJs</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;page-border&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-width&quot;</span> <span class="o">:</span> <span class="s2">&quot;10px&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Chain custom styles</span>
+</span><span class='line'>    <span class="nx">readiumJs</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;page-border&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">...;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check out the <a href="http://readium.github.io/Readium-Web-Components/get-started/api.html">API documentation</a> for the set of customizable elements and defaults provided by Readium.js modules. The customize method, like the &#8220;on&#8221; method, is implemented such that new custom styles can be added in the future, without disrupting current users of the API.</p>
+
+<p>For example, page transitions and loading animations will likely be provided at some point:</p>
+
+<figure class='code'><figcaption><span>add a page transition </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">readiumJs</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;page-transition&quot;</span><span class="p">,</span> <span class="s2">&quot;slide&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;loading-animation&quot;</span><span class="p">,</span> <span class="s2">&quot;spinning-wheel&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Evolution of the API</h2>
+
+<p>Now that the structure of the API has now been established, I think it&#8217;s time to get some feedback on how the API should evolve. The project is very open to changes in the API at the moment. To get you started, I think there are a number of things to consider in this regard.</p>
+
+<h3>Methods, events, custom style defaults</h3>
+
+<p>First, suggestions for additional methods and events are welcome. This is fairly straightforward. Also, if you have some design chops, helping out with some custom style defaults would be great.</p>
+
+<h3>Experiment with the Custom Style API</h3>
+
+<p>The Custom Style API is fairly experimental at the moment. In particular, the API allows users to provide their own CSS to style specific elements in the viewer. While I feel fairly certain that providing a set of defaults is going to be useful, I&#8217;m not sure that the ability to set custom CSS will work.</p>
+
+<p>There are few restrictions on the CSS that you can provide to the &#8220;customize&#8221; method, but I&#8217;m sure there are lot of ways to break the viewer. It may also be difficult for users to reason about their own custom styles, given that the elements they&#8217;re styling in Readium.js are in somewhat of a black box.</p>
+
+<p>That being said, it may make sense to drop the ability to provide custom CSS, provide a white-list or black-list of CSS that can be applied, or just leave it as a free-for-all. Once again, feedback would be greatly appreciated.</p>
+
+<p>If you&#8217;d like to provide feedback of any kind, either email me (justinh@evidentpoint.com) or add an issue to the Github <a href="https://github.com/readium/Readium-Web-Components/issues?state=open">issue tracker</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Welcome to Readium.js]]></title>
+    <link href="http://justinHume.github.io/readium-web-components/blog/2013/05/29/welcome-to-readium-js/"/>
+    <updated>2013-05-29T02:11:00-07:00</updated>
+    <id>http://justinHume.github.io/readium-web-components/blog/2013/05/29/welcome-to-readium-js</id>
+    <content type="html"><![CDATA[<p>Welcome to the new Readium.js reference site and blog!</p>
+
+<h2>Easy, open, web</h2>
+
+<p>Readium.js is a BSD licensed open-source project that makes it simple to build EPUB 3 web applications, or to embed EPUB 3 publications in web applications.</p>
+
+<!--more-->
+
+
+<p>It&#8217;s designed to be web-centric, light-weight and simple to use. The Readium.js library provides a set of javascript modules and APIs that can be easily added to any web project.</p>
+
+<h3>The project &amp; contributors</h3>
+
+<p>Readium.js is a project under the auspices of the <a href="">International Digital Publishing Forum</a> (IDPF), developed and maintained by <a href="">Evident Point Software Corp.</a>.</p>
+
+<p>This project has <a href="http://justinHume.github.io/readium-web-components/Readium-Web-Components/about/history-and-goals.html">evolved</a> from the <a href="http://readium.org">Readium</a> project. Readium was developed by <a href="https://github.com/matthewrobertson">Matthew Robertson</a> and <a href="http://github.com/justinHume">Justin Hume</a> at Evident Point Software under contract from the IDPF, with major contributions from <a href="http://www.benetech.org/literacy/bookshare.shtml">Benetech</a>, the <a href="http://www.daisy.org/home">DAISY Consortium</a> and <a href="https://github.com/readium/readium/contributors">others</a>.</p>
+
+<h3>Start building and developing!</h3>
+
+<p>Readium.js is currently in Beta, but we&#8217;re hoping to move things along quickly, stabilize the API, and add features. Feedback on any aspect of this site, or <a href="http://github.com/readium/Readium-Web-Components">Readium.js</a> is very welcome. If you&#8217;re interested in contributing, there is a long list of things to do and I&#8217;d be eager to walk you through it.</p>
+
+<p>You can get in contact with me through the Readium.js <a href="https://github.com/readium/Readium-Web-Components/issues">issue tracker</a>, by email at justinh@evidentpoint.com, or through <a href="http://github.com/justinHume">Github</a>.</p>
+
+<p>Otherwise, take a look around the site, and give Readium.js a try!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Readium.js development]]></title>
+    <link href="http://justinHume.github.io/readium-web-components/blog/2013/05/28/readium-js-development/"/>
+    <updated>2013-05-28T13:48:00-07:00</updated>
+    <id>http://justinHume.github.io/readium-web-components/blog/2013/05/28/readium-js-development</id>
+    <content type="html"><![CDATA[<p>This post discusses Readium.js development priorities up to now, as well as how you can get involved with the project.</p>
+
+<h2>Motivation</h2>
+
+<p>Readium.js is designed as a set of modular javascript components <!--more-->that can be used <a href="http://justinHume.github.io/readium-web-components/Readium-Web-Components/get-started/download.html#simple-download">together</a> to embed EPUB publications in a web application, or <a href="http://justinHume.github.io/readium-web-components/Readium-Web-Components/get-started/download.html#readium-js-download">independently</a> to build custom web applications with EPUB support.</p>
+
+<h4>Fix things that are painful</h4>
+
+<p>When a developer is looking for projects, it&#8217;s not uncommon to hear the suggestion that they work on a pain point. At <a href="http://evidentpoint.com">Evident Point</a>, I&#8217;ve been involved in building a number of web-based EPUB 3 readers. The original <a href="http://github.com/readium/readium">Readium</a> project often served as a template for these efforts.</p>
+
+<p>While the original Readium provided a good demonstration of an EPUB 3 reader, I (and others, I believe) found it quite painful as developers to adapt the source to projects that were new, custom, or had more stringent requirements for performance, features etc.</p>
+
+<p>By designing the Readium.js library it was my hope that Readium.js could, in typically-modern-web-javascript fashion, make it painless for developers to build a whole variety of web-based EPUB applications.</p>
+
+<h4>Keep improving</h4>
+
+<p>It&#8217;s also my hope that from here we can build a community around Readium.js to get the <a href="http://justinHume.github.io/readium-web-components/Readium-Web-Components/get-started/api.html">API</a> right, build in additional features and improve digital publishing on the web.</p>
+
+<p>The original Readium project was successful due to the <a href="https://github.com/readium/readium/issues">involvement</a> of a <a href="https://github.com/readium/readium/contributors">community</a>. Much of Readium.js is built on the contributions of this community - either code, wisdom, or lessons learned. I hope this can continue.</p>
+
+<h2>Development Priorities</h2>
+
+<p>During the development of Readium.js, I prioritized the things engineers like: The API design, a reasonable standard of engineering and solid documentation.</p>
+
+<p>I felt it was important to get to a point where community members could reason about the design of the library and API, test the library, and get involved with the source code. I think getting the library &#8216;right&#8217; will depend on early feeback and iteration.</p>
+
+<h4>Someone get the polish&#8230;</h4>
+
+<p>As a result of this priority, some EPUB 3 feature support was lost in the design and refactoring. Getting these features back is in some cases just a matter of &#8220;turning&#8221; them back on. In some cases, it&#8217;ll be a bit more work. However, I think Readium.js will be back up to feature-completeness pretty quickly.</p>
+
+<h2>How you can help</h2>
+
+<p>I think Readium.js has some decent abstractions, encapsulation and documentation (in addition to some&#8230; rough naming), so the <a href="http://github.com/readium/Readium-Web-Components">code base</a> should be fairly accessible for contributors. I&#8217;ll also be able to help point you to where and how you can tackle certain things. Feedback and <a href="http://github.com/readium/Readium-Web-Components/issues">issue reports</a> are also very welcome.</p>
+
+<p>If you know of something you&#8217;d like to contribute, feel free to get in touch (justinh@evidentpoint.com). If you&#8217;re looking for something (small or large) to contribute, you can choose from a list of things that need doing.</p>
+
+<p>I hope you get involved.</p>
+]]></content>
+  </entry>
+  
+</feed>

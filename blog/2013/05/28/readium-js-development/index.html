@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Readium.js development - Readium.js</title>
+  <meta name="author" content="Justin Hume">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+    
+  
+  <meta name="description" content="This post discusses Readium.js development priorities up to now, as well as how you can get involved with the project. Motivation Readium.js is &hellip;">
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://justinHume.github.io/readium-web-components/blog/2013/05/28/readium-js-development/">
+  <link href="/Readium-Web-Components/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/Readium-Web-Components/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/Readium-Web-Components/atom.xml" rel="alternate" title="Readium.js" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="Readium.js" />
+  <meta name="og:title" content="Readium.js development" />
+  <meta name="og:description" content="This post discusses Readium.js development priorities up to now, as well as how you can get involved with the project. Motivation Readium.js is &hellip;" />
+  <meta name="og:url" content="http://justinHume.github.io/readium-web-components/blog/2013/05/28/readium-js-development/"/>
+  <meta name="url" content="http://justinHume.github.io/readium-web-components/blog/2013/05/28/readium-js-development/">
+  
+  <meta name="subject" content=""/>
+  <meta name="category" content=""/>
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/Readium-Web-Components/">Readium.js</a>
+    <ul class="nav">
+      <li><a href="/Readium-Web-Components/">Home</a></li>
+      <li><a href="/Readium-Web-Components/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/Readium-Web-Components/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:justinHume.github.io/readium-web-components" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span8 offset2" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">Readium.js Development</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn"><a href="http://github.com/justinHume">Justin Hume</a></span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-28T13:48:00-07:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post discusses Readium.js development priorities up to now, as well as how you can get involved with the project.</p>
+
+<h2>Motivation</h2>
+
+<p>Readium.js is designed as a set of modular javascript components <!--more-->that can be used <a href="/Readium-Web-Components/get-started/download.html#simple-download">together</a> to embed EPUB publications in a web application, or <a href="/Readium-Web-Components/get-started/download.html#readium-js-download">independently</a> to build custom web applications with EPUB support.</p>
+
+<h4>Fix things that are painful</h4>
+
+<p>When a developer is looking for projects, it&#8217;s not uncommon to hear the suggestion that they work on a pain point. At <a href="http://evidentpoint.com">Evident Point</a>, I&#8217;ve been involved in building a number of web-based EPUB 3 readers. The original <a href="http://github.com/readium/readium">Readium</a> project often served as a template for these efforts.</p>
+
+<p>While the original Readium provided a good demonstration of an EPUB 3 reader, I (and others, I believe) found it quite painful as developers to adapt the source to projects that were new, custom, or had more stringent requirements for performance, features etc.</p>
+
+<p>By designing the Readium.js library it was my hope that Readium.js could, in typically-modern-web-javascript fashion, make it painless for developers to build a whole variety of web-based EPUB applications.</p>
+
+<h4>Keep improving</h4>
+
+<p>It&#8217;s also my hope that from here we can build a community around Readium.js to get the <a href="/Readium-Web-Components/get-started/api.html">API</a> right, build in additional features and improve digital publishing on the web.</p>
+
+<p>The original Readium project was successful due to the <a href="https://github.com/readium/readium/issues">involvement</a> of a <a href="https://github.com/readium/readium/contributors">community</a>. Much of Readium.js is built on the contributions of this community - either code, wisdom, or lessons learned. I hope this can continue.</p>
+
+<h2>Development Priorities</h2>
+
+<p>During the development of Readium.js, I prioritized the things engineers like: The API design, a reasonable standard of engineering and solid documentation.</p>
+
+<p>I felt it was important to get to a point where community members could reason about the design of the library and API, test the library, and get involved with the source code. I think getting the library &#8216;right&#8217; will depend on early feeback and iteration.</p>
+
+<h4>Someone get the polish&#8230;</h4>
+
+<p>As a result of this priority, some EPUB 3 feature support was lost in the design and refactoring. Getting these features back is in some cases just a matter of &#8220;turning&#8221; them back on. In some cases, it&#8217;ll be a bit more work. However, I think Readium.js will be back up to feature-completeness pretty quickly.</p>
+
+<h2>How you can help</h2>
+
+<p>I think Readium.js has some decent abstractions, encapsulation and documentation (in addition to some&#8230; rough naming), so the <a href="http://github.com/readium/Readium-Web-Components">code base</a> should be fairly accessible for contributors. I&#8217;ll also be able to help point you to where and how you can tackle certain things. Feedback and <a href="http://github.com/readium/Readium-Web-Components/issues">issue reports</a> are also very welcome.</p>
+
+<p>If you know of something you&#8217;d like to contribute, feel free to get in touch (justinh@evidentpoint.com). If you&#8217;re looking for something (small or large) to contribute, you can choose from a list of things that need doing.</p>
+
+<p>I hope you get involved.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn"><a href="http://github.com/justinHume">Justin Hume</a></span></span>
+  
+
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-28T13:48:00-07:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+    
+    
+    
+      <a class="pull-right" href="/blog/2013/05/29/welcome-to-readium-js/" title="Next Post: Welcome to Readium.js">Welcome to Readium.js &raquo;</a>
+    
+  </footer>
+
+</div>
+
+        
+      </article>
+    </div>
+  </div>
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/06/27/roadmap/">Readium.js Roadmap</a>
+        </li>
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/06/27/changes-to-the-api/">Changes to the Readium.js API</a>
+        </li>
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/">Welcome to Readium.js</a>
+        </li>
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/05/28/readium-js-development/">Readium.js development</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+
+  </div>
+  <div class="span2">
+    <!-- <h2>found on</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ -->
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/Readium-Web-Components/">Readium.js website and blog</a>
+  - Copyright &copy; 2013 - <span>Created by <a href="http://github.com/justinHume">Justin Hume</a>.</span><!-- Justin Hume -->
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+    <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span>
+  
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/Readium-Web-Components/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/Readium-Web-Components/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/Readium-Web-Components/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/Readium-Web-Components/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/Readium-Web-Components/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/Readium-Web-Components/javascripts/custom.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

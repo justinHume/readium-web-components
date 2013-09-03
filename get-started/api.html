@@ -1,0 +1,3199 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>API Reference - Readium.js</title>
+  <meta name="author" content="Justin Hume">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+    
+  
+  <meta name="description" content="List of Modules This page describes the API for each javascript module in the Readium.js library. A list - and example of use - is provided for the &hellip;">
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://justinHume.github.io/readium-web-components/get-started/api.html">
+  <link href="/Readium-Web-Components/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/Readium-Web-Components/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/Readium-Web-Components/atom.xml" rel="alternate" title="Readium.js" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="Readium.js" />
+  <meta name="og:title" content="API Reference" />
+  <meta name="og:description" content="List of Modules This page describes the API for each javascript module in the Readium.js library. A list - and example of use - is provided for the &hellip;" />
+  <meta name="og:url" content="http://justinHume.github.io/readium-web-components/get-started/api.html"/>
+  <meta name="url" content="http://justinHume.github.io/readium-web-components/get-started/api.html">
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/Readium-Web-Components/">Readium.js</a>
+    <ul class="nav">
+      <li><a href="/Readium-Web-Components/">Home</a></li>
+      <li><a href="/Readium-Web-Components/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/Readium-Web-Components/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:justinHume.github.io/readium-web-components" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+<div class="wrapper_single">
+  <div class="container">
+    <article class="span9 offset1 article-format role="article">
+      <div role="div">
+        
+        <header>
+          <h1 class="entry-title">API Reference</h1>
+          <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-22T15:50:00-07:00" pubdate data-updated="true">May 22<span>nd</span>, 2013</time></p>
+        </header>
+        
+        <h2>List of Modules</h2>
+
+<p>This page describes the API for each javascript module in the Readium.js library.</p>
+
+<p>A list - and example of use - is provided for the custom styles, events and methods of each module.</p>
+
+<h3><a href="#simple-api">SimpleReadium</a></h3>
+
+<p><em>A module that wires together all of Readium.js into one object and exposes a reduced, simplified, API.</em></p>
+
+<h4><a href="#simple-events-example">Events</a></h4>
+
+<ul>
+<li><a href="#simple-epub-loaded">epubLoaded</a></li>
+<li><a href="#simple-at-next-page">atNextPage</a></li>
+<li><a href="#simple-at-previous-page">atPreviousPage</a></li>
+<li><a href="#simple-at-first-page">atFirstPage</a></li>
+<li><a href="#simple-at-last-page">atLastPage</a></li>
+<li><a href="#simple-epub-link-clicked">epubLinkClicked</a></li>
+<li><a href="#simple-layout-changed">layoutChanged</a></li>
+<li><a href="#simple-displayed-content-changed">displayedContentChanged</a></li>
+</ul>
+
+
+<h4><a href="#simple-custom-styles-example">Customizable styles</a></h4>
+
+<ul>
+<li><a href="#simple-epub-border">epub-border</a></li>
+<li><a href="#simple-spine-divider">spine-divider</a></li>
+<li><a href="#simple-page-border">page-border</a></li>
+<li><a href="#simple-margin">margin</a></li>
+<li><a href="#simple-font-size">fontSize</a></li>
+<li><a href="#simple-reflowable-epub-border">reflowable-epub-border</a></li>
+<li><a href="#simple-reflowable-spine-divider">reflowable-spine-divider</a></li>
+<li><a href="#simple-reflowable-page-border">reflowable-page-border</a></li>
+<li><a href="#simple-reflowable-page-theme">reflowable-page-theme</a></li>
+<li><a href="#simple-epub-border">fixed-epub-border</a></li>
+<li><a href="#simple-spine-divider">fixed-spine-divider</a></li>
+<li><a href="#simple-page-border">fixed-page-border</a></li>
+<li><a href="#simple-page-border-left">fixed-page-border-left</a></li>
+<li><a href="#simple-page-border-right">fixed-page-border-right</a></li>
+</ul>
+
+
+<h4>Methods</h4>
+
+<ul>
+<li><a href="#simple-init">SimpleRWC</a></li>
+<li><a href="#simple-show-spine-item">showSpineItem</a></li>
+<li><a href="#simple-show-page-by-cfi">showPageByCFI</a></li>
+<li><a href="#simple-show-page-by-element-id">showPageByElementId</a></li>
+<li><a href="#simple-previous-page">previousPage</a></li>
+<li><a href="#simple-next-page">nextPage</a></li>
+<li><a href="#simple-set-synthetic-layout">setSyntheticLayout</a></li>
+<li><a href="#simple-set-margin">setMargin</a></li>
+<li><a href="#simple-set-theme">setTheme</a></li>
+<li><a href="#simple-resize-content">resizeContent</a></li>
+<li><a href="#simple-customize">customize</a></li>
+</ul>
+
+
+<hr />
+
+<h3><a href="#parser-api">EPUB-Parser</a></h3>
+
+<p><em>Parse an EPUB 3.0 XML Package Document into javascript objects.</em></p>
+
+<h4>Methods</h4>
+
+<ul>
+<li><a href="#parser-init">EpubParserModule</a></li>
+<li><a href="#parser-parse">parse</a></li>
+</ul>
+
+
+<hr />
+
+<h3><a href="#epub-api">EPUB</a></h3>
+
+<p><em>Expose useful information about an EPUB and it&#8217;s resources.</em></p>
+
+<h4>Methods</h4>
+
+<ul>
+<li><a href="#epub-init">EpubModule</a></li>
+<li><a href="#epub-getSpineInfo">getSpineInfo</a></li>
+<li><a href="#epub-isFixedLayout">isFixedLayout</a></li>
+<li><a href="#epub-getManifestItemById">getManifestItemById</a></li>
+<li><a href="#epub-getManifestItemByIdref">getManifestItemByIdref</a></li>
+<li><a href="#epub-getSpineItemByIdref">getSpineItemByIdref</a></li>
+<li><a href="#epub-getSpineItemByIndex">getSpineItemByIndex</a></li>
+<li><a href="#epub-spineLength">spineLength</a></li>
+<li><a href="#epub-getNextLinearSpinePosition">getNextLinearSpinePosition</a></li>
+<li><a href="#epub-getPrevLinearSpinePosition">getPrevLinearSpinePosition</a></li>
+<li><a href="#epub-hasNextSection">hasNextSection</a></li>
+<li><a href="#epub-hasPrevSection">hasPrevSection</a></li>
+<li><a href="#epub-pageProgressionDirection">pageProgressionDirection</a></li>
+<li><a href="#epub-getSpineIndexByHref">getSpineIndexByHref</a></li>
+<li><a href="#epub-getPackageDocumentDOM">getPackageDocumentDOM</a></li>
+<li><a href="#epub-getToc">getToc</a></li>
+</ul>
+
+
+<hr />
+
+<h3><a href="#reader-api">EPUB-Reader</a></h3>
+
+<p><em>Manage the loading, rendering and interaction with EPUB 3.0 content.</em></p>
+
+<h4><a href="#reader-events-example">Events</a></h4>
+
+<ul>
+<li><a href="#reader-epub-loaded">epubLoaded</a></li>
+<li><a href="#reader-at-next-page">atNextPage</a></li>
+<li><a href="#reader-at-previous-page">atPreviousPage</a></li>
+<li><a href="#reader-at-first-page">atFirstPage</a></li>
+<li><a href="#reader-at-last-page">atLastPage</a></li>
+<li><a href="#reader-epub-link-clicked">epubLinkClicked</a></li>
+<li><a href="#reader-layout-changed">layoutChanged</a></li>
+<li><a href="#reader-displayed-content-changed">displayedContentChanged</a></li>
+</ul>
+
+
+<h4><a href="#reader-custom-styles-example">Customizable styles</a></h4>
+
+<ul>
+<li><a href="#reader-epub-border">epub-border</a></li>
+<li><a href="#reader-spine-divider">spine-divider</a></li>
+<li><a href="#reader-page-border">page-border</a></li>
+<li><a href="#reader-margin">margin</a></li>
+<li><a href="#reader-font-size">fontSize</a></li>
+<li><a href="#reader-epub-border">reflowable-epub-border</a></li>
+<li><a href="#reader-spine-divider">reflowable-spine-divider</a></li>
+<li><a href="#reader-page-border">reflowable-page-border</a></li>
+<li><a href="#reader-page-theme">reflowable-page-theme</a></li>
+<li><a href="#reader-epub-border">fixed-epub-border</a></li>
+<li><a href="#reader-spine-border">fixed-spine-divider</a></li>
+<li><a href="#reader-page-border">fixed-page-border</a></li>
+<li><a href="#reader-page-border-left">fixed-page-border-left</a></li>
+<li><a href="#reader-page-border-right">fixed-page-border-right</a></li>
+</ul>
+
+
+<h4>Methods</h4>
+
+<ul>
+<li><a href="#reader-init">EpubReaderModule</a></li>
+<li><a href="#reader-render">render</a></li>
+<li><a href="#reader-show-spine-item">showSpineItem</a></li>
+<li><a href="#reader-show-page-by-cfi">showPageByCFI</a></li>
+<li><a href="#reader-show-page-by-element-id">showPageByElementId</a></li>
+<li><a href="#reader-next-page">nextPage</a></li>
+<li><a href="#reader-previous-page">previousPage</a></li>
+<li><a href="#reader-set-synthetic-layout">setSyntheticLayout</a></li>
+<li><a href="#reader-get-number-of-pages">getNumberOfPages</a></li>
+<li><a href="#reader-get-current-page">getCurrentPage</a></li>
+<li><a href="#reader-on">on</a></li>
+<li><a href="#reader-off">off</a></li>
+<li><a href="#reader-get-viewer-settings">getViewerSettings</a></li>
+<li><a href="#reader-resize-content">resizeContent</a></li>
+<li><a href="#reader-customize">customize</a></li>
+</ul>
+
+
+<hr />
+
+<h3><a href="#reflowable-api">EPUB-Reflowable</a></h3>
+
+<p><em>Paginates a reflowable EPUB <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a> and provides an interface.</em></p>
+
+<h4><a href="#reflowable-events-example">Events</a></h4>
+
+<ul>
+<li><a href="#reflowable-epub-loaded">epubLoaded</a></li>
+<li><a href="#reflowable-at-next-page">atNextPage</a></li>
+<li><a href="#reflowable-at-previous-page">atPreviousPage</a></li>
+<li><a href="#reflowable-at-first-page">atFirstPage</a></li>
+<li><a href="#reflowable-at-last-page">atLastPage</a></li>
+<li><a href="#reflowable-epub-link-clicked">epubLinkClicked</a></li>
+<li><a href="#reflowable-layout-changed">layoutChanged</a></li>
+<li><a href="#reflowable-displayed-content-changed">displayedContentChanged</a></li>
+</ul>
+
+
+<h4><a href="#reflowable-custom-styles-example">Customizable styles</a></h4>
+
+<ul>
+<li><a href="#reflowable-epub-border">epub-border</a></li>
+<li><a href="#reflowable-spine-divider">spine-divider</a></li>
+<li><a href="#reflowable-page-border">page-border</a></li>
+<li><a href="#reflowable-margin">margin</a></li>
+<li><a href="#reflowable-font-size">fontSize</a></li>
+<li><a href="#reflowable-reflowable-epub-border">reflowable-epub-border</a></li>
+<li><a href="#reflowable-reflowable-spine-divider">reflowable-spine-divider</a></li>
+<li><a href="#reflowable-reflowable-page-border">reflowable-page-border</a></li>
+<li><a href="#reflowable-reflowable-page-theme">reflowable-page-theme</a></li>
+</ul>
+
+
+<h4>Methods</h4>
+
+<ul>
+<li><a href="#reflowable-init">EpubReflowableModule</a></li>
+<li><a href="#reflowable-render">render</a></li>
+<li><a href="#reflowable-next-page">nextPage</a></li>
+<li><a href="#reflowable-previous-page">previousPage</a></li>
+<li><a href="#reflowable-show-page-by-hash-fragment">showPageByHashFragment</a></li>
+<li><a href="#reflowable-show-page-by-number">showPageByNumber</a></li>
+<li><a href="#reflowable-show-page-by-cfi">showPageByCFI</a></li>
+<li><a href="#reflowable-on-first-page">onFirstPage</a></li>
+<li><a href="#reflowable-on-last-page">onLastPage</a></li>
+<li><a href="#reflowable-show-pages-view">showPagesView</a></li>
+<li><a href="#reflowable-hide-pages-view">hidePagesView</a></li>
+<li><a href="#reflowable-number-of-pages">numberOfPages</a></li>
+<li><a href="#reflowable-current-page">currentPage</a></li>
+<li><a href="#reflowable-set-synthetic-layout">setSyntheticLayout</a></li>
+<li><a href="#reflowable-on">on</a></li>
+<li><a href="#reflowable-off">off</a></li>
+<li><a href="#reflowable-resize-content">resizeContent</a></li>
+<li><a href="#reflowable-customize">customize</a></li>
+</ul>
+
+
+<hr />
+
+<h3><a href="#fixed-api">EPUB-Fixed</a></h3>
+
+<p><em>Loads and renders a set of fixed layout pages, and provides an interface for them.</em></p>
+
+<h4><a href="#fixed-events-example">Events</a></h4>
+
+<ul>
+<li><a href="#fixed-epub-loaded">epubLoaded</a></li>
+<li><a href="#fixed-at-next-page">atNextPage</a></li>
+<li><a href="#fixed-at-previous-page">atPreviousPage</a></li>
+<li><a href="#fixed-at-first-page">atFirstPage</a></li>
+<li><a href="#fixed-at-last-page">atLastPage</a></li>
+<li><a href="#fixed-epub-link-clicked">epubLinkClicked</a></li>
+<li><a href="#fixed-layout-changed">layoutChanged</a></li>
+<li><a href="#fixed-displayed-content-changed">displayedContentChanged</a></li>
+</ul>
+
+
+<h4><a href="#fixed-custom-styles-example">Customizable styles</a></h4>
+
+<ul>
+<li><a href="#fixed-epub-border">epub-border</a></li>
+<li><a href="#fixed-spine-divider">spine-divider</a></li>
+<li><a href="#fixed-page-border">page-border</a></li>
+<li><a href="#fixed-fixed-epub-border">fixed-epub-border</a></li>
+<li><a href="#fixed-fixed-spine-divider">fixed-spine-divider</a></li>
+<li><a href="#fixed-fixed-page-border">fixed-page-border</a></li>
+<li><a href="#fixed-fixed-page-border-left">fixed-page-border-left</a></li>
+<li><a href="#fixed-fixed-page-border-right">fixed-page-border-right</a></li>
+</ul>
+
+
+<h4>Methods</h4>
+
+<ul>
+<li><a href="#fixed-init">EpubFixedModule</a></li>
+<li><a href="#fixed-render">render</a></li>
+<li><a href="#fixed-next-page">nextPage</a></li>
+<li><a href="#fixed-previous-page">previousPage</a></li>
+<li><a href="#fixed-show-page-by-hash-fragment">showPageByHashFragment</a></li>
+<li><a href="#fixed-show-page-by-number">showPageByNumber</a></li>
+<li><a href="#fixed-show-page-by-cfi">showPageByCFI</a></li>
+<li><a href="#fixed-on-first-page">onFirstPage</a></li>
+<li><a href="#fixed-on-last-page">onLastPage</a></li>
+<li><a href="#fixed-show-pages-view">showPagesView</a></li>
+<li><a href="#fixed-hide-pages-view">hidePagesView</a></li>
+<li><a href="#fixed-number-of-pages">numberOfPages</a></li>
+<li><a href="#fixed-current-page">currentPage</a></li>
+<li><a href="#fixed-set-synthetic-layout">setSyntheticLayout</a></li>
+<li><a href="#fixed-on">on</a></li>
+<li><a href="#fixed-off">off</a></li>
+<li><a href="#fixed-resize-content">resizeContent</a></li>
+<li><a href="#fixed-customize">customize</a></li>
+</ul>
+
+
+<hr />
+
+<h3><a href="#cfi-api">EPUB-CFI</a></h3>
+
+<p><em>De-reference and generate Canonical Fragement Identifiers (CFIs).</em></p>
+
+<h4>Methods</h4>
+
+<ul>
+<li><a href="#epub-cfi">new EpubCFIModule()</a></li>
+<li><a href="#epub-cfi">getContentDocHref(CFI, packageDocument)</a></li>
+<li><a href="#epub-cfi">injectElement(CFI, contentDocument, elementToInject)</a></li>
+<li><a href="#epub-cfi">getTargetElement(CFI, contentDocument)</a></li>
+<li><a href="#epub-cfi">getTargetElementWithPartialCFI(contentDocumentCFI, contentDocument)</a></li>
+<li><a href="#epub-cfi">getTextTerminusInfoWithPartialCFI(contentDocumentCFI, contentDocument)</a></li>
+<li><a href="#epub-cfi">generateCharacterOffsetCFIComponent(startTextNode, charOffset)</a></li>
+<li><a href="#epub-cfi">generateElementCFIComponent(startElement)</a></li>
+<li><a href="#epub-cfi">generatePackageDocumentCFIComponent(contentDocumentName, packageDocument)</a></li>
+<li><a href="#epub-cfi">generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, packageDocument)</a></li>
+<li><a href="#epub-cfi">generateCompleteCFI(packageDocumentCFIComponent, contentDocumentCFIComponent)</a></li>
+<li><a href="#epub-cfi">injectElementAtOffset($textNodeList, textOffset, elementToInject)</a></li>
+<li><a href="#epub-cfi">injectRangeElements(rangeCFI, contentDocument, startElementToInject, endElementToInject)</a></li>
+<li><a href="#epub-cfi">getRangeTargetElements(rangeCFI, contentDocument)</a></li>
+<li><a href="#epub-cfi">generateCharOffsetRangeComponent(rangeStartElement, startOffset, rangeEndElement, endOffset)</a></li>
+<li><a href="#epub-cfi">generateElementRangeComponent(rangeStartElement, rangeEndElement)</a></li>
+</ul>
+
+
+<hr />
+
+<!-- ==========================================================================================================
+        SIMPLEREADIUM API DESCRIPTION
+     ========================================================================================================== -->
+
+
+<p><a id="simple-api"></a></p>
+
+<h2>SimpleReadium.js</h2>
+
+<p><a id="simple-events-example"></a></p>
+
+<h3>Events</h3>
+
+<p>Handlers for each of the events triggered by SimpleReadium can set, as follows:</p>
+
+<figure class='code'><figcaption><span>.on() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;eventName&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Something is done when: eventName is triggered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the <a href="#reader-on">on</a> API documentation for the method definition.</p>
+
+<p><a id="simple-epub-loaded"></a></p>
+
+<h4>epubLoaded</h4>
+
+<p>A <em>specified</em> set of EPUB resources have completed rendering.</p>
+
+<p>The specified set of resources depends on the rendering strategy. For example, if a lazy rendering strategy is used the epubLoaded event will be triggered when a single content document has completed rendering.</p>
+
+<p><a id="simple-at-next-page"></a></p>
+
+<h4>atNextPage</h4>
+
+<p>The reader has rendered the next page in the reading order.</p>
+
+<p><a id="simple-at-previous-page"></a></p>
+
+<h4>atPreviousPage</h4>
+
+<p>The reader has rendered the previous page in the reading order.</p>
+
+<p><a id="simple-at-first-page"></a></p>
+
+<h4>atFirstPage</h4>
+
+<p>The reader has reached the first page in the EPUB publication.</p>
+
+<p><a id="simple-at-last-page"></a></p>
+
+<h4>atLastPage</h4>
+
+<p>The reader has reached the last page in the EPUB publication.</p>
+
+<p><a id="simple-epub-link-clicked"></a></p>
+
+<h4>epubLinkClicked</h4>
+
+<p>A link <em>within</em> a content document has been clicked.</p>
+
+<p><a id="simple-layout-changed"></a></p>
+
+<h4>layoutChanged</h4>
+
+<p>The layout has been changed from single-page to a two-page spread, or vice-versa.</p>
+
+<p><a id="simple-displayed-content-changed"></a></p>
+
+<h4>displayedContentChanged</h4>
+
+<p>The displayed content has changed, for any reason. This event will be triggered on page changes,
+repagination, resizing, etc.</p>
+
+<p><a id="simple-custom-styles-example"></a></p>
+
+<h3>Customizable styles</h3>
+
+<p>Custom styles can be set as follows:</p>
+
+<figure class='code'><figcaption><span>.customize() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the API documentation of <a href="#simple-customize">customize</a> for the method definition.</p>
+
+<p><a id="simple-epub-border"></a></p>
+
+<h4>epub-border</h4>
+
+<p>A border that bounds the visible pages, for both fixed and reflowable content documents.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-spine-divider"></a></p>
+
+<h4>spine-divider</h4>
+
+<p>The spine divider shown in a two-page spread, for both fixed and reflowable content documents.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-page-border"></a></p>
+
+<h4>page-border</h4>
+
+<p>The border of each visible page, for both fixed and reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-margin"></a></p>
+
+<h4>margin</h4>
+
+<p>The margin from the edge of the embedded reading container to the beginning of text. For reflowable content documents only, at the moment.</p>
+
+<p>This custom style takes the place of the setMargin() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;5&#8221;</p>
+
+<p><a id="simple-font-size"></a></p>
+
+<h4>fontSize</h4>
+
+<p>Sets the font size for reflowable content documents only.</p>
+
+<p>This custom style takes the place of the setFontSize() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;20&#8221;</p>
+
+<p><a id="simple-reflowable-epub-border"></a></p>
+
+<h4>reflowable-epub-border</h4>
+
+<p>A border that bounds visible pages in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-reflowable-spine-divider"></a></p>
+
+<h4>reflowable-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-reflowable-page-border"></a></p>
+
+<h4>reflowable-page-border</h4>
+
+<p>The border of each visible page, for reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-reflowable-page-theme"></a></p>
+
+<h4>reflowable-page-theme</h4>
+
+<p>This custom style replaces the setTheme() method, and is used to provide a &#8220;theme&#8221; for reflowable content documents. Essentially, this can be any styling of the content document itself.</p>
+
+<p><em>Defaults</em>:
+&#8220;night&#8221;, &#8220;vancouver&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-epub-border"></a></p>
+
+<h4>fixed-epub-border</h4>
+
+<p>A border that bounds visible pages for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-spine-divider"></a></p>
+
+<h4>fixed-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-page-border"></a></p>
+
+<h4>fixed-page-border</h4>
+
+<p>The border of each visible page, for fixed content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-page-border-left"></a></p>
+
+<h4>fixed-page-border-left</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;left,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-page-border-right"></a></p>
+
+<h4>fixed-page-border-right</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;right,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<h3>Methods</h3>
+
+<p><a id="simple-init"></a></p>
+
+<h4>SimpleRWC</h4>
+
+<p>Instantiate a new SimpleReadium object. Use a constructor method invocation.</p>
+
+<p>SimpleReadium requires a DOM element to bind EPUB content to, a url to the EPUB publication <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-package-def">package document</a>, a viewer settings object, the package document XML, and a render strategy.</p>
+
+<p>This is a stateful module. State is the set of arguments, above.</p>
+
+<p>The element to bind must be given a fixed height, for the moment.</p>
+
+<figure class='code'><figcaption><span>new EpubReaderModule(readerBoundElement, epubSpineInfo, viewerSettings, packageDocumentDOM) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">elementToBindTo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#element-id&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// A DOM element; jquery is not required</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">viewerSettings</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">fontSize</span> <span class="o">:</span> <span class="mi">12</span><span class="p">,</span> <span class="c1">// integer</span>
+</span><span class='line'>            <span class="nx">syntheticLayout</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>            <span class="nx">currentMargin</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// integer</span>
+</span><span class='line'>            <span class="nx">tocVisible</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>            <span class="nx">currentTheme</span> <span class="o">:</span> <span class="s2">&quot;default&quot;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">packageDocumentURL</span> <span class="o">=</span> <span class="s2">&quot;path/to/package/package.opf&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">packageDocumentXML</span> <span class="o">=</span> <span class="s2">&quot;&lt;package&gt;...&lt;/package&gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">renderStrategy</span> <span class="o">=</span> <span class="s2">&quot;lazy&quot;</span><span class="p">;</span> <span class="c1">// &quot;lazy&quot; or &quot;eager&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">simpleReadium</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleRWC</span><span class="p">(</span>
+</span><span class='line'>        <span class="nx">elementToBindTo</span><span class="p">,</span> <span class="nx">viewerSettings</span><span class="p">,</span> <span class="nx">packageDocumentURL</span><span class="p">,</span> <span class="nx">packageDocumentXML</span><span class="p">,</span> <span class="nx">renderStrategy</span>
+</span><span class='line'>    <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-show-spine-item"></a></p>
+
+<h4>showSpineItem</h4>
+
+<p>Show EPUB content using its index in the spine.</p>
+
+<p>A callback must be supplied, as the content referenced by the spine index may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showSpineItem(spineIndex) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineIndexToShow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Spine index shown: &quot;</span> <span class="o">+</span> <span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="nx">spineIndexToShow</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-show-page-by-cfi"></a></p>
+
+<h4>showPageByCFI</h4>
+
+<p>Show the page on which content indexed by a <a href="http://www.idpf.org/epub/linking/cfi/#sec-epubcfi-def">CFI</a> can be found.</p>
+
+<p>A callback must be supplied, as the content referenced by the CFI may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showPageByCFI(CFI) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">CFI</span> <span class="o">=</span> <span class="s2">&quot;epubcfi(/2/6!/4/2/10)&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Spine index shown: &quot;</span> <span class="o">+</span> <span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">showPageByCFI</span><span class="p">(</span><span class="nx">CFI</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-show-page-by-element-id"></a></p>
+
+<h4>showPageByElementId</h4>
+
+<p>Show the page that contains the element with the specified ID.</p>
+
+<p>The spine index must also be supplied, as each <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">spine itemref</a> is likely an XHTML document, and the uniqueness of id&#8217;s in the entire EPUB publication is not assured.</p>
+
+<p>A callback must be supplied, as the content referenced by the spine index may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showPageByElementId(spineIndex, hashFragmentId) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineIndexThatContainsTheId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">elementId</span> <span class="o">=</span> <span class="s2">&quot;XML-id&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Spine index shown: &quot;</span> <span class="o">+</span> <span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">showPageByElementId</span><span class="p">(</span><span class="nx">spineIndexThatContainsTheId</span><span class="p">,</span> <span class="nx">elementId</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-next-page"></a></p>
+
+<h4>nextPage</h4>
+
+<p>Show the next page(s) in the EPUB publication.</p>
+
+<p>A callback must be supplied, as the next set of content may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>.nextPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigated to next page&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">nextPage</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-previous-page"></a></p>
+
+<h4>previousPage</h4>
+
+<p>Show the previous page(s) in the EPUB publication.</p>
+
+<p>A callback must be supplied, as the previous set of content may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>.previousPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigated to previous page&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">previousPage</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-set-synthetic-layout"></a></p>
+
+<h4>setSyntheticLayout</h4>
+
+<p>Set SimpleReadium to display a synthetic layout (two pages), or a single-page layout.</p>
+
+<figure class='code'><figcaption><span>.setSyntheticLayout(isSynthetic) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Show a two page layout</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Show a single page layout </span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-resize-content"></a></p>
+
+<h4>resizeContent</h4>
+
+<p>Resize EPUB content based on the current size of the HTML element container.</p>
+
+<figure class='code'><figcaption><span>.resizeContent() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-customize"></a></p>
+
+<h4>customize</h4>
+
+<p>Set custom styles provided by Readium.js</p>
+
+<figure class='code'><figcaption><span>.customize(customStyleName, defaultOrCSSObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">styleName</span> <span class="o">=</span> <span class="s2">&quot;epub-border&quot;</span><span class="p">;</span> <span class="c1">// string: one of the custom styles provided by Readium.js</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">;</span> <span class="c1">//string: one of the defaults provided by Readium.js for the custom style</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="p">{</span>      <span class="c1">// object: a string CSS property name, followed by a string CSS property value</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- ==========================================================================================================
+        PARSER API DESCRIPTION
+     ========================================================================================================== -->
+
+
+<p><a id="parser-api"></a></p>
+
+<h2>Parser API</h2>
+
+<p><a id="parser-init"></a></p>
+
+<h4>EpubParserModule</h4>
+
+<p>Instantiate a new parser module. Use a constructor method invocation. The surrounding application is responsible for retrieving the package document XML.</p>
+
+<p>This is a stateful module. State is the <em>path to the package document</em> and the <em>package document XML</em>.</p>
+
+<figure class='code'><figcaption><span>new EpubParserModule() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">pathToPackageDocument</span> <span class="o">=</span> <span class="s2">&quot;path/to/EPUB/packageDocument.xml&quot;</span> <span class="c1">// A string</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">packageDocumentXML</span> <span class="o">=</span> <span class="nx">yourApp</span><span class="p">.</span><span class="nx">getPackageDocumentXML</span><span class="p">(</span><span class="nx">pathToPackageDocument</span><span class="p">);</span> <span class="c1">// A string</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">epubParser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EpubParserModule</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">packageDocumentURI</span> <span class="o">:</span> <span class="nx">pathToPackageDocument</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">packageDocumentXML</span> <span class="o">:</span> <span class="nx">packageDocumentXML</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="parser-parse"></a></p>
+
+<h4>parse</h4>
+
+<p>Parse the package document into a javascript object.</p>
+
+<figure class='code'><figcaption><span>.parse() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">packageDocumentObject</span> <span class="o">=</span> <span class="nx">epubParser</span><span class="p">.</span><span class="nx">parse</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// Returns a javascript object representation of the package document</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- ==========================================================================================================
+        EPUB API DESCRIPTION
+     ========================================================================================================== -->
+
+
+<p><a id="epub-api"></a></p>
+
+<h2>EPUB</h2>
+
+<p><a id="epub-init"></a></p>
+
+<h4>EpubModule</h4>
+
+<p>Instantiate the epub module. Use a constructor method invocation.</p>
+
+<p>This is a stateful module. State is the <em>path to the package document</em> and the <em>package document</em>.</p>
+
+<p><em>EXPECTED API CHANGE</em>: At the moment, the EPUB-Parser module must be used to create a javascript object representation of the package document; this will be changed. The parser will simply be included in the EPUB module.</p>
+
+<figure class='code'><figcaption><span>new EpubModule(packageDocumentObject, packageDocumentXML) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">packageDocumentXML</span> <span class="o">=</span> <span class="nx">yourApp</span><span class="p">.</span><span class="nx">getPackageDocumentXML</span><span class="p">(</span><span class="nx">pathToPackageDocument</span><span class="p">);</span> <span class="c1">// A string</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">packageDocumentObject</span> <span class="o">=</span> <span class="nx">anInstantiatedEpubParser</span><span class="p">.</span><span class="nx">parse</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">theEpub</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EpubModule</span><span class="p">(</span><span class="nx">packageDocumentObject</span><span class="p">,</span> <span class="nx">packageDocumentXML</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getSpineInfo"></a></p>
+
+<h4>getSpineInfo</h4>
+
+<p>Get the spine info object. The spine info object contains three arrays: An <em>array of each <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemref</a></em> in the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-spine-elem">spine</a>, an <em>array of <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-bindings-elem">bindings</a></em>.</p>
+
+<figure class='code'><figcaption><span>.getSpineInfo() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">spineInfo</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getSpineInfo</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// Returns the spineInfo object {</span>
+</span><span class='line'><span class="c1">//      spine : [itemrefs],</span>
+</span><span class='line'><span class="c1">//      bindings : [bindings]</span>
+</span><span class='line'><span class="c1">// }</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-isFixedLayout"></a></p>
+
+<h4>isFixedLayout</h4>
+
+<p>Indicates if the <em>entire</em> EPUB is <a href="http://www.idpf.org/epub/fxl/#overview">fixed layout</a>.</p>
+
+<p>This will only return true if the <a href="http://www.idpf.org/epub/fxl/#property-defs">fixed layout meta properties</a> are set. If the EPUB
+is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content documents</a>), or entirely reflowable, this will return false.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var isFXL = theEpub.isFixedLayout();
+</span><span class='line'>// Returns true or false</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getManifestItemById"></a></p>
+
+<h4>getManifestItemById</h4>
+
+<p>Get a <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-elem">manifest item</a> object using it&#8217;s XML id.</p>
+
+<figure class='code'><figcaption><span>.getManifestItemById(id) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;valid-XML-id&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">manifestItemObject</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getManifestItemById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// Returns an object {</span>
+</span><span class='line'><span class="c1">//      href : &quot;package document-relative path to the manifest item resource&quot;,</span>
+</span><span class='line'><span class="c1">//      id : &quot;the XML id&quot;,</span>
+</span><span class='line'><span class="c1">//      media_overlay : &quot;mo.smil&quot;,</span>
+</span><span class='line'><span class="c1">//      media_type : &quot;the MIME type of the resource&quot;,</span>
+</span><span class='line'><span class="c1">//      properties : &quot;the EPUB property string for the manifest item&quot;</span>
+</span><span class='line'><span class="c1">// }</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getManifestItemByIdref"></a></p>
+
+<h4>getManifestItemByIdref</h4>
+
+<p>Get a <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-elem">manifest item</a> object by using the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">spine itemref idref</a> that refers to it.</p>
+
+<figure class='code'><figcaption><span>.getManifestItemByIdref(idref) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">idref</span> <span class="o">=</span> <span class="s2">&quot;idref-to-manifest-item&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">manifestItemObject</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getManifestItemByIdref</span><span class="p">(</span><span class="nx">idref</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// Returns an object {</span>
+</span><span class='line'><span class="c1">//      href : &quot;package document-relative path to the manifest item resource&quot;,</span>
+</span><span class='line'><span class="c1">//      id : &quot;the XML id&quot;,</span>
+</span><span class='line'><span class="c1">//      media_overlay : &quot;mo.smil&quot;,</span>
+</span><span class='line'><span class="c1">//      media_type : &quot;the MIME type of the resource&quot;,</span>
+</span><span class='line'><span class="c1">//      properties : &quot;the EPUB property string for the manifest item&quot;</span>
+</span><span class='line'><span class="c1">// }</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getSpineItemByIdref"></a></p>
+
+<h4>getSpineItemByIdref</h4>
+
+<p>Get an <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemref</a> object by using the itemref&#8217;s idref.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will likely be renamed to getSpineItem<strong><em>ref</em></strong>ByIdref.</p>
+
+<figure class='code'><figcaption><span>.getSpineItemByIdref(idref) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">idref</span> <span class="o">=</span> <span class="s2">&quot;idref-to-spine-itemref&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">spineItemrefObject</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getSpineItemByIdref</span><span class="p">(</span><span class="nx">idref</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// Returns an object {</span>
+</span><span class='line'><span class="c1">//      id : &quot;ch9&quot;,</span>
+</span><span class='line'><span class="c1">//      idref : &quot;ch9&quot;,</span>
+</span><span class='line'><span class="c1">//      properties : &quot;the EPUB 3.0 property string for the spine itemref&quot;,</span>
+</span><span class='line'><span class="c1">//      linear : &quot;the is linear string&quot;</span>
+</span><span class='line'><span class="c1">// }</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getSpineItemByIndex"></a></p>
+
+<h4>getSpineItemByIndex</h4>
+
+<p>Get an <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemref</a> object by using the itemref&#8217;s index in the package document <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-spine-elem">spine</a>.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will likely be renamed to getSpineItem<strong><em>ref</em></strong>ByIndex.</p>
+
+<figure class='code'><figcaption><span>.getSpineItemByIndex(spineIndex) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">spineIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">spineItemrefObject</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getSpineItemByIndex</span><span class="p">(</span><span class="nx">spineIndex</span><span class="p">)</span>
+</span><span class='line'><span class="c1">// Returns an object {</span>
+</span><span class='line'><span class="c1">//      id : &quot;ch9&quot;,</span>
+</span><span class='line'><span class="c1">//      idref : &quot;ch9&quot;,</span>
+</span><span class='line'><span class="c1">//      properties : &quot;the EPUB 3.0 property string for the spine itemref&quot;,</span>
+</span><span class='line'><span class="c1">//      linear : &quot;the is linear string&quot;</span>
+</span><span class='line'><span class="c1">// }</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getSpineIndexByHref"></a></p>
+
+<h4>getSpineIndexByHref</h4>
+
+<p>Get the spine index of the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemref</a> using it&#8217;s associated manifest <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-elem">item</a> href.</p>
+
+<figure class='code'><figcaption><span>.getSpineIndexByHref(manifestItemHref) </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var manifestItemHref = "item-href"; // A string
+</span><span class='line'>    var spineIndexOfItemref = theEpub.getSpineIndexByHref(manifestItemHref); 
+</span><span class='line'>    // Returns an integer; zero-indexed</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-spineLength"></a></p>
+
+<h4>spineLength</h4>
+
+<p>Get the number of <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemrefs</a> in the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-spine-elem">spine</a>.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getNumberOfItemrefs</em>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var numSpineItemrefs = theEpub.spineLength();
+</span><span class='line'>// Returns an integer; one-indexed</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getNextLinearSpinePosition"></a></p>
+
+<h4>getNextLinearSpinePosition</h4>
+
+<p>Get the index in the spine of the next <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-itemref-linear">primary</a> spine itemref.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getNextPrimarySpineIndex</em>. This method may also be changed to actually return the itemref object.</p>
+
+<figure class='code'><figcaption><span>.getNextLinearSpinePosition(startSpineIndex) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">startSpineIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">nextPrimarySpineIndex</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getNextLinearSpinePosition</span><span class="p">(</span><span class="nx">startSpineIndex</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// Returns an integer; zero-indexed</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getPrevLinearSpinePosition"></a></p>
+
+<h4>getPrevLinearSpinePosition</h4>
+
+<p>Get the index in the spine of the previous <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-itemref-linear">primary</a> spine itemref.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getPreviousPrimarySpineIndex</em>. This method may also be changed to actually return the itemref object.</p>
+
+<figure class='code'><figcaption><span>.getPrevLinearSpinePosition(startSpineIndex) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">startSpineIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">nextPrimarySpineIndex</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getPrevLinearSpinePosition</span><span class="p">(</span><span class="nx">startSpineIndex</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// Returns an integer; zero-indexed</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-hasNextSection"></a></p>
+
+<h4>hasNextSection</h4>
+
+<p>Indicates if the EPUB has another <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-itemref-linear">primary</a> itemref.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will likely be renamed to <em>hasNextItemref</em>.</p>
+
+<figure class='code'><figcaption><span>.hasNextSection() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">startSpineIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">hasNextItemref</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">hasNextSection</span><span class="p">(</span><span class="nx">startSpineIndex</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// Returns true or false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-hasPrevSection"></a></p>
+
+<h4>hasPrevSection</h4>
+
+<p>Indicates if the EPUB has a previous <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-itemref-linear">primary</a> itemref.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will likely be renamed to <em>hasPreviousItemref</em>.</p>
+
+<figure class='code'><figcaption><span>.hasPrevSection() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">startSpineIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">hasNextItemref</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">hasPrevSection</span><span class="p">(</span><span class="nx">startSpineIndex</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// Returns true or false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-pageProgressionDirection"></a></p>
+
+<h4>pageProgressionDirection</h4>
+
+<p>Gets the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-spine-page-progression-direction">page progression direction</a> of the EPUB.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getPageProgressionDirection</em>.</p>
+
+<figure class='code'><figcaption><span>.pageProgressionDirection() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">pageProgDir</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">pageProgressionDirection</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// Returns &quot;ltr&quot;, &quot;default&quot;, or &quot;rtl&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getPackageDocumentDOM"></a></p>
+
+<h4>getPackageDocumentDOM</h4>
+
+<p>Gets a Document Object Model representation of the package document.</p>
+
+<figure class='code'><figcaption><span>.getPackageDocumentDOM() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">packageDocumentDOM</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getPackageDocumentDOM</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// Returns a DOM object with the &lt;package&gt; element as the root of the object.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="epub-getToc"></a></p>
+
+<h4>getToc</h4>
+
+<p>Gets the URL of the <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-xhtml-nav">table of contents</a> manifest <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-elem">item</a>.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getTocHref</em>.</p>
+
+<figure class='code'><figcaption><span>.getToc() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">tocHref</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getToc</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// Returns a string; the href for the table of contents manifest item</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- ==========================================================================================================
+        READER API DESCRIPTION
+     ========================================================================================================== -->
+
+
+<p><a id="reader-api"></a></p>
+
+<h2>EPUB Reader API</h2>
+
+<p><a id="reader-events-example"></a></p>
+
+<h3>Events</h3>
+
+<p>Handlers for each of the events triggered by the reader can set, as follows:</p>
+
+<figure class='code'><figcaption><span>.on() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">theEpub</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;eventName&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Something is done when: eventName is triggered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the <a href="#reader-on">on</a> API documentation for the method definition.</p>
+
+<p><a id="reader-epub-loaded"></a></p>
+
+<h4>epubLoaded</h4>
+
+<p>A <em>specified</em> set of EPUB resources have completed rendering.</p>
+
+<p>The specified set of resources depends on the rendering strategy. For example, if a lazy rendering strategy is used the epubLoaded event will be triggered when a single content document has completed rendering.</p>
+
+<p><a id="reader-at-next-page"></a></p>
+
+<h4>atNextPage</h4>
+
+<p>The reader has rendered the next page in the reading order.</p>
+
+<p><a id="reader-at-previous-page"></a></p>
+
+<h4>atPreviousPage</h4>
+
+<p>The reader has rendered the previous page in the reading order.</p>
+
+<p><a id="reader-at-first-page"></a></p>
+
+<h4>atFirstPage</h4>
+
+<p>The reader has reached the first page in the EPUB publication.</p>
+
+<p><a id="reader-at-last-page"></a></p>
+
+<h4>atLastPage</h4>
+
+<p>The reader has reached the last page in the EPUB publication.</p>
+
+<p><a id="reader-epub-link-clicked"></a></p>
+
+<h4>epubLinkClicked</h4>
+
+<p>A link <em>within</em> a content document has been clicked.</p>
+
+<p><a id="reader-layout-changed"></a></p>
+
+<h4>layoutChanged</h4>
+
+<p>The layout has been changed from single-page to a two-page spread, or vice-versa.</p>
+
+<p><a id="reader-displayed-content-changed"></a></p>
+
+<h4>displayedContentChanged</h4>
+
+<p>The displayed content has changed, for any reason. This event will be triggered on page changes,
+repagination, resizing, etc.</p>
+
+<p><a id="reader-custom-styles-example"></a></p>
+
+<h3>Customizable styles</h3>
+
+<p>Custom styles can be set as follows:</p>
+
+<figure class='code'><figcaption><span>.customize() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="nx">theEpub</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="nx">theEpub</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">theEpub</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the API documentation of <a href="#reader-customize">customize</a> for the method definition.</p>
+
+<p><a id="reader-epub-border"></a></p>
+
+<h4>epub-border</h4>
+
+<p>A border that bounds the visible pages, for both fixed and reflowable content documents.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-spine-divider"></a></p>
+
+<h4>spine-divider</h4>
+
+<p>The spine divider shown in a two-page spread, for both fixed and reflowable content documents.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-page-border"></a></p>
+
+<h4>page-border</h4>
+
+<p>The border of each visible page, for both fixed and reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-margin"></a></p>
+
+<h4>margin</h4>
+
+<p>The margin from the edge of the embedded reading container to the beginning of text. For reflowable content documents only, at the moment.</p>
+
+<p>This custom style takes the place of the setMargin() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;5&#8221;</p>
+
+<p><a id="reader-font-size"></a></p>
+
+<h4>fontSize</h4>
+
+<p>Sets the font size for reflowable content documents only.</p>
+
+<p>This custom style takes the place of the setFontSize() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;20&#8221;</p>
+
+<p><a id="reader-reflowable-epub-border"></a></p>
+
+<h4>reflowable-epub-border</h4>
+
+<p>A border that bounds visible pages in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-reflowable-spine-divider"></a></p>
+
+<h4>reflowable-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-reflowable-page-border"></a></p>
+
+<h4>reflowable-page-border</h4>
+
+<p>The border of each visible page, for reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-reflowable-page-theme"></a></p>
+
+<h4>reflowable-page-theme</h4>
+
+<p>This custom style replaces the setTheme() method, and is used to provide a &#8220;theme&#8221; for reflowable content documents. Essentially, this can be any styling of the content document itself.</p>
+
+<p><em>Defaults</em>:
+&#8220;night&#8221;, &#8220;vancouver&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-epub-border"></a></p>
+
+<h4>fixed-epub-border</h4>
+
+<p>A border that bounds visible pages for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-spine-divider"></a></p>
+
+<h4>fixed-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-page-border"></a></p>
+
+<h4>fixed-page-border</h4>
+
+<p>The border of each visible page, for fixed content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-page-border-left"></a></p>
+
+<h4>fixed-page-border-left</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;left,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-page-border-right"></a></p>
+
+<h4>fixed-page-border-right</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;right,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<h3>Methods</h3>
+
+<p><a id="reader-init"></a></p>
+
+<h4>EpubReaderModule</h4>
+
+<p>Instantiate a new reader module. Use a constructor method invocation.</p>
+
+<p>The reader requires a DOM element to bind EPUB content to, the EPUB publication <a href="">spine info</a> object, a viewer settings object, and a <a href="#getPackageDocumentDOM">DOM representation</a> of the package document.</p>
+
+<p>This is a stateful module. State is the <em>DOM element to bind to</em>, the epub resources referenced by the <em>epub spine info</em> object, and <em>viewer settings</em>.</p>
+
+<p>The binding element must have a fixed sized set, at present.</p>
+
+<figure class='code'><figcaption><span>new EpubReaderModule(readerBoundElement, epubSpineInfo, viewerSettings, packageDocumentDOM) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">elementToBindTo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#element-id&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// A DOM element; jquery is not required</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">spineInfo</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getSpineInfo</span><span class="p">();</span> <span class="c1">// theEpub is an RWC EPUB module.</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">viewerSettings</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">fontSize</span> <span class="o">:</span> <span class="mi">12</span><span class="p">,</span> <span class="c1">// integer</span>
+</span><span class='line'>            <span class="nx">syntheticLayout</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>            <span class="nx">currentMargin</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// integer</span>
+</span><span class='line'>            <span class="nx">tocVisible</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>            <span class="nx">currentTheme</span> <span class="o">:</span> <span class="s2">&quot;default&quot;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">packageDocumentDOM</span> <span class="o">=</span> <span class="nx">theEpub</span><span class="p">.</span><span class="nx">getPackageDocumentDOM</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">epubReader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EpubReaderModule</span><span class="p">(</span>
+</span><span class='line'>            <span class="nx">elementToBindTo</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">spineInfo</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">viewerSettings</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">packageDocumentDOM</span>
+</span><span class='line'>        <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-render"></a></p>
+
+<h4>render</h4>
+
+<p>Load and render EPUB publication resources. When render() is called, RWC will inject DOM elements as children of the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-bindings-elem">binding element</a> passed on initialization.</p>
+
+<p>By default, all EPUB resources will be hidden. A show method must be called to display a part of the EPUB publication.</p>
+
+<p>The EPUB-Reader module will trigger an &#8220;epubLoaded&#8221; event when all the resources of the EPUB are loaded. Use the <a href="#reader-on">on</a> method to handle the event.</p>
+
+<p><em>EXPECTED API CHANGE</em>: Loading and rendering settings, eager vs lazy loading</p>
+
+<figure class='code'><figcaption><span>.render() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;showed first page&quot;</span><span class="p">);</span> <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-show-spine-item"></a></p>
+
+<h4>showSpineItem</h4>
+
+<p>Show EPUB content using it&#8217;s index in the spine.</p>
+
+<p>A callback must be supplied, as the content referenced by the spine index may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showSpineItem(spineIndex) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineIndexToShow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Showed spine index: &quot;</span> <span class="o">+</span> <span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="nx">spineIndexToShow</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-show-page-by-cfi"></a></p>
+
+<h4>showPageByCFI</h4>
+
+<p>Show the page on which content indexed by a <a href="http://www.idpf.org/epub/linking/cfi/#sec-epubcfi-def">CFI</a> can be found.</p>
+
+<p>A callback must be supplied, as the content referenced by the CFI may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showPageByCFI(CFI) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">CFI</span> <span class="o">=</span> <span class="s2">&quot;epubcfi(/2/6!/4/2/10)&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Showed page by CFI&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showPageByCFI</span><span class="p">(</span><span class="nx">CFI</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-show-page-by-element-id"></a></p>
+
+<h4>showPageByElementId</h4>
+
+<p>Show the page that contains the element with the specified ID.</p>
+
+<p>The spine index must also be supplied, as each spine itemref is likely an XHTML document, and the uniqueness of id&#8217;s in the EPUB publication is not assured.</p>
+
+<p>A callback must be supplied, as the content referenced by the spine index may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showPageByElementId(spineIndex, hashFragmentId) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineIndexThatContainsTheId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">elementId</span> <span class="o">=</span> <span class="s2">&quot;XML-id&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Showed element ID&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showPageByElementId</span><span class="p">(</span><span class="nx">spineIndexThatContainsTheId</span><span class="p">,</span> <span class="nx">elementId</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-next-page"></a></p>
+
+<h4>nextPage</h4>
+
+<p>Show the next page(s) in the EPUB publication.</p>
+
+<p>A callback must be supplied, as the next set of content may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>.nextPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigated to next page&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">nextPage</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-previous-page"></a></p>
+
+<h4>previousPage</h4>
+
+<p>Show the previous page(s) in the EPUB publication.</p>
+
+<p>A callback must be supplied, as the previous set of content may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>.previousPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigated to previous page&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">previousPage</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-set-synthetic-layout"></a></p>
+
+<h4>setSyntheticLayout</h4>
+
+<p>Set the reader to display a synthetic layout (two pages), or a single-page layout.</p>
+
+<figure class='code'><figcaption><span>.setSyntheticLayout(isSynthetic) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Show a two page layout</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Show a single page layout </span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-get-number-of-pages"></a></p>
+
+<h4>getNumberOfPages</h4>
+
+<p>Get the number of pages, which is <em>potentially</em> a function of the current screen size, for the entire EPUB publication.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method is a candidate for removal. I don&#8217;t really think the meaning of this method can be made clear (or useful), given some of the other design decisions that have been made for this module, as well as some of the general complexity imposed by the EPUB spec.</p>
+
+<figure class='code'><figcaption><span>.getNumberOfPages() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">currentNumberOfPages</span> <span class="o">=</span> <span class="nx">epubReader</span><span class="p">.</span><span class="nx">getNumberOfPages</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-get-current-page"></a></p>
+
+<h4>getCurrentPage</h4>
+
+<p>Gets an array that contains the currently displayed page(s).</p>
+
+<p><em>EXPECTED API CHANGE</em>: This method is a candidate for removal. I don&#8217;t really think the meaning of this method can be made clear (or useful), given some of the other design decisions that have been made for this module, as well as some of the general complexity imposed by the EPUB spec.</p>
+
+<figure class='code'><figcaption><span>.getCurrentPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">currentPage</span> <span class="o">=</span> <span class="nx">epubReader</span><span class="p">.</span><span class="nx">getCurrentPage</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns an array with one or two elements [page1 [, page2] ]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-on"></a></p>
+
+<h4>on</h4>
+
+<p>Bind a callback to one of the <a href="">events</a> fired by the reader module. The callback will be invoked whenever the event is triggered.</p>
+
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-on">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+
+<figure class='code'><figcaption><span>on(eventName, callback, callbackContext) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Bind a callback to the &quot;epubLoaded&quot; event</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;the EPUB publication resources are now loaded and rendered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-off"></a></p>
+
+<h4>off</h4>
+
+<p>Remove all callbacks bound to the module object for the given event name.</p>
+
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-off">backbone.js off(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+
+<figure class='code'><figcaption><span>.off(eventName) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-get-viewer-settings"></a></p>
+
+<h4>getViewerSettings</h4>
+
+<p>Get the viewer settings object currently maintained by the reader.</p>
+
+<p>The reader must preserve viewer settings state internally; this method returns that internal state.</p>
+
+<figure class='code'><figcaption><span>.getViewerSettings() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">currViewerSettings</span> <span class="o">=</span> <span class="nx">epubReader</span><span class="p">.</span><span class="nx">getViewerSettings</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns an object {</span>
+</span><span class='line'>    <span class="c1">//      fontSize : 12, // integer</span>
+</span><span class='line'>    <span class="c1">//      syntheticLayout : false, // boolean</span>
+</span><span class='line'>    <span class="c1">//      currentMargin : 3, // integer</span>
+</span><span class='line'>    <span class="c1">//      tocVisible : false, // boolean</span>
+</span><span class='line'>    <span class="c1">//      currentTheme : &quot;default&quot; // &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
+</span><span class='line'>    <span class="c1">//    }</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-resize-content"></a></p>
+
+<h4>resizeContent</h4>
+
+<p>Resize EPUB content based on the current size of the HTML element container.</p>
+
+<figure class='code'><figcaption><span>.resizeContent() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reader-customize"></a></p>
+
+<h4>customize</h4>
+
+<p>Set custom styles provided by Readium.js</p>
+
+<figure class='code'><figcaption><span>.customize(customStyleName, defaultOrCSSObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">styleName</span> <span class="o">=</span> <span class="s2">&quot;epub-border&quot;</span><span class="p">;</span> <span class="c1">// string: one of the custom styles provided by Readium.js</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">;</span> <span class="c1">//string: one of the defaults provided by Readium.js for the custom style</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="p">{</span>      <span class="c1">// object: a string CSS property name, followed by a string CSS property value</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">epubReader</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- ==========================================================================================================
+        REFLOWABLE PAGE SET API DESCRIPTION
+     ========================================================================================================== -->
+
+
+<p><a id="reflowable-api"></a></p>
+
+<h2>Reflowable Page Set</h2>
+
+<p><a id="reflowable-events-example"></a></p>
+
+<h3>Events</h3>
+
+<p>Handlers for each of the events triggered by a reflowable page set can set, as follows:</p>
+
+<figure class='code'><figcaption><span>.on() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;eventName&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Something is done when: eventName is triggered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the <a href="#reader-on">on</a> API documentation for the method definition.</p>
+
+<p><a id="reflowable-epub-loaded"></a></p>
+
+<h4>epubLoaded</h4>
+
+<p>A <em>specified</em> set of EPUB resources have completed rendering.</p>
+
+<p>The specified set of resources depends on the rendering strategy. For example, if a lazy rendering strategy is used the epubLoaded event will be triggered when a single content document has completed rendering.</p>
+
+<p><a id="reflowable-at-next-page"></a></p>
+
+<h4>atNextPage</h4>
+
+<p>The reader has rendered the next page in the reading order.</p>
+
+<p><a id="reflowable-at-previous-page"></a></p>
+
+<h4>atPreviousPage</h4>
+
+<p>The reader has rendered the previous page in the reading order.</p>
+
+<p><a id="reflowable-at-first-page"></a></p>
+
+<h4>atFirstPage</h4>
+
+<p>The reader has reached the first page in the EPUB publication.</p>
+
+<p><a id="reflowable-at-last-page"></a></p>
+
+<h4>atLastPage</h4>
+
+<p>The reader has reached the last page in the EPUB publication.</p>
+
+<p><a id="reflowable-epub-link-clicked"></a></p>
+
+<h4>epubLinkClicked</h4>
+
+<p>A link <em>within</em> a content document has been clicked.</p>
+
+<p><a id="reflowable-layout-changed"></a></p>
+
+<h4>layoutChanged</h4>
+
+<p>The layout has been changed from single-page to a two-page spread, or vice-versa.</p>
+
+<p><a id="reflowable-displayed-content-changed"></a></p>
+
+<h4>displayedContentChanged</h4>
+
+<p>The displayed content has changed, for any reason. This event will be triggered on page changes,
+repagination, resizing, etc.</p>
+
+<p><a id="reflowable-custom-styles-example"></a></p>
+
+<h3>Customizable styles</h3>
+
+<p>Custom styles can be set as follows:</p>
+
+<figure class='code'><figcaption><span>.customize() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the API documentation of <a href="#reflowable-customize">customize</a> for the method definition.</p>
+
+<p><a id="reflowable-epub-border"></a></p>
+
+<h4>epub-border</h4>
+
+<p>A border that bounds the visible pages.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-spine-divider"></a></p>
+
+<h4>spine-divider</h4>
+
+<p>The spine divider shown in a two-page spread.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-page-border"></a></p>
+
+<h4>page-border</h4>
+
+<p>The border of each visible page. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-margin"></a></p>
+
+<h4>margin</h4>
+
+<p>The margin from the edge of the embedded reading container to the beginning of text.</p>
+
+<p>This custom style takes the place of the setMargin() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;5&#8221;</p>
+
+<p><a id="reflowable-font-size"></a></p>
+
+<h4>fontSize</h4>
+
+<p>Sets the font size.</p>
+
+<p>This custom style takes the place of the setFontSize() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;20&#8221;</p>
+
+<p><a id="reflowable-reflowable-epub-border"></a></p>
+
+<h4>reflowable-epub-border</h4>
+
+<p>A border that bounds visible pages in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-reflowable-spine-divider"></a></p>
+
+<h4>reflowable-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-reflowable-page-border"></a></p>
+
+<h4>reflowable-page-border</h4>
+
+<p>The border of each visible page, for reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-reflowable-page-theme"></a></p>
+
+<h4>reflowable-page-theme</h4>
+
+<p>This custom style replaces the setTheme() method, and is used to provide a &#8220;theme&#8221; for reflowable content documents. Essentially, this can be any styling of the content document itself.</p>
+
+<p><em>Defaults</em>:
+&#8220;night&#8221;, &#8220;vancouver&#8221;, &#8220;none&#8221;</p>
+
+<h3>Methods</h3>
+
+<p><a id="reflowable-init"></a></p>
+
+<h4>EpubReflowableModule</h4>
+
+<p>Initialize the set of reflowable pages.</p>
+
+<p>This is a stateful module. State is the <em><a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a></em>, <em>viewer settings</em>, and <em><a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-bindings-elem">bindings</a></em> for the content document.</p>
+
+<figure class='code'><figcaption><span>.EpubReflowableModule() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">contentDocumentInfo</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">contentDocumentURI</span> <span class="o">:</span> <span class="s2">&quot;epub_content/moby_dick/OPS/chapter_002.xhtml&quot;</span><span class="p">,</span> <span class="c1">// path to content document</span>
+</span><span class='line'>        <span class="nx">title</span> <span class="o">:</span> <span class="s2">&quot;Title of the EPUB publication&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">firstPageIsOffset</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>        <span class="nx">pageProgressionDirection</span> <span class="o">:</span> <span class="s2">&quot;ltr&quot;</span><span class="p">,</span> <span class="c1">// &quot;ltr&quot; or &quot;rtl&quot;</span>
+</span><span class='line'>        <span class="nx">spineIndex</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'>        <span class="nx">isFixedLayout</span> <span class="o">:</span> <span class="kc">false</span> <span class="c1">// boolean</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">viewerSettings</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">fontSize</span> <span class="o">:</span> <span class="mi">12</span><span class="p">,</span> <span class="c1">// integer; one-indexed</span>
+</span><span class='line'>        <span class="nx">syntheticLayout</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>        <span class="nx">currentMargin</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// integer; one-indexed</span>
+</span><span class='line'>        <span class="nx">tocVisible</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>        <span class="nx">currentTheme</span> <span class="o">:</span> <span class="s2">&quot;default&quot;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EpubReflowableModule</span><span class="p">(</span>
+</span><span class='line'>        <span class="nx">contentDocumentInfo</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">viewerSettings</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">bindings</span>
+</span><span class='line'>    <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-render"></a></p>
+
+<h4>render</h4>
+
+<p>Paginate the <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
+
+<p>This method returns a DOM element that must be injected into the DOM for the rendering process to complete. This is because EPUB content is rendered in an iframe, which only fetches and loads once it&#8217;s a part of the DOM.</p>
+
+<figure class='code'><figcaption><span>.render(goToLastPage, elementId) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">$domElementToAppendTo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#container-id&quot;</span><span class="p">);</span> <span class="c1">// jQuery not required</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">goToLastPage</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// boolean</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">elementIdToShow</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span> <span class="c1">// Either an ID or undefined</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">pagesElement</span> <span class="o">=</span> <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// Returns a DOM element</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Inject the element in the DOM</span>
+</span><span class='line'>    <span class="nx">$domElementToAppendTo</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">pagesElement</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-next-page"></a></p>
+
+<h4>nextPage</h4>
+
+<p>Show the next page(s).</p>
+
+<figure class='code'><figcaption><span>.nextPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">nextPage</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-previous-page"></a></p>
+
+<h4>previousPage</h4>
+
+<p>Show the previous page(s).</p>
+
+<figure class='code'><figcaption><span>.previousPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">previousPage</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-show-page-by-hash-fragment"></a></p>
+
+<h4>showPageByElementId</h4>
+
+<p>Show the page that contains the element with the specified ID.</p>
+
+<p>The spine index must also be supplied, as each spine itemref is likely an XHTML document, and the uniqueness of id&#8217;s in the EPUB publication is not assured.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This will be renamed to something like <em>showPageByElementId</em>.</p>
+
+<figure class='code'><figcaption><span>.showPageByHashFragment(hashFragmentId) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">elementId</span> <span class="o">=</span> <span class="s2">&quot;XML-id&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">showPageByHashFragment</span><span class="p">(</span><span class="nx">elementId</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-show-page-by-number"></a></p>
+
+<h4>showPageByNumber</h4>
+
+<p>Show the specified page number.</p>
+
+<figure class='code'><figcaption><span>.showPageByNumber(pageNumber) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">pageNumberToShow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// integer; one-indexed</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">showPageByNumber</span><span class="p">(</span><span class="nx">pageNumberToShow</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-show-page-by-cfi"></a></p>
+
+<h4>showPageByCFI</h4>
+
+<p>Show the page on which content indexed by a <a href="http://www.idpf.org/epub/linking/cfi/#sec-epubcfi-def">CFI</a> can be found.</p>
+
+<figure class='code'><figcaption><span>.showPageByCFI(CFI) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">CFI</span> <span class="o">=</span> <span class="s2">&quot;epubcfi(/2/6!/4/2/10)&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">showPageByCFI</span><span class="p">(</span><span class="nx">CFI</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-on-first-page"></a></p>
+
+<h4>onFirstPage</h4>
+
+<p>Indicates if the set of pages is currently showing the first page.</p>
+
+<figure class='code'><figcaption><span>.onFirstPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">onFirstPage</span> <span class="o">=</span> <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">onFirstPage</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns a boolean</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-on-last-page"></a></p>
+
+<h4>onLastPage</h4>
+
+<p>Indicates if the set of pages is currently showing the last page.</p>
+
+<figure class='code'><figcaption><span>.onLastPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">onLastPage</span> <span class="o">=</span> <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">onLastPage</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns a boolean</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-show-pages-view"></a></p>
+
+<h4>showPagesView</h4>
+
+<p>Show the set of pages.</p>
+
+<figure class='code'><figcaption><span>.showPagesView() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">showPagesView</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-hide-pages-view"></a></p>
+
+<h4>hidePagesView</h4>
+
+<p>Hide the set of pages.</p>
+
+<figure class='code'><figcaption><span>.hidePagesView() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">hidePagesView</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-number-of-pages"></a></p>
+
+<h4>numberOfPages</h4>
+
+<p>Get the number of pages in the set.</p>
+
+<figure class='code'><figcaption><span>.numberOfPages() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">numberOfPages</span> <span class="o">=</span> <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">numberOfPages</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns an integer; one-indexed</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-current-page"></a></p>
+
+<h4>currentPage</h4>
+
+<p>Get the current page.</p>
+
+<figure class='code'><figcaption><span>.currentPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">currentPage</span> <span class="o">=</span> <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">currentPage</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns the current page</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-set-synthetic-layout"></a></p>
+
+<h4>setSyntheticLayout</h4>
+
+<p>Set a synthetic layout (two pages), or a single-page layout.</p>
+
+<figure class='code'><figcaption><span>.setSyntheticLayout(isSynthetic) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Show a two page layout</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Show a single page layout </span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-on"></a></p>
+
+<h4>on</h4>
+
+<p>Bind a callback to one of the <a href="">events</a> fired by the reflowable object. The callback will be invoked whenever the event is triggered.</p>
+
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-on">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+
+<figure class='code'><figcaption><span>on(eventName, callback, callbackContext) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Bind a callback to the &quot;epubLoaded&quot; event</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;the EPUB publication resources are now loaded and rendered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-off"></a></p>
+
+<h4>off</h4>
+
+<p>Remove all callbacks bound to the module object for the given event name.</p>
+
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-off">backbone.js off(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+
+<figure class='code'><figcaption><span>.off(eventName) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-resize-content"></a></p>
+
+<h4>resizeContent</h4>
+
+<p>Resize EPUB content based on the current size of the HTML element container.</p>
+
+<figure class='code'><figcaption><span>.resizeContent() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-customize"></a></p>
+
+<h4>customize</h4>
+
+<p>Set custom styles provided by Readium.js</p>
+
+<figure class='code'><figcaption><span>.customize(customStyleName, defaultOrCSSObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">styleName</span> <span class="o">=</span> <span class="s2">&quot;epub-border&quot;</span><span class="p">;</span> <span class="c1">// string: one of the custom styles provided by Readium.js</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">;</span> <span class="c1">//string: one of the defaults provided by Readium.js for the custom style</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="p">{</span>      <span class="c1">// object: a string CSS property name, followed by a string CSS property value</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- ==========================================================================================================
+        FIXED PAGE SET API DESCRIPTION
+     ========================================================================================================== -->
+
+
+<p><a id="fixed-api"></a></p>
+
+<h2>Fixed Page Set</h2>
+
+<p><a id="fixed-events-example"></a></p>
+
+<h3>Events</h3>
+
+<p>Handlers for each of the events triggered by a fixed page set can set, as follows:</p>
+
+<figure class='code'><figcaption><span>.on() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;eventName&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Something is done when: eventName is triggered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the <a href="#reader-on">on</a> API documentation for the method definition.</p>
+
+<p><a id="fixed-epub-loaded"></a></p>
+
+<h4>epubLoaded</h4>
+
+<p>A <em>specified</em> set of EPUB resources have completed rendering.</p>
+
+<p>The specified set of resources depends on the rendering strategy. For example, if a lazy rendering strategy is used the epubLoaded event will be triggered when a single content document has completed rendering.</p>
+
+<p><a id="fixed-at-next-page"></a></p>
+
+<h4>atNextPage</h4>
+
+<p>The reader has rendered the next page in the reading order.</p>
+
+<p><a id="fixed-at-previous-page"></a></p>
+
+<h4>atPreviousPage</h4>
+
+<p>The reader has rendered the previous page in the reading order.</p>
+
+<p><a id="fixed-at-first-page"></a></p>
+
+<h4>atFirstPage</h4>
+
+<p>The reader has reached the first page in the EPUB publication.</p>
+
+<p><a id="fixed-at-last-page"></a></p>
+
+<h4>atLastPage</h4>
+
+<p>The reader has reached the last page in the EPUB publication.</p>
+
+<p><a id="fixed-epub-link-clicked"></a></p>
+
+<h4>epubLinkClicked</h4>
+
+<p>A link <em>within</em> a content document has been clicked.</p>
+
+<p><a id="fixed-layout-changed"></a></p>
+
+<h4>layoutChanged</h4>
+
+<p>The layout has been changed from single-page to a two-page spread, or vice-versa.</p>
+
+<p><a id="fixed-displayed-content-changed"></a></p>
+
+<h4>displayedContentChanged</h4>
+
+<p>The displayed content has changed, for any reason. This event will be triggered on page changes,
+repagination, resizing, etc.</p>
+
+<p><a id="fixed-custom-styles-example"></a></p>
+
+<h3>Customizable styles</h3>
+
+<p>Custom styles can be set as follows:</p>
+
+<figure class='code'><figcaption><span>.customize() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">fixedPages</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the API documentation of <a href="#fixed-customize">customize</a> for the method definition.</p>
+
+<p><a id="fixed-epub-border"></a></p>
+
+<h4>epub-border</h4>
+
+<p>A border that bounds the visible pages.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-spine-divider"></a></p>
+
+<h4>spine-divider</h4>
+
+<p>The spine divider shown in a two-page spread.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-page-border"></a></p>
+
+<h4>page-border</h4>
+
+<p>The border of each visible page. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-epub-border"></a></p>
+
+<h4>fixed-epub-border</h4>
+
+<p>A border that bounds visible pages for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-spine-divider"></a></p>
+
+<h4>fixed-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-page-border"></a></p>
+
+<h4>fixed-page-border</h4>
+
+<p>The border of each visible page, for fixed content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-page-border-left"></a></p>
+
+<h4>fixed-page-border-left</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;left,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-page-border-right"></a></p>
+
+<h4>fixed-page-border-right</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;right,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<h3>Methods</h3>
+
+<p><a id="fixed-init"></a></p>
+
+<h4>EpubFixedModule</h4>
+
+<p>Initialize a set of fixed pages.</p>
+
+<p>This is a stateful module. State is the <em>set of <a href="http://www.idpf.org/epub/fxl/#overview">fixed layout pages</a></em> passed to the module, and the <em>viewer settings</em>;</p>
+
+<p>The spineObject is an array of objects that contain information about a <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">spine itemref</a>. The number of spine objects passed to the module can be anything greater than 1, within system/language limits.</p>
+
+<figure class='code'><figcaption><span>.EpubFixedModule(spineObjects, viewerSettingsObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineObjects</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nx">contentDocumentURI</span><span class="o">:</span> <span class="s2">&quot;epub_content/page-blanche-20121022/EPUB/Content/cover.xhtml&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">firstPageIsOffset</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">fixedLayoutType</span><span class="o">:</span> <span class="s2">&quot;xhtml&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">isFixedLayout</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">mediaType</span><span class="o">:</span> <span class="s2">&quot;application/xhtml+xml&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">pageProgressionDirection</span><span class="o">:</span> <span class="s2">&quot;ltr&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">pageSpread</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">spineIndex</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Page Blanche&quot;</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">...</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nx">contentDocumentURI</span><span class="o">:</span> <span class="s2">&quot;epub_content/page-blanche-20121022/EPUB/Content/PageBlanche_Page_008.xhtml&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">firstPageIsOffset</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">fixedLayoutType</span><span class="o">:</span> <span class="s2">&quot;xhtml&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">isFixedLayout</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">mediaType</span><span class="o">:</span> <span class="s2">&quot;application/xhtml+xml&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">pageProgressionDirection</span><span class="o">:</span> <span class="s2">&quot;ltr&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">pageSpread</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">spineIndex</span><span class="o">:</span> <span class="mi">9</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Page Blanche&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">viewerSettings</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">fontSize</span> <span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">syntheticLayout</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">currentMargin</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">tocVisible</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">currentTheme</span> <span class="o">:</span> <span class="s2">&quot;default&quot;</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">fixedPages</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EpubFixedModule</span><span class="p">(</span>
+</span><span class='line'>        <span class="nx">spineObjects</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">viewerSettings</span>
+</span><span class='line'>    <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-render"></a></p>
+
+<h4>render</h4>
+
+<p>Render and size the <a href="http://www.idpf.org/epub/fxl/#overview">fixed layout pages</a>.</p>
+
+<p>This method returns a DOM element that must be injected into the DOM for the rendering process to complete. This is because EPUB content is rendered in an iframe, which only fetches and loads once it&#8217;s a part of the DOM.</p>
+
+<figure class='code'><figcaption><span>.render(goToLastPage, elementId) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">$domElementToAppendTo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#container-id&quot;</span><span class="p">);</span> <span class="c1">// jQuery not required</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">goToLastPage</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// boolean</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">elementIdToShow</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span> <span class="c1">// Either an ID or undefined</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">pagesElement</span> <span class="o">=</span> <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// Returns a DOM element</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Inject the element in the DOM</span>
+</span><span class='line'>    <span class="nx">$domElementToAppendTo</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">pagesElement</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-next-page"></a></p>
+
+<h4>nextPage</h4>
+
+<p>Show the next page(s).</p>
+
+<figure class='code'><figcaption><span>.nextPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">nextPage</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-previous-page"></a></p>
+
+<h4>previousPage</h4>
+
+<p>Show the previous page(s).</p>
+
+<figure class='code'><figcaption><span>.previousPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">previousPage</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-show-page-by-hash-fragment"></a></p>
+
+<h4>showPageByElementId</h4>
+
+<p>Show the page that contains the element with the specified ID.</p>
+
+<p>The spine index must also be supplied, as each spine itemref is likely an XHTML document, and the uniqueness of id&#8217;s in the EPUB publication is not assured.</p>
+
+<p><em>EXPECTED API CHANGE</em>: This will be renamed to something like <em>showPageByElementId</em>.</p>
+
+<figure class='code'><figcaption><span>.showPageByHashFragment(hashFragmentId) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">elementId</span> <span class="o">=</span> <span class="s2">&quot;XML-id&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">showPageByHashFragment</span><span class="p">(</span><span class="nx">elementId</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-show-page-by-number"></a></p>
+
+<h4>showPageByNumber</h4>
+
+<p>Show the specified page number.</p>
+
+<figure class='code'><figcaption><span>.showPageByNumber(pageNumber) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">pageNumberToShow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// integer; one-indexed</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">showPageByNumber</span><span class="p">(</span><span class="nx">pageNumberToShow</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-show-page-by-cfi"></a></p>
+
+<h4>showPageByCFI</h4>
+
+<p>Show the page on which content indexed by a <a href="http://www.idpf.org/epub/linking/cfi/#sec-epubcfi-def">CFI</a> can be found.</p>
+
+<figure class='code'><figcaption><span>.showPageByCFI(CFI) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">CFI</span> <span class="o">=</span> <span class="s2">&quot;epubcfi(/2/6!/4/2/10)&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">showPageByCFI</span><span class="p">(</span><span class="nx">CFI</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-on-first-page"></a></p>
+
+<h4>onFirstPage</h4>
+
+<p>Indicates if the set of pages is currently showing the first page.</p>
+
+<figure class='code'><figcaption><span>.onFirstPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">onFirstPage</span> <span class="o">=</span> <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">onFirstPage</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns a boolean</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-on-last-page"></a></p>
+
+<h4>onLastPage</h4>
+
+<p>Indicates if the set of pages is currently showing the last page.</p>
+
+<figure class='code'><figcaption><span>.onLastPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">onLastPage</span> <span class="o">=</span> <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">onLastPage</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns a boolean</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-show-pages-view"></a></p>
+
+<h4>showPagesView</h4>
+
+<p>Show the set of pages.</p>
+
+<figure class='code'><figcaption><span>.showPagesView() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">showPagesView</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-hide-pages-view"></a></p>
+
+<h4>hidePagesView</h4>
+
+<p>Hide the set of pages.</p>
+
+<figure class='code'><figcaption><span>.hidePagesView() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">hidePagesView</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-number-of-pages"></a></p>
+
+<h4>numberOfPages</h4>
+
+<p>Get the number of pages in the set.</p>
+
+<figure class='code'><figcaption><span>.numberOfPages() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">numberOfPages</span> <span class="o">=</span> <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">numberOfPages</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns an integer; one-indexed</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-current-page"></a></p>
+
+<h4>currentPage</h4>
+
+<p>Get the current page.</p>
+
+<figure class='code'><figcaption><span>.currentPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">currentPage</span> <span class="o">=</span> <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">currentPage</span><span class="p">();</span>
+</span><span class='line'>    <span class="c1">// Returns the current page</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-set-synthetic-layout"></a></p>
+
+<h4>setSyntheticLayout</h4>
+
+<p>Set a synthetic layout (two pages), or a single-page layout.</p>
+
+<figure class='code'><figcaption><span>.setSyntheticLayout(isSynthetic) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Show a two page layout</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Show a single page layout </span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-on"></a></p>
+
+<h4>on</h4>
+
+<p>Bind a callback to one of the <a href="">events</a> fired by the fixed object. The callback will be invoked whenever the event is triggered.</p>
+
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-on">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+
+<figure class='code'><figcaption><span>on(eventName, callback, callbackContext) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Bind a callback to the &quot;epubLoaded&quot; event</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;the EPUB publication resources are now loaded and rendered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-off"></a></p>
+
+<h4>off</h4>
+
+<p>Remove all callbacks bound to the module object for the given event name.</p>
+
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-off">backbone.js off(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+
+<figure class='code'><figcaption><span>.off(eventName) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-resize-content"></a></p>
+
+<h4>resizeContent</h4>
+
+<p>Resize EPUB content based on the current size of the HTML element container.</p>
+
+<figure class='code'><figcaption><span>.resizeContent() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="fixed-customize"></a></p>
+
+<h4>customize</h4>
+
+<p>Set custom styles provided by Readium.js</p>
+
+<figure class='code'><figcaption><span>.customize(customStyleName, defaultOrCSSObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">styleName</span> <span class="o">=</span> <span class="s2">&quot;epub-border&quot;</span><span class="p">;</span> <span class="c1">// string: one of the custom styles provided by Readium.js</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">;</span> <span class="c1">//string: one of the defaults provided by Readium.js for the custom style</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="p">{</span>      <span class="c1">// object: a string CSS property name, followed by a string CSS property value</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">fixedPages</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- ==========================================================================================================
+        EPUB CFI API DESCRIPTION
+     ========================================================================================================== -->
+
+
+<p><a id="cfi-api"></a></p>
+
+<h2>EPUB Canonical Fragment Identifiers</h2>
+
+<p><em>Coming soon</em></p>
+
+<p>This module exists, but the API naming is very &#8230; utilitarian. The methods need to be renamed, after which they&#8217;ll be put on here.</p>
+
+        
+          <footer>
+            <p class="meta">
+              
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn"><a href="http://github.com/justinHume">Justin Hume</a></span></span>
+  
+
+
+              
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-22T15:50:00-07:00" pubdate data-updated="true">May 22<span>nd</span>, 2013</time>
+              
+            </p>
+          </footer>
+        
+      </div>
+    
+    </article>
+  </div>
+</div>
+<div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/06/27/roadmap/">Readium.js Roadmap</a>
+        </li>
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/06/27/changes-to-the-api/">Changes to the Readium.js API</a>
+        </li>
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/">Welcome to Readium.js</a>
+        </li>
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/05/28/readium-js-development/">Readium.js development</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+
+  </div>
+  <div class="span2">
+    <!-- <h2>found on</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ -->
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/Readium-Web-Components/">Readium.js website and blog</a>
+  - Copyright &copy; 2013 - <span>Created by <a href="http://github.com/justinHume">Justin Hume</a>.</span><!-- Justin Hume -->
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+    <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span>
+  
+</p>
+
+  </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/Readium-Web-Components/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/Readium-Web-Components/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/Readium-Web-Components/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/Readium-Web-Components/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/Readium-Web-Components/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/Readium-Web-Components/javascripts/custom.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
