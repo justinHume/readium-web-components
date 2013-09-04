@@ -22,7 +22,6 @@ def render_epub_reflowable_module_template(template_file_path, output_file_path,
 
     # Read each of the library components
     alternate_style_tag_selector = File.read(path_from_executing_dir + '/src/models/alternate_style_tag_selector.js')
-    reflowable_annotations = File.read(path_from_executing_dir + '/src/models/reflowable_annotations.js')
     reflowable_element_info = File.read(path_from_executing_dir + '/src/models/reflowable_element_info.js')
     reflowable_layout = File.read(path_from_executing_dir + '/src/models/reflowable_layout.js')
     reflowable_page_number_logic = File.read(path_from_executing_dir + '/src/models/reflowable_page_number_logic.js')
@@ -95,7 +94,8 @@ task :copy_dependencies do
 
     module_dependency_filenames = [
         "epub_cfi.js",
-        "epub_reading_system.js"
+        "epub_reading_system.js",
+        "annotations_module.js"
     ]
 
     # Get all the lib dependencies

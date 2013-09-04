@@ -1,67 +1,72 @@
-var EpubAnnotationsModule = function(offsetTopAddition, offsetLeftAddition, readerBoundElement, bbPageSetView) {
+var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
     
     var EpubAnnotations = {};
 
     // Rationale: The order of these matters
     <%= highlight %>
-    <%= highlight_group %> 
+    <%= highlight_group %>
     <%= underline %>
-    <%= underline_group %> 
+    <%= underline_group %>
     <%= bookmark %>
+    <%= reflowable_annotations %>
     <%= annotations %>
     <%= bookmark_view %>
     <%= highlight_view %>
-    <%= underline_view %> 
-    <%= image_annotation %> 
+    <%= underline_view %>
+    <%= image_annotation %>
 
-    var annotations = new EpubAnnotations.Annotations({
-        offsetTopAddition : offsetTopAddition, 
-        offsetLeftAddition : offsetLeftAddition, 
-        readerBoundElement : readerBoundElement,
+    var reflowableAnnotations = new EpubAnnotations.ReflowableAnnotations({
+        contentDocumentDOM : contentDocumentDOM, 
         bbPageSetView : bbPageSetView
     });
 
     // Description: The public interface
     return {
 
-        addBookmark : function (CFI, targetElement, id, offsetTop, offsetLeft) { 
-            return annotations.addBookmark(CFI, targetElement, id, offsetTop, offsetLeft); 
+        addSelectionHighlight : function (id, type) { 
+            return reflowableAnnotations.addSelectionHighlight(id, type); 
+        },
+        addSelectionBookmark : function (id) { 
+            return reflowableAnnotations.addSelectionBookmark(id); 
+        },
+        addSelectionImageAnnotation : function (id) {
+            return reflowableAnnotations.addSelectionImageAnnotation(id);
+        },
+        addHighlight : function (CFI, id, type) { 
+            return reflowableAnnotations.addHighlight(CFI, id, type); 
+        },
+        addBookmark : function (CFI, id) { 
+            return reflowableAnnotations.addBookmark(CFI, id); 
+        },
+        addImageAnnotation : function (CFI, id) { 
+            return reflowableAnnotations.addImageAnnotation(CFI, id); 
+        },
+        redraw : function () { 
+            return reflowableAnnotations.redraw(); 
         },
         getBookmark : function (id) { 
-            return annotations.getBookmark(id); 
+            return reflowableAnnotations.annotations.getBookmark(id); 
         },
         getBookmarks : function () { 
-            return annotations.getBookmarks(); 
+            return reflowableAnnotations.annotations.getBookmarks(); 
         }, 
-        addHighlight : function (CFI, highlightedTextNodes, id, offsetTop, offsetLeft) { 
-            return annotations.addHighlight(CFI, highlightedTextNodes, id, offsetTop, offsetLeft); 
-        },
         getHighlight : function (id) { 
-            return annotations.getHighlight(id); 
+            return reflowableAnnotations.annotations.getHighlight(id); 
         },
         getHighlights : function () { 
-            return annotations.getHighlights(); 
-        },
-        addUnderline : function (CFI, underlinedTextNodes, id, offsetTop, offsetLeft) { 
-            return annotations.addUnderline(CFI, underlinedTextNodes, id, offsetTop, offsetLeft); 
+            return reflowableAnnotations.annotations.getHighlights(); 
         },
         getUnderline : function (id) { 
-            return annotations.getUnderline(id); 
+            return reflowableAnnotations.annotations.getUnderline(id); 
         },
         getUnderlines : function () { 
-            return annotations.getUnderlines();
+            return reflowableAnnotations.annotations.getUnderlines();
         },
         getImageAnnotation : function () {
 
         },
         getImageAnnotations : function () {
 
-        },
-        addImageAnnotation : function (CFI, imageNode, id) {
-            return annotations.addImageAnnotation(CFI, imageNode, id);
-        },
-        redrawAnnotations : function (offsetTop, offsetLeft) { 
-            return annotations.redrawAnnotations(offsetTop, offsetLeft); 
         }
     };
 };

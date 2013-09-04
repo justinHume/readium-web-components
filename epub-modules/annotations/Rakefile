@@ -31,6 +31,7 @@ def render_annotations_module_template(template_file_path, output_file_path, pat
     underline_group = File.read(path_from_executing_dir + '/src/models/underline_group.js')
     annotations = File.read(path_from_executing_dir + '/src/models/annotations.js')
     image_annotation = File.read(path_from_executing_dir + '/src/models/image_annotation.js')
+    reflowable_annotations = File.read(path_from_executing_dir + '/src/models/reflowable_annotations.js')
 
     template = File.read(template_file_path)
     erb = ERB.new(template)
@@ -62,7 +63,7 @@ end
 # ------------------------------------------------------------------------------------------------------------------------
 
 task :server do
-    puts `thin -R view_testing/static.ru start`
+    puts `thin -R static.ru start`
 end
 
 # Rationale: Tasks in this Rakefile can be executed from some other directory using the following command: 

@@ -8,11 +8,11 @@
         <script src="../lib/underscore-1.4.4.js" type="text/javascript"></script>
         <script src="../lib/backbone-0.9.10.js" type="text/javascript"></script>
         <script src="../lib/URI-1.10.0.js" type="text/javascript"></script>
+        <script src="../lib/annotations_module.js" type="text/javascript"></script>
         <script src="../lib/epub_reflowable_module.js" type="text/javascript"></script>
         <script src="../lib/epub_reader_module.js" type="text/javascript"></script>
         <script src="initialization_test.js" type="text/javascript"></script>
         <script src="../lib/epub_cfi.js" type="text/javascript"></script>
-        <script src="../lib/annotations_module.js" type="text/javascript"></script>
 
         <script type="text/javascript">
 
@@ -23,30 +23,25 @@
 
                 epubViewer.on("epubLoaded", function () { 
 
-                    epubViewer.showSpineItem(2, function () { console.log("showed first page"); } );
+                    epubViewer.showSpineItem(2, function () { console.log("showed first page"); });
 
                     $("#highlight").on("click", function () {
-
                         epubViewer.addSelectionHighlight("1", "highlight");
                     });
 
                     $("#underline").on("click", function () {
-
                         epubViewer.addSelectionHighlight("000912", "underline");
                     });
 
                     $("#bookmark").on("click", function () {
-
                         epubViewer.addSelectionBookmark("10");
                     });
 
                     $("#annotate-image").on("click", function () {
-
                         epubViewer.addSelectionImageAnnotation("15");
                     });
 
                     $("#add-bookmark").on("click", function () {
-
                         var cfi = "epubcfi(/6/24!/4/2/4/1:10)";
                         var annotationInfo = epubViewer.addBookmark(cfi, "10", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
                             console.log("highlight 11 added");
@@ -54,7 +49,6 @@
                     });
 
                     $("#add-highlight").on("click", function () {
-
                         var cfi = "epubcfi(/6/24!/4/2,/4/1:10,/6/1:20)";
                         var annotationInfo = epubViewer.addHighlight(cfi, "11", "highlight", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
                             console.log("highlight 11 added");
@@ -62,14 +56,13 @@
                     });
 
                     $("#add-underline").on("click", function () {
-
                         var cfi = "epubcfi(/6/24!/4/2,/4/1:10,/4/1:20)";
                         var annotationInfo = epubViewer.addHighlight(cfi, "12", "underline", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
                             console.log("underline 12 added");
                         }, this);
                     });
+                    
                     $("#add-image-annotation").on("click", function () {
-
                         var cfi = "epubcfi(/6/24!/4/2[building_a_better_epub]/6)";
                         var annotationInfo = epubViewer.addImageAnnotation(cfi, "118", function (errors, contentDocSpineIndex, CFI, annotationInfo) {
                             console.log("underline 12 added");

@@ -1,17 +1,14 @@
-// REFACTORING CANDIDATE: Change the implementation of the Annotations Module to use relative positioning, rather than absolute. That
-//   will allow all the offsets to be removed.
-
-EpubReflowable.ReflowableAnnotations = Backbone.Model.extend({
+EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
 
     initialize : function (attributes, options) {
         
         this.epubCFI = new EpubCFIModule();
-        this.annotations = new EpubAnnotationsModule(
-            0, 
-            0, 
-            $("html", this.get("contentDocumentDOM"))[0],
-            this.get("reflowableView")
-        );
+        this.annotations = new EpubAnnotations.Annotations({
+            offsetTopAddition : 0, 
+            offsetLeftAddition : 0, 
+            readerBoundElement : $("html", this.get("contentDocumentDOM"))[0],
+            bbPageSetView : this.get("reflowableView")
+        });
     },
 
     redraw : function () {
