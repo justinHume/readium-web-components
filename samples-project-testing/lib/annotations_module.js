@@ -294,6 +294,10 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         });
     },
 
+    // ------------------------------------------------------------------------------------ //
+    //  "PUBLIC" METHODS (THE API)                                                          //
+    // ------------------------------------------------------------------------------------ //
+
     redraw : function () {
 
         var leftAddition = -this.getPaginationLeftOffset();
@@ -412,24 +416,32 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
 
     addSelectionHighlight : function (id, type) {
 
-        var highlightRange;
+        var arbitraryPackageDocCFI = "/99!"
+        var generatedContentDocCFI;
+        var CFI;
         var selectionInfo;
-        var leftAddition;
         var currentSelection = this.getCurrentSelectionRange();
+        var annotationInfo;
+
         if (currentSelection) {
 
-            highlightRange = this.injectHighlightMarkers(currentSelection);
-            selectionInfo = this.getSelectionInfo(highlightRange);
-            leftAddition = -this.getPaginationLeftOffset();
+            selectionInfo = this.getSelectionInfo(currentSelection);
+            generatedContentDocCFI = selectionInfo.CFI;
+            CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
 
             if (type === "highlight") {
-                this.annotations.addHighlight(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+                annotationInfo = this.addHighlight(CFI, id, type);
             }
             else if (type === "underline") {
-                this.annotations.addUnderline(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+                annotationInfo = this.addHighlight(CFI, id, type);
             }
-            
-            return selectionInfo;
+
+            // Rationale: The annotationInfo object returned from .addBookmark(...) contains the same value of 
+            //   the CFI variable in the current scope. Since this CFI variable contains a "hacked" CFI value -
+            //   only the content document portion is valid - we want to replace the annotationInfo.CFI property with
+            //   the partial content document CFI portion we originally generated.
+            annotationInfo.CFI = generatedContentDocCFI;            
+            return annotationInfo;
         }
         else {
             throw new Error("Nothing selected");
@@ -438,21 +450,25 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
 
     addSelectionBookmark : function (id) {
 
-        var marker;
-        var partialCFI;
-        var leftAddition;
+        var arbitraryPackageDocCFI = "/99!"
+        var generatedContentDocCFI;
+        var CFI;
         var currentSelection = this.getCurrentSelectionRange();
+        var annotationInfo;
+
         if (currentSelection) {
 
-            partialCFI = this.generateCharOffsetCFI(currentSelection);
-            marker = this.injectBookmarkMarker(currentSelection);
-            leftAddition = -this.getPaginationLeftOffset();
-            this.annotations.addBookmark("", marker, id, 0, leftAddition);
+            generatedContentDocCFI = this.generateCharOffsetCFI(currentSelection);
+            CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
 
-            return {
-                CFI : partialCFI,
-                selectedElements : marker
-            };
+            annotationInfo = this.addBookmark(CFI, id);
+
+            // Rationale: The annotationInfo object returned from .addBookmark(...) contains the same value of 
+            //   the CFI variable in the current scope. Since this CFI variable contains a "hacked" CFI value -
+            //   only the content document portion is valid - we want to replace the annotationInfo.CFI property with
+            //   the partial content document CFI portion we originally generated.
+            annotationInfo.CFI = generatedContentDocCFI;
+            return annotationInfo;
         }
         else {
             throw new Error("Nothing selected");
@@ -486,6 +502,10 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
             throw new Error("Nothing selected");
         }
     },
+
+    // ------------------------------------------------------------------------------------ //
+    //  "PRIVATE" HELPERS                                                                   //
+    // ------------------------------------------------------------------------------------ //
 
     getSelectionInfo : function (selectedRange, elementType) {
 
@@ -565,34 +585,6 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         return charOffsetCFI;
     },
 
-    findExistingLastPageMarker : function ($visibleTextNode) {
-
-        // Check if a last page marker already exists on this page
-        try {
-            
-            var existingCFI = undefined;
-            $.each($visibleTextNode.parent().contents(), function () {
-
-                if ($(this).hasClass("last-page")) {
-                    lastPageMarkerExists = true;
-                    existingCFI = $(this).attr("data-last-page-cfi");
-
-                    // Break out of loop
-                    return false;
-                }
-            });
-
-            return existingCFI;
-        }
-        catch (e) {
-
-            console.log("Could not generate CFI for non-text node as first visible element on page");
-
-            // No need to execute the rest of the save position method if the first visible element is not a text node
-            return undefined;
-        }
-    },
-
     // REFACTORING CANDIDATE: Convert this to jquery
     findSelectedElements : function (currElement, startElement, endElement, intervalState, selectedElements, elementTypes) {
 
@@ -640,110 +632,6 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
                 }
             }
         });
-    },
-
-    // REFACTORING CANDIDATE: The methods here inject bookmark/highlight markers for the current selection, after
-    //   which information for the selected range is generated and returned in an annotation "info" object. The 
-    //   injectedHighlightMarkers method leverages parts of the CFI library that should be private to that library; this
-    //   is not ideal, and adds redundant, complex, code to the annotations delegate. A better method here would be to generate
-    //   selection info, get the generated range CFI, and use that to inject markers. The only reason this wasn't done is 
-    //   because the CFI library did not support CFI range generation or injection when selection and highlighting was done.
-    injectBookmarkMarker : function (selectionRange, id) {
-
-        var startNode = selectionRange.startContainer;
-        var startOffset = selectionRange.startOffset;
-        var $bookmarkMarker = $(this.getBookmarkMarker("", id));
-        var highlightRange;
-
-        this.epubCFI.injectElementAtOffset(
-            $(startNode), 
-            startOffset,
-            $bookmarkMarker
-        );
-
-        return $bookmarkMarker[0];        
-    },
- 
-    injectHighlightMarkers : function (selectionRange, id) {
-
-        var highlightRange;
-        if (selectionRange.startContainer === selectionRange.endContainer) {
-            highlightRange = this.injectHighlightInSameNode(selectionRange, id);
-        } else {
-            highlightRange = this.injectHighlightsInDifferentNodes(selectionRange, id);
-        }
-
-        return highlightRange;
-    },
-
-    injectHighlightInSameNode : function (selectionRange, id) {
-
-        var startNode;
-        var startOffset = selectionRange.startOffset;
-        var endNode = selectionRange.endContainer;
-        var endOffset = selectionRange.endOffset;
-        var $startMarker = $(this.getRangeStartMarker("", id));
-        var $endMarker = $(this.getRangeEndMarker("", id));
-        var highlightRange;
-
-        // Rationale: The end marker is injected before the start marker because when the text node is split by the 
-        //   end marker first, the offset for the start marker will still be the same and we do not need to recalculate 
-        //   the offset for the newly created end node.
-
-        // inject end marker
-        this.epubCFI.injectElementAtOffset(
-            $(endNode), 
-            endOffset,
-            $endMarker
-        );
-
-        startNode = $endMarker[0].previousSibling;
-
-        // inject start marker
-        this.epubCFI.injectElementAtOffset(
-            $(startNode), 
-            startOffset,
-            $startMarker
-        );
-
-        // reconstruct range
-        highlightRange = document.createRange();
-        highlightRange.setStart($startMarker[0].nextSibling, 0);
-        highlightRange.setEnd($endMarker[0].previousSibling, $endMarker[0].previousSibling.length - 1);
-
-        return highlightRange;
-    },
-
-    injectHighlightsInDifferentNodes : function (selectionRange, id) {
-
-        var startNode = selectionRange.startContainer;
-        var startOffset = selectionRange.startOffset;
-        var endNode = selectionRange.endContainer;
-        var endOffset = selectionRange.endOffset;
-        var $startMarker = $(this.getRangeStartMarker("", id));
-        var $endMarker = $(this.getRangeEndMarker("", id));
-        var highlightRange;
-
-        // inject start
-        this.epubCFI.injectElementAtOffset(
-            $(startNode), 
-            startOffset,
-            $startMarker
-        );
-
-        // inject end
-        this.epubCFI.injectElementAtOffset(
-            $(endNode), 
-            endOffset,
-            $endMarker
-        );
-
-        // reconstruct range
-        highlightRange = document.createRange();
-        highlightRange.setStart($startMarker[0].nextSibling, 0);
-        highlightRange.setEnd($endMarker[0].previousSibling, $endMarker[0].previousSibling.length - 1);
-
-        return highlightRange;
     },
 
     // Rationale: This is a cross-browser method to get the currently selected text

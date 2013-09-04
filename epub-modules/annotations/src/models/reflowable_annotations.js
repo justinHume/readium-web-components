@@ -133,23 +133,32 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
 
     addSelectionHighlight : function (id, type) {
 
-        var highlightRange;
+        var arbitraryPackageDocCFI = "/99!"
+        var generatedContentDocCFI;
+        var CFI;
         var selectionInfo;
-        var leftAddition;
         var currentSelection = this.getCurrentSelectionRange();
+        var annotationInfo;
+
         if (currentSelection) {
 
             selectionInfo = this.getSelectionInfo(currentSelection);
-            leftAddition = -this.getPaginationLeftOffset();
+            generatedContentDocCFI = selectionInfo.CFI;
+            CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
 
             if (type === "highlight") {
-                this.annotations.addHighlight(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+                annotationInfo = this.addHighlight(CFI, id, type);
             }
             else if (type === "underline") {
-                this.annotations.addUnderline(selectionInfo.CFI, selectionInfo.selectedElements, id, 0, leftAddition);
+                annotationInfo = this.addHighlight(CFI, id, type);
             }
-            
-            return selectionInfo;
+
+            // Rationale: The annotationInfo object returned from .addBookmark(...) contains the same value of 
+            //   the CFI variable in the current scope. Since this CFI variable contains a "hacked" CFI value -
+            //   only the content document portion is valid - we want to replace the annotationInfo.CFI property with
+            //   the partial content document CFI portion we originally generated.
+            annotationInfo.CFI = generatedContentDocCFI;            
+            return annotationInfo;
         }
         else {
             throw new Error("Nothing selected");
@@ -158,21 +167,25 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
 
     addSelectionBookmark : function (id) {
 
-        var marker;
-        var partialCFI;
-        var leftAddition;
+        var arbitraryPackageDocCFI = "/99!"
+        var generatedContentDocCFI;
+        var CFI;
         var currentSelection = this.getCurrentSelectionRange();
+        var annotationInfo;
+
         if (currentSelection) {
 
-            partialCFI = this.generateCharOffsetCFI(currentSelection);
-            marker = this.injectBookmarkMarker(currentSelection);
-            leftAddition = -this.getPaginationLeftOffset();
-            this.annotations.addBookmark("", marker, id, 0, leftAddition);
+            generatedContentDocCFI = this.generateCharOffsetCFI(currentSelection);
+            CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
 
-            return {
-                CFI : partialCFI,
-                selectedElements : marker
-            };
+            annotationInfo = this.addBookmark(CFI, id);
+
+            // Rationale: The annotationInfo object returned from .addBookmark(...) contains the same value of 
+            //   the CFI variable in the current scope. Since this CFI variable contains a "hacked" CFI value -
+            //   only the content document portion is valid - we want to replace the annotationInfo.CFI property with
+            //   the partial content document CFI portion we originally generated.
+            annotationInfo.CFI = generatedContentDocCFI;
+            return annotationInfo;
         }
         else {
             throw new Error("Nothing selected");
@@ -338,28 +351,6 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
         });
     },
 
-    // REFACTORING CANDIDATE: The methods here inject bookmark/highlight markers for the current selection, after
-    //   which information for the selected range is generated and returned in an annotation "info" object. The 
-    //   injectedHighlightMarkers method leverages parts of the CFI library that should be private to that library; this
-    //   is not ideal, and adds redundant, complex, code to the annotations delegate. A better method here would be to generate
-    //   selection info, get the generated range CFI, and use that to inject markers. The only reason this wasn't done is 
-    //   because the CFI library did not support CFI range generation or injection when selection and highlighting was done.
-    injectBookmarkMarker : function (selectionRange, id) {
-
-        var startNode = selectionRange.startContainer;
-        var startOffset = selectionRange.startOffset;
-        var $bookmarkMarker = $(this.getBookmarkMarker("", id));
-        var highlightRange;
-
-        this.epubCFI.injectElementAtOffset(
-            $(startNode), 
-            startOffset,
-            $bookmarkMarker
-        );
-
-        return $bookmarkMarker[0];        
-    },
- 
     // Rationale: This is a cross-browser method to get the currently selected text
     getCurrentSelectionRange : function () {
 
