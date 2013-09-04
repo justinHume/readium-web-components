@@ -145,7 +145,6 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
             selectionInfo = this.getSelectionInfo(currentSelection);
             generatedContentDocCFI = selectionInfo.CFI;
             CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
-
             if (type === "highlight") {
                 annotationInfo = this.addHighlight(CFI, id, type);
             }
@@ -177,7 +176,6 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
 
             generatedContentDocCFI = this.generateCharOffsetCFI(currentSelection);
             CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
-
             annotationInfo = this.addBookmark(CFI, id);
 
             // Rationale: The annotationInfo object returned from .addBookmark(...) contains the same value of 
@@ -194,26 +192,33 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
 
     addSelectionImageAnnotation : function (id) {
 
-        var partialCFI;
+        var arbitraryPackageDocCFI = "/99!"
+        var generatedContentDocCFI;
+        var CFI;
+        var selectionInfo;
         var currentSelection = this.getCurrentSelectionRange();
-        var selectedImages;
+        var annotationInfo;
         var firstSelectedImage;
+
         if (currentSelection) {
 
-            selectedImages = this.getSelectionInfo(currentSelection, ["img"]).selectedElements;
-            firstSelectedImage = selectedImages[0];
-            partialCFI = this.epubCFI.generateElementCFIComponent(
+            selectionInfo = this.getSelectionInfo(currentSelection, ["img"]);
+            firstSelectedImage = selectionInfo.selectedElements[0];
+            generatedContentDocCFI = this.epubCFI.generateElementCFIComponent(
                 firstSelectedImage,
                 ["cfi-marker"],
                 [],
                 ["MathJax_Message"]
             );
-            this.annotations.addImageAnnotation("", firstSelectedImage, id);
+            CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
+            annotationInfo = this.addImageAnnotation(CFI, id);
 
-            return {
-                CFI : partialCFI,
-                selectedElements : firstSelectedImage
-            };
+            // Rationale: The annotationInfo object returned from .addBookmark(...) contains the same value of 
+            //   the CFI variable in the current scope. Since this CFI variable contains a "hacked" CFI value -
+            //   only the content document portion is valid - we want to replace the annotationInfo.CFI property with
+            //   the partial content document CFI portion we originally generated.
+            annotationInfo.CFI = generatedContentDocCFI;
+            return annotationInfo;
         }
         else {
             throw new Error("Nothing selected");
@@ -297,7 +302,7 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
                 ["cfi-marker"],
                 [],
                 ["MathJax_Message"]
-                );
+            );
         }
         return charOffsetCFI;
     },
