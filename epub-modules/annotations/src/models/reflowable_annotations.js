@@ -11,6 +11,10 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
         });
     },
 
+    // ------------------------------------------------------------------------------------ //
+    //  "PUBLIC" METHODS (THE API)                                                          //
+    // ------------------------------------------------------------------------------------ //
+
     redraw : function () {
 
         var leftAddition = -this.getPaginationLeftOffset();
@@ -135,8 +139,7 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
         var currentSelection = this.getCurrentSelectionRange();
         if (currentSelection) {
 
-            highlightRange = this.injectHighlightMarkers(currentSelection);
-            selectionInfo = this.getSelectionInfo(highlightRange);
+            selectionInfo = this.getSelectionInfo(currentSelection);
             leftAddition = -this.getPaginationLeftOffset();
 
             if (type === "highlight") {
@@ -203,6 +206,10 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
             throw new Error("Nothing selected");
         }
     },
+
+    // ------------------------------------------------------------------------------------ //
+    //  "PRIVATE" HELPERS                                                                   //
+    // ------------------------------------------------------------------------------------ //
 
     getSelectionInfo : function (selectedRange, elementType) {
 
@@ -282,34 +289,6 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
         return charOffsetCFI;
     },
 
-    findExistingLastPageMarker : function ($visibleTextNode) {
-
-        // Check if a last page marker already exists on this page
-        try {
-            
-            var existingCFI = undefined;
-            $.each($visibleTextNode.parent().contents(), function () {
-
-                if ($(this).hasClass("last-page")) {
-                    lastPageMarkerExists = true;
-                    existingCFI = $(this).attr("data-last-page-cfi");
-
-                    // Break out of loop
-                    return false;
-                }
-            });
-
-            return existingCFI;
-        }
-        catch (e) {
-
-            console.log("Could not generate CFI for non-text node as first visible element on page");
-
-            // No need to execute the rest of the save position method if the first visible element is not a text node
-            return undefined;
-        }
-    },
-
     // REFACTORING CANDIDATE: Convert this to jquery
     findSelectedElements : function (currElement, startElement, endElement, intervalState, selectedElements, elementTypes) {
 
@@ -381,88 +360,6 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
         return $bookmarkMarker[0];        
     },
  
-    injectHighlightMarkers : function (selectionRange, id) {
-
-        var highlightRange;
-        if (selectionRange.startContainer === selectionRange.endContainer) {
-            highlightRange = this.injectHighlightInSameNode(selectionRange, id);
-        } else {
-            highlightRange = this.injectHighlightsInDifferentNodes(selectionRange, id);
-        }
-
-        return highlightRange;
-    },
-
-    injectHighlightInSameNode : function (selectionRange, id) {
-
-        var startNode;
-        var startOffset = selectionRange.startOffset;
-        var endNode = selectionRange.endContainer;
-        var endOffset = selectionRange.endOffset;
-        var $startMarker = $(this.getRangeStartMarker("", id));
-        var $endMarker = $(this.getRangeEndMarker("", id));
-        var highlightRange;
-
-        // Rationale: The end marker is injected before the start marker because when the text node is split by the 
-        //   end marker first, the offset for the start marker will still be the same and we do not need to recalculate 
-        //   the offset for the newly created end node.
-
-        // inject end marker
-        this.epubCFI.injectElementAtOffset(
-            $(endNode), 
-            endOffset,
-            $endMarker
-        );
-
-        startNode = $endMarker[0].previousSibling;
-
-        // inject start marker
-        this.epubCFI.injectElementAtOffset(
-            $(startNode), 
-            startOffset,
-            $startMarker
-        );
-
-        // reconstruct range
-        highlightRange = document.createRange();
-        highlightRange.setStart($startMarker[0].nextSibling, 0);
-        highlightRange.setEnd($endMarker[0].previousSibling, $endMarker[0].previousSibling.length - 1);
-
-        return highlightRange;
-    },
-
-    injectHighlightsInDifferentNodes : function (selectionRange, id) {
-
-        var startNode = selectionRange.startContainer;
-        var startOffset = selectionRange.startOffset;
-        var endNode = selectionRange.endContainer;
-        var endOffset = selectionRange.endOffset;
-        var $startMarker = $(this.getRangeStartMarker("", id));
-        var $endMarker = $(this.getRangeEndMarker("", id));
-        var highlightRange;
-
-        // inject start
-        this.epubCFI.injectElementAtOffset(
-            $(startNode), 
-            startOffset,
-            $startMarker
-        );
-
-        // inject end
-        this.epubCFI.injectElementAtOffset(
-            $(endNode), 
-            endOffset,
-            $endMarker
-        );
-
-        // reconstruct range
-        highlightRange = document.createRange();
-        highlightRange.setStart($startMarker[0].nextSibling, 0);
-        highlightRange.setEnd($endMarker[0].previousSibling, $endMarker[0].previousSibling.length - 1);
-
-        return highlightRange;
-    },
-
     // Rationale: This is a cross-browser method to get the currently selected text
     getCurrentSelectionRange : function () {
 
