@@ -1,35 +1,30 @@
 .bookmark {
-    width : 0;
-    height : 0;
-    border-left : 20px solid transparent;
-    border-right : 20px solid transparent;
-    border-top : 20px solid #f00;
-    position : absolute;
+    background-image : url("/images/comment_clickable_icon.png");
+    background-repeat : no-repeat;
     opacity : 0.5;
+}
+.hover-bookmark {
+    background-image : url("/images/comment_clickable_icon.png");
+    background-repeat : no-repeat;
+    opacity : 1.0;
 }
 
 .highlight {
-    width : 1000px;
-    height : 25px;
-    position : absolute;
     opacity : 0.2;
-    top : 65px;
-    left : 250px;
-    background-color : #f00;
-}
-
-.highlight-test {
-    /*opacity : 0.2;*/
     background-color : red;
 }
 
-.liftedHighlight  {
-     width : 100px;
-     height : 100px;
-     border : 1px solid #000;
-     background : #f00;
-     transform : skew(-20deg);
-     -o-transform : skew(-20deg);
-     -moz-transform : skew(-20deg);
-     -webkit-transform : skew(-20deg);
+.hover-highlight {
+    opacity : 0.4;
+    background-color : red;
+}
+
+.underline {
+    opacity : 0.2;
+    background-color : red;
+}
+
+.hover-underline {
+    opacity : 0.4;
+    background-color : red;
 }

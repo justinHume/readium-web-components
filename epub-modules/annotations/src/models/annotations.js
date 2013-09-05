@@ -21,7 +21,7 @@ EpubAnnotations.Annotations = Backbone.Model.extend({
         // Highlights
         _.each(this.get("highlights"), function (highlightGroup) {
             highlightGroup.resetHighlights(that.get("readerBoundElement"), offsetTop, offsetLeft);
-        });  
+        });
 
         // Bookmarks
         _.each(this.get("bookmarkViews"), function (bookmarkView) {

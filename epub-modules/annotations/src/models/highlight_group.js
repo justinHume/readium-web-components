@@ -28,10 +28,10 @@ EpubAnnotations.HighlightGroup = Backbone.Model.extend({
         _.each(this.get("highlightViews"), function (highlightView) {
 
             if (event.type === "mouseenter") {
-                highlightView.setMouseenterColor();    
+                highlightView.setHoverHighlight();    
             }
             else if (event.type === "mouseleave") {
-                highlightView.setMouseleaveColor();
+                highlightView.setBaseHighlight();
             }
         });
     },
@@ -90,7 +90,8 @@ EpubAnnotations.HighlightGroup = Backbone.Model.extend({
         });
 
         // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
-        this.set({ "highlightViews" : [] });
+        this.get("highlightViews").length = 0;
+        // this.set({ "highlightViews" : [] });
     },
 
     renderHighlights : function (viewportElement) {

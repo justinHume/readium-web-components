@@ -1,12 +1,10 @@
 EpubAnnotations.BookmarkView = Backbone.View.extend({
 
-    el : "<div class='bookmark'> \
-        <img src='images/comment_clickable_icon.png'></img> \
-        </div>",
+    el : "<div class='bookmark'></div>",
 
     events : {
-        "mouseenter" : "mouseEnterHandler",
-        "mouseleave" : "mouseLeaveHandler",
+        "mouseenter" : "setHoverBookmark",
+        "mouseleave" : "setBaseBookmark",
         "click" : "clickHandler"
     },
 
@@ -49,28 +47,23 @@ EpubAnnotations.BookmarkView = Backbone.View.extend({
             "left" : absoluteLeft + "px",
             "width" : "50px",
             "height" : "50px",
-            // "border-left" : "20px solid transparent",
-            // "border-right" : "20px solid transparent",
-            // "border-top" : "20px solid #f00",
-            "position" : "absolute",
-            "opacity" : "0.4"
+            "position" : "absolute"
         });
+        this.$el.addClass("bookmark");
     },
 
-    mouseEnterHandler : function (event) {
+    setHoverBookmark : function (event) {
 
         event.stopPropagation();
-        this.$el.css({ 
-            "opacity" : "1"
-        });
+        this.$el.removeClass("bookmark");
+        this.$el.addClass("hover-bookmark");
     },
 
-    mouseLeaveHandler : function (event) {
+    setBaseBookmark : function (event) {
 
         event.stopPropagation();
-        this.$el.css({ 
-            "opacity" : "0.4"
-        });
+        this.$el.removeClass("hover-bookmark");
+        this.$el.addClass("bookmark");
     },
 
     clickHandler : function (event) {

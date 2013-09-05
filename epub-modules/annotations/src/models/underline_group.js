@@ -28,10 +28,10 @@ EpubAnnotations.UnderlineGroup = Backbone.Model.extend({
         _.each(this.get("underlineViews"), function (underlineView) {
 
             if (event.type === "mouseenter") {
-                underlineView.setMouseenterColor();
+                underlineView.setHoverUnderline();
             }
             else if (event.type === "mouseleave") {
-                underlineView.setMouseleaveColor();
+                underlineView.setBaseUnderline();
             }
         });
     },
@@ -90,7 +90,8 @@ EpubAnnotations.UnderlineGroup = Backbone.Model.extend({
         });
 
         // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
-        this.set({ "underlineViews" : [] });
+        // this.set({ "underlineViews" : [] });
+        this.get("underlineViews").length = 0;
     },
 
     renderUnderlines : function (viewportElement) {

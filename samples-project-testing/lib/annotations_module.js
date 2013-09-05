@@ -1,4 +1,4 @@
-var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
+var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotationCSSUrl) {
     
     var EpubAnnotations = {};
 
@@ -41,10 +41,10 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         _.each(this.get("highlightViews"), function (highlightView) {
 
             if (event.type === "mouseenter") {
-                highlightView.setMouseenterColor();    
+                highlightView.setHoverHighlight();    
             }
             else if (event.type === "mouseleave") {
-                highlightView.setMouseleaveColor();
+                highlightView.setBaseHighlight();
             }
         });
     },
@@ -103,7 +103,8 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         });
 
         // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
-        this.set({ "highlightViews" : [] });
+        this.get("highlightViews").length = 0;
+        // this.set({ "highlightViews" : [] });
     },
 
     renderHighlights : function (viewportElement) {
@@ -161,10 +162,10 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         _.each(this.get("underlineViews"), function (underlineView) {
 
             if (event.type === "mouseenter") {
-                underlineView.setMouseenterColor();
+                underlineView.setHoverUnderline();
             }
             else if (event.type === "mouseleave") {
-                underlineView.setMouseleaveColor();
+                underlineView.setBaseUnderline();
             }
         });
     },
@@ -223,7 +224,8 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         });
 
         // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
-        this.set({ "underlineViews" : [] });
+        // this.set({ "underlineViews" : [] });
+        this.get("underlineViews").length = 0;
     },
 
     renderUnderlines : function (viewportElement) {
@@ -292,6 +294,9 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
             readerBoundElement : $("html", this.get("contentDocumentDOM"))[0],
             bbPageSetView : this.get("reflowableView")
         });
+        // inject annotation CSS into iframe 
+
+        this.injectAnnotationCSS(this.get("annotationCSSUrl"));
     },
 
     // ------------------------------------------------------------------------------------ //
@@ -370,7 +375,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
                 ["cfi-marker"],
                 [],
                 ["MathJax_Message"]
-                );
+            );
 
             // Add bookmark annotation here
             leftAddition = -this.getPaginationLeftOffset();
@@ -680,6 +685,14 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
     getRangeEndMarker : function (CFI, id) {
 
         return "<span class='range-end-marker cfi-marker' id='end-" + id + "' data-cfi='" + CFI + "'></span>";
+    },
+
+    injectAnnotationCSS : function (annotationCSSUrl) {
+
+        var $contentDocHead = $("head", this.get("contentDocumentDOM"));
+        $contentDocHead.append(
+            $("<link/>", { rel : "stylesheet", href : annotationCSSUrl, type : "text/css" })
+        );
     }
 });
 
@@ -706,7 +719,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         // Highlights
         _.each(this.get("highlights"), function (highlightGroup) {
             highlightGroup.resetHighlights(that.get("readerBoundElement"), offsetTop, offsetLeft);
-        });  
+        });
 
         // Bookmarks
         _.each(this.get("bookmarkViews"), function (bookmarkView) {
@@ -894,13 +907,11 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
 });
     EpubAnnotations.BookmarkView = Backbone.View.extend({
 
-    el : "<div class='bookmark'> \
-        <img src='images/comment_clickable_icon.png'></img> \
-        </div>",
+    el : "<div class='bookmark'></div>",
 
     events : {
-        "mouseenter" : "mouseEnterHandler",
-        "mouseleave" : "mouseLeaveHandler",
+        "mouseenter" : "setHoverBookmark",
+        "mouseleave" : "setBaseBookmark",
         "click" : "clickHandler"
     },
 
@@ -943,28 +954,23 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
             "left" : absoluteLeft + "px",
             "width" : "50px",
             "height" : "50px",
-            // "border-left" : "20px solid transparent",
-            // "border-right" : "20px solid transparent",
-            // "border-top" : "20px solid #f00",
-            "position" : "absolute",
-            "opacity" : "0.4"
+            "position" : "absolute"
         });
+        this.$el.addClass("bookmark");
     },
 
-    mouseEnterHandler : function (event) {
+    setHoverBookmark : function (event) {
 
         event.stopPropagation();
-        this.$el.css({ 
-            "opacity" : "1"
-        });
+        this.$el.removeClass("bookmark");
+        this.$el.addClass("hover-bookmark");
     },
 
-    mouseLeaveHandler : function (event) {
+    setBaseBookmark : function (event) {
 
         event.stopPropagation();
-        this.$el.css({ 
-            "opacity" : "0.4"
-        });
+        this.$el.removeClass("hover-bookmark");
+        this.$el.addClass("bookmark");
     },
 
     clickHandler : function (event) {
@@ -1026,16 +1032,21 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
             "left" : this.highlight.get("left") + "px",
             "height" : this.highlight.get("height") + "px",
             "width" : this.highlight.get("width") + "px",
-            "position" : "absolute",
-            "background-color" : "red",
-            "opacity" : "0.2"
+            "position" : "absolute"
         });
+        this.$el.addClass("highlight");
     },
 
-    liftHighlight : function () {
+    setBaseHighlight : function () {
 
-        this.$el.toggleClass("highlight");
-        this.$el.toggleClass("liftedHighlight");
+        this.$el.addClass("highlight");
+        this.$el.removeClass("hover-highlight");
+    },
+
+    setHoverHighlight : function () {
+
+        this.$el.addClass("hover-highlight");
+        this.$el.removeClass("highlight");
     },
 
     highlightEvent : function (event) {
@@ -1044,25 +1055,11 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         var highlightGroupCallback = this.highlight.get("highlightGroupCallback");
         var highlightGroupContext = this.highlight.get("callbackContext");
         highlightGroupContext.highlightGroupCallback(event);
-    },
-
-    setMouseenterColor : function () {
-
-        this.$el.css({
-            "opacity" : "0.4"
-        });
-    },
-
-    setMouseleaveColor : function () {
-
-        this.$el.css({
-            "opacity" : "0.2"
-        });
     }
 });
     EpubAnnotations.UnderlineView = Backbone.View.extend({
 
-    el : "<div class='underline'> \
+    el : "<div class='underline-range'> \
              <div class='transparent-part'></div> \
              <div class='underline-part'></div> \
           </div>",
@@ -1126,10 +1123,10 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         // Underline part
         this.$underlineElement.css({
             "position" : "relative",
-            "height" : "15%",
-            "background-color" : "red",
-            "opacity" : "0.2"
+            "height" : "15%"
         });
+
+        this.$underlineElement.addClass("underline");
     },
 
     underlineEvent : function (event) {
@@ -1140,19 +1137,17 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView) {
         underlineGroupContext.underlineGroupCallback(event);
     },
 
-    setMouseenterColor : function () {
+    setBaseUnderline : function () {
 
-        this.$underlineElement.css({
-            "opacity" : "0.4"
-        });
+        this.$underlineElement.addClass("underline");
+        this.$underlineElement.removeClass("hover-underline");
     },
 
-    setMouseleaveColor : function () {
+    setHoverUnderline : function () {
 
-        this.$underlineElement.css({
-            "opacity" : "0.2"
-        });
-    }
+        this.$underlineElement.addClass("hover-underline");
+        this.$underlineElement.removeClass("underline");
+    },
 });
     // Rationale: An image annotation does NOT have a view, as we don't know the state of an image element within an EPUB; it's entirely
 //   possible that an EPUB image element could have a backbone view associated with it already, which would cause problems if we 
@@ -1211,7 +1206,8 @@ EpubAnnotations.ImageAnnotation = Backbone.Model.extend({
 
     var reflowableAnnotations = new EpubAnnotations.ReflowableAnnotations({
         contentDocumentDOM : contentDocumentDOM, 
-        bbPageSetView : bbPageSetView
+        bbPageSetView : bbPageSetView,
+        annotationCSSUrl : "/css/annotations.css"
     });
 
     // Description: The public interface

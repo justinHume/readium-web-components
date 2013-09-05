@@ -45,16 +45,21 @@ EpubAnnotations.HighlightView = Backbone.View.extend({
             "left" : this.highlight.get("left") + "px",
             "height" : this.highlight.get("height") + "px",
             "width" : this.highlight.get("width") + "px",
-            "position" : "absolute",
-            "background-color" : "red",
-            "opacity" : "0.2"
+            "position" : "absolute"
         });
+        this.$el.addClass("highlight");
     },
 
-    liftHighlight : function () {
+    setBaseHighlight : function () {
 
-        this.$el.toggleClass("highlight");
-        this.$el.toggleClass("liftedHighlight");
+        this.$el.addClass("highlight");
+        this.$el.removeClass("hover-highlight");
+    },
+
+    setHoverHighlight : function () {
+
+        this.$el.addClass("hover-highlight");
+        this.$el.removeClass("highlight");
     },
 
     highlightEvent : function (event) {
@@ -63,19 +68,5 @@ EpubAnnotations.HighlightView = Backbone.View.extend({
         var highlightGroupCallback = this.highlight.get("highlightGroupCallback");
         var highlightGroupContext = this.highlight.get("callbackContext");
         highlightGroupContext.highlightGroupCallback(event);
-    },
-
-    setMouseenterColor : function () {
-
-        this.$el.css({
-            "opacity" : "0.4"
-        });
-    },
-
-    setMouseleaveColor : function () {
-
-        this.$el.css({
-            "opacity" : "0.2"
-        });
     }
 });

@@ -1,6 +1,6 @@
 EpubAnnotations.UnderlineView = Backbone.View.extend({
 
-    el : "<div class='underline'> \
+    el : "<div class='underline-range'> \
              <div class='transparent-part'></div> \
              <div class='underline-part'></div> \
           </div>",
@@ -64,10 +64,10 @@ EpubAnnotations.UnderlineView = Backbone.View.extend({
         // Underline part
         this.$underlineElement.css({
             "position" : "relative",
-            "height" : "15%",
-            "background-color" : "red",
-            "opacity" : "0.2"
+            "height" : "15%"
         });
+
+        this.$underlineElement.addClass("underline");
     },
 
     underlineEvent : function (event) {
@@ -78,17 +78,15 @@ EpubAnnotations.UnderlineView = Backbone.View.extend({
         underlineGroupContext.underlineGroupCallback(event);
     },
 
-    setMouseenterColor : function () {
+    setBaseUnderline : function () {
 
-        this.$underlineElement.css({
-            "opacity" : "0.4"
-        });
+        this.$underlineElement.addClass("underline");
+        this.$underlineElement.removeClass("hover-underline");
     },
 
-    setMouseleaveColor : function () {
+    setHoverUnderline : function () {
 
-        this.$underlineElement.css({
-            "opacity" : "0.2"
-        });
-    }
+        this.$underlineElement.addClass("hover-underline");
+        this.$underlineElement.removeClass("underline");
+    },
 });

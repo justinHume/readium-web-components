@@ -9,6 +9,9 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
             readerBoundElement : $("html", this.get("contentDocumentDOM"))[0],
             bbPageSetView : this.get("reflowableView")
         });
+        // inject annotation CSS into iframe 
+
+        this.injectAnnotationCSS(this.get("annotationCSSUrl"));
     },
 
     // ------------------------------------------------------------------------------------ //
@@ -87,7 +90,7 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
                 ["cfi-marker"],
                 [],
                 ["MathJax_Message"]
-                );
+            );
 
             // Add bookmark annotation here
             leftAddition = -this.getPaginationLeftOffset();
@@ -397,5 +400,13 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
     getRangeEndMarker : function (CFI, id) {
 
         return "<span class='range-end-marker cfi-marker' id='end-" + id + "' data-cfi='" + CFI + "'></span>";
+    },
+
+    injectAnnotationCSS : function (annotationCSSUrl) {
+
+        var $contentDocHead = $("head", this.get("contentDocumentDOM"));
+        $contentDocHead.append(
+            $("<link/>", { rel : "stylesheet", href : annotationCSSUrl, type : "text/css" })
+        );
     }
 });
