@@ -109,5 +109,16 @@ EpubAnnotations.UnderlineGroup = Backbone.Model.extend({
             type : "underline",
             CFI : this.get("CFI")
         };
+    },
+
+    inferLines : function (domRange) {
+
+        // init the first line vars: start, top
+
+        // get the client rects 
+
+        // for each client rect
+
+        // 
     }
 });

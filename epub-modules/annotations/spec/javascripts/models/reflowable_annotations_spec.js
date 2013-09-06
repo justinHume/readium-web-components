@@ -1,9 +1,9 @@
-describe("EpubReflowable.ReflowableAnnotations", function () {
+describe("EpubAnnotations.ReflowableAnnotations", function () {
 
     describe("initialization", function () {
 
         beforeEach(function () {
-            this.reflowingAnnotations = new EpubReflowable.ReflowableAnnotations();
+            this.reflowingAnnotations = new EpubAnnotations.ReflowableAnnotations();
         });
 
         it("can be initialized", function () {
@@ -19,7 +19,7 @@ describe("EpubReflowable.ReflowableAnnotations", function () {
 
         //         var contentDoc = jasmine.getFixtures().read("moby_dick_content_doc.xhtml");
         //         var contentDocDom = (new window.DOMParser).parseFromString(contentDoc, "text/xml");
-        //         this.reflowingAnnotations = new EpubReflowable.ReflowableAnnotations({
+        //         this.reflowingAnnotations = new EpubAnnotations.ReflowableAnnotations({
         //             contentDocumentDOM : contentDocDom
         //         });
         //     });
@@ -38,7 +38,7 @@ describe("EpubReflowable.ReflowableAnnotations", function () {
 
         //         var contentDoc = jasmine.getFixtures().read("moby_dick_content_doc.xhtml");
         //         var contentDocDom = (new window.DOMParser).parseFromString(contentDoc, "text/xml");
-        //         this.reflowingAnnotations = new EpubReflowable.ReflowableAnnotations({
+        //         this.reflowingAnnotations = new EpubAnnotations.ReflowableAnnotations({
         //             contentDocumentDOM : contentDocDom
         //         }); 
         //     });
@@ -59,7 +59,7 @@ describe("EpubReflowable.ReflowableAnnotations", function () {
         // describe("getSelectionInfo()", function () {
 
         //     beforeEach(function () {
-        //         this.reflowingAnnotations = new EpubReflowable.ReflowableAnnotations();
+        //         this.reflowingAnnotations = new EpubAnnotations.ReflowableAnnotations();
         //         var elements = "<html> \
         //                             <div id='ancestor'> \
         //                                 <div id='a'> \
@@ -114,7 +114,7 @@ describe("EpubReflowable.ReflowableAnnotations", function () {
         // describe("generateRangeCFI()", function () {
 
         //     beforeEach(function () {
-        //         this.reflowingAnnotations = new EpubReflowable.ReflowableAnnotations();
+        //         this.reflowingAnnotations = new EpubAnnotations.ReflowableAnnotations();
         //         var elements = "<html> \
         //                             <div id='ancestor'> \
         //                                 <div id='a'> \
@@ -157,7 +157,7 @@ describe("EpubReflowable.ReflowableAnnotations", function () {
         // describe("findSelectedElements()", function () {
 
         //     beforeEach(function () {
-        //         this.reflowingAnnotations = new EpubReflowable.ReflowableAnnotations();
+        //         this.reflowingAnnotations = new EpubAnnotations.ReflowableAnnotations();
         //         var elements = "<div id='ancestor'> \
         //                                 <div id='a'> \
         //                                     <div id='b'> \
@@ -209,7 +209,7 @@ describe("EpubReflowable.ReflowableAnnotations", function () {
         // describe("injectHighlightMarkers()", function () {
 
         //     beforeEach(function () {
-        //         this.reflowingAnnotations = new EpubReflowable.ReflowableAnnotations();
+        //         this.reflowingAnnotations = new EpubAnnotations.ReflowableAnnotations();
         //         var elements = "<div id='ancestor'> \
         //                                 <div id='a'> \
         //                                     <div id='b'> \
@@ -260,7 +260,7 @@ describe("EpubReflowable.ReflowableAnnotations", function () {
         describe("private helpers", function () {
 
             beforeEach(function () {
-                this.reflowingAnnotations = new EpubReflowable.ReflowableAnnotations();
+                this.reflowingAnnotations = new EpubAnnotations.ReflowableAnnotations();
             });
 
             describe("getBookmarkMarker()", function () {
