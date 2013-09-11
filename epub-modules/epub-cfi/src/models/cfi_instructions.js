@@ -188,20 +188,20 @@ EPUBcfi.CFIInstructions = {
 	},
 
 	// Description: This method finds a target text node and then injects an element into the appropriate node
-	// Arguments: A step value that is an odd integer. A current node with a set of child elements.
 	// Rationale: The possibility that cfi marker elements have been injected into a text node at some point previous to 
 	//   this method being called (and thus splitting the original text node into two separate text nodes) necessitates that
 	//   the set of nodes that compromised the original target text node are inferred and returned.
 	// Notes: Passed a current node. This node should have a set of elements under it. This will include at least one text node, 
 	//   element nodes (maybe), or possibly a mix. 
-	// REFACTORING CANDIDATE: This method is pretty long. Worth investigating to see if it can be refactored into something clearer.
+	// REFACTORING CANDIDATE: This method is pretty long (and confusing). Worth investigating to see if it can be refactored into something clearer.
 	inferTargetTextNode : function (CFIStepValue, $currNode, classBlacklist, elementBlacklist, idBlacklist) {
 		
 		var $elementsWithoutMarkers;
-		var currTextNodePosition;
-		var logicalTargetPosition;
+		var currLogicalTextNodeIndex;
+		var targetLogicalTextNodeIndex;
 		var nodeNum;
 		var $targetTextNodeList;
+		var prevNodeWasTextNode;
 
 		// Remove any cfi marker elements from the set of elements. 
 		// Rationale: A filtering function is used, as simply using a class selector with jquery appears to 
@@ -209,32 +209,38 @@ EPUBcfi.CFIInstructions = {
 		$elementsWithoutMarkers = this.applyBlacklist($currNode.contents(), classBlacklist, elementBlacklist, idBlacklist);
 
 		// Convert CFIStepValue to logical index; assumes odd integer for the step value
-		logicalTargetPosition = (parseInt(CFIStepValue) + 1) / 2;
+		targetLogicalTextNodeIndex = ((parseInt(CFIStepValue) + 1) / 2) - 1;
 
 		// Set text node position counter
-		currTextNodePosition = 1;
+		currLogicalTextNodeIndex = 0;
+		prevNodeWasTextNode = false;
 		$targetTextNodeList = $elementsWithoutMarkers.filter(
 			function () {
 
-				if (currTextNodePosition === logicalTargetPosition) {
+				if (currLogicalTextNodeIndex === targetLogicalTextNodeIndex) {
 
 					// If it's a text node
-					if (this.nodeType === 3) {
-						return true; 
+					if (this.nodeType === Node.TEXT_NODE) {
+						prevNodeWasTextNode = true;
+						return true;
 					}
-					// Any other type of node, move onto the next text node
-					else {
-						currTextNodePosition++; 
+					// Rationale: The logical text node position is only incremented once a group of text nodes (a single logical
+					//   text node) has been passed by the loop. 
+					else if (prevNodeWasTextNode && (this.nodeType !== Node.TEXT_NODE)) {
+						currLogicalTextNodeIndex++;
+						prevNodeWasTextNode = false;			
 						return false;
 					}
 				}
-				// In this case, don't return any elements
+				// Don't return any elements
 				else {
 
-					// If its the last child and it's not a text node, there are no text nodes after it
-					// and the currTextNodePosition shouldn't be incremented
-					if (this.nodeType !== 3 && this !== $elementsWithoutMarkers.lastChild) {
-						currTextNodePosition++;
+					if (this.nodeType === Node.TEXT_NODE) {
+						prevNodeWasTextNode = true;
+					}
+					else if (prevNodeWasTextNode && (this.nodeType !== Node.TEXT_NODE) && (this !== $elementsWithoutMarkers.lastChild)) {
+						currLogicalTextNodeIndex++;
+						prevNodeWasTextNode = false;
 					}
 
 					return false;
@@ -245,8 +251,7 @@ EPUBcfi.CFIInstructions = {
 		// The filtering above should have counted the number of "logical" text nodes; this can be used to 
 		// detect out of range errors
 		if ($targetTextNodeList.length === 0) {
-
-			throw EPUBcfi.OutOfRangeError(logicalTargetPosition, currTextNodePosition - 1, "Index out of range");
+			throw EPUBcfi.OutOfRangeError(logicalTargetTextNodeIndex, currLogicalTextNodeIndex, "Index out of range");
 		}
 
 		// return the text node list

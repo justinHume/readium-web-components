@@ -257,7 +257,7 @@ describe("CFI GENERATOR", function () {
             var textTerminus = EPUBcfi.Generator.createCFITextNodeStep($startNode, 3, ["cfi-marker"]);
             var generatedCFI = EPUBcfi.Generator.createCFIElementSteps($startNode.parent(), "html", ["cfi-marker"]) + textTerminus;
 
-            expect(generatedCFI).toEqual("!/4/2[startParent]/3:3"); // [ te,xtn]
+            expect(generatedCFI).toEqual("!/4/2[startParent]/1:3"); // [ te,xtn]
         });
 
         it("can generate a package document CFI with the spine index", function () {

@@ -1774,20 +1774,20 @@ EPUBcfi.CFIInstructions = {
 	},
 
 	// Description: This method finds a target text node and then injects an element into the appropriate node
-	// Arguments: A step value that is an odd integer. A current node with a set of child elements.
 	// Rationale: The possibility that cfi marker elements have been injected into a text node at some point previous to 
 	//   this method being called (and thus splitting the original text node into two separate text nodes) necessitates that
 	//   the set of nodes that compromised the original target text node are inferred and returned.
 	// Notes: Passed a current node. This node should have a set of elements under it. This will include at least one text node, 
 	//   element nodes (maybe), or possibly a mix. 
-	// REFACTORING CANDIDATE: This method is pretty long. Worth investigating to see if it can be refactored into something clearer.
+	// REFACTORING CANDIDATE: This method is pretty long (and confusing). Worth investigating to see if it can be refactored into something clearer.
 	inferTargetTextNode : function (CFIStepValue, $currNode, classBlacklist, elementBlacklist, idBlacklist) {
 		
 		var $elementsWithoutMarkers;
-		var currTextNodePosition;
-		var logicalTargetPosition;
+		var currLogicalTextNodeIndex;
+		var targetLogicalTextNodeIndex;
 		var nodeNum;
 		var $targetTextNodeList;
+		var prevNodeWasTextNode;
 
 		// Remove any cfi marker elements from the set of elements. 
 		// Rationale: A filtering function is used, as simply using a class selector with jquery appears to 
@@ -1795,32 +1795,38 @@ EPUBcfi.CFIInstructions = {
 		$elementsWithoutMarkers = this.applyBlacklist($currNode.contents(), classBlacklist, elementBlacklist, idBlacklist);
 
 		// Convert CFIStepValue to logical index; assumes odd integer for the step value
-		logicalTargetPosition = (parseInt(CFIStepValue) + 1) / 2;
+		targetLogicalTextNodeIndex = ((parseInt(CFIStepValue) + 1) / 2) - 1;
 
 		// Set text node position counter
-		currTextNodePosition = 1;
+		currLogicalTextNodeIndex = 0;
+		prevNodeWasTextNode = false;
 		$targetTextNodeList = $elementsWithoutMarkers.filter(
 			function () {
 
-				if (currTextNodePosition === logicalTargetPosition) {
+				if (currLogicalTextNodeIndex === targetLogicalTextNodeIndex) {
 
 					// If it's a text node
-					if (this.nodeType === 3) {
-						return true; 
+					if (this.nodeType === Node.TEXT_NODE) {
+						prevNodeWasTextNode = true;
+						return true;
 					}
-					// Any other type of node, move onto the next text node
-					else {
-						currTextNodePosition++; 
+					// Rationale: The logical text node position is only incremented once a group of text nodes (a single logical
+					//   text node) has been passed by the loop. 
+					else if (prevNodeWasTextNode && (this.nodeType !== Node.TEXT_NODE)) {
+						currLogicalTextNodeIndex++;
+						prevNodeWasTextNode = false;			
 						return false;
 					}
 				}
-				// In this case, don't return any elements
+				// Don't return any elements
 				else {
 
-					// If its the last child and it's not a text node, there are no text nodes after it
-					// and the currTextNodePosition shouldn't be incremented
-					if (this.nodeType !== 3 && this !== $elementsWithoutMarkers.lastChild) {
-						currTextNodePosition++;
+					if (this.nodeType === Node.TEXT_NODE) {
+						prevNodeWasTextNode = true;
+					}
+					else if (prevNodeWasTextNode && (this.nodeType !== Node.TEXT_NODE) && (this !== $elementsWithoutMarkers.lastChild)) {
+						currLogicalTextNodeIndex++;
+						prevNodeWasTextNode = false;
 					}
 
 					return false;
@@ -1831,8 +1837,7 @@ EPUBcfi.CFIInstructions = {
 		// The filtering above should have counted the number of "logical" text nodes; this can be used to 
 		// detect out of range errors
 		if ($targetTextNodeList.length === 0) {
-
-			throw EPUBcfi.OutOfRangeError(logicalTargetPosition, currTextNodePosition - 1, "Index out of range");
+			throw EPUBcfi.OutOfRangeError(logicalTargetTextNodeIndex, currLogicalTextNodeIndex, "Index out of range");
 		}
 
 		// return the text node list
@@ -2343,7 +2348,8 @@ EPUBcfi.CFIAssertionError = function (expectedAssertion, targetElementAssertion,
         this.validateStartTextNode(rangeStartElement);
         this.validateStartTextNode(rangeEndElement);
 
-        if (rangeStartElement === rangeEndElement) {
+        // Parent element is the same
+        if ($(rangeStartElement).parent()[0] === $(rangeEndElement).parent()[0]) {
             range1OffsetStep = this.createCFITextNodeStep($(rangeStartElement), startOffset, classBlacklist, elementBlacklist, idBlacklist);
             range2OffsetStep = this.createCFITextNodeStep($(rangeEndElement), endOffset, classBlacklist, elementBlacklist, idBlacklist);          
             commonCFIComponent = this.createCFIElementSteps($(rangeStartElement).parent(), "html", classBlacklist, elementBlacklist, idBlacklist);
@@ -2526,7 +2532,7 @@ EPUBcfi.CFIAssertionError = function (expectedAssertion, targetElementAssertion,
         }
     },
 
-    // Description: Creates a CFI terminating step, to a text node, with a character offset
+    // Description: Creates a CFI terminating step to a text node, with a character offset
     // REFACTORING CANDIDATE: Some of the parts of this method could be refactored into their own methods
     createCFITextNodeStep : function ($startTextNode, characterOffset, classBlacklist, elementBlacklist, idBlacklist) {
 
@@ -2547,11 +2553,12 @@ EPUBcfi.CFIAssertionError = function (expectedAssertion, targetElementAssertion,
         // Find the text node index in the parent list, inferring nodes that were originally a single text node
         var prevNodeWasTextNode;
         var indexOfFirstInSequence;
+        var textNodeOnlyIndex = 0;
         $.each($contentsExcludingMarkers, 
             function (index) {
 
                 // If this is a text node, check if it matches and return the current index
-                if (this.nodeType === 3) {
+                if (this.nodeType === Node.TEXT_NODE) {
 
                     if (this === $startTextNode[0]) {
 
@@ -2561,7 +2568,7 @@ EPUBcfi.CFIAssertionError = function (expectedAssertion, targetElementAssertion,
                             indexOfTextNode = indexOfFirstInSequence;
                         }
                         else {
-                            indexOfTextNode = index;
+                            indexOfTextNode = textNodeOnlyIndex;
                         }
                         
                         // Break out of .each loop
@@ -2570,8 +2577,9 @@ EPUBcfi.CFIAssertionError = function (expectedAssertion, targetElementAssertion,
 
                     // Save this index as the first in sequence of adjacent text nodes, if it is not already set by this point
                     prevNodeWasTextNode = true;
-                    if (!indexOfFirstInSequence) {
-                        indexOfFirstInSequence = index;
+                    if (indexOfFirstInSequence === undefined) {
+                        indexOfFirstInSequence = textNodeOnlyIndex;
+                        textNodeOnlyIndex = textNodeOnlyIndex + 1;
                     }
                 }
                 // This node is not a text node
@@ -2601,57 +2609,6 @@ EPUBcfi.CFIAssertionError = function (expectedAssertion, targetElementAssertion,
         // Return the constructed CFI text node step
         return "/" + CFIIndex + ":" + characterOffset;
          // + "[" + preAssertion + "," + postAssertion + "]";
-    },
-
-    // Description: A set of adjacent text nodes can be inferred to have been a single text node in the original document. As such, 
-    //   if the character offset is specified for one of the adjacent text nodes, the true offset for the original node must be
-    //   inferred.
-    findOriginalTextNodeCharOffset : function ($startTextNode, specifiedCharacterOffset, classBlacklist, elementBlacklist, idBlacklist) {
-
-        var $parentNode;
-        var $contentsExcludingMarkers;
-        var textLength;
-        
-        // Find text node position in the set of child elements, ignoring any cfi markers 
-        $parentNode = $startTextNode.parent();
-        $contentsExcludingMarkers = EPUBcfi.CFIInstructions.applyBlacklist($parentNode.contents(), classBlacklist, elementBlacklist, idBlacklist);
-
-        // Find the text node number in the list, inferring nodes that were originally a single text node
-        var prevNodeWasTextNode;
-        var originalCharOffset = -1; // So the character offset is a 0-based index; we'll be adding lengths of text nodes to this number
-        $.each($contentsExcludingMarkers, 
-            function (index) {
-
-                // If this is a text node, check if it matches and return the current index
-                if (this.nodeType === 3) {
-
-                    if (this === $startTextNode[0]) {
-
-                        if (prevNodeWasTextNode) {
-                            originalCharOffset = originalCharOffset + specifiedCharacterOffset;
-                        }
-                        else {
-                            originalCharOffset = specifiedCharacterOffset;
-                        }
-
-                        return false; // Break out of .each loop
-                    }
-                    else {
-
-                        originalCharOffset = originalCharOffset + this.length;
-                    }
-
-                    // save this index as the first in sequence of adjacent text nodes, if not set
-                    prevNodeWasTextNode = true;
-                }
-                // This node is not a text node
-                else {
-                    prevNodeWasTextNode = false;
-                }
-            }
-        );
-
-        return originalCharOffset;
     },
 
     createCFIElementSteps : function ($currNode, topLevelElement, classBlacklist, elementBlacklist, idBlacklist) {

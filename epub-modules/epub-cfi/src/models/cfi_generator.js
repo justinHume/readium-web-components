@@ -246,11 +246,10 @@ EPUBcfi.Generator = {
 
                     // Save this index as the first in sequence of adjacent text nodes, if it is not already set by this point
                     prevNodeWasTextNode = true;
-                    if (!indexOfFirstInSequence) {
+                    if (indexOfFirstInSequence === undefined) {
                         indexOfFirstInSequence = textNodeOnlyIndex;
+                        textNodeOnlyIndex = textNodeOnlyIndex + 1;
                     }
-
-                    textNodeOnlyIndex = textNodeOnlyIndex + 1;
                 }
                 // This node is not a text node
                 else {
