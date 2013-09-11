@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?> <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" ><head>
+
+<title>The Differential Topology of Loop Spaces </title>
+
+<meta name="Author" content="Andrew Stacey"/><link href="diffloop.css" media="all" rel="stylesheet" type="text/css"/><script src="diffloop.js" type="text/javascript"/></head><body><p><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline' class='dummy'><mi></mi></math></p><h2 id="section.6">6 A Miscellany</h2>
+<p>
+
+</p>
+
+<p>We conclude this document with two topics designed to lead the interested reader out of the basic differential topology of the loop space and into more interesting areas. The first topic is the differential geometry of the loop space. This is generally more complicated than finite dimensional geometry, but still a certain amount can be said without too much difficulty. The second topic is the semi-infinite structure of a loop space, which has no true analogy in finite dimensions and is an important area of current interest.
+
+</p>
+
+
+<h2 id="subsection.6.1">6.1 Weak Riemannian Manifolds</h2>
+<p>
+
+</p>
+
+<p>Fairly early on in any text on Riemannian geometry is the statement that any finite dimensional manifold admits a Riemannian structure. We used this fact in demonstrating that any such manifold admits a local addition. In finite dimensions the definition of a Riemannian structure is straightforward: it consists of a smooth choice of inner product on each fibre of the tangent bundle. In infinite dimensions things are more complicated. The following discussion clearly generalises to inner products on arbitrary vector bundles.
+
+</p>
+
+<p>The issues that one needs to deal with are: </p>
+
+<ol> <li id="Item.87">
+
+<p>Fibrewise questions: </p>
+
+<ol> <li id="Item.88">
+
+<p>Do the fibres admit (smooth) inner products?
+
+</p>
+
+<p>For example, the space of all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>-valued sequences with its inverse limit topology does not.
+
+</p>
+
+<p>For the model space of the loop space, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math>, the answer is "yes".
+
+</p>
+
+</li><li id="Item.89">
+
+<p>Up to equivalence, how many inner products are there?
+
+</p>
+
+<p>Equivalence means that there is a topological isomorphism taking one inner product to the other. The answer is likely to be that standard mathematical answer: none, one, or infinity.
+
+</p>
+
+<p>For "none", the previous example works. For "one" we takes its dual: the space of all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>-valued sequences that are eventually zero. For "infinity" we can take the Hilbert space of square-integrable <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x0211D;</mi></math>-values sequences.
+
+</p>
+<p>For the model space of the loop space, the answer is "infinity".
+
+</p>
+
+</li><li id="Item.90">
+
+<p>Does a particular inner product induce an isomorphism to the dual space?
+
+</p>
+
+<p>The global version of this - the induced isomorphism of the tangent and cotangent bundles - is one of the mainstays of finite dimensional geometry since it allows free movement between vector fields and one-forms. In infinite dimensions a positive answer to this question means that one is dealing with a Hilbert space (with the correct choice of inner product). Therefore if one wishes to work with more than just Hilbert manifolds one must be prepared for a negative answer.
+
+</p>
+
+<p>What one <em>always</em> has is a linear injection into the dual space.
+
+</p>
+
+<p>For the model space of the loop space, the answer is "no". </p>
+
+</li></ol>
+
+<p>
+
+</p>
+
+<p>Once one has answered these questions, and has a positive answer to the first, then the partition-of-unity argument applies and one can define a smooth global choice of inner product on the fibres of the tangent bundle. However, the questions don't stop there:
+
+</p>
+
+</li><li id="Item.91">
+
+<p>Global questions:
+
+</p>
+
+<ol> <li id="Item.92">
+
+<p>Is this Riemannian structure <em>weak</em> or <em>strong</em>?
+
+</p>
+
+<p>The difference is whether or not the inner products identify the tangent and cotangent bundles, with "strong" meaning that they do. A strong Riemannian structure is only possible when one has a Hilbert bundle and the inner product on each fibre is equivalent to the standard one.
+
+</p>
+
+<p>Thus with a weak structure all vector fields are one-forms but the converse only holds for a strong structure.
+
+</p>
+
+<p>For a loop space, the answer is always "weak".
+
+</p>
+
+</li><li id="Item.93">
+
+<p>Is the equivalence class of the inner product (locally) constant?
+
+</p>
+<p>The problem here is that the partition of unity construction paid no attention to the question of equivalence. As an example, consider a space <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math> with two inequivalent inner products <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>g</mi> <mn>0</mn></msub></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>g</mi> <mn>1</mn></msub></math>. Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003C1;</mi><mo>:</mo><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo><mo>&#x02192;</mo><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo></math> be the identity map, then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><mi>&#x003C1;</mi><mo>,</mo><mn>1</mn><mo>&#x02212;</mo><mi>&#x003C1;</mi><mo stretchy="false">}</mo></math> is a partition of unity on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo></math>. Define a fibrewise inner product on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo><mo>&#x000D7;</mo><mi>E</mi></math> by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>&#x02254;</mo><mi>&#x003C1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><msub><mi>g</mi> <mn>1</mn></msub><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x02212;</mo><mi>&#x003C1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><msub><mi>g</mi> <mn>0</mn></msub></math>. By construction, the equivalence class of this inner product is not locally constant.
+
+</p>
+
+<p>This is closely related to the next question:
+
+</p>
+
+</li><li id="Item.94">
+
+<p>Is there a bundle (i.e.&#x000A0;locally trivial) of Hilbert spaces which can be considered as the fibrewise completions of the fibres of the tangent bundle?
+
+</p>
+
+<p>The connection with the previous question comes about because an inner product defines a Hilbert completion. An equivalence between two inner products extends to an isometric isomorphism of the corresponding completions. Therefore if the equivalence class is locally constant the Hilbert completions fit together to define a locally trivial Hilbert bundle.
+
+</p>
+
+<p>Note that one can define this bundle without reference to an actual inner product but only to an equivalence class. Essentially, one breaks down the choice of inner product to an initial choice of equivalence class - which defines the bundle of completions - and then to a choice of inner product within that class.
+
+</p>
+
+</li><li id="Item.95">
+
+<p>Is the tangent bundle with its family of inner products <em>isometrically</em> locally trivial?
+
+</p>
+
+<p>By this we mean that there is one fixed inner product on the model space and the tangent bundle can be locally trivialised in such a way that the fibrewise inner products are all carried to this reference one. In finite dimensions this follows from the Gram-Schmidt algorithm.
+
+</p>
+
+<p>A positive answer to this question implies a positive answer to the previous one since there is a fixed Hilbert completion corresponding to the fixed inner product.
+
+</p>
+
+</li><li id="Item.96">
+
+<p>Assuming the existence of a smaller group than the full general linear group, can the construction be done in such a way that the transition functions lie in this group?
+
+</p>
+
+<p>If the answer to this question is yes (or is suspected to be), this provides a simpler route to the construction: first fix the reference inner product and, consequently, Hilbert completion. Then prove that the given group preserves this inner product, and hence the Hilbert completion. Finally, use this group action to transfer the whole structure to the manifold. </p>
+
+</li></ol>
+
+<p> </p>
+
+</li></ol>
+
+<p>
+
+</p>
+
+<p>We illustrate this with the loop space, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>, of a finite dimensional Riemannian manifold <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. There is a canonical weak Riemannian structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> coming from the Riemannian structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math>. There are two ways to define these inner products.
+
+</p>
+
+<p>The direct way is to use the strategy of Section&#x000A0;<a href="diffloop5.xhtml#subsection.4.5">4.5</a>. The inner product on the tangent space of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> is a symmetric fibrewise bilinear map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mi>M</mi></msub><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>&#x0211D;</mi></math> with the property that the induced map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>:</mo><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><msup><mi>T</mi> <mo>*</mo></msup><mi>M</mi></math> satisfies <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>&gt;</mo><mn>0</mn></math> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi><mo>&#x02260;</mo><mn>0</mn></math> (i.e.&#x000A0;not in the image of the zero section). This loops to a symmetric bi-<math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math>-linear map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mrow><mi>L</mi><mi>M</mi></mrow></msub><mi>L</mi><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>&#x0211D;</mi></math> such that the induced map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo>:</mo><mi>L</mi><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><msup><mi>T</mi> <mo>*</mo></msup><mi>M</mi></math> satisfies <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>g</mi><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>&gt;</mo><mn>0</mn></math> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02260;</mo><mn>0</mn></math>. The inequality now holds in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x0211D;</mi></math> and is defined by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>&gt;</mo><mi>&#x003B3;</mi></math> if <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>&#x02265;</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></math> for all <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>&#x02260;</mo><mi>&#x003B3;</mi></math> (equivalently, there is some <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi></math> such that the inequality is strict). We then apply the integration map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mo>&#x0222B;</mo> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo>:</mo><mi>L</mi><mi>&#x0211D;</mi><mo>&#x02192;</mo><mi>&#x0211D;</mi></math>. This is an order-preserving linear map and so the symmetric bilinear map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>T</mi><mi>M</mi><msub><mo>&#x000D7;</mo> <mrow><mi>L</mi><mi>M</mi></mrow></msub><mi>L</mi><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>&#x0211D;</mi></math> has the property
+that the induced map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo>&#x0222B;</mo><mi>g</mi><mo>:</mo><mi>L</mi><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><msup><mi>T</mi> <mo>*</mo></msup><mi>M</mi><mo>&#x02192;</mo><msup><mi>T</mi> <mo>*</mo></msup><mi>L</mi><mi>M</mi></math> satisfies <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo>&#x0222B;</mo><mi>g</mi><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>&#x003B1;</mi><mo stretchy="false">)</mo><mo>&gt;</mo><mn>0</mn></math> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02260;</mo><mn>0</mn></math>. Untangling all of that yields the formula: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mrow><mo>(</mo><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi><mo>)</mo></mrow> <mi>&#x003B1;</mi></msub><mo>=</mo><msub><mo>&#x0222B;</mo> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">&#x027E8;</mo><mi>&#x003B2;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>,</mo><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><msub><mo stretchy="false">&#x027E9;</mo> <mrow><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msub><mi>d</mi><mi>t</mi><mo>,</mo></math>
+</div>
+
+
+
+<p> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B2;</mi><mo>,</mo><mi>&#x003B3;</mi><mo>&#x02208;</mo><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>M</mi><mo>=</mo><msub><mi>L</mi> <mi>&#x003B1;</mi></msub><mi>T</mi><mi>M</mi></math>.
+
+</p>
+
+<p>The indirect way is to observe that the structure group of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> is, because of the choice of Riemannian structure, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>O</mi> <mi>n</mi></msub></math>. Therefore the structure group of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msub><mi>O</mi> <mi>n</mi></msub></math>. Now the action of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msub><mi>O</mi> <mi>n</mi></msub></math> on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> preserves the standard inner product coming from the inclusion <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><msup><mi>L</mi> <mn>2</mn></msup><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> (in fact, it is precisely the subgroup of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msub><mo lspace="0em" rspace="thinmathspace">Gl</mo> <mi>n</mi></msub><mo stretchy="false">(</mo><mi>&#x0211D;</mi><mo stretchy="false">)</mo></math> which does so). Therefore we can define a locally trivial inner product on the fibres <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi></math> and a corresponding bundle of Hilbert completions.
+
+</p>
+
+<p>The equivalence of the two approaches comes from the fact that the principal <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msub><mi>O</mi> <mi>n</mi></msub></math>-bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi></math> is the loop of the principal <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>O</mi> <mi>n</mi></msub></math>-bundle of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math>. An element of the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msub><mi>O</mi> <mi>n</mi></msub></math>-bundle above <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math> is an isometric trivialisation of the bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo>&#x02192;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>. This defines an isometric isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x00393;</mi> <mrow><msup><mi>S</mi> <mn>1</mn></msup></mrow></msub><mo stretchy="false">(</mo><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>T</mi><mi>M</mi><mo stretchy="false">)</mo><mo>&#x02192;</mo><mi>L</mi><msup><mi>&#x0211D;</mi> <mi>n</mi></msup></math> (assuming orientability to avoid twisting) and hence identifies the inner product given by the above formula with the standard one.
+
+</p>
+
+<p>We note that both approaches have their advantages. In the first there is an explicit formula for the inner product that one can work with. In the second, the local triviality and the existence of the bundle of Hilbert completions are straightforward.
+
+</p>
+
+<p>For this weak Riemannian structure on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>, it is straightforward to prove that certain geometric objects on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> loop to the corresponding objects on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.6.1"><span class="title"><span class="name">Proposition</span> <span class="number">6.1</span></span>
+
+<p>The Levi-Civita connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> loops to the Levi-Civita connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>From Corollary&#x000A0;<a href="diffloop5.xhtml#theorem.4.12">4.12</a>, the loop of the Levi-Civita connection is torsion-free. To see that it respects the inner product, we use the fact that the orthogonal structure group of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>L</mi><mi>M</mi><mo>&#x02245;</mo><mi>L</mi><mi>T</mi><mi>M</mi></math> is the loop of the orthogonal structure group of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>T</mi><mi>M</mi></math>. Hence as the Levi-Civita connection is an orthogonal connection, its loop is also orthogonal. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<p>The Koszul formula that is often used to prove existence and uniqueness of the Levi-Civita connection can only, in infinite dimensions, be used to prove uniqueness. This is because the existence part of the proof uses the isomorphism of vector fields and one-forms at a crucial stage but the uniqueness only uses the injectivity of the map from vector fields to one-forms. Hence a corollary of the above result is that the Levi-Civita connection on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> does exist.
+
+</p>
+
+<div class="gentheorem thm" id="theorem.6.2"><span class="title"><span class="name">Proposition</span> <span class="number">6.2</span></span>
+
+<p>For <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>X</mi></math> either <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> or <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi><mo>&#x02208;</mo><mi>T</mi><mi>X</mi></math>, let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mi>v</mi></msub><mo>:</mo><msub><mi>I</mi> <mi>v</mi></msub><mo>&#x02192;</mo><mi>X</mi></math> denote the geodesic corresponding to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>v</mi></math> with maximal domain <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>I</mi> <mi>v</mi></msub></math>. Then for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003BD;</mi><mo>&#x02208;</mo><mi>T</mi><mi>L</mi><mi>M</mi></math>, </p>
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msub><mi>e</mi> <mi>t</mi></msub><msub><mi>&#x003B3;</mi> <mi>&#x003BD;</mi></msub><mo>=</mo><msub><mi>&#x003B3;</mi> <mrow><msub><mi>e</mi> <mi>t</mi></msub><mi>&#x003BD;</mi></mrow></msub><mo>,</mo></math>
+</div>
+
+
+
+<p> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>I</mi> <mi>&#x003BD;</mi></msub><mo>=</mo><mo>&#x02229;</mo><msub><mi>I</mi> <mrow><msub><mi>e</mi> <mi>t</mi></msub><mi>&#x003BD;</mi></mrow></msub></math>. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<div class="proof" ><span class="title">Proof</span> <a class="control" href="diffloop1.xhtml#Doc-Start" onclick="toggleProof(this); return false;">(Toggle proof)</a><div class="body">
+
+<p>Let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>:</mo><mi>I</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> be a path. For <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>, let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mi>t</mi></msub><mo>:</mo><mi>I</mi><mo>&#x02192;</mo><mi>M</mi></math> be the adjoint of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> restricted to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><mi>t</mi><mo stretchy="false">}</mo><mo>&#x000D7;</mo><mi>I</mi></math>. Differentiating, we get <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>&#x02032;</mo><mo>:</mo><mi>I</mi><mo>&#x02192;</mo><mi>T</mi><mi>L</mi><mi>M</mi></math> and its adjoint when restricted to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><mi>t</mi><mo stretchy="false">}</mo><mo>&#x000D7;</mo><msup><mi>S</mi> <mn>1</mn></msup></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mi>t</mi></msub><mo>&#x02032;</mo></math>.
+
+</p>
+
+<p>We have the covariant derivative of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>&#x02032;</mo></math> along the canonical vector field <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo>&#x02202;</mo><mi>x</mi></math> of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>I</mi></math>: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>&#x02033;</mo><mo>&#x02254;</mo><msubsup><mo>&#x02207;</mo> <mrow><mo>&#x02202;</mo><mi>x</mi></mrow> <mi>L</mi></msubsup><mi>&#x003B3;</mi><mo>&#x02032;</mo></math>. This is again a map <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>I</mi><mo>&#x02192;</mo><mi>T</mi><mi>L</mi><mi>M</mi></math> above <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math>. By Theorem&#x000A0;<a href="diffloop5.xhtml#theorem.4.9">4.9</a>, this has adjoint: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mo maxsize="1.2em" minsize="1.2em">(</mo><msubsup><mo>&#x02207;</mo> <mrow><mo>&#x02202;</mo><mi>x</mi></mrow> <mi>L</mi></msubsup><mi>&#x003B3;</mi><mo>&#x02032;</mo><msup><mo maxsize="1.2em" minsize="1.2em">)</mo> <mo>&#x02228;</mo></msup><mo>=</mo><msub><mo>&#x02207;</mo> <mrow><mo>&#x02202;</mo><mi>x</mi></mrow></msub><mo stretchy="false">(</mo><mi>&#x003B3;</mi><msup><mo>&#x02032;</mo> <mo>&#x02228;</mo></msup><mo stretchy="false">)</mo><mo>.</mo></math>
+</div>
+
+
+
+<p> Hence the adjoint of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>&#x02033;</mo></math> restricted to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mo stretchy="false">{</mo><mi>t</mi><mo stretchy="false">}</mo><mo>&#x000D7;</mo><msup><mi>S</mi> <mn>1</mn></msup></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mi>t</mi></msub><mo>&#x02033;</mo></math>. Thus <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>&#x02033;</mo></math> vanishes if and only if each <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>&#x003B3;</mi> <mi>t</mi></msub><mo>&#x02033;</mo></math> vanishes and so <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi></math> is a geodesic if and only <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>e</mi> <mi>t</mi></msub><mi>&#x003B3;</mi></math> is a geodesic for each <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>t</mi><mo>&#x02208;</mo><msup><mi>S</mi> <mn>1</mn></msup></math>. The rest of the proposition then follows directly. </p>
+
+</div></div>
+
+<p>
+
+</p>
+
+<div class="gentheorem thm" id="theorem.6.3"><span class="title"><span class="name">Corollary</span> <span class="number">6.3</span></span>
+
+<p>If <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> is geodesically complete then <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> is geodesically complete. </p>
+
+</div>
+
+<p>
+
+</p>
+
+<p>In fact, this is an "if and only if" as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>M</mi></math> is a Riemannian submanifold of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math>. However, although in finite dimensions geodesic completeness is equivalent to a lot of things, that no longer holds for loop spaces. In particular, although <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>exp</mi><mo>:</mo><msub><mi>T</mi> <mi>x</mi></msub><mi>M</mi><mo>&#x02192;</mo><mi>M</mi></math> is surjective, it need not be the case that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>exp</mi><mo>:</mo><msub><mi>T</mi> <mi>&#x003B1;</mi></msub><mi>L</mi><mi>M</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> is surjective. For example, take the sphere, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>S</mi> <mn>2</mn></msup></math>, and the exponential map based at the constant loop at the south pole. Consider a loop which is a great circle through the south pole. When we try to lift this to the tangent space at the south pole, we find that it must lift to a segment of a straight line between preimages of the south pole, as it is a geodesic segment. This cannot be made into a loop and so there is no lift. Thus there is no geodesic between the constant loop at the south pole and any great circle through this point.
+
+</p>
+<h2 id="subsection.6.2">6.2 More Fun with Based Loops</h2>
+<p>
+
+</p>
+
+<p>We conclude with a brief introduction to the topic of <em>polarisations</em>. For simplicity, we shall work with complex vector bundles.
+
+</p>
+
+<p>The space <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x02102;</mi></math> has a very simple description using Fourier analysis. It is an appropriate completion of the space of Laurent polynomials, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x02102;</mi><mo stretchy="false">[</mo><mi>z</mi><mo>,</mo><msup><mi>z</mi> <mrow><mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo><mn>1</mn></mrow></msup><mo stretchy="false">]</mo></math>. In particular it decomposes as two pieces: <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo></msub><mi>&#x02102;</mi><mo>&#x02295;</mo><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">+</mo></msub><mi>&#x02102;</mi></math> according to the powers of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>z</mi></math>. We assign the constant loops, corresponding to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>z</mi> <mn>0</mn></msup></math>, to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">+</mo></msub><mi>&#x02102;</mi></math>. These have more stylish descriptions as the space of loops that extend holomorphically over an inner or outer disc (modulo the assignment of the constant loops).
+
+</p>
+
+<p>One might ask whether this structure is preserved on a loop space. That is, given a complex vector bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><mo>&#x02192;</mo><mi>M</mi></math>, is there a similar fibrewise splitting of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>? If one restricts <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> to the constant loops then this does exist, but over the whole of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> then it does not except in very special circumstances (see&#x000A0;[<a href="diffloop8.xhtml#cite.rcas">CS04</a>] and&#x000A0;[<a href="diffloop8.xhtml#cite.as2">Sta05a</a>]).
+
+</p>
+
+<p>However, it almost works. When moving from one chart to another one finds that the projections <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mo>&#x000B1;</mo></msub><msup><mi>&#x02102;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mover><mrow><msub><mi>L</mi> <mo>&#x000B1;</mo></msub></mrow><mo>&#x002DC;</mo></mover><msup><mi>&#x02102;</mi> <mi>n</mi></msup></math> are Fredholm and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mo>&#x000B1;</mo></msub><msup><mi>&#x02102;</mi> <mi>n</mi></msup><mo>&#x02192;</mo><mover><mrow><msub><mi>L</mi> <mo>&#x02213;</mo></msub></mrow><mo>&#x002DC;</mo></mover><msup><mi>&#x02102;</mi> <mi>n</mi></msup></math> are compact. This means that, morally, one is only shifting a finite dimensional amount from one side to the other.
+
+</p>
+
+<p>Such a structure is called a <em>polarisation</em>. The definitive reference is&#x000A0;[<a href="diffloop8.xhtml#cite.apgs">PS86</a>]. The theory of polarisations is intimately connected with that of representations of loop groups which is why it is of particular interest to students of loop spaces. We shall just mention a few highlights here.
+
+</p>
+
+<p>The reason for the title of this section is that the based loop space, <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A9;</mi><msub><mi>U</mi> <mi>n</mi></msub></math> is closely linked to polarisations. Given a complex vector bundle <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi><mo>&#x02192;</mo><mi>M</mi></math>, one can consider the bundle over <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>M</mi></math> the points of which are the splittings of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> which are equivalent to the canonical polarisation. These are only fibrewise splittings so always exist. A global section of this bundle would define a global splitting of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> which, by work of&#x000A0;[<a href="diffloop8.xhtml#cite.rcas">CS04</a>] and&#x000A0;[<a href="diffloop8.xhtml#cite.as2">Sta05a</a>], would mean that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02192;</mo><mi>L</mi><mi>M</mi></math> was "almost" trivial. If one imposes a little extra structure on the splittings, namely that they are orthogonal and behave well under the natural <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>&#x02102;</mi></math>-action, then this bundle is very easy to identify: let <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>Q</mi><mo>&#x02192;</mo><mi>M</mi></math> be the principal <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>U</mi> <mi>n</mi></msub></math>-bundle associated to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>E</mi></math>. The group <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><msub><mi>U</mi> <mi>n</mi></msub></math> acts on <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003A9;</mi><msub><mi>U</mi> <mi>n</mi></msub></math> via <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B3;</mi><mo>&#x022C5;</mo><mi>&#x003B2;</mi><mo>=</mo><mi>&#x003B3;</mi><mi>&#x003B2;</mi><mi>&#x003B3;</mi><mo stretchy="false">(</mo><mn>0</mn><msup><mo stretchy="false">)</mo> <mrow><mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo><mn>1</mn></mrow></msup></math>. The bundle of "nice" polarisations is: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>L</mi><mi>Q</mi><msub><mo>&#x000D7;</mo> <mrow><mi>L</mi><msub><mi>U</mi> <mi>n</mi></msub></mrow></msub><mi>&#x003A9;</mi><msub><mi>U</mi> <mi>n</mi></msub><mo>.</mo></math>
+</div>
+
+
+
+<p> The bundle of <em>all</em> polarisations is homotopy equivalent to <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>Q</mi><msub><mo>&#x000D7;</mo> <mrow><mi>L</mi><msub><mi>U</mi> <mi>n</mi></msub></mrow></msub><mi>&#x003A9;</mi><mi>U</mi></math>.
+
+</p>
+
+<p>One can give an alternative interpretation of this bundle. A point of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>Q</mi></math> consists of a trivialisation of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi></math> for some <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&#x003B1;</mi><mo>&#x02208;</mo><mi>L</mi><mi>M</mi></math>. That is, it is a fibrewise isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo>&#x02245;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><msup><mi>&#x02102;</mi> <mi>k</mi></msup></math>. A point of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>Q</mi><msub><mo>&#x000D7;</mo> <mrow><mi>L</mi><msub><mi>U</mi> <mi>n</mi></msub></mrow></msub><mi>&#x003A9;</mi><msub><mi>U</mi> <mi>n</mi></msub></math> is also a trivialisation of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi></math> but not to a "standard" reference space such as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x02102;</mi> <mi>k</mi></msup></math>. Rather, it is a fibrewise isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x003B1;</mi> <mo>*</mo></msup><mi>E</mi><mo>&#x02245;</mo><msup><mi>S</mi> <mn>1</mn></msup><mo>&#x000D7;</mo><msub><mi>E</mi> <mrow><mi>&#x003B1;</mi><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></msub></math>. Thus a global section of this bundle defines an isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi><mo>&#x02245;</mo><msubsup><mi>e</mi> <mn>0</mn> <mo>*</mo></msubsup><mi>E</mi><mo>&#x02297;</mo><mi>L</mi><mi>&#x02102;</mi></math> which is what is meant by a bundle being "almost" trivial.
+
+</p>
+
+<p>Another highlight of the topic of polarisations is that although the subspaces <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">+</mo></msub><mi>E</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo></msub><mi>E</mi></math> are not well-defined, the exterior algebra <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0039B;</mi> <mo>&#x02022;</mo></msup><mo stretchy="false">(</mo><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">+</mo></msub><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup><mover><mo>&#x02297;</mo><mo>&#x002DC;</mo></mover><msup><mi>&#x0039B;</mi> <mo>&#x02022;</mo></msup><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo></msub><mi>E</mi></math> is well-defined. The grading here is slightly odd in that the <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo></msub><mi>E</mi></math> part is negatively graded. Thus the degree of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0039B;</mi> <mi>p</mi></msup><mo stretchy="false">(</mo><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">+</mo></msub><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup><mover><mo>&#x02297;</mo><mo>&#x002DC;</mo></mover><msup><mi>&#x0039B;</mi> <mi>q</mi></msup><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo></msub><mi>E</mi></math> is <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>p</mi><mo>&#x02212;</mo><mi>q</mi></math>. This is known as the <em>semi-infinite exterior power</em> of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>. This is because in finite dimensions a choice of isomorphism <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0039B;</mi> <mrow><mi>dim</mi><mi>W</mi></mrow></msup><mi>W</mi><mo>&#x02245;</mo><mi>&#x02102;</mi></math> defines an isomorphism: </p>
+
+
+
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>&#x0039B;</mi> <mrow><mo>&#x02022;</mo><mo lspace="verythinmathspace" rspace="0em">+</mo><mi>dim</mi><mi>W</mi></mrow></msup><msup><mi>V</mi> <mo>*</mo></msup><mo>&#x02245;</mo><msup><mi>&#x0039B;</mi> <mo>&#x02022;</mo></msup><msup><mi>W</mi> <mn>0</mn></msup><mo>&#x02297;</mo><msup><mi>&#x0039B;</mi> <mo>&#x02022;</mo></msup><mi>W</mi></math>
+</div>
+
+
+
+<p> for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>W</mi><mo>&#x02286;</mo><mi>V</mi></math> where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>W</mi> <mn>0</mn></msup></math> is the annihilator of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>W</mi></math> in <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>W</mi> <mo>*</mo></msup></math> and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>&#x0039B;</mi> <mo>&#x02022;</mo></msup><mi>W</mi></math> is negatively graded. Hence as <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math> is infinite dimensional and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo></msub><mi>E</mi></math> is of half the dimension of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>L</mi><mi>E</mi></math>, we get: </p>
+<div class="displaymaths">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><msup><mi>&#x0039B;</mi> <mrow><mo>&#x02022;</mo><mo lspace="verythinmathspace" rspace="0em">+</mo><mn>&#x0221E;</mn><mo stretchy="false">/</mo><mn>2</mn></mrow></msup><mo stretchy="false">(</mo><mi>L</mi><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup><mo>&#x02245;</mo><msup><mi>&#x0039B;</mi> <mo>&#x02022;</mo></msup><mo stretchy="false">(</mo><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">+</mo></msub><mi>E</mi><msup><mo stretchy="false">)</mo> <mo>*</mo></msup><mo>&#x02297;</mo><msup><mi>&#x0039B;</mi> <mo>&#x02022;</mo></msup><msub><mi>L</mi> <mo lspace="verythinmathspace" rspace="0em">&#x02212;</mo></msub><mi>E</mi><mo>.</mo></math>
+</div>
+
+
+
+<p>
+
+</p>
+
+<p>One simple reason for wanting to take account of such structure can be seen from the idea of the signature of a manifold. This turns out to depend on the middle dimension cohomology. If one wanted to generalise this to loop spaces, one would need a notion of "middle dimension" cohomology, i.e.&#x000A0;of <em>semi-infinite</em> cohomology. A deeper reason is that this is part of the link between polarisations and representations of loop groups, about which I shan't go into more detail except to say that it is closely linked to the theory of spin and spin bundles on loop spaces. A good place to start reading is the book&#x000A0;[<a href="diffloop8.xhtml#cite.apgs">PS86</a>] and a good place to end reading is the recent result of Freed, Hopkins, and Teleman&#x000A0;[<a href="diffloop8.xhtml#cite.math.AT0312155">FHT</a>]. En route, I would take in&#x000A0;[<a href="diffloop8.xhtml#cite.rppr">PR94</a>] and my preprint on the construction of the Dirac operator in&#x000A0;[<a href="diffloop8.xhtml#cite.math.DG0505077">Sta</a>].
+
+</p>
+
+
+</body></html>
