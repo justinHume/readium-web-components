@@ -44,13 +44,15 @@ EpubAnnotations.UnderlineGroup = Backbone.Model.extend({
             var range = document.createRange();
             range.selectNodeContents(node);
             var rects = range.getClientRects();
+            var inferrer = new EpubAnnotations.TextLineInferrer();
+            var inferredLines = inferrer.inferLines(rects);
 
-            _.each(rects, function (rect, index) {
+            _.each(inferredLines, function (line, index) {
 
-                var underlineTop = rect.top;
-                var underlineLeft = rect.left;
-                var underlineHeight = rect.height;
-                var underlineWidth = rect.width;
+                var underlineTop = line.startTop;
+                var underlineLeft = line.left;
+                var underlineHeight = line.avgHeight;
+                var underlineWidth = line.width;
 
                 var underlineView = new EpubAnnotations.UnderlineView({
                     CFI : that.get("CFI"),

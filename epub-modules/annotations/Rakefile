@@ -21,6 +21,7 @@ end
 def render_annotations_module_template(template_file_path, output_file_path, path_from_executing_dir)
 
     # Read each of the library components
+    text_line_inferrer = File.read(path_from_executing_dir + '/src/models/text_line_inferrer.js')
     highlight = File.read(path_from_executing_dir + '/src/models/highlight.js')
     underline = File.read(path_from_executing_dir + '/src/models/underline.js')
     bookmark = File.read(path_from_executing_dir + '/src/models/bookmark.js')

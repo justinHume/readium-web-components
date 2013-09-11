@@ -2282,7 +2282,7 @@ EPUBcfi.CFIAssertionError = function (expectedAssertion, targetElementAssertion,
         this.validateStartTextNode(rangeStartElement);
         this.validateStartTextNode(rangeEndElement);
 
-        if (rangeStartElement === rangeEndElement) {
+        if ($(rangeStartElement).parent()[0] === $(rangeEndElement).parent()[0]) {
             range1OffsetStep = this.createCFITextNodeStep($(rangeStartElement), startOffset, classBlacklist, elementBlacklist, idBlacklist);
             range2OffsetStep = this.createCFITextNodeStep($(rangeEndElement), endOffset, classBlacklist, elementBlacklist, idBlacklist);          
             commonCFIComponent = this.createCFIElementSteps($(rangeStartElement).parent(), "html", classBlacklist, elementBlacklist, idBlacklist);

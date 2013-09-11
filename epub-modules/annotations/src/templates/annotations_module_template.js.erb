@@ -3,6 +3,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
     var EpubAnnotations = {};
 
     // Rationale: The order of these matters
+    <%= text_line_inferrer %>
     <%= highlight %>
     <%= highlight_group %>
     <%= underline %>
@@ -14,6 +15,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
     <%= highlight_view %>
     <%= underline_view %>
     <%= image_annotation %>
+
 
     var reflowableAnnotations = new EpubAnnotations.ReflowableAnnotations({
         contentDocumentDOM : contentDocumentDOM, 

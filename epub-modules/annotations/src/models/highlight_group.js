@@ -44,13 +44,15 @@ EpubAnnotations.HighlightGroup = Backbone.Model.extend({
             var range = document.createRange();
             range.selectNodeContents(node);
             var rects = range.getClientRects();
+            var inferrer = new EpubAnnotations.TextLineInferrer();
+            var inferredLines = inferrer.inferLines(rects);
 
-            _.each(rects, function (rect, index) {
+            _.each(inferredLines, function (line, index) {
 
-                var highlightTop = rect.top;
-                var highlightLeft = rect.left;
-                var highlightHeight = rect.height;
-                var highlightWidth = rect.width;
+                var highlightTop = line.startTop;
+                var highlightLeft = line.left;
+                var highlightHeight = line.avgHeight;
+                var highlightWidth = line.width;
 
                 var highlightView = new EpubAnnotations.HighlightView({
                     CFI : that.get("CFI"),
@@ -89,9 +91,7 @@ EpubAnnotations.HighlightGroup = Backbone.Model.extend({
             highlightView.off();
         });
 
-        // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
         this.get("highlightViews").length = 0;
-        // this.set({ "highlightViews" : [] });
     },
 
     renderHighlights : function (viewportElement) {

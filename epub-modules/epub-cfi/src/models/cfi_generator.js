@@ -17,7 +17,8 @@ EPUBcfi.Generator = {
         this.validateStartTextNode(rangeStartElement);
         this.validateStartTextNode(rangeEndElement);
 
-        if (rangeStartElement === rangeEndElement) {
+        // Parent element is the same
+        if ($(rangeStartElement).parent()[0] === $(rangeEndElement).parent()[0]) {
             range1OffsetStep = this.createCFITextNodeStep($(rangeStartElement), startOffset, classBlacklist, elementBlacklist, idBlacklist);
             range2OffsetStep = this.createCFITextNodeStep($(rangeEndElement), endOffset, classBlacklist, elementBlacklist, idBlacklist);          
             commonCFIComponent = this.createCFIElementSteps($(rangeStartElement).parent(), "html", classBlacklist, elementBlacklist, idBlacklist);
@@ -200,7 +201,7 @@ EPUBcfi.Generator = {
         }
     },
 
-    // Description: Creates a CFI terminating step, to a text node, with a character offset
+    // Description: Creates a CFI terminating step to a text node, with a character offset
     // REFACTORING CANDIDATE: Some of the parts of this method could be refactored into their own methods
     createCFITextNodeStep : function ($startTextNode, characterOffset, classBlacklist, elementBlacklist, idBlacklist) {
 
@@ -221,11 +222,12 @@ EPUBcfi.Generator = {
         // Find the text node index in the parent list, inferring nodes that were originally a single text node
         var prevNodeWasTextNode;
         var indexOfFirstInSequence;
+        var textNodeOnlyIndex = 0;
         $.each($contentsExcludingMarkers, 
             function (index) {
 
                 // If this is a text node, check if it matches and return the current index
-                if (this.nodeType === 3) {
+                if (this.nodeType === Node.TEXT_NODE) {
 
                     if (this === $startTextNode[0]) {
 
@@ -235,7 +237,7 @@ EPUBcfi.Generator = {
                             indexOfTextNode = indexOfFirstInSequence;
                         }
                         else {
-                            indexOfTextNode = index;
+                            indexOfTextNode = textNodeOnlyIndex;
                         }
                         
                         // Break out of .each loop
@@ -245,8 +247,10 @@ EPUBcfi.Generator = {
                     // Save this index as the first in sequence of adjacent text nodes, if it is not already set by this point
                     prevNodeWasTextNode = true;
                     if (!indexOfFirstInSequence) {
-                        indexOfFirstInSequence = index;
+                        indexOfFirstInSequence = textNodeOnlyIndex;
                     }
+
+                    textNodeOnlyIndex = textNodeOnlyIndex + 1;
                 }
                 // This node is not a text node
                 else {
@@ -275,57 +279,6 @@ EPUBcfi.Generator = {
         // Return the constructed CFI text node step
         return "/" + CFIIndex + ":" + characterOffset;
          // + "[" + preAssertion + "," + postAssertion + "]";
-    },
-
-    // Description: A set of adjacent text nodes can be inferred to have been a single text node in the original document. As such, 
-    //   if the character offset is specified for one of the adjacent text nodes, the true offset for the original node must be
-    //   inferred.
-    findOriginalTextNodeCharOffset : function ($startTextNode, specifiedCharacterOffset, classBlacklist, elementBlacklist, idBlacklist) {
-
-        var $parentNode;
-        var $contentsExcludingMarkers;
-        var textLength;
-        
-        // Find text node position in the set of child elements, ignoring any cfi markers 
-        $parentNode = $startTextNode.parent();
-        $contentsExcludingMarkers = EPUBcfi.CFIInstructions.applyBlacklist($parentNode.contents(), classBlacklist, elementBlacklist, idBlacklist);
-
-        // Find the text node number in the list, inferring nodes that were originally a single text node
-        var prevNodeWasTextNode;
-        var originalCharOffset = -1; // So the character offset is a 0-based index; we'll be adding lengths of text nodes to this number
-        $.each($contentsExcludingMarkers, 
-            function (index) {
-
-                // If this is a text node, check if it matches and return the current index
-                if (this.nodeType === 3) {
-
-                    if (this === $startTextNode[0]) {
-
-                        if (prevNodeWasTextNode) {
-                            originalCharOffset = originalCharOffset + specifiedCharacterOffset;
-                        }
-                        else {
-                            originalCharOffset = specifiedCharacterOffset;
-                        }
-
-                        return false; // Break out of .each loop
-                    }
-                    else {
-
-                        originalCharOffset = originalCharOffset + this.length;
-                    }
-
-                    // save this index as the first in sequence of adjacent text nodes, if not set
-                    prevNodeWasTextNode = true;
-                }
-                // This node is not a text node
-                else {
-                    prevNodeWasTextNode = false;
-                }
-            }
-        );
-
-        return originalCharOffset;
     },
 
     createCFIElementSteps : function ($currNode, topLevelElement, classBlacklist, elementBlacklist, idBlacklist) {

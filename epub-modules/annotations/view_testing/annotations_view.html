@@ -19,11 +19,11 @@
             $(document).ready(function () {
 
                 var that = this;
-                epubViewer = initializationTest();
+                epubViewer = initializationTest("2");
 
                 epubViewer.on("epubLoaded", function () { 
 
-                    epubViewer.showSpineItem(2, function () { console.log("showed first page"); });
+                    epubViewer.showSpineItem(1, function () { console.log("showed first page"); });
 
                     $("#highlight").on("click", function () {
                         epubViewer.addSelectionHighlight("1", "highlight");

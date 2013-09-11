@@ -80,65 +80,131 @@ describe("CFI GENERATOR", function () {
             ); 
         });
 
-        it("can generate a character offset range CFI for different start and end nodes", function () {
+        describe("character offset range CFIs", function () {
 
-           var dom = 
-                "<html>"
-                +    "<div></div>"
-                +    "<div>"
-                +         "<div id='startParent'>"
-                +             "<div>text target for start</div>"
-                +             "textnode1"
-                +             "<div></div>"
-                +             "textNode2"
-                +             "<div>text target for end</div>"
-                +         "</div>"
-                +     "</div>"
-                +     "<div></div>"
-                + "</html>";
-            var $dom = $((new window.DOMParser).parseFromString(dom, "text/xml"));         
+            it("generates for different start and end nodes", function () {
 
-            var $startElement = $($('#startParent', $dom).children()[0].firstChild);
-            var $endElement = $($('#startParent', $dom).children()[2].firstChild)
-            var generatedCFI = EPUBcfi.Generator.generateCharOffsetRangeComponent(
-                $startElement[0], 
-                6,
-                $endElement[0],
-                2
-            );
+               var dom = 
+                    "<html>"
+                    +    "<div></div>"
+                    +    "<div>"
+                    +         "<div id='startParent'>"
+                    +             "<div>text target for start</div>"
+                    +             "textnode1"
+                    +             "<div></div>"
+                    +             "textNode2"
+                    +             "<div>text target for end</div>"
+                    +         "</div>"
+                    +     "</div>"
+                    +     "<div></div>"
+                    + "</html>";
+                var $dom = $((new window.DOMParser).parseFromString(dom, "text/xml"));         
 
-            expect(generatedCFI).toEqual("/4/2[startParent],/2/1:6,/6/1:2");
+                var $startElement = $($('#startParent', $dom).children()[0].firstChild);
+                var $endElement = $($('#startParent', $dom).children()[2].firstChild)
+                var generatedCFI = EPUBcfi.Generator.generateCharOffsetRangeComponent(
+                    $startElement[0], 
+                    6,
+                    $endElement[0],
+                    2
+                );
+
+                expect(generatedCFI).toEqual("/4/2[startParent],/2/1:6,/6/1:2");
+            });
+
+            it("generates for the same start and end node, with differet offsets", function () {
+
+               var dom = 
+                    "<html>"
+                    +    "<div></div>"
+                    +    "<div>"
+                    +         "<div id='startParent'>"
+                    +             "<div>text target for start</div>"
+                    +             "textnode1"
+                    +             "<div></div>"
+                    +             "textNode2"
+                    +             "<div>text target for end</div>"
+                    +         "</div>"
+                    +     "</div>"
+                    +     "<div></div>"
+                    + "</html>";
+                var $dom = $((new window.DOMParser).parseFromString(dom, "text/xml"));         
+
+                var $startElement = $($('#startParent', $dom).children()[0].firstChild);
+                var $endElement = $($('#startParent', $dom).children()[0].firstChild)
+                var generatedCFI = EPUBcfi.Generator.generateCharOffsetRangeComponent(
+                    $startElement[0], 
+                    2,
+                    $endElement[0],
+                    6
+                );
+
+                expect(generatedCFI).toEqual("/4/2[startParent]/2,/1:2,/1:6");
+            });
+
+            it("generates for an element with multiple child text nodes", function () {
+
+                var dom = 
+                    "<html>"
+                    +    "<div></div>"
+                    +    "<div>"
+                    +         "<div id='startParent'>"
+                    +             "<div>content</div>"
+                    +             "textnode1"
+                    +             "<div></div>"
+                    +             "textNode2"
+                    +             "<div>content</div>"
+                    +             "textNode3"
+                    +             "textNode4"
+                    +         "</div>"
+                    +     "</div>"
+                    +     "<div></div>"
+                    + "</html>";
+                var $dom = $((new window.DOMParser).parseFromString(dom, "text/xml"));         
+
+                var $startElement = $($('#startParent', $dom).contents()[1]);
+                var $endElement = $($('#startParent', $dom).contents()[5])
+                var generatedCFI = EPUBcfi.Generator.generateCharOffsetRangeComponent(
+                    $startElement[0], 
+                    2,
+                    $endElement[0],
+                    6
+                );
+
+                expect(generatedCFI).toEqual("/4/2[startParent],/1:2,/5:6");
+            });
+
+            it("generates offsets with the same parent element", function () {
+
+                var dom = 
+                    "<html>"
+                    +    "<div></div>"
+                    +    "<div>"
+                    +         "<div id='startParent'>"
+                    +             "<div>content</div>"
+                    +             "textnode1"
+                    +             "<div></div>"
+                    +             "textNode2"
+                    +             "<div>content</div>"
+                    +         "</div>"
+                    +     "</div>"
+                    +     "<div></div>"
+                    + "</html>";
+                var $dom = $((new window.DOMParser).parseFromString(dom, "text/xml"));         
+
+                var $startElement = $($('#startParent', $dom).contents()[1]);
+                var $endElement = $($('#startParent', $dom).contents()[3])
+                var generatedCFI = EPUBcfi.Generator.generateCharOffsetRangeComponent(
+                    $startElement[0], 
+                    2,
+                    $endElement[0],
+                    6
+                );
+
+                expect(generatedCFI).toEqual("/4/2[startParent],/1:2,/3:6");
+            });            
         });
-
-        it("can generate a character offset range CFI for the same start and end node, with differet offsets", function () {
-
-           var dom = 
-                "<html>"
-                +    "<div></div>"
-                +    "<div>"
-                +         "<div id='startParent'>"
-                +             "<div>text target for start</div>"
-                +             "textnode1"
-                +             "<div></div>"
-                +             "textNode2"
-                +             "<div>text target for end</div>"
-                +         "</div>"
-                +     "</div>"
-                +     "<div></div>"
-                + "</html>";
-            var $dom = $((new window.DOMParser).parseFromString(dom, "text/xml"));         
-
-            var $startElement = $($('#startParent', $dom).children()[0].firstChild);
-            var $endElement = $($('#startParent', $dom).children()[0].firstChild)
-            var generatedCFI = EPUBcfi.Generator.generateCharOffsetRangeComponent(
-                $startElement[0], 
-                2,
-                $endElement[0],
-                6
-            );
-
-            expect(generatedCFI).toEqual("/4/2[startParent]/2,/1:2,/1:6");
-        });
+        
     });
 
     describe("path generation", function () {
@@ -192,34 +258,6 @@ describe("CFI GENERATOR", function () {
             var generatedCFI = EPUBcfi.Generator.createCFIElementSteps($startNode.parent(), "html", ["cfi-marker"]) + textTerminus;
 
             expect(generatedCFI).toEqual("!/4/2[startParent]/3:3"); // [ te,xtn]
-        });
-
-        it("calculates the original character offset", function () {
-
-            var dom = 
-                "<html>"
-                +    "<div></div>"
-                +    "<div>"
-                +         "<div id='startParent'>"
-                +             "<div></div>"
-                +             "textnode1.0"
-                +             "<div class='cfi-marker'></div>"
-                +             "textnode1.1"
-                +             "<div class='cfi-marker'></div>"
-                +             "textnode1.2"            
-                +             "<div></div>"
-                +             "textNode2"
-                +             "<div></div>"
-                +         "</div>"
-                +     "</div>"
-                +     "<div></div>"
-                + "</html>";
-            var $dom = $((new window.DOMParser).parseFromString(dom, "text/xml"));
-
-            var orgIndexFromSplitNodes = EPUBcfi.Generator.findOriginalTextNodeCharOffset($($('#startParent', $dom).contents()[3]), 3, ["cfi-marker"]);
-            var orgIndexFromSingleNode = EPUBcfi.Generator.findOriginalTextNodeCharOffset($($('#startParent', $dom).contents()[7]), 3, ["cfi-marker"]);
-            expect(orgIndexFromSplitNodes).toEqual(13);
-            expect(orgIndexFromSingleNode).toEqual(3);
         });
 
         it("can generate a package document CFI with the spine index", function () {
@@ -279,7 +317,7 @@ describe("CFI GENERATOR", function () {
             var packageDocCFIComponent = EPUBcfi.Generator.generatePackageDocumentCFIComponent("contentDocId", packageDoc);
             var generatedCFI = EPUBcfi.Generator.generateCompleteCFI(packageDocCFIComponent, contentDocCFIComponent);
 
-            expect(generatedCFI).toEqual("epubcfi(/6/2/6!/4/2[startParent]/3:3)"); // [ te,xtn]
+            expect(generatedCFI).toEqual("epubcfi(/6/2/6!/4/2[startParent]/1:3)"); // [ te,xtn]
         });
 
         it('can generate a CFI for an actual epub', function () {
