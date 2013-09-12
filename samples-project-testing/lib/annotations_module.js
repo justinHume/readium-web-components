@@ -1140,16 +1140,19 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
 
     setCSS : function () {
 
-        var absoluteTop = this.bookmark.getAbsoluteTop();
-        var absoluteLeft = this.bookmark.getAbsoluteLeft();
-        this.$el.css({ 
-            "top" : absoluteTop + "px",
-            "left" : absoluteLeft + "px",
-            "width" : "50px",
-            "height" : "50px",
-            "position" : "absolute"
-        });
+        var absoluteTop;
+        var absoluteLeft;
+
         if (this.bookmark.get("type") === "comment") {
+            absoluteTop = this.bookmark.getAbsoluteTop();
+            absoluteLeft = this.bookmark.getAbsoluteLeft();
+            this.$el.css({ 
+                "top" : absoluteTop + "px",
+                "left" : absoluteLeft + "px",
+                "width" : "50px",
+                "height" : "50px",
+                "position" : "absolute"
+            });
             this.$el.addClass("comment");
         }
         else {
@@ -1436,8 +1439,8 @@ EpubAnnotations.ImageAnnotation = Backbone.Model.extend({
         addHighlight : function (CFI, id, type) { 
             return reflowableAnnotations.addHighlight(CFI, id, type); 
         },
-        addBookmark : function (CFI, id) { 
-            return reflowableAnnotations.addBookmark(CFI, id); 
+        addBookmark : function (CFI, id, type) { 
+            return reflowableAnnotations.addBookmark(CFI, id, type);
         },
         addImageAnnotation : function (CFI, id) { 
             return reflowableAnnotations.addImageAnnotation(CFI, id); 

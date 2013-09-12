@@ -41,16 +41,19 @@ EpubAnnotations.BookmarkView = Backbone.View.extend({
 
     setCSS : function () {
 
-        var absoluteTop = this.bookmark.getAbsoluteTop();
-        var absoluteLeft = this.bookmark.getAbsoluteLeft();
-        this.$el.css({ 
-            "top" : absoluteTop + "px",
-            "left" : absoluteLeft + "px",
-            "width" : "50px",
-            "height" : "50px",
-            "position" : "absolute"
-        });
+        var absoluteTop;
+        var absoluteLeft;
+
         if (this.bookmark.get("type") === "comment") {
+            absoluteTop = this.bookmark.getAbsoluteTop();
+            absoluteLeft = this.bookmark.getAbsoluteLeft();
+            this.$el.css({ 
+                "top" : absoluteTop + "px",
+                "left" : absoluteLeft + "px",
+                "width" : "50px",
+                "height" : "50px",
+                "position" : "absolute"
+            });
             this.$el.addClass("comment");
         }
         else {

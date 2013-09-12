@@ -4795,8 +4795,8 @@ EpubReflowable.ReflowableCustomTheme = Backbone.Model.extend({
         addHighlight : function (CFI, id, type) { 
             return reflowableView.annotations.addHighlight(CFI, id, type); 
         },
-        addBookmark : function (CFI, id) { 
-            return reflowableView.annotations.addBookmark(CFI, id); 
+        addBookmark : function (CFI, id, type) { 
+            return reflowableView.annotations.addBookmark(CFI, id, type);
         },
         addImageAnnotation : function (CFI, id) { 
             return reflowableView.annotations.addImageAnnotation(CFI, id); 
@@ -8594,8 +8594,8 @@ Epub.PackageDocument = Backbone.Model.extend({
         addHighlight : function (CFI, id, type, callback, callbackContext) { 
             return epubReaderView.addHighlight(CFI, id, type, callback, callbackContext); 
         },
-        addBookmark : function (CFI, id, callback, callbackContext) { 
-            return epubReaderView.addBookmark(CFI, id, callback, callbackContext); 
+        addBookmark : function (CFI, id, type, callback, callbackContext) { 
+            return epubReaderView.addBookmark(CFI, id, type, callback, callbackContext); 
         },
         addImageAnnotation : function (CFI, id, callback, callbackContext) { 
             return epubReaderView.addImageAnnotation(CFI, id, callback, callbackContext); 

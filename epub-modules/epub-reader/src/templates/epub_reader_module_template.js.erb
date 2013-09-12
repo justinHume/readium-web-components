@@ -70,8 +70,8 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         addHighlight : function (CFI, id, type, callback, callbackContext) { 
             return epubReaderView.addHighlight(CFI, id, type, callback, callbackContext); 
         },
-        addBookmark : function (CFI, id, callback, callbackContext) { 
-            return epubReaderView.addBookmark(CFI, id, callback, callbackContext); 
+        addBookmark : function (CFI, id, type, callback, callbackContext) { 
+            return epubReaderView.addBookmark(CFI, id, type, callback, callbackContext); 
         },
         addImageAnnotation : function (CFI, id, callback, callbackContext) { 
             return epubReaderView.addImageAnnotation(CFI, id, callback, callbackContext); 

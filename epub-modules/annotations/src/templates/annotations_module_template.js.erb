@@ -38,8 +38,8 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
         addHighlight : function (CFI, id, type) { 
             return reflowableAnnotations.addHighlight(CFI, id, type); 
         },
-        addBookmark : function (CFI, id) { 
-            return reflowableAnnotations.addBookmark(CFI, id); 
+        addBookmark : function (CFI, id, type) { 
+            return reflowableAnnotations.addBookmark(CFI, id, type);
         },
         addImageAnnotation : function (CFI, id) { 
             return reflowableAnnotations.addImageAnnotation(CFI, id); 
