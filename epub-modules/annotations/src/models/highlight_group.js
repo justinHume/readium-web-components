@@ -39,33 +39,44 @@ EpubAnnotations.HighlightGroup = Backbone.Model.extend({
     constructHighlightViews : function () {
 
         var that = this;
+        var rectList = [];
+        var inferrer;
+        var inferredLines;
+
         _.each(this.get("selectedNodes"), function (node, index) {
 
+            var rects;
             var range = document.createRange();
             range.selectNodeContents(node);
-            var rects = range.getClientRects();
-            var inferrer = new EpubAnnotations.TextLineInferrer();
-            var inferredLines = inferrer.inferLines(rects);
+            rects = range.getClientRects();
 
-            _.each(inferredLines, function (line, index) {
-
-                var highlightTop = line.startTop;
-                var highlightLeft = line.left;
-                var highlightHeight = line.avgHeight;
-                var highlightWidth = line.width;
-
-                var highlightView = new EpubAnnotations.HighlightView({
-                    CFI : that.get("CFI"),
-                    top : highlightTop + that.get("offsetTopAddition"),
-                    left : highlightLeft + that.get("offsetLeftAddition"),
-                    height : highlightHeight,
-                    width : highlightWidth,
-                    highlightGroupCallback : that.highlightGroupCallback,
-                    callbackContext : that
-                });
-
-                that.get("highlightViews").push(highlightView);
+            // REFACTORING CANDIDATE: More efficient array slice here, perhapse
+            _.each(rects, function (rect) {
+                rectList.push(rect);
             });
+        });
+
+        inferrer = new EpubAnnotations.TextLineInferrer();
+        inferredLines = inferrer.inferLines(rectList);
+
+        _.each(inferredLines, function (line, index) {
+
+            var highlightTop = line.startTop;
+            var highlightLeft = line.left;
+            var highlightHeight = line.avgHeight;
+            var highlightWidth = line.width;
+
+            var highlightView = new EpubAnnotations.HighlightView({
+                CFI : that.get("CFI"),
+                top : highlightTop + that.get("offsetTopAddition"),
+                left : highlightLeft + that.get("offsetLeftAddition"),
+                height : highlightHeight,
+                width : highlightWidth,
+                highlightGroupCallback : that.highlightGroupCallback,
+                callbackContext : that
+            });
+
+            that.get("highlightViews").push(highlightView);
         });
     },
 

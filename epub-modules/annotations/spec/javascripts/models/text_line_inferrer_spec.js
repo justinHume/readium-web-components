@@ -127,7 +127,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
             lineInferrer = new EpubAnnotations.TextLineInferrer();
         });
 
-        describe("rectIsOnCurrLine()", function () {
+        describe("rectIsWithinLineVertically()", function () {
 
             // Curr line : Rect
             //             --------- 
@@ -140,7 +140,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var currLineMaxBottom = 70;
                 var rectTop = 40;
                 var rectHeight = 20;
-                var isOnFirstLine = lineInferrer.rectIsOnCurrLine(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
+                var isOnFirstLine = lineInferrer.rectIsWithinLineVertically(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
 
                 expect(isOnFirstLine).toBe(true);
             });
@@ -156,7 +156,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var currLineMaxBottom = 50;
                 var rectTop = 40;
                 var rectHeight = 20;
-                var isOnFirstLine = lineInferrer.rectIsOnCurrLine(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
+                var isOnFirstLine = lineInferrer.rectIsWithinLineVertically(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
 
                 expect(isOnFirstLine).toBe(true);
             });
@@ -172,7 +172,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var currLineMaxBottom = 60;
                 var rectTop = 45;
                 var rectHeight = 10;
-                var isOnFirstLine = lineInferrer.rectIsOnCurrLine(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
+                var isOnFirstLine = lineInferrer.rectIsWithinLineVertically(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
 
                 expect(isOnFirstLine).toBe(true);
             });
@@ -188,7 +188,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var currLineMaxBottom = 45;
                 var rectTop = 30;
                 var rectHeight = 20;
-                var isOnFirstLine = lineInferrer.rectIsOnCurrLine(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
+                var isOnFirstLine = lineInferrer.rectIsWithinLineVertically(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
 
                 expect(isOnFirstLine).toBe(true);
             });
@@ -204,7 +204,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var currLineMaxBottom = 60;
                 var rectTop = 30;
                 var rectHeight = 10;
-                var isOnFirstLine = lineInferrer.rectIsOnCurrLine(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
+                var isOnFirstLine = lineInferrer.rectIsWithinLineVertically(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
 
                 expect(isOnFirstLine).toBe(false);
             });
@@ -220,13 +220,13 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var currLineMaxBottom = 30;
                 var rectTop = 40;
                 var rectHeight = 10;
-                var isOnFirstLine = lineInferrer.rectIsOnCurrLine(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
+                var isOnFirstLine = lineInferrer.rectIsWithinLineVertically(rectTop, rectHeight, currLineMaxTop, currLineMaxBottom);
 
                 expect(isOnFirstLine).toBe(false);
             });
         });
 
-        describe("rectShouldBeAppended()", function () {
+        describe("rectIsWithinLineHorizontally()", function () {
 
             it("YES: gap > 2 * avg line height", function () {
 
@@ -234,7 +234,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var currLineWidth = 40;
                 var currLineAvgHeight = 10;
                 var rectLeft = 60; 
-                var shouldBeAppended = lineInferrer.rectShouldBeAppended(rectLeft, currLineLeft, currLineWidth, currLineAvgHeight);
+                var shouldBeAppended = lineInferrer.rectIsWithinLineHorizontally(rectLeft, currLineLeft, currLineWidth, currLineAvgHeight);
 
                 expect(shouldBeAppended).toBe(true);
             });
@@ -245,7 +245,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var currLineWidth = 40;
                 var currLineAvgHeight = 10;
                 var rectLeft = 80; 
-                var shouldBeAppended = lineInferrer.rectShouldBeAppended(rectLeft, currLineLeft, currLineWidth, currLineAvgHeight);
+                var shouldBeAppended = lineInferrer.rectIsWithinLineHorizontally(rectLeft, currLineLeft, currLineWidth, currLineAvgHeight);
 
                 expect(shouldBeAppended).toBe(false);
             });
@@ -277,7 +277,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
             });
         });
 
-        describe("appendRectToLine()", function () {
+        describe("expandLine()", function () {
 
             var currLine;
             beforeEach(function () {
@@ -299,7 +299,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var rectTop = 10;
                 var rectWidth = 30;
                 var rectHeight = 50;
-                var updatedLine = lineInferrer.appendRectToLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
+                var updatedLine = lineInferrer.expandLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
 
                 expect(updatedLine.avgHeight).toBe(42);
             });
@@ -310,7 +310,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var rectTop = 10;
                 var rectWidth = 30;
                 var rectHeight = 50;
-                var updatedLine = lineInferrer.appendRectToLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
+                var updatedLine = lineInferrer.expandLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
 
                 expect(updatedLine.numRects).toBe(5);
             });
@@ -321,7 +321,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var rectTop = 10;
                 var rectWidth = 30;
                 var rectHeight = 50;
-                var updatedLine = lineInferrer.appendRectToLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
+                var updatedLine = lineInferrer.expandLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
 
                 expect(updatedLine.maxTop).toBe(10);
             });
@@ -332,7 +332,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var rectTop = 10;
                 var rectWidth = 30;
                 var rectHeight = 50;
-                var updatedLine = lineInferrer.appendRectToLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
+                var updatedLine = lineInferrer.expandLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
 
                 expect(updatedLine.maxBottom).toBe(60);
             });
@@ -343,7 +343,7 @@ describe("EpubAnnotations.TextLineInferrer", function () {
                 var rectTop = 10;
                 var rectWidth = 30;
                 var rectHeight = 50;
-                var updatedLine = lineInferrer.appendRectToLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
+                var updatedLine = lineInferrer.expandLine(currLine, rectLeft, rectTop, rectWidth, rectHeight);
 
                 expect(updatedLine.width).toBe(70);
             });
