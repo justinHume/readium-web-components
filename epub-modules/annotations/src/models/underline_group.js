@@ -39,33 +39,44 @@ EpubAnnotations.UnderlineGroup = Backbone.Model.extend({
     constructUnderlineViews : function () {
 
         var that = this;
+        var rectList = [];
+        var inferrer;
+        var inferredLines;
+
         _.each(this.get("selectedNodes"), function (node, index) {
 
+            var rects;
             var range = document.createRange();
             range.selectNodeContents(node);
-            var rects = range.getClientRects();
-            var inferrer = new EpubAnnotations.TextLineInferrer();
-            var inferredLines = inferrer.inferLines(rects);
+            rects = range.getClientRects();
 
-            _.each(inferredLines, function (line, index) {
-
-                var underlineTop = line.startTop;
-                var underlineLeft = line.left;
-                var underlineHeight = line.avgHeight;
-                var underlineWidth = line.width;
-
-                var underlineView = new EpubAnnotations.UnderlineView({
-                    CFI : that.get("CFI"),
-                    top : underlineTop + that.get("offsetTopAddition"),
-                    left : underlineLeft + that.get("offsetLeftAddition"),
-                    height : underlineHeight,
-                    width : underlineWidth,
-                    underlineGroupCallback : that.underlineGroupCallback,
-                    callbackContext : that
-                });
-
-                that.get("underlineViews").push(underlineView);
+            // REFACTORING CANDIDATE: Maybe a better way to append an array here
+            _.each(rects, function (rect) {
+                rectList.push(rect);
             });
+        });
+
+        inferrer = new EpubAnnotations.TextLineInferrer();
+        inferredLines = inferrer.inferLines(rectList);
+
+        _.each(inferredLines, function (line, index) {
+
+            var underlineTop = line.startTop;
+            var underlineLeft = line.left;
+            var underlineHeight = line.avgHeight;
+            var underlineWidth = line.width;
+
+            var underlineView = new EpubAnnotations.UnderlineView({
+                CFI : that.get("CFI"),
+                top : underlineTop + that.get("offsetTopAddition"),
+                left : underlineLeft + that.get("offsetLeftAddition"),
+                height : underlineHeight,
+                width : underlineWidth,
+                underlineGroupCallback : that.underlineGroupCallback,
+                callbackContext : that
+            });
+
+            that.get("underlineViews").push(underlineView);
         });
     },
 
@@ -91,8 +102,6 @@ EpubAnnotations.UnderlineGroup = Backbone.Model.extend({
             underlineView.off();
         });
 
-        // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
-        // this.set({ "underlineViews" : [] });
         this.get("underlineViews").length = 0;
     },
 
@@ -111,16 +120,5 @@ EpubAnnotations.UnderlineGroup = Backbone.Model.extend({
             type : "underline",
             CFI : this.get("CFI")
         };
-    },
-
-    inferLines : function (domRange) {
-
-        // init the first line vars: start, top
-
-        // get the client rects 
-
-        // for each client rect
-
-        // 
     }
 });

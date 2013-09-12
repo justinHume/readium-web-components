@@ -1,6 +1,6 @@
 EpubAnnotations.BookmarkView = Backbone.View.extend({
 
-    el : "<div class='bookmark'></div>",
+    el : "<div></div>",
 
     events : {
         "mouseenter" : "setHoverBookmark",
@@ -16,7 +16,8 @@ EpubAnnotations.BookmarkView = Backbone.View.extend({
             offsetTopAddition : options.offsetTopAddition,
             offsetLeftAddition : options.offsetLeftAddition,
             id : options.id,
-            bbPageSetView : options.bbPageSetView
+            bbPageSetView : options.bbPageSetView,
+            type : options.type
         });
     },
 
@@ -49,28 +50,45 @@ EpubAnnotations.BookmarkView = Backbone.View.extend({
             "height" : "50px",
             "position" : "absolute"
         });
-        this.$el.addClass("bookmark");
+        if (this.bookmark.get("type") === "comment") {
+            this.$el.addClass("comment");
+        }
+        else {
+            this.$el.addClass("bookmark");
+        }
     },
 
     setHoverBookmark : function (event) {
 
         event.stopPropagation();
-        this.$el.removeClass("bookmark");
-        this.$el.addClass("hover-bookmark");
+        if (this.$el.hasClass("comment")) {
+            this.$el.removeClass("comment");
+            this.$el.addClass("hover-comment");
+        }
     },
 
     setBaseBookmark : function (event) {
 
         event.stopPropagation();
-        this.$el.removeClass("hover-bookmark");
-        this.$el.addClass("bookmark");
+        if (this.$el.hasClass("hover-comment")) {
+            this.$el.removeClass("hover-comment");
+            this.$el.addClass("comment");
+        }
     },
 
     clickHandler : function (event) {
 
         event.stopPropagation();
+        var type;
+        if (this.bookmark.get("type") === "comment") {
+            type = "comment";
+        }
+        else {
+            type = "bookmark";
+        }
+
         this.bookmark.get("bbPageSetView").trigger("annotationClicked", 
-            "bookmark", 
+            type, 
             this.bookmark.get("CFI"), 
             this.bookmark.get("id"),
             this.$el.css("top"),

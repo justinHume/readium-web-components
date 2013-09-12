@@ -4786,8 +4786,8 @@ EpubReflowable.ReflowableCustomTheme = Backbone.Model.extend({
         addSelectionHighlight : function (id, type) { 
             return reflowableView.annotations.addSelectionHighlight(id, type); 
         },
-        addSelectionBookmark : function (id) { 
-            return reflowableView.annotations.addSelectionBookmark(id); 
+        addSelectionBookmark : function (id, type) { 
+            return reflowableView.annotations.addSelectionBookmark(id, type); 
         },
         addSelectionImageAnnotation : function (id) {
             return reflowableView.annotations.addSelectionImageAnnotation(id);
@@ -8443,7 +8443,7 @@ Epub.PackageDocument = Backbone.Model.extend({
         return annotationInfo;
     },
 
-    addSelectionBookmark : function (id) {
+    addSelectionBookmark : function (id, type) {
 
         var contentDocCFIComponent;
         var packageDocCFIComponent;
@@ -8451,7 +8451,7 @@ Epub.PackageDocument = Backbone.Model.extend({
         var spineIndex;
         var currentViewInfo = this.reader.getCurrentPagesViewInfo();
         spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
-        annotationInfo = currentViewInfo.pagesView.addSelectionBookmark(id);
+        annotationInfo = currentViewInfo.pagesView.addSelectionBookmark(id, type);
 
         // Generate a package document cfi component and construct the whole cfi, append
         contentDocCFIComponent = annotationInfo.CFI;
@@ -8497,14 +8497,14 @@ Epub.PackageDocument = Backbone.Model.extend({
         });
     },
 
-    addBookmark : function (CFI, id, callback, callbackContext) {
+    addBookmark : function (CFI, id, type, callback, callbackContext) {
 
         var annotationInfo;
         var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
         this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
 
             try {
-                annotationInfo = pagesView.addBookmark(CFI, id);
+                annotationInfo = pagesView.addBookmark(CFI, id, type);
                 callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
             }
             catch (error) {
@@ -8585,8 +8585,8 @@ Epub.PackageDocument = Backbone.Model.extend({
         addSelectionHighlight : function (id, type) { 
             return epubReaderView.addSelectionHighlight(id, type); 
         },
-        addSelectionBookmark : function (id) { 
-            return epubReaderView.addSelectionBookmark(id); 
+        addSelectionBookmark : function (id, type) { 
+            return epubReaderView.addSelectionBookmark(id, type); 
         },
         addSelectionImageAnnotation : function (id) {
             return epubReaderView.addSelectionImageAnnotation(id);

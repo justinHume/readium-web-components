@@ -61,8 +61,8 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         addSelectionHighlight : function (id, type) { 
             return epubReaderView.addSelectionHighlight(id, type); 
         },
-        addSelectionBookmark : function (id) { 
-            return epubReaderView.addSelectionBookmark(id); 
+        addSelectionBookmark : function (id, type) { 
+            return epubReaderView.addSelectionBookmark(id, type); 
         },
         addSelectionImageAnnotation : function (id) {
             return epubReaderView.addSelectionImageAnnotation(id);

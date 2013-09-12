@@ -81,8 +81,8 @@ var EpubReflowableModule = function(spineObject, viewerSettingsObject, CFIAnnota
         addSelectionHighlight : function (id, type) { 
             return reflowableView.annotations.addSelectionHighlight(id, type); 
         },
-        addSelectionBookmark : function (id) { 
-            return reflowableView.annotations.addSelectionBookmark(id); 
+        addSelectionBookmark : function (id, type) { 
+            return reflowableView.annotations.addSelectionBookmark(id, type); 
         },
         addSelectionImageAnnotation : function (id) {
             return reflowableView.annotations.addSelectionImageAnnotation(id);

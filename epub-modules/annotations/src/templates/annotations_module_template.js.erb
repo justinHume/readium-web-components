@@ -29,8 +29,8 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
         addSelectionHighlight : function (id, type) { 
             return reflowableAnnotations.addSelectionHighlight(id, type); 
         },
-        addSelectionBookmark : function (id) { 
-            return reflowableAnnotations.addSelectionBookmark(id); 
+        addSelectionBookmark : function (id, type) { 
+            return reflowableAnnotations.addSelectionBookmark(id, type); 
         },
         addSelectionImageAnnotation : function (id) {
             return reflowableAnnotations.addSelectionImageAnnotation(id);

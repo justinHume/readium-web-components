@@ -75,7 +75,7 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
         }
     },
 
-    addBookmark : function (CFI, id) {
+    addBookmark : function (CFI, id, type) {
 
         var selectedElements;
         var bookmarkMarkerHtml = this.getBookmarkMarker(CFI, id);
@@ -94,7 +94,7 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
 
             // Add bookmark annotation here
             leftAddition = -this.getPaginationLeftOffset();
-            this.annotations.addBookmark(CFI, $injectedElement[0], id, 0, leftAddition);
+            this.annotations.addBookmark(CFI, $injectedElement[0], id, 0, leftAddition, type);
 
             return {
 
@@ -167,7 +167,7 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
         }
     },
 
-    addSelectionBookmark : function (id) {
+    addSelectionBookmark : function (id, type) {
 
         var arbitraryPackageDocCFI = "/99!"
         var generatedContentDocCFI;
@@ -179,7 +179,7 @@ EpubAnnotations.ReflowableAnnotations = Backbone.Model.extend({
 
             generatedContentDocCFI = this.generateCharOffsetCFI(currentSelection);
             CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
-            annotationInfo = this.addBookmark(CFI, id);
+            annotationInfo = this.addBookmark(CFI, id, type);
 
             // Rationale: The annotationInfo object returned from .addBookmark(...) contains the same value of 
             //   the CFI variable in the current scope. Since this CFI variable contains a "hacked" CFI value -

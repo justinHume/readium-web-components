@@ -107,7 +107,7 @@ EpubAnnotations.Annotations = Backbone.Model.extend({
         return imageAnnotations;
     },
 
-    addBookmark : function (CFI, targetElement, annotationId, offsetTop, offsetLeft) {
+    addBookmark : function (CFI, targetElement, annotationId, offsetTop, offsetLeft, type) {
 
         if (!offsetTop) {
             offsetTop = this.get("offsetTopAddition");
@@ -125,7 +125,8 @@ EpubAnnotations.Annotations = Backbone.Model.extend({
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
             id : annotationId.toString(),
-            bbPageSetView : this.get("bbPageSetView")
+            bbPageSetView : this.get("bbPageSetView"),
+            type : type
         });
         this.get("annotationHash")[annotationId] = bookmarkView;
         this.get("bookmarkViews").push(bookmarkView);

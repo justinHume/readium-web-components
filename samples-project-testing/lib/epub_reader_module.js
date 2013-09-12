@@ -780,7 +780,7 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         return annotationInfo;
     },
 
-    addSelectionBookmark : function (id) {
+    addSelectionBookmark : function (id, type) {
 
         var contentDocCFIComponent;
         var packageDocCFIComponent;
@@ -788,7 +788,7 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         var spineIndex;
         var currentViewInfo = this.reader.getCurrentPagesViewInfo();
         spineIndex = currentViewInfo.spineIndexes[0]; // Assumes reflowable
-        annotationInfo = currentViewInfo.pagesView.addSelectionBookmark(id);
+        annotationInfo = currentViewInfo.pagesView.addSelectionBookmark(id, type);
 
         // Generate a package document cfi component and construct the whole cfi, append
         contentDocCFIComponent = annotationInfo.CFI;
@@ -834,14 +834,14 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         });
     },
 
-    addBookmark : function (CFI, id, callback, callbackContext) {
+    addBookmark : function (CFI, id, type, callback, callbackContext) {
 
         var annotationInfo;
         var contentDocSpineIndex = this.getSpineIndexFromCFI(CFI);
         this.reader.getRenderedPagesView(contentDocSpineIndex, function (pagesView) {
 
             try {
-                annotationInfo = pagesView.addBookmark(CFI, id);
+                annotationInfo = pagesView.addBookmark(CFI, id, type);
                 callback.call(callbackContext, undefined, contentDocSpineIndex, CFI, annotationInfo);
             }
             catch (error) {
@@ -922,8 +922,8 @@ var EpubReaderModule = function(readerBoundElement, epubSpineInfo, viewerSetting
         addSelectionHighlight : function (id, type) { 
             return epubReaderView.addSelectionHighlight(id, type); 
         },
-        addSelectionBookmark : function (id) { 
-            return epubReaderView.addSelectionBookmark(id); 
+        addSelectionBookmark : function (id, type) { 
+            return epubReaderView.addSelectionBookmark(id, type); 
         },
         addSelectionImageAnnotation : function (id) {
             return epubReaderView.addSelectionImageAnnotation(id);

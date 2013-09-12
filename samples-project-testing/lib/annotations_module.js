@@ -65,6 +65,14 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
     rectIsWithinLineVertically : function (rectTop, rectHeight, currLineMaxTop, currLineMaxBottom) {
 
         var rectBottom = rectTop + rectHeight;
+        var lineHeight = currLineMaxBottom - currLineMaxTop;
+        var lineHeightAdjustment = (lineHeight * 0.75) / 2;
+        var rectHeightAdjustment = (rectHeight * 0.75) / 2;
+
+        rectTop = rectTop + rectHeightAdjustment;
+        rectBottom = rectBottom - rectHeightAdjustment;
+        currLineMaxTop = currLineMaxTop + lineHeightAdjustment;
+        currLineMaxBottom = currLineMaxBottom - lineHeightAdjustment;
 
         if (rectTop === currLineMaxTop && rectBottom === currLineMaxBottom) {
             return true;
@@ -224,7 +232,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
             range.selectNodeContents(node);
             rects = range.getClientRects();
 
-            // REFACTORING CANDIDATE: More efficient array slice here, perhapse
+            // REFACTORING CANDIDATE: Maybe a better way to append an array here
             _.each(rects, function (rect) {
                 rectList.push(rect);
             });
@@ -345,33 +353,44 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
     constructUnderlineViews : function () {
 
         var that = this;
+        var rectList = [];
+        var inferrer;
+        var inferredLines;
+
         _.each(this.get("selectedNodes"), function (node, index) {
 
+            var rects;
             var range = document.createRange();
             range.selectNodeContents(node);
-            var rects = range.getClientRects();
-            var inferrer = new EpubAnnotations.TextLineInferrer();
-            var inferredLines = inferrer.inferLines(rects);
+            rects = range.getClientRects();
 
-            _.each(inferredLines, function (line, index) {
-
-                var underlineTop = line.startTop;
-                var underlineLeft = line.left;
-                var underlineHeight = line.avgHeight;
-                var underlineWidth = line.width;
-
-                var underlineView = new EpubAnnotations.UnderlineView({
-                    CFI : that.get("CFI"),
-                    top : underlineTop + that.get("offsetTopAddition"),
-                    left : underlineLeft + that.get("offsetLeftAddition"),
-                    height : underlineHeight,
-                    width : underlineWidth,
-                    underlineGroupCallback : that.underlineGroupCallback,
-                    callbackContext : that
-                });
-
-                that.get("underlineViews").push(underlineView);
+            // REFACTORING CANDIDATE: Maybe a better way to append an array here
+            _.each(rects, function (rect) {
+                rectList.push(rect);
             });
+        });
+
+        inferrer = new EpubAnnotations.TextLineInferrer();
+        inferredLines = inferrer.inferLines(rectList);
+
+        _.each(inferredLines, function (line, index) {
+
+            var underlineTop = line.startTop;
+            var underlineLeft = line.left;
+            var underlineHeight = line.avgHeight;
+            var underlineWidth = line.width;
+
+            var underlineView = new EpubAnnotations.UnderlineView({
+                CFI : that.get("CFI"),
+                top : underlineTop + that.get("offsetTopAddition"),
+                left : underlineLeft + that.get("offsetLeftAddition"),
+                height : underlineHeight,
+                width : underlineWidth,
+                underlineGroupCallback : that.underlineGroupCallback,
+                callbackContext : that
+            });
+
+            that.get("underlineViews").push(underlineView);
         });
     },
 
@@ -397,8 +416,6 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
             underlineView.off();
         });
 
-        // REFACTORING CANDIDATE: Set length to clear the array, rather than initializing a new array (WRONG)
-        // this.set({ "underlineViews" : [] });
         this.get("underlineViews").length = 0;
     },
 
@@ -417,17 +434,6 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
             type : "underline",
             CFI : this.get("CFI")
         };
-    },
-
-    inferLines : function (domRange) {
-
-        // init the first line vars: start, top
-
-        // get the client rects 
-
-        // for each client rect
-
-        // 
     }
 });
     EpubAnnotations.Bookmark = Backbone.Model.extend({
@@ -545,7 +551,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
         }
     },
 
-    addBookmark : function (CFI, id) {
+    addBookmark : function (CFI, id, type) {
 
         var selectedElements;
         var bookmarkMarkerHtml = this.getBookmarkMarker(CFI, id);
@@ -564,7 +570,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
 
             // Add bookmark annotation here
             leftAddition = -this.getPaginationLeftOffset();
-            this.annotations.addBookmark(CFI, $injectedElement[0], id, 0, leftAddition);
+            this.annotations.addBookmark(CFI, $injectedElement[0], id, 0, leftAddition, type);
 
             return {
 
@@ -637,7 +643,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
         }
     },
 
-    addSelectionBookmark : function (id) {
+    addSelectionBookmark : function (id, type) {
 
         var arbitraryPackageDocCFI = "/99!"
         var generatedContentDocCFI;
@@ -649,7 +655,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
 
             generatedContentDocCFI = this.generateCharOffsetCFI(currentSelection);
             CFI = "epubcfi(" + arbitraryPackageDocCFI + generatedContentDocCFI + ")";
-            annotationInfo = this.addBookmark(CFI, id);
+            annotationInfo = this.addBookmark(CFI, id, type);
 
             // Rationale: The annotationInfo object returned from .addBookmark(...) contains the same value of 
             //   the CFI variable in the current scope. Since this CFI variable contains a "hacked" CFI value -
@@ -990,7 +996,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
         return imageAnnotations;
     },
 
-    addBookmark : function (CFI, targetElement, annotationId, offsetTop, offsetLeft) {
+    addBookmark : function (CFI, targetElement, annotationId, offsetTop, offsetLeft, type) {
 
         if (!offsetTop) {
             offsetTop = this.get("offsetTopAddition");
@@ -1008,7 +1014,8 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
             offsetTopAddition : offsetTop,
             offsetLeftAddition : offsetLeft,
             id : annotationId.toString(),
-            bbPageSetView : this.get("bbPageSetView")
+            bbPageSetView : this.get("bbPageSetView"),
+            type : type
         });
         this.get("annotationHash")[annotationId] = bookmarkView;
         this.get("bookmarkViews").push(bookmarkView);
@@ -1092,7 +1099,7 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
 });
     EpubAnnotations.BookmarkView = Backbone.View.extend({
 
-    el : "<div class='bookmark'></div>",
+    el : "<div></div>",
 
     events : {
         "mouseenter" : "setHoverBookmark",
@@ -1108,7 +1115,8 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
             offsetTopAddition : options.offsetTopAddition,
             offsetLeftAddition : options.offsetLeftAddition,
             id : options.id,
-            bbPageSetView : options.bbPageSetView
+            bbPageSetView : options.bbPageSetView,
+            type : options.type
         });
     },
 
@@ -1141,28 +1149,45 @@ var EpubAnnotationsModule = function (contentDocumentDOM, bbPageSetView, annotat
             "height" : "50px",
             "position" : "absolute"
         });
-        this.$el.addClass("bookmark");
+        if (this.bookmark.get("type") === "comment") {
+            this.$el.addClass("comment");
+        }
+        else {
+            this.$el.addClass("bookmark");
+        }
     },
 
     setHoverBookmark : function (event) {
 
         event.stopPropagation();
-        this.$el.removeClass("bookmark");
-        this.$el.addClass("hover-bookmark");
+        if (this.$el.hasClass("comment")) {
+            this.$el.removeClass("comment");
+            this.$el.addClass("hover-comment");
+        }
     },
 
     setBaseBookmark : function (event) {
 
         event.stopPropagation();
-        this.$el.removeClass("hover-bookmark");
-        this.$el.addClass("bookmark");
+        if (this.$el.hasClass("hover-comment")) {
+            this.$el.removeClass("hover-comment");
+            this.$el.addClass("comment");
+        }
     },
 
     clickHandler : function (event) {
 
         event.stopPropagation();
+        var type;
+        if (this.bookmark.get("type") === "comment") {
+            type = "comment";
+        }
+        else {
+            type = "bookmark";
+        }
+
         this.bookmark.get("bbPageSetView").trigger("annotationClicked", 
-            "bookmark", 
+            type, 
             this.bookmark.get("CFI"), 
             this.bookmark.get("id"),
             this.$el.css("top"),
@@ -1402,8 +1427,8 @@ EpubAnnotations.ImageAnnotation = Backbone.Model.extend({
         addSelectionHighlight : function (id, type) { 
             return reflowableAnnotations.addSelectionHighlight(id, type); 
         },
-        addSelectionBookmark : function (id) { 
-            return reflowableAnnotations.addSelectionBookmark(id); 
+        addSelectionBookmark : function (id, type) { 
+            return reflowableAnnotations.addSelectionBookmark(id, type); 
         },
         addSelectionImageAnnotation : function (id) {
             return reflowableAnnotations.addSelectionImageAnnotation(id);

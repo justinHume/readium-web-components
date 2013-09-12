@@ -50,7 +50,7 @@ EpubAnnotations.HighlightGroup = Backbone.Model.extend({
             range.selectNodeContents(node);
             rects = range.getClientRects();
 
-            // REFACTORING CANDIDATE: More efficient array slice here, perhapse
+            // REFACTORING CANDIDATE: Maybe a better way to append an array here
             _.each(rects, function (rect) {
                 rectList.push(rect);
             });

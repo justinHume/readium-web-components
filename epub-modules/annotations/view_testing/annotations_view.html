@@ -33,8 +33,12 @@
                         epubViewer.addSelectionHighlight("000912", "underline");
                     });
 
+                    $("#comment").on("click", function () {
+                        epubViewer.addSelectionBookmark("10", "comment");
+                    });
+
                     $("#bookmark").on("click", function () {
-                        epubViewer.addSelectionBookmark("10");
+                        epubViewer.addSelectionBookmark("101", "bookmark");
                     });
 
                     $("#annotate-image").on("click", function () {
@@ -84,6 +88,7 @@
         <button id="highlight">highlight</button>
         <button id="underline">underline</button>
         <button id="bookmark">bookmark</button>
+        <button id="comment">comment</button>
         <button id="annotate-image">image hotspot</button>
         <button id="add-bookmark">add bookmark</button>
         <button id="add-highlight">add highlight</button>

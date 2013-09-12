@@ -60,6 +60,14 @@ EpubAnnotations.TextLineInferrer = Backbone.Model.extend({
     rectIsWithinLineVertically : function (rectTop, rectHeight, currLineMaxTop, currLineMaxBottom) {
 
         var rectBottom = rectTop + rectHeight;
+        var lineHeight = currLineMaxBottom - currLineMaxTop;
+        var lineHeightAdjustment = (lineHeight * 0.75) / 2;
+        var rectHeightAdjustment = (rectHeight * 0.75) / 2;
+
+        rectTop = rectTop + rectHeightAdjustment;
+        rectBottom = rectBottom - rectHeightAdjustment;
+        currLineMaxTop = currLineMaxTop + lineHeightAdjustment;
+        currLineMaxBottom = currLineMaxBottom - lineHeightAdjustment;
 
         if (rectTop === currLineMaxTop && rectBottom === currLineMaxBottom) {
             return true;
